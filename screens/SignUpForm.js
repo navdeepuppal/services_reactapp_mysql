@@ -6,16 +6,16 @@ import {
 	ScrollView,
 	Image,
 	SafeAreaView,
+	TouchableOpacity,
 } from "react-native";
 
 import Input from "../components/Inputs";
-import Submit from "../components/Submit";
-import ModalDropdown from "react-native-modal-dropdown";
-import { Button } from "react-native-elements";
+import { COLORS, SIZES, SHADOWS, assets } from "../constants";
 
-const SignUpForm = (props) => {
+const SignUpForm = ({ route, navigation }) => {
+	const { subSubServices } = route.params;
 	return (
-		<SafeAreaView>
+		<SafeAreaView style={{ backgroundColor: "white" }}>
 			<ScrollView style={{ backgroundColor: "white" }}>
 				<View style={styles.container}>
 					<Image
@@ -24,26 +24,20 @@ const SignUpForm = (props) => {
 						style={styles.image}
 					/>
 					<Text style={styles.textTitle}>
-						Please Enter Details for the Booking:
+						Please Confirm Details for the Booking:
 					</Text>
-					
+
 					<Input name="Name" icon="user" />
-					<Input name="Phone Number" icon="user" />
 					<Input name="Pincode" icon="user" />
 					<Input name="City" icon="user" />
 					<Input name="Full Address" icon="user" />
 
-					<Submit color="#0251ce" title="CREATE" />
-					<View style={{ flexDirection: "row" }}>
-						<Text style={styles.textBody}>Aiready have an account? </Text>
-						<Text
-							style={[styles.textBody, { color: "blue" }]}
-							onPress={() => props.navigation.navigate("Login")}
-						>
-							{" "}
-							Login here
-						</Text>
-					</View>
+					<TouchableOpacity
+						style={styles.button}
+						onPress={() => navigation.navigate("Thankyou", { subSubServices })}
+					>
+						<Text style={styles.buttontext}>Confirm</Text>
+					</TouchableOpacity>
 				</View>
 			</ScrollView>
 		</SafeAreaView>
@@ -51,6 +45,25 @@ const SignUpForm = (props) => {
 };
 
 const styles = StyleSheet.create({
+	button: {
+		marginTop: 50,
+		shadowColor: "rgba(0,0,0, .4)", // IOS
+		shadowOffset: { height: 1, width: 1 }, // IOS
+		shadowOpacity: 1, // IOS
+		shadowRadius: 1, //IOS
+		backgroundColor: "green",
+		borderRadius: SIZES.font,
+		marginBottom: SIZES.extraLarge,
+		margin: SIZES.base,
+		...SHADOWS.dark,
+		elevation: 2, // Android
+		height: 50,
+		width: 200,
+		justifyContent: "center",
+		alignItems: "center",
+		flexDirection: "row",
+		borderRadius: 10,
+	},
 	container: {
 		flex: 1,
 		alignItems: "center",
@@ -61,7 +74,7 @@ const styles = StyleSheet.create({
 		marginVertical: 10,
 	},
 	textTitle: {
-		fontSize: 30,
+		fontSize: 26,
 		marginVertical: 5,
 	},
 	textBody: {

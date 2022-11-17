@@ -2,10 +2,11 @@ import {
 	StyleSheet,
 	Text,
 	View,
-    ScrollView,
+	ScrollView,
 	TextInput,
 	TouchableOpacity,
-    SafeAreaView,
+	SafeAreaView,
+	Linking,
 	Alert,
 } from "react-native";
 import React, { useState } from "react";
@@ -29,104 +30,87 @@ const Contact = ({ navigation }) => {
 	};
 
 	return (
-        <SafeAreaView style={{ backgroundColor: COLORS.white, flex: 1 }}>
-		<ScrollView style={styles.mainContainer}>
-			<Text style={styles.mainHeader}> Level up your knowledge </Text>
+		<SafeAreaView style={{ backgroundColor: COLORS.white, flex: 1 }}>
+			<ScrollView style={styles.mainContainer}>
+				<Text style={styles.mainHeader}> How can we help you ? </Text>
 
-			<Text style={styles.description}>
-				You can reach us anytime via thapa@vinod.com
-			</Text>
-
-			<View style={styles.inputContainer}>
-				<Text style={styles.labels}> Enter your name </Text>
-				<TextInput
-					style={styles.inputStyle}
-					placeholder={"vinod thapa"}
-					value={name}
-					onChangeText={(userdata) => setName(userdata)}
-				/>
-			</View>
-
-			<View style={styles.inputContainer}>
-				<Text style={styles.labels}> Enter your Email </Text>
-				<TextInput
-					style={styles.inputStyle}
-					placeholder={"demo@thapa.com"}
-					value={email}
-					onChangeText={(email) => setEmail(email)}
-				/>
-			</View>
-
-			<View style={styles.inputContainer}>
-				<Text style={styles.labels}> Enter your mobile </Text>
-				<TextInput
-					style={styles.inputStyle}
-					placeholder={"vinod thapa"}
-					value={phone}
-					onChangeText={(phone) => setPhone(phone)}
-				/>
-			</View>
-
-			<View style={styles.inputContainer}>
-				<Text style={styles.labels}> How can we help you? </Text>
-				<TextInput
-					style={[styles.inputStyle, styles.multilineStyle]}
-					placeholder={"Tell us about your self"}
-					value={message}
-					onChangeText={(msg) => setMessage(msg)}
-					numberOfLines={5}
-					multiline={true}
-				/>
-			</View>
-
-			{/* checkbox  */}
-
-			<View style={styles.wrapper}>
-				<Checkbox
-					value={agree}
-					onValueChange={() => setAgree(!agree)}
-					color={agree ? "#4630EB" : undefined}
-				/>
-				<Text style={styles.wrapperText}>
-					I have read and agreed with the TC
+				<Text style={styles.description}>
+					You can reach us anytime via sqera@gmail.com
 				</Text>
-			</View>
 
-			{/* submit button  */}
+				<View style={styles.inputContainer}>
+					<Text style={styles.labels}> Enter your mobile </Text>
+					<TextInput
+						style={styles.inputStyle}
+						placeholder={""}
+						value={phone}
+						onChangeText={(phone) => setPhone(phone)}
+					/>
+				</View>
 
-			<TouchableOpacity
-				style={[
-					styles.buttonStyle,
-					{
-						backgroundColor: agree ? "#4630EB" : "grey",
-					},
-				]}
-				disabled={!agree}
-				onPress={submit}
-			>
-				<Text style={styles.buttonText}> Contact Us </Text>
-			</TouchableOpacity>
-		</ScrollView>
-        </SafeAreaView>
+				<View style={styles.inputContainer}>
+					<Text style={styles.labels}> Tell us the Issue </Text>
+					<TextInput
+						style={[styles.inputStyle, styles.multilineStyle]}
+						placeholder={""}
+						value={message}
+						onChangeText={(msg) => setMessage(msg)}
+						numberOfLines={5}
+						multiline={true}
+					/>
+				</View>
+
+				{/* checkbox  */}
+
+				<View style={styles.wrapper}>
+					<Checkbox
+						value={agree}
+						onValueChange={() => setAgree(!agree)}
+						color={agree ? "#4630EB" : undefined}
+					/>
+					<Text style={styles.wrapperText}>
+						Is this the legit issue you are facing ?
+					</Text>
+				</View>
+
+				{/* submit button  */}
+
+				<TouchableOpacity
+					style={[
+						styles.buttonStyle,
+						{
+							backgroundColor: agree ? "#4630EB" : "grey",
+						},
+					]}
+					disabled={!agree}
+					onPress={() =>
+						Linking.openURL(
+							"whatsapp://send?text=" + message + "&phone=+919041504403"
+						)
+					}
+				>
+					<Text style={styles.buttonText}> Contact Us </Text>
+				</TouchableOpacity>
+			</ScrollView>
+		</SafeAreaView>
 	);
 };
 
 const styles = StyleSheet.create({
 	mainContainer: {
-        flex:1,
+		flex: 1,
 		height: "100%",
 		paddingHorizontal: 30,
 		backgroundColor: "#fff",
 	},
 	mainHeader: {
-        flex:1,
+		flex: 1,
 		fontSize: 20,
 		color: "#344055",
 		fontWeight: "500",
 		paddingTop: 20,
 		paddingBottom: 15,
 		textTransform: "capitalize",
-        
 	},
 	description: {
 		fontSize: 20,

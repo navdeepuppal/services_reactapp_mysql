@@ -6,31 +6,25 @@ import {
 	ScrollView,
 	Image,
 	SafeAreaView,
-    TouchableOpacity,
+	TouchableOpacity,
 } from "react-native";
-
-import Input from "../components/Inputs";
-import Submit from "../components/Submit";
-import ModalDropdown from "react-native-modal-dropdown";
-import { Button } from "react-native-elements";
-
-import { COLORS, SIZES, SHADOWS, assets } from "../constants";
-
 import { useNavigation } from "@react-navigation/native";
-const RegisterSubService1 = (props) => {
-    
+
+import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
+
+const RegisterSubService2 = () => {
 	const navigation = useNavigation();
+	console.log("\nPage\t" + "RegisterSubService2");
 	return (
 		<SafeAreaView>
 			<ScrollView style={{ backgroundColor: "white" }}>
 				<View style={styles.container}>
 					<Image
-						source={require("../assets/signup.png")}
+						source={require("../../assets/signup.png")}
 						resizeMode="center"
 						style={styles.image}
 					/>
 					<Text style={styles.textTitle}>Here's Breakdown of Steps:</Text>
-
 
 					<Text style={styles.textBody}>
 						Learn what makes a successful people
@@ -49,16 +43,14 @@ const RegisterSubService1 = (props) => {
 						instantly.
 					</Text>
 
-				
-                    <TouchableOpacity
-					style={styles.button}
-					onPress={() => navigation.navigate("RegisterSubService2")}
-				>
-					<View style={{ flexDirection: "column" }}>
-						<Text style={styles.buttontext}>Continue</Text>
-           					
-					</View>
-				</TouchableOpacity>
+					<TouchableOpacity
+						style={styles.button}
+						onPress={() => navigation.navigate("RegisterSubService3")}
+					>
+						<View style={{ flexDirection: "column" }}>
+							<Text style={styles.buttontext}>Continue</Text>
+						</View>
+					</TouchableOpacity>
 				</View>
 			</ScrollView>
 		</SafeAreaView>
@@ -69,20 +61,21 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		alignItems: "center",
-        backgroundColor: "white", flex:1
+		backgroundColor: "white",
+		flex: 1,
 	},
 	image: {
 		width: 400,
 		height: 250,
 		marginVertical: 10,
 	},
-    button: {
-        marginTop: 80,
-        shadowColor: "rgba(0,0,0, .4)", // IOS
+	button: {
+		marginTop: 80,
+		shadowColor: "rgba(0,0,0, .4)", // IOS
 		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
 		shadowRadius: 1, //IOS
-		backgroundColor: 'green',
+		backgroundColor: "green",
 		borderRadius: SIZES.font,
 		marginBottom: SIZES.extraLarge,
 		margin: SIZES.base,
@@ -96,24 +89,26 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 	},
 	textTitle: {
-        fontWeight: 'bold',
+		fontWeight: "bold",
 
-        marginTop: SIZES.large,
 		fontSize: 40,
 		marginVertical: 5,
 	},
-    
+
 	textBody: {
-        
-        marginTop: SIZES.large,
-		fontSize: 19,
-		textAlign: "center"
-	},
-    buttontext: {
+		margin: 40,
 		fontSize: 19,
 		textAlign: "center",
-color: COLORS.white
+	},
+	subtext: {
+		margin: 40,
+		textAlign: "center",
+	},
+	buttontext: {
+		fontSize: 19,
+		textAlign: "center",
+		color: COLORS.white,
 	},
 });
 
-export default RegisterSubService1;
+export default RegisterSubService2;

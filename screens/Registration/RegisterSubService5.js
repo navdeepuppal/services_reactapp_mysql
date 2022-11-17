@@ -5,19 +5,19 @@ import {
 	ActivityIndicator,
 	FlatList,
 	Text,
-	Image,
 	StyleSheet,
 } from "react-native";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
-import { NFTCard4, HomeHeader, FocusedStatusBar } from "../components";
-import { COLORS } from "../constants";
-import { getQuery, postQuery } from "../mysqlConnect";
+import { NFTCard4, HomeHeader, FocusedStatusBar } from "../../components";
 
-const RegisterSubService5_1 = () => {
+import { COLORS, config, SIZES } from "../../constants";
+
+const RegisterSubService5 = ({ navigation }) => {
 	const [isLoading, setLoading] = useState(true);
 	const [data2, setData] = useState([]);
 	const [data2_backup, setDataBackup] = useState([]);
-	//vahan se utha le
+	console.log("\nPage\t" + "RegisterSubService5");
 
 	const handleSearch = (value) => {
 		if (value.length === 0) {
@@ -34,11 +34,10 @@ const RegisterSubService5_1 = () => {
 			setData(filteredData);
 		}
 	};
-	const querystring =
-		"SELECT * FROM Service;";
+	const querystring = "SELECT * FROM Service;";
 
 	useEffect(() => {
-		fetch("http://192.168.29.195:8080/get/" + querystring, {
+		fetch(config.domain + "/get/" + querystring, {
 			method: "GET",
 		})
 			.then((response) => response.json())
@@ -49,7 +48,6 @@ const RegisterSubService5_1 = () => {
 			.catch((error) => alert(error))
 			.finally(() => setLoading(false));
 	}, []);
-	console.log(JSON.stringify(data2));
 	//console.log(nftData);
 
 	return (
@@ -58,18 +56,47 @@ const RegisterSubService5_1 = () => {
 			{isLoading ? (
 				<View>
 					<ActivityIndicator />
-					
 				</View>
 			) : (
 				<View style={{ flex: 1 }}>
+					<Text
+						style={{
+							backgroundColor: COLORS.primary,
+							alignSelf: "center",
+							fontWeight: "bold",
+							fontSize: 30,
+							color: COLORS.white,
+							width: "100%",
+							textAlign: "center",
+						}}
+					>
+						Sqera Registration
+					</Text>
+
+					<Text
+						style={{
+							backgroundColor: COLORS.white,
+							alignSelf: "center",
+							fontWeight: "bold",
+							fontSize: 22,
+							color: COLORS.primary,
+							width: "100%",
+
+							textAlign: "center",
+							margin: SIZES.base,
+						}}
+					>
+						Select the service which you can serve:
+					</Text>
 					<FlatList
 						data={data2}
 						renderItem={({ item }) => <NFTCard4 data={item} />}
 						keyExtractor={(item) => item.S_ID}
-						numColumns={3}
+						numColumns={2}
 						showsVerticalScrollIndicator={false}
+						contentContainerStyle={{ height: "100%" }}
 					/>
-					<View
+					{/* <View
 						style={{
 							position: "absolute",
 							top: 0,
@@ -82,14 +109,14 @@ const RegisterSubService5_1 = () => {
 					>
 						<View style={{ height: 300, backgroundColor: COLORS.primary }} />
 						<View style={{ flex: 1, backgroundColor: COLORS.white }} />
-					</View>
+					</View> */}
 				</View>
 			)}
 		</SafeAreaView>
 	);
 };
 
-export default RegisterSubService5_1;
+export default RegisterSubService5;
 
 const styles = StyleSheet.create({
 	image: {

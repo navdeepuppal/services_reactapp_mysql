@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { colors } from "react-native-elements";
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -28,20 +29,28 @@ const SelectOnboard = (props) => {
 					flexWrap: "wrap",
 				}}
 			>
-			
-
 				<TouchableOpacity
 					style={styles.button}
-					onPress={() => navigation.navigate("Home")}
+					onPress={() => {
+						navigation.navigate("Home");
+
+						setValue = async (value) => {
+							try {
+								await AsyncStorage.setItem("firstTime", value);
+							} catch (e) {
+								// save error
+							}
+						};
+						setValue("false");
+					}}
 				>
 					<View style={{ flexDirection: "column" }}>
-
-            
 						<Text style={styles.textBody}>Find a Service</Text>
-            <Text style={styles.littleTitle}>
-			Are you Looking for any Professional Services like Gardener, Business Consultant or Painter for your house nearby at every price point. Here we are!
+						<Text style={styles.littleTitle}>
+							Are you Looking for any Professional Services like Gardener,
+							Business Consultant or Painter for your house nearby at every
+							price point. Here we are!
 						</Text>
-				
 					</View>
 				</TouchableOpacity>
 
@@ -49,16 +58,11 @@ const SelectOnboard = (props) => {
 					style={styles.button}
 					onPress={() => navigation.navigate("SelectOnboardProfessional")}
 				>
-
-          
 					<View style={{ flexDirection: "column" }}>
-
-            
 						<Text style={styles.textBody}>Register as a Professional</Text>
-            <Text style={styles.littleTitle}>
-			Join our growing community and get paid for your work
+						<Text style={styles.littleTitle}>
+							Join our growing community and get paid for your work
 						</Text>
-				
 					</View>
 				</TouchableOpacity>
 			</View>
@@ -73,36 +77,34 @@ const SelectOnboard = (props) => {
 };
 
 const styles = StyleSheet.create({
-
 	textTitle: {
-  fontSize: 40,
-  color: COLORS.gray,
-  marginRight: SIZES.base / 99,
-  textAlign: 'center',
-  marginBottom: SIZES.large
+		fontSize: 40,
+		color: COLORS.gray,
+		marginRight: SIZES.base / 99,
+		textAlign: "center",
+		marginBottom: SIZES.large,
 	},
 	subTitle: {
-		fontWeight: 'bold',
-    marginTop: SIZES.extraLarge,
-  fontSize: 20,
-  color: COLORS.gray,
-  marginRight: SIZES.base / 99,
-  textAlign: 'center'
-  
+		fontWeight: "bold",
+		marginTop: SIZES.extraLarge,
+		fontSize: 20,
+		color: COLORS.gray,
+		marginRight: SIZES.base / 99,
+		textAlign: "center",
 	},
-  littleTitle: {
-  fontSize: 13,
-  color: COLORS.gray,
-  marginRight: SIZES.base / 99,
-  textAlign: 'center',
-fontStyle: 'italic',
+	littleTitle: {
+		fontSize: 13,
+		color: COLORS.gray,
+		marginRight: SIZES.base / 99,
+		textAlign: "center",
+		fontStyle: "italic",
 	},
 	textBody: {
 		marginBottom: SIZES.medium,
 		fontSize: 28,
 		color: Colors.secondary,
-    
-  textAlign: 'center'
+
+		textAlign: "center",
 	},
 	container: {
 		flex: 1,
@@ -115,7 +117,7 @@ fontStyle: 'italic',
 		height: 250,
 		marginVertical: 10,
 	},
-	
+
 	button: {
 		shadowColor: "rgba(0,0,0, .4)", // IOS
 		shadowOffset: { height: 1, width: 1 }, // IOS

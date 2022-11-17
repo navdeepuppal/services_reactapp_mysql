@@ -11,127 +11,138 @@ import {
 import { useNavigation } from "@react-navigation/native";
 
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { color } from "react-native-elements/dist/helpers";
 
 const Profile = (props) => {
 	const navigation = useNavigation();
 	return (
-		<ScrollView style={{ backgroundColor: "white", flex: 1 }}>
-			<View style={styles.header}>
-				<View style={styles.headerContent}>
-					<Image
-						style={styles.avatar}
-						source={{
-							uri: "https://bootdey.com/img/Content/avatar/avatar6.png",
-						}}
-					/>
-
+		<SafeAreaView style={{ backgroundColor: COLORS.white, flex: 1 }}>
+			<TouchableOpacity
+				style={styles.button2}
+				onPress={() => navigation.navigate("BookingsView")}
+			>
+				<Image style={styles.avatar} source={assets.person01} />
+				<View>
 					<Text style={styles.name}>John Doe </Text>
 					<Text style={styles.userInfo}>jhonnydoe@mail.com </Text>
 					<Text style={styles.userInfo}>Florida </Text>
 				</View>
-			</View>
-			<View style={styles.container}>
-				<View style={styles.card}>
-					<Text style={styles.cardTittle}>Title</Text>
-					<Text> - Lorem ipsum dolor sit amet</Text>
-					<Text> - Lorem ipsum dolor sit amet</Text>
-					<Text> - Lorem ipsum dolor sit amet</Text>
+			</TouchableOpacity>
+
+			<ScrollView style={{ backgroundColor: COLORS.white, flex: 1 }}>
+				<View style={styles.container}>
+					<Text> Trying Pages </Text>
+					<TouchableOpacity
+						style={styles.button}
+						onPress={() => navigation.navigate("Loc")}
+					>
+						<Text style={styles.textBody}>Loc</Text>
+					</TouchableOpacity>
+					<TouchableOpacity
+						style={styles.button}
+						onPress={() => navigation.navigate("Notificationstry")}
+					>
+						<Text style={styles.textBody}>Notifications Try</Text>
+					</TouchableOpacity>
+
+
+					<TouchableOpacity
+						style={styles.button}
+						onPress={() => navigation.navigate("BookingOTP")}
+					>
+						<Text style={styles.textBody}>Booking OTP</Text>
+					</TouchableOpacity>
+
+					<TouchableOpacity
+						style={styles.button}
+						onPress={() => navigation.navigate("QRCode")}
+					>
+						<Text style={styles.textBody}>Booking OTP</Text>
+					</TouchableOpacity>
+
+					<TouchableOpacity
+						style={styles.button}
+						onPress={() => navigation.navigate("TabOneScreen")}
+					>
+						<Text style={styles.textBody}>TabOneScreen</Text>
+					</TouchableOpacity>
+					<TouchableOpacity
+						style={styles.button}
+						onPress={() => navigation.navigate("TabTwoScreen")}
+					>
+						<Text style={styles.textBody}>TabTwoScreen</Text>
+					</TouchableOpacity>
 				</View>
 
-				<View style={styles.card}>
-					<Text style={styles.cardTittle}>Title</Text>
-					<Text> - Lorem ipsum dolor sit amet</Text>
-					<Text> - Lorem ipsum dolor sit amet</Text>
-					<Text> - Lorem ipsum dolor sit amet</Text>
+				<View style={styles.container}>
+					<TouchableOpacity
+						style={styles.button1}
+						onPress={() => navigation.navigate("ServiceManagementPage")}
+					>
+						<Text style={styles.textBody1}>Service Management Page</Text>
+					</TouchableOpacity>
 				</View>
 
-				<TouchableOpacity
-					style={styles.button}
-					onPress={() => navigation.navigate("AboutUs")}
-				>
-					<Text style={styles.textBody}>AboutUs</Text>
-				</TouchableOpacity>
-
-				<TouchableOpacity
-					style={styles.button}
-					onPress={() => navigation.navigate("Contact")}
-				>
-					<Text style={styles.textBody}>Contact</Text>
-				</TouchableOpacity>
-
-				<TouchableOpacity
-					style={styles.button}
-					onPress={() => navigation.navigate("Login")}
-				>
-					<Text style={styles.textBody}>Login</Text>
-				</TouchableOpacity>
-
-				<TouchableOpacity
-					style={styles.button}
-					onPress={() => navigation.navigate("Onboarding")}
-				>
-					<Text style={styles.textBody}>Onboarding</Text>
-				</TouchableOpacity>
-
-				<TouchableOpacity
-					style={styles.button}
-					onPress={() => navigation.navigate("OrderConfirmed")}
-				>
-					<Text style={styles.textBody}>OrderConfirmed</Text>
-				</TouchableOpacity>
-
-				<TouchableOpacity
-					style={styles.button}
-					onPress={() => navigation.navigate("SignUpForm")}
-				>
-					<Text style={styles.textBody}>SignUpForm</Text>
-				</TouchableOpacity>
-
-				<TouchableOpacity
-					style={styles.button}
-					onPress={() => navigation.navigate("OTPVerification")}
-				>
-					<Text style={styles.textBody}>OTPVerification</Text>
-				</TouchableOpacity>
-
-				<TouchableOpacity
-					style={styles.button}
-					onPress={() => navigation.navigate("Details")}
-				>
-					<Text style={styles.textBody}>Details</Text>
-				</TouchableOpacity>
-				<TouchableOpacity
-					style={styles.button}
-					onPress={() => navigation.navigate("BookingsView")}
-				>
-					<Text style={styles.textBody}>BookingsView</Text>
-				</TouchableOpacity>
-
-				<View style={styles.photosCard}>
-					<Text style={styles.cardTittle}>Photos</Text>
-					<View style={styles.photosContainer}>
-						<Image
-							style={styles.photo}
-							source={{
-								uri: "https://bootdey.com/img/Content/avatar/avatar1.png",
-							}}
-						/>
-						<Image
-							style={styles.photo}
-							source={{
-								uri: "https://bootdey.com/img/Content/avatar/avatar2.png",
-							}}
-						/>
-						<Image
-							style={styles.photo}
-							source={{
-								uri: "https://bootdey.com/img/Content/avatar/avatar3.png",
-							}}
-						/>
-					</View>
+				<View style={styles.container}>
+					<TouchableOpacity
+						style={styles.button1}
+						onPress={() => navigation.navigate("ServiceManagementPage")}
+					>
+						<Text style={styles.textBody1}>Freelancer Management Page</Text>
+					</TouchableOpacity>
 				</View>
-			</View>
-		</ScrollView>
+
+				<View style={styles.container}>
+					<TouchableOpacity
+						style={styles.button}
+						onPress={() => navigation.navigate("BookingsView")}
+					>
+						<Text style={styles.textBody}>My Bookings</Text>
+					</TouchableOpacity>
+
+					<TouchableOpacity
+						style={styles.button}
+						onPress={() => navigation.navigate("RegisterSubService1")}
+					>
+						<Text style={styles.textBody}>Register as a Professional</Text>
+					</TouchableOpacity>
+					<TouchableOpacity
+						style={styles.button}
+						onPress={() => navigation.navigate("RequestNewService")}
+					>
+						<Text style={styles.textBody}>
+							Request a new Skill or SubService
+						</Text>
+					</TouchableOpacity>
+					<TouchableOpacity
+						style={styles.button}
+						onPress={() => navigation.navigate("AboutUs")}
+					>
+						<Text style={styles.textBody}>About Sqera</Text>
+					</TouchableOpacity>
+
+					<TouchableOpacity
+						style={styles.button}
+						onPress={() => navigation.navigate("Contact")}
+					>
+						<Text style={styles.textBody}>Contact Us</Text>
+					</TouchableOpacity>
+				</View>
+				<TouchableOpacity onPress={() => navigation.navigate("Contact")}>
+					<Text
+						style={{
+							marginTop: 23,
+							fontSize: 20,
+							alignSelf: "center",
+							color: "#E2000B",
+						}}
+					>
+						Logout
+					</Text>
+				</TouchableOpacity>
+			</ScrollView>
+		</SafeAreaView>
 	);
 };
 
@@ -142,45 +153,77 @@ const styles = StyleSheet.create({
 		backgroundColor: "white",
 	},
 	container: {
+		marginTop: 48,
 		flex: 1,
 		padding: 10,
-		backgroundColor: "#DCDCDC",
+		backgroundColor: "#E4E4E4",
 	},
 	headerContent: {
 		padding: 30,
 		alignItems: "center",
 	},
-
+	textBody: {
+		padding: 20,
+		alignSelf: "flex-start",
+		fontSize: 20,
+		color: COLORS.gray,
+	},
+	textBody1: {
+		fontWeight: "bold",
+		padding: 20,
+		alignSelf: "center",
+		fontSize: 20,
+		color: COLORS.white,
+	},
 	cardTittle: {
 		color: "#808080",
-		fontSize: 22,
+		fontSize: 20,
 		marginBottom: 5,
 	},
 	button: {
 		shadowColor: "rgba(0,0,0, .4)", // IOS
-		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
 		shadowRadius: 1, //IOS
 		backgroundColor: COLORS.white,
 		borderRadius: SIZES.font,
-		marginBottom: SIZES.extraLarge,
-		margin: SIZES.base,
-		...SHADOWS.dark,
+		marginBottom: 1,
 		elevation: 2, // Android
-		height: 100,
-		width: 300,
+		height: "18%",
+		width: 400,
 		justifyContent: "center",
 		alignItems: "center",
-		flexDirection: "row",
+		alignSelf: "center",
+		flexDirection: "column",
 		borderRadius: 10,
 	},
+	button1: {
+		shadowColor: "rgba(0,0,0, .4)", // IOS
+		shadowOffset: { height: 1, width: 1 }, // IOS
+		shadowOpacity: 1, // IOS
+		shadowRadius: 1, //IOS
+		backgroundColor: "#006b76",
+		borderRadius: SIZES.font,
+		marginBottom: 1,
+
+		elevation: 2, // Android
+		height: "100%",
+		width: 400,
+		justifyContent: "center",
+		alignItems: "center",
+		alignSelf: "center",
+		flexDirection: "column",
+		borderRadius: 10,
+	},
+	button2: {
+		height: 70,
+		width: 300,
+		margin: 28,
+		flexDirection: "row",
+		justifyContent: "space-around",
+	},
 	avatar: {
-		width: 130,
-		height: 130,
-		borderRadius: 63,
-		borderWidth: 4,
-		borderColor: "white",
-		marginBottom: 10,
+		resizeMode: "cover",
+		alignSelf: "flex-start",
 	},
 	card: {
 		backgroundColor: "#FFFFFF",

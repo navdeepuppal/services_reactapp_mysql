@@ -8,8 +8,7 @@ import {
 } from "react-native";
 
 import { NFTCard, NFTCard2, HomeHeader, FocusedStatusBar } from "../components";
-import { COLORS, NFTData } from "../constants";
-import { getQuery, postQuery } from "../mysqlConnect";
+import { COLORS, config, NFTData } from "../constants";
 
 const BookingsView = () => {
 	const [nftData, setNftData] = useState(NFTData);
@@ -34,7 +33,7 @@ const BookingsView = () => {
 	const querystring = "SELECT * FROM Booking WHERE C_PhNo = "+1234567890+";";
 
 	useEffect(() => {
-		fetch("http://192.168.29.195:8080/get/" + querystring, {
+		fetch(config.domain + "/get/" + querystring, {
 			method: "GET",
 		})
 			.then((response) => response.json())

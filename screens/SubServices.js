@@ -9,7 +9,7 @@ import {
 	FlatList,
 } from "react-native";
 
-import { COLORS, SIZES, assets, SHADOWS, FONTS } from "../constants";
+import { COLORS, SIZES, assets, SHADOWS, FONTS, config } from "../constants";
 import {
 	CircleButton,
 	NFTCard2,
@@ -52,7 +52,7 @@ const SubServices = ({ route, navigation }) => {
 		"SELECT * FROM SubService WHERE S_ID = " + [data.S_ID] + ";";
 
 	useEffect(() => {
-		fetch("http://192.168.29.195:8080/get/" + querystring, {
+		fetch(config.domain + "/get/" + querystring, {
 			method: "GET",
 		})
 			.then((response) => response.json())
@@ -60,7 +60,6 @@ const SubServices = ({ route, navigation }) => {
 			.catch((error) => alert(error))
 			.finally(() => setLoading(false));
 	}, []);
-	console.log(JSON.stringify(data2));
 	return (
 		<SafeAreaView style={{ flex: 1, backgroundColor: "rgba(255,255,255,1)" }}>
 			<FocusedStatusBar backgroundColor={COLORS.black} />

@@ -35,7 +35,7 @@ const SelectOnboardProfessional = (props) => {
 			
 				<TouchableOpacity
 					style={styles.button}
-					onPress={() => navigation.navigate("RegisterSubService")}
+					onPress={() => navigation.navigate("RegisterSubService1")}
 				>
 					<View style={{ flexDirection: "column" }}>
 						<Text style={styles.textBody}>Register for a Service</Text>
@@ -56,7 +56,7 @@ const SelectOnboardProfessional = (props) => {
 					
 				<TouchableOpacity
 					style={styles.button}
-					onPress={() => navigation.navigate("RegisterSubService")}
+					onPress={() => navigation.navigate("RegisterSubService1")}
 				>
 
           

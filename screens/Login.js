@@ -35,6 +35,14 @@ const Login = props => {
            					
 				</TouchableOpacity>
               
+
+                <TouchableOpacity
+					style={styles.button2}
+					onPress={() => navigation.navigate("Home")}
+				>
+						<Text style={styles.buttontext2}>SKIP</Text>
+           					
+				</TouchableOpacity>
               
             </View>
         </ScrollView>      
@@ -45,7 +53,7 @@ const Login = props => {
 const styles = StyleSheet.create({
     
     button: {
-        marginTop: 80,
+        marginTop: 50,
         shadowColor: "rgba(0,0,0, .4)", // IOS
 		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
@@ -62,6 +70,26 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		flexDirection: "row",
 		borderRadius: 10,
+	},
+    button2: {
+        marginTop: 25,
+        shadowColor: "rgba(0,0,0, .4)", // IOS
+		shadowOffset: { height: 1, width: 1 }, // IOS
+		shadowOpacity: 1, // IOS
+		shadowRadius: 1, //IOS
+		backgroundColor: 'white',
+		borderRadius: SIZES.font,
+		marginBottom: SIZES.extraLarge,
+		margin: SIZES.base,
+		...SHADOWS.dark,
+		elevation: 2, // Android
+		height: 40,
+		width: 80,
+        marginRight: 23,
+        alignSelf: "flex-end",
+		justifyContent: "center",
+		alignItems: "center",
+		flexDirection: "row",
 	},
 	textTitle: {
         fontWeight: 'bold',
@@ -81,6 +109,11 @@ const styles = StyleSheet.create({
 		fontSize: 19,
 		textAlign: "center",
 color: COLORS.white
+	},
+    buttontext2: {
+		fontSize: 19,
+		textAlign: "center",
+color: COLORS.primary
 	},
     container: {
         flex: 1,

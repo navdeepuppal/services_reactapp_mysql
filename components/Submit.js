@@ -10,7 +10,7 @@ const Submit = props => {
     return (
         <TouchableOpacity 
         style={[styles.container, {backgroundColor: props.color}]}
-        onPress={() => navigation.navigate("RegisterSubService1") }>
+        onPress={() => navigation.navigate("Cart") }>
             <Text style={styles.submitText}>{props.title}</Text>
         </TouchableOpacity>
      
