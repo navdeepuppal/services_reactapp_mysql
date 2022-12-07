@@ -5,14 +5,12 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useState } from "react";
 
 import Home from "./screens/Home";
-import Details from "./screens/Details";
 import Profile from "./screens/Profile";
 import Onboarding from "./screens/Onboarding";
 import Login from "./screens/Login";
 import Contact from "./screens/Contact";
 import SubServices from "./screens/SubServices";
 import LocationPage from "./screens/Location";
-import OTPVerification from "./screens/OTPVerification";
 import SelectOnboard from "./screens/SelectOnboard";
 import AboutUs from "./screens/AboutUs";
 import SelectOnboardProfessional from "./screens/SelectOnboardProfessional";
@@ -41,8 +39,6 @@ import RegisterSubService9 from "./screens/Registration/RegisterSubService9";
 import RegisterSubService10 from "./screens/Registration/RegisterSubService10";
 import RegisterSubService11 from "./screens/Registration/RegisterSubService11";
 import QRCode from "./screens/QRCode";
-import TabOneScreen from "./screens/TabOneScreen";
-import TabTwoScreen from "./screens/TabTwoScreen";
 import RequestNewService from "./screens/RequestNewService";
 
 const theme = {
@@ -65,7 +61,7 @@ const App = () => {
 	});
 	const [isLoading, setLoading] = useState(true);
 	const [firstTime, setFirstTime] = useState(true);
-	const [isLoggedIn, setLoggedIn] = useState(false);
+	const [isLoggedIn, setLoggedIn] = useState(true);
 
 	if (!loaded) return null;
 
@@ -81,7 +77,12 @@ const App = () => {
 	AsyncStorage.getItem("firstTime").then((res) => {
 		setFirstTime(res != "false");
 		//console.log(firstTime + "\tfirstTime");
-		setLoading(false);
+		AsyncStorage.getItem("isLoggedIn").then((isLoggedIn) => {
+			setLoggedIn(isLoggedIn != "false");
+
+			console.log("isLoggedIn\t" + isLoggedIn);
+			setLoading(false);
+		});
 	});
 	/* {"firstTime":true,
 	 "isLoggedIn":false} */
@@ -99,38 +100,72 @@ const App = () => {
 						headerShown: false,
 					}}
 					initialRouteName={
-						firstTime ? "Onboarding" : isLoggedIn ? "Home" : "Login"
+						firstTime
+							? "Onboarding"
+							: isLoggedIn
+							? "Home"
+							: "Login"
 					}
 				>
-					<Stack.Screen name="Home" component={Home} />
-					<Stack.Screen name="Details" component={Details} />
+					<Stack.Screen
+						options={{ gestureEnabled: false }}
+						name="Home"
+						component={Home}
+					/>
+					
 					<Stack.Screen name="Profile" component={Profile} />
-					<Stack.Screen name="Onboarding" component={Onboarding} />
-					<Stack.Screen name="Login" component={Login} />
+					<Stack.Screen
+						name="Onboarding"
+						component={Onboarding}
+					/>
+					<Stack.Screen options={{ gestureEnabled: false }} name="Login" component={Login} />
 					<Stack.Screen name="Contact" component={Contact} />
-					<Stack.Screen name="SubServices" component={SubServices} />
-					<Stack.Screen name="Location" component={LocationPage} />
-					<Stack.Screen name="OTPVerification" component={OTPVerification} />
-					<Stack.Screen name="SelectOnboard" component={SelectOnboard} />
+					<Stack.Screen
+						name="SubServices"
+						component={SubServices}
+					/>
+					<Stack.Screen
+						name="Location"
+						component={LocationPage}
+					/>
+					<Stack.Screen
+						name="SelectOnboard"
+						component={SelectOnboard}
+					/>
 					<Stack.Screen
 						name="SelectOnboardProfessional"
 						component={SelectOnboardProfessional}
 					/>
 					<Stack.Screen name="AboutUs" component={AboutUs} />
-					<Stack.Screen name="OrderConfirmed" component={OrderConfirmed} />
+					<Stack.Screen
+						name="OrderConfirmed"
+						component={OrderConfirmed}
+					/>
 					<Stack.Screen name="Thankyou" component={Thankyou} />
-					<Stack.Screen name="BookingsView" component={BookingsView} />
-					<Stack.Screen name="SubSubService" component={SubSubService} />
+					<Stack.Screen
+						name="BookingsView"
+						component={BookingsView}
+					/>
+					<Stack.Screen
+						name="SubSubService"
+						component={SubSubService}
+					/>
 					<Stack.Screen name="Cart" component={Cart} />
-					<Stack.Screen name="SignUpForm" component={SignUpForm} />
-					<Stack.Screen name="BookingLogin" component={BookingLogin} />
-					<Stack.Screen name="BookingOTP" component={BookingOTP} />
+					<Stack.Screen
+						name="SignUpForm"
+						component={SignUpForm}
+					/>
+					<Stack.Screen
+						name="BookingLogin"
+						component={BookingLogin}
+					/>
+					<Stack.Screen
+						name="BookingOTP"
+						component={BookingOTP}
+					/>
 					<Stack.Screen name="Loc" component={Loc} />
 					<Stack.Screen name="QRCode" component={QRCode} />
-					<Stack.Screen name="TabOneScreen" component={TabOneScreen} />
-					<Stack.Screen name="TabTwoScreen" component={TabTwoScreen} />
 
-					
 					<Stack.Screen
 						name="RequestNewService"
 						component={RequestNewService}
@@ -139,7 +174,7 @@ const App = () => {
 						name="ServiceManagementPage"
 						component={ServiceManagementPage}
 					/>
-					<Stack.Screen
+					<Stack.Screen options={{ gestureEnabled: false }}
 						name="RegisterSubService1"
 						component={RegisterSubService1}
 					/>

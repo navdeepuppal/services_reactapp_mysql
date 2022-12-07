@@ -11,12 +11,14 @@ import {
 import { useNavigation } from "@react-navigation/native";
 
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
+import ExitHeader from "../../components/ExitHeader";
 
 const RegisterSubService1 = () => {
 	const navigation = useNavigation();
 	console.log("\nPage\t" + "RegisterSubService1");
 	return (
 		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
+			<ExitHeader/>
 			<ScrollView style={{ backgroundColor: "white", flex: 1 }}>
 				<View style={styles.container}>
 					<Image

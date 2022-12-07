@@ -284,9 +284,16 @@ const Cart = ({ route, navigation }) => {
 					<View
 						style={{ alignItems: "center", flex: 1, justifyContent: "center" }}
 					>
-						<Text>Bag Empty ...</Text>
-						<TouchableOpacity onPress={() => navigation.goBack()}>
-							<Text>Go Back</Text>
+						<Image
+						source={require("../assets/cart.png")}
+						resizeMode="center"
+						style={style.image}
+					/>
+						<Text style={style.bag}>
+					Your Cart is Empty
+					</Text>
+						<TouchableOpacity style = {style.back} onPress={() => navigation.goBack()}>
+							<Text style = {{color: "white", fontSize: 23}}>Go Back</Text>
 						</TouchableOpacity>
 					</View>
 				</SafeAreaView>
@@ -505,6 +512,29 @@ const style = StyleSheet.create({
 		flexDirection: "row",
 		borderRadius: 10,
 	},
+	bag: {
+		fontSize: 19,
+		textAlign: "center",
+	},
+	back: {
+		marginTop: 50,
+		shadowColor: "rgba(0,0,0, .4)", // IOS
+		shadowOffset: { height: 1, width: 1 }, // IOS
+		shadowOpacity: 1, // IOS
+		shadowRadius: 1, //IOS
+		backgroundColor: "green",
+		borderRadius: SIZES.font,
+		marginBottom: SIZES.extraLarge,
+		margin: SIZES.base,
+		...SHADOWS.dark,
+		elevation: 2, // Android
+		height: 50,
+		width: 200,
+		justifyContent: "center",
+		alignItems: "center",
+		flexDirection: "row",
+		borderRadius: 10,
+	},
 	cartCard: {
 		height: 100,
 		elevation: 15,
@@ -525,6 +555,11 @@ const style = StyleSheet.create({
 		flexDirection: "row",
 		justifyContent: "center",
 		alignContent: "center",
+	},
+	image: {
+		width: 400,
+		height: 250,
+		marginVertical: 10,
 	},
 });
 

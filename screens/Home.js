@@ -17,7 +17,6 @@ import { NFTCard1, HomeHeader, FocusedStatusBar } from "../components";
 import { COLORS, config, SIZES } from "../constants";
 import StarRating from "react-native-star-rating";
 import SubServicesModal from "../components/SubServicesModal";
-import Icon from "react-native-vector-icons/FontAwesome";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 const Home = () => {
@@ -184,23 +183,23 @@ const Home = () => {
 								setSubSModalVisible(-1);
 							}}
 						>
-							<Pressable
+							<TouchableOpacity
 								style={styles.loweredView}
 								onPressOut={() => setSubSModalVisible(-1)}
 							>
 								<View style={[styles.modalView, { width: "100%" }]}>
-									<Pressable
+									<TouchableOpacity
 										style={styles.button}
 										onPress={() => setSubSModalVisible(-1)}
 									>
 										<Text> ✖</Text> 
-									</Pressable>
+									</TouchableOpacity>
 									<SubServicesModal
 										data={data2[subSModalVisible]}
 										setSubSModalVisible={setSubSModalVisible}
 									/>
 								</View>
-							</Pressable>
+							</TouchableOpacity>
 						</Modal>
 					</View>
 				</View>
@@ -239,7 +238,7 @@ const styles = StyleSheet.create({
 		shadowRadius: 4,
 		elevation: 5,
 		width: "70%",
-		minHeight: "45%"
+		minHeight: "55%"
 	},
 	ratingbutton: {
 		flexDirection: "row",

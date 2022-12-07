@@ -8,7 +8,7 @@ import {
 	TouchableOpacity,
 	Button,
 } from "react-native";
-import { colors } from "react-native-elements";
+
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 

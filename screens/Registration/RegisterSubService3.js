@@ -11,12 +11,14 @@ import {
 
 import { useNavigation } from "@react-navigation/native";
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
+import ExitHeader from "../../components/ExitHeader";
 
 const RegisterSubService3 = () => {
 	const navigation = useNavigation();
 	console.log("\nPage\t" + "RegisterSubService3");
 	return (
-		<SafeAreaView>
+		<SafeAreaView style = {{flex: 1}}> 
+			<ExitHeader/>
 			<ScrollView style={{ backgroundColor: "white" }}>
 				<View style={styles.container}>
 					<Image
@@ -38,10 +40,7 @@ const RegisterSubService3 = () => {
 						it to be.
 					</Text>
 
-					<Text style={styles.textBody}>
-						Add credibility by linking out to your relevant professional
-						networks.
-					</Text>
+					
 
 					<Text style={styles.textBody}>
 						Accurately describe your professional skills to help you get more

@@ -10,6 +10,7 @@ import {
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 import { NFTCard4, HomeHeader, FocusedStatusBar } from "../../components";
+import ExitHeader from "../../components/ExitHeader";
 
 import { COLORS, config, SIZES } from "../../constants";
 
@@ -52,6 +53,7 @@ const RegisterSubService5 = ({ navigation }) => {
 
 	return (
 		<SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
+			
 			<FocusedStatusBar backgroundColor={COLORS.black} />
 			{isLoading ? (
 				<View>

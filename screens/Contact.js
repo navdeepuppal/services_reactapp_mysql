@@ -12,6 +12,7 @@ import {
 import React, { useState } from "react";
 import Checkbox from "expo-checkbox";
 import { COLORS } from "../constants";
+import ExitHeader from "../components/ExitHeader";
 
 const Contact = ({ navigation }) => {
 	const [name, setName] = useState("");
@@ -31,22 +32,16 @@ const Contact = ({ navigation }) => {
 
 	return (
 		<SafeAreaView style={{ backgroundColor: COLORS.white, flex: 1 }}>
+
+			<ExitHeader/>
 			<ScrollView style={styles.mainContainer}>
-				<Text style={styles.mainHeader}> How can we help you ? </Text>
+				<Text style={styles.mainHeader}>How can we help you ? </Text>
 
 				<Text style={styles.description}>
 					You can reach us anytime via sqera@gmail.com
 				</Text>
 
-				<View style={styles.inputContainer}>
-					<Text style={styles.labels}> Enter your mobile </Text>
-					<TextInput
-						style={styles.inputStyle}
-						placeholder={""}
-						value={phone}
-						onChangeText={(phone) => setPhone(phone)}
-					/>
-				</View>
+				
 
 				<View style={styles.inputContainer}>
 					<Text style={styles.labels}> Tell us the Issue </Text>
@@ -55,42 +50,38 @@ const Contact = ({ navigation }) => {
 						placeholder={""}
 						value={message}
 						onChangeText={(msg) => setMessage(msg)}
-						numberOfLines={5}
+						numberOfLines={10}
 						multiline={true}
 					/>
 				</View>
 
 				{/* checkbox  */}
 
-				<View style={styles.wrapper}>
-					<Checkbox
-						value={agree}
-						onValueChange={() => setAgree(!agree)}
-						color={agree ? "#4630EB" : undefined}
-					/>
-					<Text style={styles.wrapperText}>
-						Is this the legit issue you are facing ?
-					</Text>
-				</View>
+				
 
 				{/* submit button  */}
 
 				<TouchableOpacity
-					style={[
-						styles.buttonStyle,
-						{
-							backgroundColor: agree ? "#4630EB" : "grey",
-						},
-					]}
-					disabled={!agree}
-					onPress={() =>
-						Linking.openURL(
-							"whatsapp://send?text=" + message + "&phone=+919041504403"
-						)
-					}
-				>
-					<Text style={styles.buttonText}> Contact Us </Text>
-				</TouchableOpacity>
+				style={[
+					styles.buttonStyle,
+					{
+						backgroundColor:"#4630EB" ,
+					},
+				]}
+				disabled={!message}
+				onPress={() =>{ try {
+					Linking.openURL(
+						"whatsapp://send?text=" + message + "&phone=+919041504403"
+					)
+					Alert.alert("Opening Whatspp..")
+				} catch (error) {
+					Alert.alert("Make sure you have whatsapp installed on your phone. If non then you can send the details on 9041504403 via SMS or WhatsApp")
+				}}
+					
+				}
+			>
+				<Text style={styles.buttonText}> Contact Us </Text>
+			</TouchableOpacity>
 			</ScrollView>
 		</SafeAreaView>
 	);
@@ -130,11 +121,13 @@ const styles = StyleSheet.create({
 		lineHeight: 25,
 	},
 	inputStyle: {
+		fontSize: 23,
 		borderWidth: 1,
 		borderColor: "rgba(0, 0, 0, 0.3)",
 		paddingHorizontal: 15,
 		paddingVertical: 6,
-		borderRadius: 2,
+		borderRadius: 8,
+		height: "40%"
 	},
 	multiineStyle: {
 		paddingVertical: 4,

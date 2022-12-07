@@ -17,6 +17,7 @@ import Checkbox from "expo-checkbox";
 import { COLORS } from "../constants";
 
 import { RadioButton } from "react-native-paper";
+import ExitHeader from "../components/ExitHeader";
 
 const RequestNewService = ({ navigation }) => {
 	const [name, setName] = useState("");
@@ -37,95 +38,36 @@ const RequestNewService = ({ navigation }) => {
 	};
 
 	return (
+		
+		<SafeAreaView style = {{flex: 1}}>
+		<ExitHeader/>
 		<ScrollView style={styles.mainContainer}>
-			<Text style={styles.mainHeader}>
-				Hey! Skilled Person. {"\n\n"}Tell us the skill you have, we will create
-				a new category for you here on this app 😉
+		
+		<Text style={styles.mainHeader}>
+				Hey! Skilled Person.
+				</Text>
+			<Text style={styles.mainHeader1}>
+				Tell us the skill you have, {"\n"}we will create
+				a new category for you, And broadcast to your customers 😉 {"\n\n"}
 			</Text>
 			<Text style={styles.description}>
 				You can reach us anytime via sqera@gmail.com
 			</Text>
 			<View style={styles.inputContainer}>
-				<Text style={styles.labels}> What do you want us to add ?</Text>
+				
 
-				<View
-					style={{
-						flexDirection: "column",
-						justifyContent: "space-between",
-						width: "60%",
-					}}
-				>
-					<TouchableWithoutFeedback onPress={() => setRadio_Pro("Service")}>
-						<View
-							style={{
-								flexDirection: "row",
-								borderColor: "#000000",
-								borderWidth: 1,
-								borderRadius: 20,
-								alignItems: "center",
-								padding: 5,
-								paddingLeft: 0,
-							}}
-						>
-							<RadioButton
-								value="Beginner"
-								status={radio_Pro === "Beginner" ? "checked" : "unchecked"}
-								onPress={() => setRadio_Pro("Service")}
-							/>
-							<Text style={{ fontSize: 19 }}>Service</Text>
-						</View>
-					</TouchableWithoutFeedback>
 
-					<TouchableWithoutFeedback onPress={() => setRadio_Pro("SubService")}>
-						<View
-							style={{
-								flexDirection: "row",
-								borderColor: "#000000",
-								borderWidth: 1,
-								borderRadius: 20,
-								alignItems: "center",
-								padding: 5,
-								paddingLeft: 0,
-							}}
-						>
-							<RadioButton
-								value="Intermediate"
-								status={radio_Pro === "Intermediate" ? "checked" : "unchecked"}
-								onPress={() => setRadio_Pro("SubService")}
-							/>
-							<Text style={{ fontSize: 19 }}>Sub Service</Text>
-						</View>
-					</TouchableWithoutFeedback>
-
-					<TouchableWithoutFeedback onPress={() => setRadio_Pro("Other")}>
-						<View
-							style={{
-								flexDirection: "row",
-								borderColor: "#000000",
-								borderWidth: 1,
-								borderRadius: 20,
-								alignItems: "center",
-								padding: 5,
-								paddingLeft: 0,
-							}}
-						>
-							<RadioButton
-								value="Expert"
-								status={radio_Pro === "Expert" ? "checked" : "unchecked"}
-								onPress={() => setRadio_Pro("Other")}
-							/>
-							<Text style={{ fontSize: 19 }}>Other</Text>
-						</View>
-					</TouchableWithoutFeedback>
-				</View>
-
-				<Text style={styles.labels}> Describe the skill </Text>
-				<TextInput
+				<Text style={styles.labels}>Describe your skill which you want us to broadcast </Text>
+				
+				<Text style={styles.description2}>
+				Example: "Service: Consultation. Skill: I'm a doctor and can help people to get cure from normal virals or fever"
+			</Text>
+			<TextInput
 					style={[styles.inputStyle]}
-					placeholder={""}
+					placeholder={"Write Here.."}
 					value={message}
 					onChangeText={(msg) => setMessage(msg)}
-					multiline={true}
+					multiline = {true}
 				/>
 			</View>
 			<View style={styles.wrapper}>
@@ -135,7 +77,7 @@ const RequestNewService = ({ navigation }) => {
 					color={agree ? "#4630EB" : undefined}
 				/>
 				<Text style={styles.wrapperText}>
-					Is this the legit service which is in demand of Customers ?
+					Is this the legit service which can be in demand for the Customers ?
 				</Text>
 			</View>
 			<TouchableOpacity
@@ -146,15 +88,21 @@ const RequestNewService = ({ navigation }) => {
 					},
 				]}
 				disabled={!agree}
-				onPress={() =>
+				onPress={() =>{ try {
 					Linking.openURL(
 						"whatsapp://send?text=" + message + "&phone=+919041504403"
 					)
+					Alert.alert("Opening Whatspp..")
+				} catch (error) {
+					Alert.alert("Make sure you have whatsapp installed on your phone. If non then you can send the details on 9041504403 via SMS or WhatsApp")
+				}}
+					
 				}
 			>
-				<Text style={styles.buttonText}> Contact Us </Text>
+				<Text style={styles.buttonText}> Submit </Text>
 			</TouchableOpacity>
 		</ScrollView>
+		</SafeAreaView>
 	);
 };
 
@@ -164,7 +112,14 @@ const styles = StyleSheet.create({
 		backgroundColor: "#fff",
 	},
 	mainHeader: {
-		flex: 1,
+		fontSize: 29,
+		color: "#344055",
+		fontWeight: "500",
+		paddingTop: 20,
+		paddingBottom: 15,
+		textTransform: "capitalize",
+	},
+	mainHeader1: {
 		fontSize: 20,
 		color: "#344055",
 		fontWeight: "500",
@@ -178,6 +133,12 @@ const styles = StyleSheet.create({
 		paddingBottom: 20,
 		lineHeight: 25,
 	},
+	description2: {
+		fontSize: 16,
+		color: "#7d7d7d",
+		paddingBottom: 20,
+		lineHeight: 25,
+	},
 
 	inputContainer: {
 		marginTop: 2,
@@ -185,18 +146,22 @@ const styles = StyleSheet.create({
 	labels: {
 		marginTop: 20,
 		fontWeight: "bold",
-		// fontSize: 15,
+		fontSize: 20,
 		color: "#7d7d7d",
 		paddingBottom: 5,
 		lineHeight: 25,
 	},
 	inputStyle: {
+		marginTop: 10,
+		fontSize: 26,
+		height: 70,
+		margin: 8,
+		borderColor: "silver",
+		borderRadius: 9,
+		borderWidth: 0.5,
 		borderWidth: 1,
-		borderColor: "rgba(0, 0, 0, 0.3)",
-		paddingHorizontal: 15,
-		paddingVertical: 6,
-		borderRadius: 2,
-		height: "40%",
+		width: "95%",
+		padding: 13,
 	},
 	buttonStyle: {
 		borderRadius: 5,

@@ -24,10 +24,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.navnetto.SqeraServices"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "12efdae2-41cd-403a-9d9f-c5282c4dd48e"
+      }
     }
   }
 }

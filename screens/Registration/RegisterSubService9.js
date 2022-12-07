@@ -18,7 +18,7 @@ import { RadioButton } from "react-native-paper";
 import Input from "../../components/Inputs";
 import Submit from "../../components/Submit";
 
-import { Button } from "react-native-elements";
+
 
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
 

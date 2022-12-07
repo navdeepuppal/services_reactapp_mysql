@@ -12,7 +12,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { color } from "react-native-elements/dist/helpers";
+
 
 const Profile = (props) => {
 	const navigation = useNavigation();

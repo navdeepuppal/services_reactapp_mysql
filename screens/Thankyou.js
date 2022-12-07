@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
 	View,
 	StyleSheet,
@@ -16,14 +16,49 @@ const Thankyou = ({ route, navigation }) => {
 	console.log("\tfiltered");
 	console.log(filteredData); // yeh nahi
 
-	filteredData.foreach((item) => {
+	/* console.log(
+		JSON.stringify({
+			// yeh haan
+			B_Address: '{"a","b"}',
+			B_ExtraCost: 1,
+			B_Flag: 1,
+			B_ID: 1,
+			B_PaymentMode: 1,
+			B_Price: 1,
+			B_Status: 1,
+			B_StatusDetails: 1,
+			C_PhNo: 1,
+			Coup_ID: 1,
+			SMan_PhNo: 1,
+			SubS_ID: filteredData[0].SubS_ID,
+		})
+	);
+
+	filteredData.forEach((item) => {
 		console.log(
-			JSON.stringify({ // yeh haan
-				B_Address: 1,
-				B_DateTime: 1,
+			"\titem" +
+				JSON.stringify({
+					// yeh haan
+					B_ID: 1,
+					Item_Count: item.itemCount,
+					Item_Price: item.SubSubS_Price,
+					Item_Rating: 3,
+					SubSubS_ID: item.SubSubS_ID,
+				})
+		);
+	}); */
+
+	useEffect(() => {
+		fetch(config.domain + "/postBooking", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				B_Address: '{"a","b"}',
 				B_ExtraCost: 1,
 				B_Flag: 1,
-				B_ID: 1,
 				B_PaymentMode: 1,
 				B_Price: 1,
 				B_Status: 1,
@@ -31,41 +66,35 @@ const Thankyou = ({ route, navigation }) => {
 				C_PhNo: 1,
 				Coup_ID: 1,
 				SMan_PhNo: 1,
-				SubS_ID: 1,
+				SubS_ID: filteredData[0].SubS_ID,
+			}),
+		})
+			.then((response) => response.json())
+			.then((responseJson) => {
+				filteredData.forEach((item) => {
+					fetch(config.domain + "/postBookingItem", {
+						method: "POST",
+						headers: {
+							Accept: "application/json",
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify({
+							B_ID: responseJson.insertId,
+							Item_Count: item.itemCount,
+							Item_Price: item.SubSubS_Price,
+							Item_Rating: 4,
+							SubSubS_ID: item.SubSubS_ID,
+						}),
+					})
+						.then((response) => response.json())
+						.then((responseJson) => {})
+						.catch((error) => alert(error))
+						.finally(() => {});
+				});
 			})
-		);
-	});
-
-	/* useEffect(() => {
-		subServices.foreach((item) => {
-			fetch(config.domain + "/postBooking", {
-				method: "POST",
-				headers: {
-					Accept: "application/json",
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					B_Address: 1,
-					B_DateTime: 1,
-					B_ExtraCost: 1,
-					B_Flag: 1,
-					B_ID: 1,
-					B_PaymentMode: 1,
-					B_Price: 1,
-					B_Status: 1,
-					B_StatusDetails: 1,
-					C_PhNo: 1,
-					Coup_ID: 1,
-					SMan_PhNo: 1,
-					SubS_ID: 1,
-				}),
-			})
-				.then((response) => response.json())
-				.then((responseJson) => {})
-				.catch((error) => alert(error))
-				.finally(() => {});
-		});
-	}, []); */
+			.catch((error) => alert(error))
+			.finally(() => {});
+	}, []);
 
 	return (
 		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
@@ -79,7 +108,8 @@ const Thankyou = ({ route, navigation }) => {
 				<Text style={styles.textTitle}>Thank You </Text>
 				<Text style={styles.textTitle}>
 					{" "}
-					You will be soon contacted by our team to confirm the details.{" "}
+					You will be soon contacted by our team to confirm the
+					details.{" "}
 				</Text>
 				{/* 
                 <Text style={styles.textBody}>Respective Person has been notified regarding the booking. No Worries! </Text>

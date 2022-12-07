@@ -12,7 +12,7 @@ import {
 import Input from "../../components/Inputs";
 import Submit from "../../components/Submit";
 
-import { Button } from "react-native-elements";
+
 
 import { useNavigation } from "@react-navigation/native";
 import { COLORS, SIZES, SHADOWS, assets, config } from "../../constants";
@@ -35,7 +35,7 @@ const RegisterSubService11 = ({ route }) => {
 
 	const [postStatus, setPostStatus] = useState(0);
 
-	subServices.foreach((item) => {
+	subServices.forEach((item) => {
 		console.log(
 			JSON.stringify({
 				S_ID: item.S_ID,

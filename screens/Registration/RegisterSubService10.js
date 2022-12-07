@@ -18,7 +18,7 @@ import { useNavigation } from "@react-navigation/native";
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
 
 import * as ImagePicker from "expo-image-picker";
-import { color } from "react-native-elements/dist/helpers";
+
 
 const RegisterSubService10 = ({ route }) => {
 	const navigation = useNavigation();

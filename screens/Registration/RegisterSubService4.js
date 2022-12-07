@@ -12,10 +12,11 @@ import {
 import Input from "../../components/Inputs";
 import Submit from "../../components/Submit";
 
-import { Button } from "react-native-elements";
+
 
 import { useNavigation } from "@react-navigation/native";
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
+import ExitHeader from "../../components/ExitHeader";
 
 const RegisterSubService4 = () => {
 	const navigation = useNavigation();
@@ -23,6 +24,7 @@ const RegisterSubService4 = () => {
 	return (
 		<SafeAreaView>
 			<ScrollView style={{ backgroundColor: "white" }}>
+			
 				<View style={styles.container}>
 					<Image
 						source={require("../../assets/signup.png")}

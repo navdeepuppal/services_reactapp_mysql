@@ -10,11 +10,19 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { COLORS } from "../constants";
 
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 
 const BookingOTP = (props) => {
 	const [algo, setAlgo] = useState([]);
 	const navigation = useNavigation();
+
+	const [PhoneNumber, onChangePhoneNumber] = React.useState(null);
+
+	AsyncStorage.getItem("PhoneNumber").then((PhoneNumber) => {
+		onChangePhoneNumber(PhoneNumber);
+	}); 
+var number = Number(PhoneNumber); 
 
 	useEffect(() => {
 		var date = new Date().getDate();
@@ -23,7 +31,7 @@ const BookingOTP = (props) => {
 		var hours = new Date().getHours();
 		var min = new Date().getMinutes();
 
-		setAlgo((1609 % min) + (2592 % min) + date * 160 * 2);
+		setAlgo((number % min) + (number % min) + date * 160 * 2);
 	}, []);
 
 	return (
@@ -37,7 +45,7 @@ const BookingOTP = (props) => {
 				<Text style={styles.textTitle}>
 					After Your Service is completed, Show this OTP to Service Man{" "}
 				</Text>
-				<Text>{algo}</Text>
+				<Text style = {{fontSize : 40, marginTop: 22}}>{algo}</Text>
 				{/* 
                 <Text style={styles.textBody}>Respective Person has been notified regarding the booking. No Worries! </Text>
                 <Text style={styles.textBody}>Payment will be done by scanning the QR Code on Service man Sqera App </Text> */}

@@ -3,19 +3,15 @@ import {
 	View,
 	SafeAreaView,
 	ActivityIndicator,
-	FlatList,
 	Text,
 	Image,
 	TouchableOpacity,
-	ImageBackground,
 	StyleSheet,
-	Switch,
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 
-import Icon from "react-native-vector-icons/MaterialIcons";
 
-import { NFTCard, NFTCard2, HomeHeader, FocusedStatusBar } from "../components";
+import {  FocusedStatusBar } from "../components";
 import { COLORS, NFTData, SIZES, assets, SHADOWS, config } from "../constants";
 
 import { useNavigation } from "@react-navigation/native";
