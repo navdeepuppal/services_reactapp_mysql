@@ -33,20 +33,17 @@ const Login = ({ route }) => {
 	const [isLoggedIn, setLoggedIn] = useState("");
 	const [modalVisible, setModalVisible] = useState(false);
 	const saveValue = () => {
-		setLoggedIn(false);
-		var validationtemp = null;
-		if (PhoneNumber <= 1000000000 || PhoneNumber >= 10000000000) {
-			validationtemp = "Phone Number";
-			setLoggedIn(false);
-		} else {
-			AsyncStorage.setItem("PhoneNumber", PhoneNumber);
-			AsyncStorage.setItem("isLoggedIn", "true");
-			onChangePhoneNumber("");
-			validationtemp = "true";
-		}
-		return validationtemp;
+		AsyncStorage.setItem("PhoneNumber", PhoneNumber);
+		AsyncStorage.setItem("isLoggedIn", "true");
 	};
 
+	const validate = () => {
+		if (PhoneNumber <= 1000000000 || PhoneNumber >= 10000000000) {
+			return false;
+		} else {
+			return true;
+		}
+	};
 	const getValue = () => {
 		AsyncStorage.getItem("PhoneNumber").then((PhoneNumber) => {
 			onChangePhoneNumber(PhoneNumber);
@@ -95,20 +92,18 @@ const Login = ({ route }) => {
 					<TouchableOpacity
 						style={styles.button}
 						onPress={() => {
-							const validationtemp = saveValue();
+							const validationtemp = validate();
 
-							if (validationtemp == "true") {
-								onChangePhoneNumber("");
+							if (validationtemp == true) {
 								setModalVisible(true);
-								setLoggedIn("true");
-								getValue();
+								setValidity("true");
 							} else {
 								console.log(
 									"Validation unsuccessful for input " +
 										validationtemp
 								);
+								setValidity("Phone Number");
 							}
-							setValidity(validationtemp);
 						}}
 					>
 						<Text style={styles.buttontext}>SEND OTP</Text>
@@ -126,7 +121,6 @@ const Login = ({ route }) => {
 							transparent={true}
 							visible={modalVisible}
 							onRequestClose={() => {
-								Alert.alert("Modal has been closed.");
 								setModalVisible(!modalVisible);
 							}}
 						>
@@ -145,17 +139,28 @@ const Login = ({ route }) => {
 									<Text
 										style={{
 											marginTop: 20,
+											fontSize: 15,
 											alignSelf: "flex-start",
 										}}
 									>
 										OTP has been sent to{" "}
 										{PhoneNumber}
 									</Text>
+									<Text
+										style={{
+											marginTop: 20,
+											fontSize: 20,
+											alignSelf: "flex-start",
+										}}
+									>
+										Enter the OTP below
+									</Text>
 									<TextInput
+										caretHidden={true}
 										style={styles.otp}
 										onChangeText={onChangeOTP}
 										value={OTP}
-										placeholder="Enter OTP"
+										placeholder="••••"
 										keyboardType="numeric"
 										placeholderTextColor="#a0a0a0"
 										maxLength={4}
@@ -173,14 +178,17 @@ const Login = ({ route }) => {
 												fontSize: 16,
 											}}
 										>
-											Not Recieved OTP ?
+											Resend OTP
 										</Text>
 									</TouchableOpacity>
 									<TouchableOpacity
 										style={styles.verifyButton}
 										onPress={() => {
 											if (OTP == 1609) {
-												setModalVisible(false);
+												setModalVisible(
+													false
+												);
+												saveValue();
 												navigation.navigate(
 													"Home"
 												),
@@ -189,7 +197,7 @@ const Login = ({ route }) => {
 													);
 											} else {
 												Alert.alert(
-													"Wrong OTP"
+													"Incorrect OTP, Please try again"
 												);
 												onChangeOTP("");
 											}
@@ -218,6 +226,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: "flex-end",
 		alignItems: "center",
+		backgroundColor: "rgba(0, 0, 0, 0.4)",
 	},
 	modalView: {
 		margin: 20,
@@ -234,7 +243,7 @@ const styles = StyleSheet.create({
 		shadowRadius: 4,
 		elevation: 5,
 		width: "100%",
-		height: "43%",
+		minHeight: "50%",
 	},
 	loweredView: {
 		flex: 1,
@@ -293,7 +302,7 @@ const styles = StyleSheet.create({
 	},
 	input: {
 		marginTop: 50,
-		fontSize: 26,
+		fontSize: SIZES.large,
 		height: 70,
 		margin: 8,
 		borderColor: "silver",
@@ -307,7 +316,7 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 		textAlign: "center",
 		marginTop: 50,
-		fontSize: 35,
+		fontSize: 40,
 		height: 70,
 		margin: 8,
 		borderColor: "silver",

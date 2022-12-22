@@ -17,8 +17,8 @@ const RegisterSubService3 = () => {
 	const navigation = useNavigation();
 	console.log("\nPage\t" + "RegisterSubService3");
 	return (
-		<SafeAreaView style = {{flex: 1}}> 
-			<ExitHeader/>
+		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
+			<ExitHeader />
 			<ScrollView style={{ backgroundColor: "white" }}>
 				<View style={styles.container}>
 					<Image
@@ -31,35 +31,35 @@ const RegisterSubService3 = () => {
 					</Text>
 
 					<Text style={styles.textBody}>
-						Your first impression matters! Create a profile that will stand out
-						from the crowd on Sqera.
+						Your first impression matters! Create a profile
+						that will stand out from the crowd on Sqera.
 					</Text>
 
 					<Text style={styles.textBody}>
-						Take your time in creating your profile so it’s exactly as you want
-						it to be.
-					</Text>
-
-					
-
-					<Text style={styles.textBody}>
-						Accurately describe your professional skills to help you get more
-						work.
+						Take your time in creating your profile so it’s
+						exactly as you want it to be.
 					</Text>
 
 					<Text style={styles.textBody}>
-						Put a face to your name! Upload a profile picture that clearly shows
-						your face.
+						Accurately describe your professional skills to
+						help you get more work.
 					</Text>
 
 					<Text style={styles.textBody}>
-						To keep our community secure for everyone, we may ask you to verify
-						your ID.
+						Put a face to your name! Upload a profile picture
+						that clearly shows your face.
+					</Text>
+
+					<Text style={styles.textBody}>
+						To keep our community secure for everyone, we may
+						ask you to verify your ID.
 					</Text>
 
 					<TouchableOpacity
 						style={styles.button}
-						onPress={() => navigation.navigate("RegisterSubService4")}
+						onPress={() =>
+							navigation.navigate("RegisterSubService4")
+						}
 					>
 						<Text style={styles.buttontext}>Continue</Text>
 					</TouchableOpacity>

@@ -66,20 +66,21 @@ const HomeHeader = ({ onSearch }) => {
 					>
 						<View style={styles.centeredView}>
 							<View style={styles.modalView}>
-								<ModalList/>
+								<ModalList
+									setVisible={setModalVisible}
+								/>
 							</View>
 						</View>
 					</Pressable>
 				</Modal>
 			</View>
 
-			<View style={{ marginVertical: SIZES.font }}>
+			<View style={{ marginVertical: "3%" }}>
 				<Text
 					style={{
 						fontWeight: "600",
-						fontSize: 40,
+						fontSize: SIZES.extraLarge,
 						color: COLORS.primary,
-						marginStart: SIZES.base,
 					}}
 				>
 					Which service do you need
@@ -93,7 +94,7 @@ const HomeHeader = ({ onSearch }) => {
 					flexDirection: "row",
 					alignItems: "center",
 					paddingHorizontal: SIZES.font,
-					paddingVertical: SIZES.small - 2,
+					paddingVertical: SIZES.base - 2,
 				}}
 			>
 				<Image
@@ -106,9 +107,13 @@ const HomeHeader = ({ onSearch }) => {
 					}}
 				/>
 				<TextInput
-					placeholder="Search Plumber, Cleaner, Consultant, Driver"
+					placeholder="Search Plumber, Cleaning, Gardener, Fruits"
 					placeholderTextColor="#A0A0A0"
-					style={{ flex: 1, color: COLORS.primary }}
+					style={{
+						fontSize: SIZES.font,
+						color: COLORS.primary,
+						height: 30,
+					}}
 					onChangeText={onSearch}
 				/>
 			</View>
@@ -125,7 +130,6 @@ const styles = StyleSheet.create({
 	},
 	centeredView: {
 		flex: 1,
-		marginTop: 22,
 	},
 	modalView: {
 		backgroundColor: "white",

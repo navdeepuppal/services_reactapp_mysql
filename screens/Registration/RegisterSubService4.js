@@ -9,11 +9,6 @@ import {
 	TouchableOpacity,
 } from "react-native";
 
-import Input from "../../components/Inputs";
-import Submit from "../../components/Submit";
-
-
-
 import { useNavigation } from "@react-navigation/native";
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
 import ExitHeader from "../../components/ExitHeader";
@@ -22,9 +17,8 @@ const RegisterSubService4 = () => {
 	const navigation = useNavigation();
 	console.log("\nPage\t" + "RegisterSubService4");
 	return (
-		<SafeAreaView>
+		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
 			<ScrollView style={{ backgroundColor: "white" }}>
-			
 				<View style={styles.container}>
 					<Image
 						source={require("../../assets/signup.png")}
@@ -32,42 +26,48 @@ const RegisterSubService4 = () => {
 						style={styles.image}
 					/>
 					<Text style={styles.textTitle}>
-						Now, let’s talk about the things you want to steer clear of.
+						Now, let’s talk about the things you want to steer
+						clear of.
 					</Text>
 
 					<Text style={styles.textBody}>
 						Your success on Sqera is important to us.
 					</Text>
 					<Text style={styles.textBody}>
-						Avoid the following to keep in line with our community standards:
+						Avoid the following to keep in line with our
+						community standards:
 					</Text>
 
 					<Text style={styles.littleTitle}>
-						1. Providing any misleading or inaccurate information about your
-						identity.
+						1. Providing any misleading or inaccurate
+						information about your identity.
 					</Text>
 
 					<Text style={styles.littleTitle}>
-						2. Opening duplicate accounts. Remember, you can always create more
-						Gigs.
+						2. Opening duplicate accounts. Remember, you can
+						always create more Gigs.
 					</Text>
 
 					<Text style={styles.littleTitle}>
-						3. Soliciting other community members for work on Sqera.
+						3. Soliciting other community members for work on
+						Sqera.
 					</Text>
 
 					<Text style={styles.littleTitle}>
-						4. Requesting to take communication and payment outside of Sqera.
+						4. Requesting to take communication and payment
+						outside of Sqera.
 					</Text>
 
 					<Text style={styles.littleTitle}>
-						5. To keep our community secure for everyone, we may ask you to
-						verify your ID.
+						5. To keep our community secure for everyone, we
+						may ask you to verify your ID.
 					</Text>
 
 					<TouchableOpacity
 						style={styles.button}
-						onPress={() => navigation.navigate("RegisterSubService5")}
+						onPress={() =>
+							navigation.navigate("RegisterSubService5")
+						}
 					>
 						<Text style={styles.buttontext}>Continue</Text>
 					</TouchableOpacity>

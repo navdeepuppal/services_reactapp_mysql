@@ -9,9 +9,6 @@ import {
 	TextInput,
 } from "react-native";
 
-import Inputs from "../../components/Inputs";
-import Submit from "../../components/Submit";
-import Account from "../../components/Account";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { useNavigation } from "@react-navigation/native";
@@ -71,14 +68,18 @@ const RegisterSubService8 = ({ route }) => {
 						onPress={() => {
 							const validationtemp = validation();
 							if (validationtemp == "true") {
-								navigation.navigate("RegisterSubService9", {
-									subServices,
-									SMan_Details1,
-									PhoneNumber,
-								});
+								navigation.navigate(
+									"RegisterSubService9",
+									{
+										subServices,
+										SMan_Details1,
+										PhoneNumber,
+									}
+								);
 							} else {
 								console.log(
-									"Validation unsuccessful for input " + validationtemp
+									"Validation unsuccessful for input " +
+										validationtemp
 								);
 							}
 							setValidity(validationtemp);

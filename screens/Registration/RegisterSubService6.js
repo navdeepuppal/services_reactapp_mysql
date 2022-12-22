@@ -64,6 +64,9 @@ const RegisterSubService6 = ({ route }) => {
 		})
 			.then((response) => response.json())
 			.then((responseJson) => {
+				if (responseJson == 404) {
+					responseJson = [];
+				}
 				setData(responseJson);
 				/* data2.map((item) => {
 					item.isSelected = false;
@@ -111,7 +114,8 @@ const RegisterSubService6 = ({ route }) => {
 							margin: SIZES.base,
 						}}
 					>
-						Select & Enroll into multiple sub-services in which you can serve:
+						Select & Enroll into multiple sub-services in
+						which you can serve:
 					</Text>
 					<Text
 						style={{
@@ -125,9 +129,9 @@ const RegisterSubService6 = ({ route }) => {
 							margin: SIZES.base,
 						}}
 					>
-						For Ex: If you are a Carpenter then your sub services will be
-						Furniture Repair, Drilling, Window Repair, Full House Wood Work or
-						any other.
+						For Ex: If you are a Carpenter then your sub
+						services will be Furniture Repair, Drilling,
+						Window Repair, Full House Wood Work or any other.
 					</Text>
 					<FlatList
 						data={data2}
@@ -155,8 +159,18 @@ const RegisterSubService6 = ({ route }) => {
 							flexWrap: "wrap",
 						}}
 					>
-						<View style={{ height: 300, backgroundColor: COLORS.primary }} />
-						<View style={{ flex: 1, backgroundColor: COLORS.white }} />
+						<View
+							style={{
+								height: 300,
+								backgroundColor: COLORS.primary,
+							}}
+						/>
+						<View
+							style={{
+								flex: 1,
+								backgroundColor: COLORS.white,
+							}}
+						/>
 					</View>
 
 					<TouchableOpacity
@@ -174,13 +188,20 @@ const RegisterSubService6 = ({ route }) => {
 							marginRight: 5,
 						}}
 						onPress={() =>
-							navigation.navigate("RegisterSubService7", { data2 })
+							navigation.navigate("RegisterSubService7", {
+								data2,
+							})
 						}
 					>
 						<Image
 							source={require("../../assets/rightarrow.png")}
 							resizeMode="contain"
-							style={{ width: "95%", height: "95%", top: 2, left: 4 }}
+							style={{
+								width: "95%",
+								height: "95%",
+								top: 2,
+								left: 4,
+							}}
 						/>
 					</TouchableOpacity>
 				</View>

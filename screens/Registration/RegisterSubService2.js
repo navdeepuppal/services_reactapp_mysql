@@ -17,41 +17,49 @@ const RegisterSubService2 = () => {
 	const navigation = useNavigation();
 	console.log("\nPage\t" + "RegisterSubService2");
 	return (
-		<SafeAreaView style ={{ flex:1}}>
-			<ExitHeader/>
+		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
+			<ExitHeader />
 			<ScrollView style={{ backgroundColor: "white" }}>
-				
 				<View style={styles.container}>
 					<Image
 						source={require("../../assets/signup.png")}
 						resizeMode="center"
 						style={styles.image}
 					/>
-					<Text style={styles.textTitle}>Here's Breakdown of Steps:</Text>
+					<Text style={styles.textTitle}>
+						Here's Breakdown of Steps:
+					</Text>
 
 					<Text style={styles.textBody}>
 						Learn what makes a successful people
 					</Text>
 					<Text style={styles.subtext}>
-						Discover the do’s and don’ts to ensure you’re always on the right
-						track.
+						Discover the do’s and don’ts to ensure you’re
+						always on the right track.
 					</Text>
-					<Text style={styles.textBody}>Create your seller profile</Text>
+					<Text style={styles.textBody}>
+						Create your seller profile
+					</Text>
 					<Text style={styles.subtext}>
-						Add your profile picture, description, and professional information.
+						Add your profile picture, description, and
+						professional information.
 					</Text>
 					<Text style={styles.textBody}>Publish your Gig</Text>
 					<Text style={styles.subtext}>
-						Create a Gig of the service you’re offering and start selling
-						instantly.
+						Create a Gig of the service you’re offering and
+						start selling instantly.
 					</Text>
 
 					<TouchableOpacity
 						style={styles.button}
-						onPress={() => navigation.navigate("RegisterSubService3")}
+						onPress={() =>
+							navigation.navigate("RegisterSubService3")
+						}
 					>
 						<View style={{ flexDirection: "column" }}>
-							<Text style={styles.buttontext}>Continue</Text>
+							<Text style={styles.buttontext}>
+								Continue
+							</Text>
 						</View>
 					</TouchableOpacity>
 				</View>

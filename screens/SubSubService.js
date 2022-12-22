@@ -11,7 +11,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 
 import { NFTCard6, HomeHeader, FocusedStatusBar } from "../components";
-import { COLORS, config, NFTData } from "../constants";
+import { COLORS, config, SIZES } from "../constants";
 import SubSubServicesHeader from "../components/SubSubServicesHeader";
 import { Colors } from "react-native-paper";
 
@@ -28,8 +28,12 @@ const SubSubService = ({ route, navigation }) => {
 
 		const filteredData = data2_backup.filter(
 			(item) =>
-				item.SubSubS_Name.toLowerCase().includes(value.toLowerCase()) ||
-				item.SubSubS_Description.toLowerCase().includes(value.toLowerCase())
+				item.SubSubS_Name.toLowerCase().includes(
+					value.toLowerCase()
+				) ||
+				item.SubSubS_Description.toLowerCase().includes(
+					value.toLowerCase()
+				)
 		);
 
 		/* if (filteredData.length === 0) {
@@ -62,6 +66,9 @@ const SubSubService = ({ route, navigation }) => {
 		})
 			.then((response) => response.json())
 			.then((responseJson) => {
+				if (responseJson == 404) {
+					responseJson = [];
+				}
 				setDataBackup(responseJson);
 				setData(responseJson);
 			})
@@ -76,7 +83,6 @@ const SubSubService = ({ route, navigation }) => {
 				<ActivityIndicator />
 			) : (
 				<View style={{ flex: 1 }}>
-					
 					<FlatList
 						data={data2}
 						renderItem={({ item, index }) => (
@@ -100,7 +106,15 @@ const SubSubService = ({ route, navigation }) => {
 				</View>
 			)}
 			{totalPrice ? (
-				<View style={{ flexDirection: "row", justifyContent: "space-between", alignContent : "center", alignItems : "center" }}>
+				<View
+					style={{
+						flexDirection: "row",
+						justifyContent: "space-between",
+						alignContent: "center",
+						alignItems: "center",
+						minHeight: "10%",
+					}}
+				>
 					<Text
 						style={{
 							marginLeft: 25,
@@ -118,13 +132,20 @@ const SubSubService = ({ route, navigation }) => {
 							alignItems: "center",
 							marginRight: "5%",
 							padding: "1%",
-							height: "85%",
-							width:"40%"
+							height: "50%",
+							width: "40%",
 						}}
-						onPress={() => navigation.navigate("Cart", { data2_backup })}
+						onPress={() =>
+							navigation.navigate("Cart", { data2_backup })
+						}
 					>
 						<Text
-							style={{ color: COLORS.white, fontSize: 20, fontWeight: "600" }}
+							style={{
+								color: COLORS.white,
+								fontSize: 22,
+								fontWeight: "600",
+								alignSelf: "center",
+							}}
 						>
 							View Cart
 						</Text>

@@ -6,11 +6,10 @@ import {
 	FlatList,
 	Text,
 	StyleSheet,
+	Pressable,
 } from "react-native";
-import Icon from "react-native-vector-icons/MaterialIcons";
 
 import { NFTCard4, HomeHeader, FocusedStatusBar } from "../../components";
-import ExitHeader from "../../components/ExitHeader";
 
 import { COLORS, config, SIZES } from "../../constants";
 
@@ -43,6 +42,9 @@ const RegisterSubService5 = ({ navigation }) => {
 		})
 			.then((response) => response.json())
 			.then((responseJson) => {
+				if (responseJson == 404) {
+					responseJson = [];
+				}
 				setData(responseJson);
 				setDataBackup(responseJson);
 			})
@@ -53,7 +55,6 @@ const RegisterSubService5 = ({ navigation }) => {
 
 	return (
 		<SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
-			
 			<FocusedStatusBar backgroundColor={COLORS.black} />
 			{isLoading ? (
 				<View>
@@ -90,14 +91,29 @@ const RegisterSubService5 = ({ navigation }) => {
 					>
 						Select the service which you can serve:
 					</Text>
+
 					<FlatList
 						data={data2}
-						renderItem={({ item }) => <NFTCard4 data={item} />}
+						renderItem={({ item }) => (
+							<NFTCard4 data={item} />
+						)}
 						keyExtractor={(item) => item.S_ID}
 						numColumns={2}
 						showsVerticalScrollIndicator={false}
 						contentContainerStyle={{ height: "100%" }}
+						ListEmptyComponent={
+							<Text
+								style={{ margin: 20, marginTop: "20%" }}
+							>
+								Sorry for inconvinience, our servers are
+								down for the moment. Our best developers
+								and backend-engineers are working to
+								solve this problem right now as you read
+								this
+							</Text>
+						}
 					/>
+
 					{/* <View
 						style={{
 							position: "absolute",
@@ -112,6 +128,21 @@ const RegisterSubService5 = ({ navigation }) => {
 						<View style={{ height: 300, backgroundColor: COLORS.primary }} />
 						<View style={{ flex: 1, backgroundColor: COLORS.white }} />
 					</View> */}
+					<Pressable
+						onPress={() => {
+							navigation.navigate("RequestNewService");
+						}}
+					>
+						<Text
+							style={{
+								fontWeight: "600",
+								fontSize: 18,
+								alignSelf: "center",
+							}}
+						>
+							Can't find your service?
+						</Text>
+					</Pressable>
 				</View>
 			)}
 		</SafeAreaView>

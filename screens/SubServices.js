@@ -56,12 +56,19 @@ const SubServices = ({ route, navigation }) => {
 			method: "GET",
 		})
 			.then((response) => response.json())
-			.then((responseJson) => setData(responseJson))
+			.then((responseJson) => {
+				if (responseJson == 404) {
+					responseJson = [];
+				}
+				setData(responseJson);
+			})
 			.catch((error) => alert(error))
 			.finally(() => setLoading(false));
 	}, []);
 	return (
-		<SafeAreaView style={{ flex: 1, backgroundColor: "rgba(255,255,255,1)" }}>
+		<SafeAreaView
+			style={{ flex: 1, backgroundColor: "rgba(255,255,255,1)" }}
+		>
 			<FocusedStatusBar backgroundColor={COLORS.black} />
 			{isLoading ? (
 				<ActivityIndicator />
@@ -69,7 +76,9 @@ const SubServices = ({ route, navigation }) => {
 				<View style={{ flex: 1 }}>
 					<FlatList
 						data={data2}
-						renderItem={({ item }) => <NFTCard2 data={item} />}
+						renderItem={({ item }) => (
+							<NFTCard2 data={item} />
+						)}
 						keyExtractor={(item) => item.S_ID}
 						numColumns={2}
 						showsVerticalScrollIndicator={false}
@@ -85,8 +94,18 @@ const SubServices = ({ route, navigation }) => {
 							flexWrap: "wrap",
 						}}
 					>
-						<View style={{ height: 300, backgroundColor: COLORS.primary }} />
-						<View style={{ flex: 1, backgroundColor: COLORS.white }} />
+						<View
+							style={{
+								height: 300,
+								backgroundColor: COLORS.primary,
+							}}
+						/>
+						<View
+							style={{
+								flex: 1,
+								backgroundColor: COLORS.white,
+							}}
+						/>
 					</View>
 				</View>
 			)}

@@ -10,7 +10,6 @@ import {
 	Alert,
 } from "react-native";
 import React, { useState } from "react";
-import Checkbox from "expo-checkbox";
 import { COLORS } from "../constants";
 import ExitHeader from "../components/ExitHeader";
 
@@ -127,7 +126,7 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 15,
 		paddingVertical: 6,
 		borderRadius: 8,
-		height: "40%"
+		height: "40%",
 	},
 	multiineStyle: {
 		paddingVertical: 4,

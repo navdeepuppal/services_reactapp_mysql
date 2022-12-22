@@ -11,14 +11,10 @@ import {
 	TextInput,
 } from "react-native";
 
-import Input from "../../components/Inputs";
-import Submit from "../../components/Submit";
-
 import { useNavigation } from "@react-navigation/native";
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
 
 import * as ImagePicker from "expo-image-picker";
-
 
 const RegisterSubService10 = ({ route }) => {
 	const navigation = useNavigation();
@@ -59,21 +55,25 @@ const RegisterSubService10 = ({ route }) => {
 	};
 
 	return (
-		<SafeAreaView>
-			<ScrollView style={{ backgroundColor: "white" }}>
+		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
+			<ScrollView>
 				<View style={styles.container}>
 					<Image
 						source={require("../../assets/signup.png")}
 						resizeMode="center"
 						style={styles.image}
 					/>
-					<Text style={styles.textTitle}>Privacy & Security</Text>
-					<Text style={styles.textBody}>
-						Just one more step and then you are ready to go boss!
+					<Text style={styles.textTitle}>
+						Privacy & Security
 					</Text>
 					<Text style={styles.textBody}>
-						We need to protect our community.{"\n"} For that need to do
-						verification of your documents before you register as a professional
+						Just one more step and then you are ready to go
+						boss!
+					</Text>
+					<Text style={styles.textBody}>
+						We need to protect our community.{"\n"} For that
+						need to do verification of your documents before
+						you register as a professional
 					</Text>
 
 					<TextInput
@@ -88,11 +88,15 @@ const RegisterSubService10 = ({ route }) => {
 					/>
 
 					<Text style={{ fontSize: 20, margin: 16 }}>
-						Please upload front side of your Aadhar card showing your name,
-						address, phone number & with your picture.
+						Please upload front side of your Aadhar card
+						showing your name, address, phone number & with
+						your picture.
 					</Text>
 
-					<Button title="Pick an image from camera roll" onPress={pickImage} />
+					<Button
+						title="Pick an image from camera roll"
+						onPress={pickImage}
+					/>
 					{image && (
 						<Image
 							source={{ uri: image }}
@@ -109,16 +113,22 @@ const RegisterSubService10 = ({ route }) => {
 						onPress={() => {
 							const temp = validation();
 							if (temp == "true") {
-								navigation.navigate("RegisterSubService11", {
-									subServices,
-									SMan_Details1,
-									SMan_Details2,
-									PhoneNumber,
-									AadharNumber,
-									image,
-								});
+								navigation.navigate(
+									"RegisterSubService11",
+									{
+										subServices,
+										SMan_Details1,
+										SMan_Details2,
+										PhoneNumber,
+										AadharNumber,
+										image,
+									}
+								);
 							} else {
-								console.log("Validation unsuccessful for input " + temp);
+								console.log(
+									"Validation unsuccessful for input " +
+										temp
+								);
 							}
 							setValidity(temp);
 						}}

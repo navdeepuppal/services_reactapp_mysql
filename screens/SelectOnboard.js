@@ -20,7 +20,9 @@ const SelectOnboard = (props) => {
 	const navigation = useNavigation();
 	return (
 		<View style={styles.container}>
-			<Text style={styles.textTitle}>How will you like to proceed ?</Text>
+			<Text style={styles.textTitle}>
+				How will you like to proceed ?
+			</Text>
 
 			<View
 				style={{
@@ -36,7 +38,10 @@ const SelectOnboard = (props) => {
 
 						setValue = async (value) => {
 							try {
-								await AsyncStorage.setItem("firstTime", value);
+								await AsyncStorage.setItem(
+									"firstTime",
+									value
+								);
 							} catch (e) {
 								// save error
 							}
@@ -45,23 +50,31 @@ const SelectOnboard = (props) => {
 					}}
 				>
 					<View style={{ flexDirection: "column" }}>
-						<Text style={styles.textBody}>Find a Service</Text>
+						<Text style={styles.textBody}>
+							Find a Service
+						</Text>
 						<Text style={styles.littleTitle}>
-							Are you Looking for any Professional Services like Gardener,
-							Business Consultant or Painter for your house nearby at every
-							price point. Here we are!
+							Are you Looking for any Professional Services
+							like Gardener, Business Consultant or Painter
+							for your house nearby at every price point.
+							Here we are!
 						</Text>
 					</View>
 				</TouchableOpacity>
 
 				<TouchableOpacity
 					style={styles.button}
-					onPress={() => navigation.navigate("SelectOnboardProfessional")}
+					onPress={() =>
+						navigation.navigate("SelectOnboardProfessional")
+					}
 				>
 					<View style={{ flexDirection: "column" }}>
-						<Text style={styles.textBody}>Register as a Professional</Text>
+						<Text style={styles.textBody}>
+							Register as a Professional
+						</Text>
 						<Text style={styles.littleTitle}>
-							Join our growing community and get paid for your work
+							Join our growing community and get paid for
+							your work
 						</Text>
 					</View>
 				</TouchableOpacity>
@@ -110,7 +123,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: "center",
 		justifyContent: "center",
-		backgroundColor: COLORS.white,
+		backgroundColor: "rgba(248,248,250,255)",
 	},
 	image: {
 		width: 400,

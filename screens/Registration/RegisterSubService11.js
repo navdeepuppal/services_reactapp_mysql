@@ -9,11 +9,6 @@ import {
 	SafeAreaView,
 } from "react-native";
 
-import Input from "../../components/Inputs";
-import Submit from "../../components/Submit";
-
-
-
 import { useNavigation } from "@react-navigation/native";
 import { COLORS, SIZES, SHADOWS, assets, config } from "../../constants";
 
@@ -122,16 +117,20 @@ const RegisterSubService11 = ({ route }) => {
 						resizeMode="center"
 						style={styles.image}
 					/>
-					<Text style={styles.textTitle}>Wohoo! Registration Complete</Text>
+					<Text style={styles.textTitle}>
+						Wohoo! Registration Complete
+					</Text>
 					<Text style={styles.textBody}>
 						That's all we require from your side
 					</Text>
 					<Text style={styles.textBody}>
-						We will contact you and let you know that you're eligible to become
-						a professional once we verify your document.
+						We will contact you and let you know that you're
+						eligible to become a professional once we verify
+						your document.
 					</Text>
 					<Text style={styles.textBody}>
-						Verification status will be updated to you before 24 hours via SMS
+						Verification status will be updated to you before
+						24 hours via SMS
 					</Text>
 
 					{/* <Input name="Password" icon="lock" pass={true} />
@@ -139,7 +138,7 @@ const RegisterSubService11 = ({ route }) => {
 
 					<TouchableOpacity
 						style={styles.button}
-						onPress={() => navigation.navigate("ServiceManagementPage")}
+						onPress={() => navigation.navigate("Home")}
 					>
 						<Text style={styles.buttontext}>Continue</Text>
 					</TouchableOpacity>

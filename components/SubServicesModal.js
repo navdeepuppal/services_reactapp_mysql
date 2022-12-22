@@ -22,7 +22,12 @@ const SubServicesModal = ({ data, setSubSModalVisible }) => {
 			method: "GET",
 		})
 			.then((response) => response.json())
-			.then((responseJson) => setData(responseJson))
+			.then((responseJson) => {
+				if (responseJson == 404) {
+					responseJson = [];
+				}
+				setData(responseJson);
+			})
 			.catch((error) => alert(error))
 			.finally(() => setLoading(false));
 	}, []);
@@ -33,7 +38,10 @@ const SubServicesModal = ({ data, setSubSModalVisible }) => {
 			<FlatList
 				data={data2}
 				renderItem={({ item }) => (
-					<NFTCard2 data={item} setSubSModalVisible={setSubSModalVisible} />
+					<NFTCard2
+						data={item}
+						setSubSModalVisible={setSubSModalVisible}
+					/>
 				)}
 				keyExtractor={(item) => item.S_ID}
 				numColumns={2}

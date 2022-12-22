@@ -5,10 +5,13 @@ import {
 	View,
 	Text,
 	Image,
+	TextInput,
 	TouchableOpacity,
+	Modal,
 	FlatList,
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { COLORS, SIZES, SHADOWS, assets, FONTS, config } from "../constants";
 import { NFTTitle } from "../components/SubInfo";
 
@@ -16,6 +19,13 @@ const Cart = ({ route, navigation }) => {
 	const [subSubServices, setData] = useState(route.params.data2_backup);
 	const [extraData, setExtraData] = useState([]);
 	const [isLoading, setLoading] = useState(true);
+	const [modalVisible, setModalVisible] = useState(false);
+
+	const [isLoggedIn, setLoggedIn] = useState("");
+
+	AsyncStorage.getItem("isLoggedIn").then((isLoggedIn) => {
+		setLoggedIn(isLoggedIn);
+	});
 
 	const querystring =
 		"SELECT service.S_MinCartPrice, service.S_Discount, service.S_MinCharges, service.S_PlatformFee FROM Service WHERE service.S_ID = " +
@@ -27,7 +37,12 @@ const Cart = ({ route, navigation }) => {
 			method: "GET",
 		})
 			.then((response) => response.json())
-			.then((responseJson) => setExtraData(responseJson[0]))
+			.then((responseJson) => {
+				if (responseJson == 404) {
+					responseJson = [];
+				}
+				setExtraData(responseJson[0]);
+			})
 			.catch((error) => alert(error))
 			.finally(() => setLoading(false));
 	}, []);
@@ -140,7 +155,9 @@ const Cart = ({ route, navigation }) => {
 									color: COLORS.gray,
 								}}
 							>
-								{"•".repeat(data.SubSubS_Description.length)}
+								{"•".repeat(
+									data.SubSubS_Description.length
+								)}
 							</Text>
 							<NFTTitle
 								title={data.SubSubS_Description}
@@ -157,20 +174,28 @@ const Cart = ({ route, navigation }) => {
 								}}
 							>
 								<NFTTitle
-									title={"₹" + data.SubSubS_Price * 1}
+									title={
+										"₹" + data.SubSubS_Price * 1
+									}
 									titleSize={SIZES.medium}
 									fontColor={COLORS.primary}
 								/>
 								<View style={{ width: "4%" }} />
 								<NFTTitle
-									title={"₹" + data.SubSubS_Price * 1.25}
+									title={
+										"₹" +
+										data.SubSubS_Price * 1.25
+									}
 									titleSize={SIZES.font}
 									strike={1}
 									titleFont={FONTS.regular}
 								/>
 								<View style={{ width: "7%" }} />
 								<NFTTitle
-									title={"  •  " + data.SubSubS_Duration}
+									title={
+										"  •  " +
+										data.SubSubS_Duration
+									}
 									titleSize={SIZES.font}
 								/>
 							</View>
@@ -210,17 +235,24 @@ const Cart = ({ route, navigation }) => {
 									onPress={() => {
 										//setItemCount(Math.max(itemCount - 1, 0));
 										//data.itemCount = itemCount;
-										data3[index].itemCount = Math.max(
-											data2[index].itemCount - 1,
-											0
-										);
+										data3[index].itemCount =
+											Math.max(
+												data2[index]
+													.itemCount - 1,
+												0
+											);
 										setData(data3);
 									}}
 								>
-									<Text style={{ fontSize: 25 }}> - </Text>
+									<Text style={{ fontSize: 25 }}>
+										{" "}
+										-{" "}
+									</Text>
 								</TouchableOpacity>
 
-								<Text style={{ fontSize: 25 }}>{data2[index].itemCount}</Text>
+								<Text style={{ fontSize: 25 }}>
+									{data2[index].itemCount}
+								</Text>
 
 								<TouchableOpacity
 									style={{
@@ -233,11 +265,16 @@ const Cart = ({ route, navigation }) => {
 									onPress={() => {
 										//setItemCount(itemCount + 1);
 										//data.itemCount = itemCount;
-										data3[index].itemCount = data2[index].itemCount + 1;
+										data3[index].itemCount =
+											data2[index].itemCount +
+											1;
 										setData(data3);
 									}}
 								>
-									<Text style={{ fontSize: 25 }}> + </Text>
+									<Text style={{ fontSize: 25 }}>
+										{" "}
+										+{" "}
+									</Text>
 								</TouchableOpacity>
 							</View>
 						</View>
@@ -268,7 +305,9 @@ const Cart = ({ route, navigation }) => {
 		let priceCut = +extraData.S_PlatformFee;
 		let minCartValue = +extraData.S_MinCartPrice;
 		let minCharges =
-			itemTotal - discount >= minCartValue ? 0 : +extraData.S_MinCharges;
+			itemTotal - discount >= minCartValue
+				? 0
+				: +extraData.S_MinCharges;
 		let platformFee =
 			Math.round(
 				100 *
@@ -277,30 +316,45 @@ const Cart = ({ route, navigation }) => {
 						: (minCartValue * priceCut) / 100)
 			) / 100;
 		let totalPrice = itemTotal - discount + platformFee + minCharges;
-		const filteredData = subSubServices.filter((item) => item.itemCount > 0);
+		const filteredData = subSubServices.filter(
+			(item) => item.itemCount > 0
+		);
 		if (filteredData.length === 0) {
 			return (
-				<SafeAreaView style={{ backgroundColor: COLORS.white, flex: 1 }}>
+				<SafeAreaView
+					style={{ backgroundColor: COLORS.white, flex: 1 }}
+				>
 					<View
-						style={{ alignItems: "center", flex: 1, justifyContent: "center" }}
+						style={{
+							alignItems: "center",
+							flex: 1,
+							justifyContent: "center",
+						}}
 					>
 						<Image
-						source={require("../assets/cart.png")}
-						resizeMode="center"
-						style={style.image}
-					/>
-						<Text style={style.bag}>
-					Your Cart is Empty
-					</Text>
-						<TouchableOpacity style = {style.back} onPress={() => navigation.goBack()}>
-							<Text style = {{color: "white", fontSize: 23}}>Go Back</Text>
+							source={require("../assets/cart.png")}
+							resizeMode="center"
+							style={style.image}
+						/>
+						<Text style={style.bag}>Your Cart is Empty</Text>
+						<TouchableOpacity
+							style={style.back}
+							onPress={() => navigation.goBack()}
+						>
+							<Text
+								style={{ color: "white", fontSize: 23 }}
+							>
+								Go Back
+							</Text>
 						</TouchableOpacity>
 					</View>
 				</SafeAreaView>
 			);
 		} else {
 			return (
-				<SafeAreaView style={{ backgroundColor: COLORS.white, flex: 1 }}>
+				<SafeAreaView
+					style={{ backgroundColor: COLORS.white, flex: 1 }}
+				>
 					<View style={style.header}>
 						<TouchableOpacity
 							style={{ width: 30, height: 30 }}
@@ -309,14 +363,27 @@ const Cart = ({ route, navigation }) => {
 							<Image
 								source={assets.left}
 								resizeMode="contain"
-								style={{ width: "100%", height: "100%" }}
+								style={{
+									width: "100%",
+									height: "100%",
+								}}
 							/>
 						</TouchableOpacity>
-						<Text style={{ fontSize: 20, fontWeight: "bold" }}>
+						<Text
+							style={{
+								fontSize: 20,
+								fontWeight: "bold",
+							}}
+						>
 							Checkout Bag
 						</Text>
 					</View>
-					<View style={{ backgroundColor: "#F8F8F8", height: "80%" }}>
+					<View
+						style={{
+							backgroundColor: "#F8F8F8",
+							height: "80%",
+						}}
+					>
 						<FlatList
 							showsVerticalScrollIndicator={false}
 							contentContainerStyle={{ paddingBottom: 70 }}
@@ -329,7 +396,9 @@ const Cart = ({ route, navigation }) => {
 									index={index}
 								/>
 							)}
-							keyExtractor={(item, index) => index.toString()}
+							keyExtractor={(item, index) =>
+								index.toString()
+							}
 							ListFooterComponentStyle={{
 								paddingHorizontal: 20,
 								marginTop: 20,
@@ -338,11 +407,17 @@ const Cart = ({ route, navigation }) => {
 								<View>
 									<View
 										style={{
-											justifyContent: "space-between",
+											justifyContent:
+												"space-between",
 											marginVertical: 8,
 										}}
 									>
-										<Text style={{ fontSize: 18, fontWeight: "bold" }}>
+										<Text
+											style={{
+												fontSize: 18,
+												fontWeight: "bold",
+											}}
+										>
 											Payment Summary
 										</Text>
 									</View>
@@ -350,46 +425,94 @@ const Cart = ({ route, navigation }) => {
 									<View
 										style={{
 											flexDirection: "row",
-											justifyContent: "space-between",
+											justifyContent:
+												"space-between",
 											marginVertical: 8,
 										}}
 									>
-										<Text style={{ fontSize: 18 }}>Item Total</Text>
-										<Text style={{ fontSize: 18 }}>₹{itemTotal}</Text>
+										<Text
+											style={{ fontSize: 18 }}
+										>
+											Item Total
+										</Text>
+										<Text
+											style={{ fontSize: 18 }}
+										>
+											₹{itemTotal}
+										</Text>
 									</View>
 
-									{ discount > 0 ? (<View
-										style={{
-											flexDirection: "row",
-											justifyContent: "space-between",
-											marginVertical: 10,
-										}}
-									>
-										<Text style={{ fontSize: 18 }}>Discount</Text>
-										<Text style={{ fontSize: 18 }}>₹{discount}</Text>
-									</View>) : null
-							}
+									{discount > 0 ? (
+										<View
+											style={{
+												flexDirection:
+													"row",
+												justifyContent:
+													"space-between",
+												marginVertical: 10,
+											}}
+										>
+											<Text
+												style={{
+													fontSize: 18,
+												}}
+											>
+												Discount
+											</Text>
+											<Text
+												style={{
+													fontSize: 18,
+												}}
+											>
+												₹{discount}
+											</Text>
+										</View>
+									) : null}
 									<View
 										style={{
 											flexDirection: "row",
-											justifyContent: "space-between",
+											justifyContent:
+												"space-between",
 											marginVertical: 8,
 										}}
 									>
-										<Text style={{ fontSize: 18 }}>Platform Fee</Text>
-										<Text style={{ fontSize: 18 }}>₹{platformFee}</Text>
+										<Text
+											style={{ fontSize: 18 }}
+										>
+											Platform Fee
+										</Text>
+										<Text
+											style={{ fontSize: 18 }}
+										>
+											₹{platformFee}
+										</Text>
 									</View>
 
-									{itemTotal - discount < minCartValue ? (
+									{itemTotal - discount <
+									minCartValue ? (
 										<View
 											style={{
-												flexDirection: "row",
-												justifyContent: "space-between",
+												flexDirection:
+													"row",
+												justifyContent:
+													"space-between",
 												marginVertical: 8,
 											}}
 										>
-											<Text style={{ fontSize: 18 }}>Minimum Charges</Text>
-											<Text style={{ fontSize: 18 }}>₹{minCharges}</Text>
+											<Text
+												style={{
+													fontSize: 18,
+												}}
+											>
+												Minimum Charges
+											</Text>
+											<Text
+												style={{
+													fontSize: 18,
+												}}
+											>
+												₹{minCharges}
+											</Text>
 										</View>
 									) : null}
 
@@ -399,25 +522,41 @@ const Cart = ({ route, navigation }) => {
 											height: 1,
 											width: "95%",
 											alignSelf: "center",
-											backgroundColor: "#cccccc",
+											backgroundColor:
+												"#cccccc",
 										}}
 									/>
 									<View
 										style={{
 											flexDirection: "row",
-											justifyContent: "space-between",
+											justifyContent:
+												"space-between",
 											marginVertical: 15,
 										}}
 									>
-										<Text style={{ fontSize: 18, fontWeight: "bold" }}>
+										<Text
+											style={{
+												fontSize: 18,
+												fontWeight: "bold",
+											}}
+										>
 											Total
 										</Text>
-										<Text style={{ fontSize: 18, fontWeight: "bold" }}>
+										<Text
+											style={{
+												fontSize: 18,
+												fontWeight: "bold",
+											}}
+										>
 											₹{totalPrice}
 										</Text>
 									</View>
 
-									<View style={{ marginHorizontal: 30 }}></View>
+									<View
+										style={{
+											marginHorizontal: 30,
+										}}
+									></View>
 								</View>
 							)}
 						/>
@@ -425,12 +564,10 @@ const Cart = ({ route, navigation }) => {
 
 					<View
 						style={{
-							
+							marginTop: 23,
 							flexDirection: "row",
 							justifyContent: "space-between",
-
 							alignItems: "center",
-							
 						}}
 					>
 						<Text
@@ -445,7 +582,10 @@ const Cart = ({ route, navigation }) => {
 						</Text>
 						<TouchableOpacity
 							style={{
-								backgroundColor: totalPrice > 50 ? "#0E8D4D" : "#cccccc",
+								backgroundColor:
+									totalPrice > 50
+										? "#0E8D4D"
+										: "#cccccc",
 								borderRadius: 10,
 								alignItems: "center",
 								padding: "2%",
@@ -456,10 +596,17 @@ const Cart = ({ route, navigation }) => {
 							}}
 							onPress={() => {
 								totalPrice > 50
-									? navigation.navigate(true ? "Thankyou" : "BookingLogin", {
-											filteredData,
-									  })
-									: alert("Order Value is below ₹50");
+									? navigation.navigate(
+											isLoggedIn == "true"
+												? "SelectAddress"
+												: "BookingLogin",
+											{
+												filteredData,
+											}
+									  )
+									: alert(
+											"Order Value is below ₹50"
+									  );
 							}}
 						>
 							<Text
@@ -482,6 +629,28 @@ const Cart = ({ route, navigation }) => {
 	}
 };
 const style = StyleSheet.create({
+	centeredView: {
+		flex: 1,
+		justifyContent: "flex-end",
+		alignItems: "center",
+	},
+	modalView: {
+		margin: 20,
+		backgroundColor: "white",
+		borderRadius: 20,
+		padding: 35,
+		alignItems: "center",
+		shadowColor: "#000",
+		shadowOffset: {
+			width: 0,
+			height: 2,
+		},
+		shadowOpacity: 0.25,
+		shadowRadius: 4,
+		elevation: 5,
+		width: "100%",
+		height: "43%",
+	},
 	header: {
 		paddingVertical: "5%",
 		flexDirection: "row",
@@ -503,7 +672,6 @@ const style = StyleSheet.create({
 		borderRadius: SIZES.font,
 		marginBottom: SIZES.extraLarge,
 		margin: SIZES.base,
-		...SHADOWS.dark,
 		elevation: 2, // Android
 		height: 50,
 		width: 200,
@@ -515,6 +683,11 @@ const style = StyleSheet.create({
 	bag: {
 		fontSize: 19,
 		textAlign: "center",
+	},
+	centeredView: {
+		flex: 1,
+		justifyContent: "flex-end",
+		alignItems: "center",
 	},
 	back: {
 		marginTop: 50,
@@ -545,6 +718,12 @@ const style = StyleSheet.create({
 		paddingHorizontal: 10,
 		flexDirection: "row",
 		alignItems: "center",
+	},
+	buttontext: {
+		fontWeight: "bold",
+		fontSize: 19,
+		textAlign: "center",
+		color: COLORS.white,
 	},
 	actionBtn: {
 		width: 80,

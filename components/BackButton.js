@@ -1,28 +1,43 @@
-import { View, Text, TouchableOpacity, StyleSheet, Alert } from "react-native";
+import {
+	View,
+	Text,
+	TouchableOpacity,
+	StyleSheet,
+    Image,
+    Alert
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import React from "react";
-import { COLORS, SIZES } from "../constants";
+import React, { useState } from "react";
+import { COLORS, SIZES, assets } from "../constants";
 
-const ExitHeader = ({ onSearch }) => {
+const BackButton = ({}) => {
 	const navigation = useNavigation();
+	const [modalVisible, setModalVisible] = useState(false);
 
 	return (
 		<View
 			style={{
 				flexDirection: "row",
-				alignSelf: "flex-end",
-				width: "19%",
+				justifyContent: "space-between",
 			}}
 		>
-			<TouchableOpacity
-				style={styles.button2}
-				onPress={() => {
-					navigation.navigate("Home");
+			<View
+				style={{
+					flexDirection: "row",
 				}}
 			>
-				<Text style={{ fontSize: 19 }}> Exit </Text>
-			</TouchableOpacity>
+				<TouchableOpacity
+					style={{ width: 40, height: 40, marginTop: 30 }}
+					onPress={() => navigation.goBack()}
+				>
+					<Image
+						source={assets.left}
+						resizeMode="contain"
+						style={{ width: "100%", height: "100%" }}
+					/>
+				</TouchableOpacity>
+			</View>
 		</View>
 	);
 };
@@ -64,7 +79,7 @@ const styles = StyleSheet.create({
 	textBody: {
 		padding: 20,
 		alignSelf: "flex-start",
-		fontSize: 20,
+		fontSize: SIZES.base,
 		color: COLORS.primary,
 	},
 	buttonOpen: {
@@ -79,7 +94,7 @@ const styles = StyleSheet.create({
 		borderRadius: SIZES.font,
 		marginBottom: SIZES.extraLarge,
 		margin: SIZES.base,
-		elevation: 20, // Android
+		elevation: 2, // Android
 		height: 40,
 		width: 80,
 		alignSelf: "flex-end",
@@ -106,4 +121,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default ExitHeader;
+export default BackButton;

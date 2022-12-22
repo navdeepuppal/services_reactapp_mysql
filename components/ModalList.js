@@ -5,6 +5,7 @@ import {
 	StyleSheet,
 	SafeAreaView,
 	ScrollView,
+	Image,
 	Alert,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -14,87 +15,88 @@ import { COLORS, FONTS, SIZES, assets } from "../constants";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const ModalList = ({ onSearch }) => {
+const ModalList = ({ setVisible }) => {
 	const navigation = useNavigation();
-	const [modalVisible, setModalVisible] = useState(false);
 
 	const [isLoggedIn, setLoggedIn] = useState("");
 
 	const [user, setUser] = useState("");
-    AsyncStorage.getItem("PhoneNumber").then((user) => {
-        setUser(user);
-    });
+	AsyncStorage.getItem("PhoneNumber").then((user) => {
+		setUser(user);
+	});
 
 	return (
 		<SafeAreaView
 			style={{
-				backgroundColor: COLORS.white,
+				backgroundColor: "rgba(248,248,250,255)",
 				flex: 1,
 			}}
 		>
-			{ user ? <TouchableOpacity
-				style={{
-					alignSelf: "center",
-				}}
-				onPress={() => navigation.navigate("Profile")}
-			>
-				<View
+			{user ? (
+				<TouchableOpacity
 					style={{
-						flexDirection: "row",
-						alignItems: "center",
+						alignSelf: "center",
 					}}
 				>
 					<View
 						style={{
-							backgroundColor: "silver",
-							width: 50,
-							height: 50,
-							borderRadius: "100%",
-							color: "white",
+							flexDirection: "row",
 							alignItems: "center",
+						}}
+					>
+						<Image
+							style={{ width: 50, height: 50 }}
+							source={require("../assets/images/user.png")}
+						/>
+
+						<View
+							style={{
+								flexDirection: "column",
+								margin: 10,
+							}}
+						>
+							<Text
+								style={{
+									fontSize: 20,
+								}}
+							>
+								{user}
+							</Text>
+							<Text
+								style={{
+									fontSize: 15,
+								}}
+							>
+								5 ★
+							</Text>
+						</View>
+					</View>
+				</TouchableOpacity>
+			) : (
+				<TouchableOpacity
+					style={styles.button2}
+					onPress={() => {
+						setVisible(false);
+						navigation.navigate("Login");
+					}}
+				>
+					<View
+						style={{
+							flexDirection: "row",
 							justifyContent: "center",
 						}}
 					>
-						
+						<Text style={styles.loginText}> Log In</Text>
 					</View>
-
-					<View
-						style={{
-							flexDirection: "column",
-							margin: 10,
-						}}
-					>
-						<Text
-							style={{
-								fontSize: 20,
-							}}
-						>
-							{user}
-						</Text>
-						<Text
-							style={{
-								fontSize: 15,
-							}}
-						>
-							5 ★
-						</Text>
-					</View>
-				</View>
-			</TouchableOpacity> : 
-            
-            
-            
-            <TouchableOpacity style={
-				styles.button2}
-				onPress={() => navigation.navigate("Login")}><Text style = {styles.loginText}>Login</Text></TouchableOpacity>}
+				</TouchableOpacity>
+			)}
 
 			<ScrollView
 				style={{
-					backgroundColor: COLORS.white,
+					backgroundColor: "rgba(248,248,250,255)",
 					flex: 1,
 				}}
 			>
-                
 				<View
 					style={{
 						marginTop: "5%",
@@ -106,59 +108,65 @@ const ModalList = ({ onSearch }) => {
 					}}
 				/>
 
-				{user ? <TouchableOpacity
-					style={styles.button}
-					onPress={() => navigation.navigate("BookingsView")}
-				>
-					<Text style={styles.textBody}>My Bookings</Text>
-				</TouchableOpacity> : null}
-
 				<TouchableOpacity
 					style={styles.button}
-					onPress={() => navigation.navigate("Contact")}
+					onPress={() => {
+						setVisible(false), navigation.navigate("Contact");
+					}}
 				>
 					<Text style={styles.textBody}>Contact Us</Text>
 				</TouchableOpacity>
-                <TouchableOpacity
+
+				<TouchableOpacity
 					style={styles.button}
-					onPress={() => navigation.navigate("RequestNewService")}
-				>
-					<Text style={styles.textBody}>Request New Service</Text>
-				</TouchableOpacity>
-
-
-				{user ? <TouchableOpacity
 					onPress={() => {
-						setModalVisible("false");
-						AsyncStorage.setItem("isLoggedIn", "false");
-						AsyncStorage.setItem("PhoneNumber", "");
-						navigation.navigate("Login");
+						navigation.navigate("RequestNewService"),
+							setVisible(false);
 					}}
 				>
-					<View
-						style={{
-							marginTop: "5%",
-							height: 1,
-							width: "95%",
-							alignSelf: "center",
-							backgroundColor: "#cccccc",
-						}}
-					/>
-					<Text
-						style={{
-							marginTop: 23,
-							fontSize: 20,
-							alignSelf: "center",
-							color: "#E2000B",
+					<Text style={styles.textBody}>
+						Request New Service
+					</Text>
+				</TouchableOpacity>
+
+				{user ? (
+					<TouchableOpacity
+						onPress={() => {
+							setVisible(false);
+							AsyncStorage.setItem("isLoggedIn", "false");
+							AsyncStorage.setItem("Address", "");
+							AsyncStorage.setItem("PhoneNumber", "");
+							navigation.navigate("Login");
 						}}
 					>
-						Logout
-					</Text>
-				</TouchableOpacity> : null}
+						<View
+							style={{
+								marginTop: "5%",
+								height: 1,
+								width: "95%",
+								alignSelf: "center",
+								backgroundColor: "#cccccc",
+							}}
+						/>
+						<Text
+							style={{
+								marginTop: 23,
+								fontSize: 20,
+								alignSelf: "center",
+								color: "#E2000B",
+							}}
+						>
+							Logout
+						</Text>
+					</TouchableOpacity>
+				) : null}
 			</ScrollView>
 			<TouchableOpacity
 				style={[styles.modeButton1]}
-				onPress={() => navigation.navigate("RegisterSubService1")}
+				onPress={() => {
+					setVisible(false),
+						navigation.navigate("RegisterSubService1");
+				}}
 			>
 				<Text style={styles.textStyle}>Professional Mode</Text>
 				<Text style={styles.textStyle1}>
@@ -189,7 +197,7 @@ const styles = StyleSheet.create({
 		marginTop: 22,
 	},
 	modalView: {
-		backgroundColor: "white",
+		backgroundColor: "rgba(248,248,250,255)",
 		alignSelf: "flex-end",
 		borderRadius: 5,
 		padding: "2%",
@@ -227,19 +235,18 @@ const styles = StyleSheet.create({
 		backgroundColor: "#F194FF",
 	},
 	button2: {
-		shadowColor: "rgba(0,0,0, .4)", // IOS
+		shadowColor: "rgba(0,0,0, .1)", // IOS
 		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
 		shadowRadius: 1, //IOS
-		backgroundColor: "white",
-		borderRadius: SIZES.font,
-		marginBottom: SIZES.extraLarge,
-        borderColor: "silver",
+		backgroundColor: "rgba(255,255,255,255)",
+		borderColor: COLORS.primary,
 		margin: SIZES.base,
-        borderWidth: 0.17,
-		elevation: 2, // Android
-        padding: 20,
-		height: "8%",
+		height: "7%",
+		elevation: 20,
+		borderRadius: SIZES.small,
+		alignItems: "center",
+		justifyContent: "center",
 	},
 
 	textStyle: {
@@ -254,7 +261,7 @@ const styles = StyleSheet.create({
 		textAlign: "center",
 		fontSize: 12,
 	},
-    loginText: {
+	loginText: {
 		textAlign: "center",
 		fontSize: 20,
 	},

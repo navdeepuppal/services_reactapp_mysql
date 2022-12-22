@@ -15,11 +15,6 @@ import {
 
 import { RadioButton } from "react-native-paper";
 
-import Input from "../../components/Inputs";
-import Submit from "../../components/Submit";
-
-
-
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
 
 import { useNavigation } from "@react-navigation/native";
@@ -55,22 +50,28 @@ const RegisterSubService9 = ({ route }) => {
 	};
 
 	return (
-		<SafeAreaView>
+		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
 			<KeyboardAvoidingView
 				behavior={Platform.OS === "ios" ? "padding" : "height"}
 			>
-				<ScrollView style={{ backgroundColor: "white", width: "100%" }}>
+				<ScrollView
+					style={{ backgroundColor: "white", width: "100%" }}
+				>
 					<View style={styles.container}>
 						<Image
 							source={require("../../assets/signup.png")}
 							resizeMode="center"
 							style={styles.image}
 						/>
-						<Text style={styles.textTitle}>Register as a Professional</Text>
+						<Text style={styles.textTitle}>
+							Register as a Professional
+						</Text>
 						<Text style={styles.textBody}>
-							Join Sqera to change your life. {"\n\n"}Tell us a bit about
-							yourself. {"\n"}This information will appear on your public
-							profile, so that potential buyers can get to know you better.
+							Join Sqera to change your life. {"\n\n"}Tell
+							us a bit about yourself. {"\n"}This
+							information will appear on your public
+							profile, so that potential buyers can get to
+							know you better.
 						</Text>
 
 						<TextInput
@@ -93,7 +94,10 @@ const RegisterSubService9 = ({ route }) => {
 							multiline
 							numberOfLines={4}
 						/>
-						<Text>What are the base prices for your selected services...?</Text>
+						<Text>
+							What are the base prices for your selected
+							services...?
+						</Text>
 						<ScrollView
 							horizontal={true}
 							contentContainerStyle={{ width: "100%" }}
@@ -103,15 +107,25 @@ const RegisterSubService9 = ({ route }) => {
 								keyExtractor={(item) => item.SubS_ID}
 								showsVerticalScrollIndicator={false}
 								renderItem={({ item }) => {
-									return item.isSelected === "true" ? (
+									return item.isSelected ===
+										"true" ? (
 										<TextInput
 											style={styles.input}
-											onChangeText={(value) => {
-												item.SMan_BasePrice = value;
-												onChangeBasePrice(!BasePrice);
+											onChangeText={(
+												value
+											) => {
+												item.SMan_BasePrice =
+													value;
+												onChangeBasePrice(
+													!BasePrice
+												);
 											}}
-											value={item.SMan_BasePrice}
-											placeholder={item.SubS_Name}
+											value={
+												item.SMan_BasePrice
+											}
+											placeholder={
+												item.SubS_Name
+											}
 											placeholderTextColor="#a0a0a0"
 											keyboardType="numeric"
 											multiline
@@ -148,7 +162,12 @@ const RegisterSubService9 = ({ route }) => {
 							);
 						})} */}
 
-						<Text style={{ fontSize: 20, margin: 13.5 }}>
+						<Text
+							style={{
+								fontSize: 20,
+								margin: 13.5,
+							}}
+						>
 							How pro are you in this area?
 						</Text>
 						<View
@@ -174,14 +193,24 @@ const RegisterSubService9 = ({ route }) => {
 								>
 									<RadioButton
 										value="Beginner"
-										status={radio_Pro === "Beginner" ? "checked" : "unchecked"}
-										onPress={() => setRadio_Pro("Beginner")}
+										status={
+											radio_Pro === "Beginner"
+												? "checked"
+												: "unchecked"
+										}
+										onPress={() =>
+											setRadio_Pro("Beginner")
+										}
 									/>
-									<Text style={{ fontSize: 19 }}>Beginner</Text>
+									<Text style={{ fontSize: 19 }}>
+										Beginner
+									</Text>
 								</View>
 							</TouchableWithoutFeedback>
 							<TouchableWithoutFeedback
-								onPress={() => setRadio_Pro("Intermediate")}
+								onPress={() =>
+									setRadio_Pro("Intermediate")
+								}
 							>
 								<View
 									style={{
@@ -197,14 +226,25 @@ const RegisterSubService9 = ({ route }) => {
 									<RadioButton
 										value="Intermediate"
 										status={
-											radio_Pro === "Intermediate" ? "checked" : "unchecked"
+											radio_Pro ===
+											"Intermediate"
+												? "checked"
+												: "unchecked"
 										}
-										onPress={() => setRadio_Pro("Intermediate")}
+										onPress={() =>
+											setRadio_Pro(
+												"Intermediate"
+											)
+										}
 									/>
-									<Text style={{ fontSize: 19 }}>Intermediate</Text>
+									<Text style={{ fontSize: 19 }}>
+										Intermediate
+									</Text>
 								</View>
 							</TouchableWithoutFeedback>
-							<TouchableWithoutFeedback onPress={() => setRadio_Pro("Expert")}>
+							<TouchableWithoutFeedback
+								onPress={() => setRadio_Pro("Expert")}
+							>
 								<View
 									style={{
 										flexDirection: "row",
@@ -218,68 +258,30 @@ const RegisterSubService9 = ({ route }) => {
 								>
 									<RadioButton
 										value="Expert"
-										status={radio_Pro === "Expert" ? "checked" : "unchecked"}
-										onPress={() => setRadio_Pro("Expert")}
+										status={
+											radio_Pro === "Expert"
+												? "checked"
+												: "unchecked"
+										}
+										onPress={() =>
+											setRadio_Pro("Expert")
+										}
 									/>
-									<Text style={{ fontSize: 19 }}>Expert</Text>
+									<Text style={{ fontSize: 19 }}>
+										Expert
+									</Text>
 								</View>
 							</TouchableWithoutFeedback>
 						</View>
 
-						<Text style={{ fontSize: 20, margin: 13.5 }}>
-							Do you have a team or you are single person to do this?
-						</Text>
-						<View
+						<Text
 							style={{
-								flexDirection: "row",
-								justifyContent: "space-between",
-								width: "50%",
+								fontSize: 20,
+								margin: 13.5,
 							}}
 						>
-							<TouchableWithoutFeedback onPress={() => setRadio_Team("Yes")}>
-								<View
-									style={{
-										flexDirection: "row",
-										borderColor: "#000000",
-										borderWidth: 1,
-										borderRadius: 20,
-										alignItems: "center",
-										padding: 5,
-										paddingLeft: 0,
-									}}
-								>
-									<RadioButton
-										value="Yes"
-										status={radio_Team === "Yes" ? "checked" : "unchecked"}
-										onPress={() => setRadio_Team("Yes")}
-									/>
-									<Text style={{ fontSize: 19 }}>Yes</Text>
-								</View>
-							</TouchableWithoutFeedback>
-							<TouchableWithoutFeedback onPress={() => setRadio_Team("No")}>
-								<View
-									style={{
-										flexDirection: "row",
-										borderColor: "#000000",
-										borderWidth: 1,
-										borderRadius: 20,
-										alignItems: "center",
-										padding: 5,
-										paddingLeft: 0,
-									}}
-								>
-									<RadioButton
-										value="No"
-										status={radio_Team === "No" ? "checked" : "unchecked"}
-										onPress={() => setRadio_Team("No")}
-									/>
-									<Text style={{ fontSize: 19 }}>No</Text>
-								</View>
-							</TouchableWithoutFeedback>
-						</View>
-
-						<Text style={{ fontSize: 20, margin: 13.5 }}>
-							Do you have all the equipments to serve the customers (Yes/No)
+							Do you have a team or you are single person
+							to do this?
 						</Text>
 						<View
 							style={{
@@ -289,7 +291,7 @@ const RegisterSubService9 = ({ route }) => {
 							}}
 						>
 							<TouchableWithoutFeedback
-								onPress={() => setRadio_Equipments("Yes")}
+								onPress={() => setRadio_Team("Yes")}
 							>
 								<View
 									style={{
@@ -305,15 +307,21 @@ const RegisterSubService9 = ({ route }) => {
 									<RadioButton
 										value="Yes"
 										status={
-											radio_Equipments === "Yes" ? "checked" : "unchecked"
+											radio_Team === "Yes"
+												? "checked"
+												: "unchecked"
 										}
-										onPress={() => setRadio_Equipments("Yes")}
+										onPress={() =>
+											setRadio_Team("Yes")
+										}
 									/>
-									<Text style={{ fontSize: 19 }}>Yes</Text>
+									<Text style={{ fontSize: 19 }}>
+										Yes
+									</Text>
 								</View>
 							</TouchableWithoutFeedback>
 							<TouchableWithoutFeedback
-								onPress={() => setRadio_Equipments("No")}
+								onPress={() => setRadio_Team("No")}
 							>
 								<View
 									style={{
@@ -328,10 +336,103 @@ const RegisterSubService9 = ({ route }) => {
 								>
 									<RadioButton
 										value="No"
-										status={radio_Equipments === "No" ? "checked" : "unchecked"}
-										onPress={() => setRadio_Equipments("No")}
+										status={
+											radio_Team === "No"
+												? "checked"
+												: "unchecked"
+										}
+										onPress={() =>
+											setRadio_Team("No")
+										}
 									/>
-									<Text style={{ fontSize: 19 }}>No</Text>
+									<Text style={{ fontSize: 19 }}>
+										No
+									</Text>
+								</View>
+							</TouchableWithoutFeedback>
+						</View>
+
+						<Text
+							style={{
+								fontSize: 20,
+								margin: 13.5,
+							}}
+						>
+							Do you have all the equipments to serve the
+							customers (Yes/No)
+						</Text>
+						<View
+							style={{
+								flexDirection: "row",
+								justifyContent: "space-between",
+								width: "50%",
+							}}
+						>
+							<TouchableWithoutFeedback
+								onPress={() =>
+									setRadio_Equipments("Yes")
+								}
+							>
+								<View
+									style={{
+										flexDirection: "row",
+										borderColor: "#000000",
+										borderWidth: 1,
+										borderRadius: 20,
+										alignItems: "center",
+										padding: 5,
+										paddingLeft: 0,
+									}}
+								>
+									<RadioButton
+										value="Yes"
+										status={
+											radio_Equipments ===
+											"Yes"
+												? "checked"
+												: "unchecked"
+										}
+										onPress={() =>
+											setRadio_Equipments(
+												"Yes"
+											)
+										}
+									/>
+									<Text style={{ fontSize: 19 }}>
+										Yes
+									</Text>
+								</View>
+							</TouchableWithoutFeedback>
+							<TouchableWithoutFeedback
+								onPress={() =>
+									setRadio_Equipments("No")
+								}
+							>
+								<View
+									style={{
+										flexDirection: "row",
+										borderColor: "#000000",
+										borderWidth: 1,
+										borderRadius: 20,
+										alignItems: "center",
+										padding: 5,
+										paddingLeft: 0,
+									}}
+								>
+									<RadioButton
+										value="No"
+										status={
+											radio_Equipments === "No"
+												? "checked"
+												: "unchecked"
+										}
+										onPress={() =>
+											setRadio_Equipments("No")
+										}
+									/>
+									<Text style={{ fontSize: 19 }}>
+										No
+									</Text>
 								</View>
 							</TouchableWithoutFeedback>
 						</View>
@@ -342,8 +443,10 @@ const RegisterSubService9 = ({ route }) => {
 					<Input name="Mention the name of clients you worked before with (Eg. Any Organization) " icon="user" />*/}
 
 						<Text style={styles.textBody}>
-							Please Note: {"\n"}Screening will be done before the registration.
-							All these inputs will be verified at the time of screening {"\n"}
+							Please Note: {"\n"}Screening will be done
+							before the registration. All these inputs
+							will be verified at the time of screening{" "}
+							{"\n"}
 							(Video Call/In-Person)
 						</Text>
 
@@ -362,23 +465,30 @@ const RegisterSubService9 = ({ route }) => {
 										Story: Story,
 										radio_Pro: radio_Pro,
 										radio_Team: radio_Team,
-										radio_Equipments: radio_Equipments,
+										radio_Equipments:
+											radio_Equipments,
 									};
-									navigation.navigate("RegisterSubService10", {
-										subServices,
-										SMan_Details1,
-										temp,
-										PhoneNumber,
-									});
+									navigation.navigate(
+										"RegisterSubService10",
+										{
+											subServices,
+											SMan_Details1,
+											temp,
+											PhoneNumber,
+										}
+									);
 								} else {
 									console.log(
-										"Validation unsuccessful for input " + validationtemp
+										"Validation unsuccessful for input " +
+											validationtemp
 									);
 								}
 								setValidity(validationtemp);
 							}}
 						>
-							<Text style={styles.buttontext}>Continue</Text>
+							<Text style={styles.buttontext}>
+								Continue
+							</Text>
 						</TouchableOpacity>
 					</View>
 				</ScrollView>

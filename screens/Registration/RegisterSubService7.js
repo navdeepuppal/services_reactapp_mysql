@@ -12,8 +12,6 @@ import {
 	TextInput,
 } from "react-native";
 
-import Input from "../../components/Inputs";
-
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
 
 import { RadioButton } from "react-native-paper";
@@ -64,7 +62,7 @@ const RegisterSubService7 = ({ route }) => {
 	};
 
 	return (
-		<SafeAreaView>
+		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
 			<KeyboardAvoidingView
 				behavior={Platform.OS === "ios" ? "padding" : "height"}
 			>
@@ -75,10 +73,15 @@ const RegisterSubService7 = ({ route }) => {
 							resizeMode="center"
 							style={styles.image}
 						/>
-						<Text style={styles.textTitle}>Register as a Professional</Text>
-						<Text style={styles.textBody}>Join Sqera to change your life.</Text>
+						<Text style={styles.textTitle}>
+							Register as a Professional
+						</Text>
 						<Text style={styles.textBody}>
-							Share your details and we'll reach out with next steps.
+							Join Sqera to change your life.
+						</Text>
+						<Text style={styles.textBody}>
+							Share your details and we'll reach out with
+							next steps.
 						</Text>
 
 						<TextInput
@@ -127,7 +130,12 @@ const RegisterSubService7 = ({ route }) => {
 							placeholderTextColor="#a0a0a0"
 						/>
 
-						<Text style={{ fontSize: 20, margin: 13.5 }}>
+						<Text
+							style={{
+								fontSize: 20,
+								margin: 13.5,
+							}}
+						>
 							Do you own any Shop?
 						</Text>
 						<View
@@ -137,7 +145,9 @@ const RegisterSubService7 = ({ route }) => {
 								width: "50%",
 							}}
 						>
-							<TouchableWithoutFeedback onPress={() => setShop("Yes")}>
+							<TouchableWithoutFeedback
+								onPress={() => setShop("Yes")}
+							>
 								<View
 									style={{
 										flexDirection: "row",
@@ -151,13 +161,21 @@ const RegisterSubService7 = ({ route }) => {
 								>
 									<RadioButton
 										value="Yes"
-										status={Shop === "Yes" ? "checked" : "unchecked"}
+										status={
+											Shop === "Yes"
+												? "checked"
+												: "unchecked"
+										}
 										onPress={() => setShop("Yes")}
 									/>
-									<Text style={{ fontSize: 19 }}>Yes</Text>
+									<Text style={{ fontSize: 19 }}>
+										Yes
+									</Text>
 								</View>
 							</TouchableWithoutFeedback>
-							<TouchableWithoutFeedback onPress={() => setShop("No")}>
+							<TouchableWithoutFeedback
+								onPress={() => setShop("No")}
+							>
 								<View
 									style={{
 										flexDirection: "row",
@@ -171,10 +189,16 @@ const RegisterSubService7 = ({ route }) => {
 								>
 									<RadioButton
 										value="No"
-										status={Shop === "No" ? "checked" : "unchecked"}
+										status={
+											Shop === "No"
+												? "checked"
+												: "unchecked"
+										}
 										onPress={() => setShop("No")}
 									/>
-									<Text style={{ fontSize: 19 }}>No</Text>
+									<Text style={{ fontSize: 19 }}>
+										No
+									</Text>
 								</View>
 							</TouchableWithoutFeedback>
 						</View>
@@ -214,19 +238,25 @@ const RegisterSubService7 = ({ route }) => {
 										Languages: Languages,
 										Website: Website,
 									};
-									navigation.navigate("RegisterSubService8", {
-										prevData,
-										temp,
-									});
+									navigation.navigate(
+										"RegisterSubService8",
+										{
+											prevData,
+											temp,
+										}
+									);
 								} else {
 									console.log(
-										"Validation unsuccessful for input " + validationtemp
+										"Validation unsuccessful for input " +
+											validationtemp
 									);
 								}
 								setValidity(validationtemp);
 							}}
 						>
-							<Text style={styles.buttontext}>Continue</Text>
+							<Text style={styles.buttontext}>
+								Continue
+							</Text>
 						</TouchableOpacity>
 					</View>
 				</ScrollView>

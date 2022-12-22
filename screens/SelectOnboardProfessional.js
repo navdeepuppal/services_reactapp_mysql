@@ -83,40 +83,40 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: "center",
 		justifyContent: "center",
-		backgroundColor: COLORS.white,
+		backgroundColor: "rgba(248,248,250,255)",
 	},
 	image: {
 		width: 400,
 		height: 250,
 		marginVertical: 10,
 	},
-	textTitle: {fontWeight: 'bold',
-  fontSize: 37,
-  color: COLORS.gray,
-  marginRight: SIZES.base / 99,
-  textAlign: 'center',
-  marginBottom: SIZES.large
+	textTitle: {
+		fontWeight: "bold",
+		fontSize: 37,
+		color: COLORS.gray,
+		marginRight: SIZES.base / 99,
+		textAlign: "center",
+		marginBottom: SIZES.large,
 	},
 	subTitle: {
-    marginTop: SIZES.extraLarge,
-  fontSize: 22,
-  color: COLORS.gray,
-  marginRight: SIZES.base / 99,
-  textAlign: 'center'
-  
+		marginTop: SIZES.extraLarge,
+		fontSize: 22,
+		color: COLORS.gray,
+		marginRight: SIZES.base / 99,
+		textAlign: "center",
 	},
-  littleTitle: {
-  fontSize: 11,
-  color: COLORS.gray,
-  marginRight: SIZES.base / 99,
-  textAlign: 'center',
-fontStyle: 'italic',
+	littleTitle: {
+		fontSize: 11,
+		color: COLORS.gray,
+		marginRight: SIZES.base / 99,
+		textAlign: "center",
+		fontStyle: "italic",
 	},
 	textBody: {
 		fontSize: 29,
 		color: Colors.secondary,
-    
-  textAlign: 'center'
+
+		textAlign: "center",
 	},
 	button: {
 		shadowColor: "rgba(0,0,0, .4)", // IOS
