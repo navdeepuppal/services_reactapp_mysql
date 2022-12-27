@@ -7,6 +7,7 @@ import { View, Image, TouchableOpacity, StyleSheet, Text } from "react-native";
 
 import { COLORS, SIZES, SHADOWS, assets, FONTS } from "../constants";
 import { NFTTitle } from "./SubInfo";
+import * as Haptics from "expo-haptics";
 
 const NFTCard = ({ data }) => {
 	const navigation = useNavigation();
@@ -69,8 +70,9 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
 				borderRadius: SIZES.font,
 				margin: SIZES.base,
 				...SHADOWS.dark,
-				width: "44%",
-				height: "62%",
+				width: "45.5%",
+				flex: 0,
+				height: "65%",
 			}}
 			onPress={() => {
 				setSubSModalVisible(index);
@@ -97,7 +99,7 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
 			</View>
 
 			<View style={{ width: "100%" }}>
-				<NFTTitle title={data.S_Name} titleSize={SIZES.large} />
+				<NFTTitle title={data.S_Name} titleSize={SIZES.medium} />
 			</View>
 		</TouchableOpacity>
 	);
@@ -197,7 +199,7 @@ const NFTCard4 = ({ data }) => {
 				margin: SIZES.base,
 				...SHADOWS.dark,
 				width: "45.5%",
-				height: "68%",
+				height: "65%",
 			}}
 			onPress={() => {
 				const temp = data.S_ID;
@@ -301,7 +303,7 @@ const NFTCard6 = ({ data, data2, setData, index }) => {
 				>
 					<NFTTitle
 						title={data.SubSubS_Name}
-						titleSize={SIZES.extraLarge - 5}
+						titleSize={SIZES.large - 3}
 						fontColor={COLORS.primary}
 					/>
 					<View
@@ -342,7 +344,7 @@ const NFTCard6 = ({ data, data2, setData, index }) => {
 					</Text>
 					<NFTTitle
 						title={data.SubSubS_Description}
-						titleSize={SIZES.medium}
+						titleSize={SIZES.font - 1}
 						titleFont={FONTS.regular}
 						fontColor={COLORS.primary}
 					/>
@@ -449,6 +451,11 @@ const NFTCard6 = ({ data, data2, setData, index }) => {
 								data3[index].itemCount =
 									data2[index].itemCount + 1;
 								setData(data3);
+
+								Haptics.notificationAsync(
+									Haptics.NotificationFeedbackType
+										.Success
+								);
 							}}
 						>
 							<Text style={{ fontSize: 25 }}> + </Text>

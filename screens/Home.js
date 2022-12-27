@@ -15,6 +15,7 @@ import * as Location from "expo-location";
 import { NFTCard1, HomeHeader, FocusedStatusBar } from "../components";
 import { COLORS, config, SIZES } from "../constants";
 import SubServicesModal from "../components/SubServicesModal";
+import { ScrollView } from "react-native-gesture-handler";
 
 let apiKey = "YOUR_API_KEY";
 
@@ -114,12 +115,17 @@ const Home = () => {
 				flex: 1,
 			}}
 		>
-			<FocusedStatusBar backgroundColor={COLORS.gray} />
+			<FocusedStatusBar />
 			{isLoading ? (
 				<ActivityIndicator />
 			) : (
-				<View style={{ backgroundColor: "rgba(237,237,237,255)" }}>
+				<View
+					style={{
+						backgroundColor: "rgba(237,237,237,255)",
+					}}
+				>
 					<FlatList
+						nestedScrollEnabled
 						data={data2}
 						renderItem={({ item, index }) => (
 							<NFTCard1
@@ -161,10 +167,11 @@ const Home = () => {
 							>
 								<Text
 									style={{
-										fontSize: SIZES.large,
+										fontSize: SIZES.extraLarge,
 										margin: 65,
 										marginTop: "15%",
 										color: "gray",
+										marginLeft: "20%",
 									}}
 								>
 									Sorry! Currently we are not
@@ -255,7 +262,7 @@ const styles = StyleSheet.create({
 		shadowRadius: 4,
 		elevation: 5,
 		width: "70%",
-		minHeight: "68%",
+		minHeight: "57%",
 	},
 	ratingbutton: {
 		flexDirection: "row",

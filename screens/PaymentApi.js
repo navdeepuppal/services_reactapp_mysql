@@ -7,6 +7,7 @@ import {
 	TouchableWithoutFeedback,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import * as Haptics from "expo-haptics";
 
 import { RadioButton } from "react-native-paper";
 import BackButton from "../components/BackButton";
@@ -55,7 +56,7 @@ const PaymentApi = ({ navigation, route }) => {
 						}
 						onPress={() => setPayment("Payment")}
 					/>
-					<Text style={{ fontSize: 25 }}>Cash On Delivery</Text>
+					<Text style={{ fontSize: 22 }}>Cash On Delivery</Text>
 				</View>
 			</TouchableWithoutFeedback>
 
@@ -72,9 +73,12 @@ const PaymentApi = ({ navigation, route }) => {
 				style={style.verifyButton}
 				onPress={() => {
 					navigation.navigate("Thankyou", { cartData });
+					Haptics.notificationAsync(
+						Haptics.NotificationFeedbackType.Success
+					);
 				}}
 			>
-				<Text style={style.buttontext}>PROCEED</Text>
+				<Text style={style.buttontext}>PLACE ORDER</Text>
 			</TouchableOpacity>
 		</SafeAreaView>
 	);

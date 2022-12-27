@@ -33,22 +33,6 @@ const RegisterSubService2 = () => {
 					<Text style={styles.textBody}>
 						Learn what makes a successful people
 					</Text>
-					<Text style={styles.subtext}>
-						Discover the do’s and don’ts to ensure you’re
-						always on the right track.
-					</Text>
-					<Text style={styles.textBody}>
-						Create your seller profile
-					</Text>
-					<Text style={styles.subtext}>
-						Add your profile picture, description, and
-						professional information.
-					</Text>
-					<Text style={styles.textBody}>Publish your Gig</Text>
-					<Text style={styles.subtext}>
-						Create a Gig of the service you’re offering and
-						start selling instantly.
-					</Text>
 
 					<TouchableOpacity
 						style={styles.button}

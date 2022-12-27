@@ -1,39 +1,37 @@
 {
   "expo": {
-    "name": "SqeraServices",
-    "slug": "SqeraServices",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "splash": {
-      "image": "./assets/images/icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff",
-      "width": "30%"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/icon.png",
-        "backgroundColor": "#FFFFFF"
-      },
-      "package": "com.navnetto.SqeraServices"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "12efdae2-41cd-403a-9d9f-c5282c4dd48e"
-      }
-    }
+		"name": "servicesapp",
+		"slug": "servicesapp",
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"icon": "./assets/icon.png",
+		"userInterfaceStyle": "light",
+		"splash": {
+			"image": "./assets/image3.png",
+			"backgroundColor": "#282534"
+		},
+		"updates": {
+			"fallbackToCacheTimeout": 0
+		},
+		"assetBundlePatterns": ["**/*"],
+		"ios": {
+			"supportsTablet": true,
+			"bundleIdentifier": "com.navnetto.servicesapp"
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/icon.png",
+				"backgroundColor": "#FFFFFF"
+			},
+			"package": "com.navnetto.servicesapp"
+		},
+		"web": {
+			"favicon": "./assets/icon.png"
+		},
+		"extra": {
+			"eas": {
+				"projectId": "91f05046-4c4a-4219-8d8b-9e3a619c2a2c"
+			}
+		}
   }
 }

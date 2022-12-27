@@ -167,6 +167,7 @@ const styles = StyleSheet.create({
 	},
 	subtextTitle: {
 		color: "white",
+		margin: 12,
 		marginTop: 50,
 		fontSize: 20,
 		marginVertical: 10,

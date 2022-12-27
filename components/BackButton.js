@@ -28,7 +28,7 @@ const BackButton = ({}) => {
 				}}
 			>
 				<TouchableOpacity
-					style={{ width: 40, height: 40, marginTop: 30 }}
+					style={{ width: 40, height: 40, marginTop: 8 }}
 					onPress={() => navigation.goBack()}
 				>
 					<Image

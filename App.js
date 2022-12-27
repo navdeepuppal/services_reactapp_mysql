@@ -33,6 +33,7 @@ import RequestNewService from "./screens/RequestNewService";
 import SelectAddress from "./screens/SelectAddress";
 import PaymentApi from "./screens/PaymentApi";
 import SelectTime from "./screens/SelectTime";
+import ServiceManDashboard from "./screens/ServiceMan/ServiceManDashboard";
 
 const theme = {
 	...DefaultTheme,
@@ -61,6 +62,7 @@ const App = () => {
 	const [isLoading, setLoading] = useState(true);
 	const [firstTime, setFirstTime] = useState(true);
 	const [isLoggedIn, setLoggedIn] = useState(true);
+	const [isServiceMan, setServiceMan] = useState("");
 
 	/* setValue = async (value) => {
 		try {
@@ -71,6 +73,11 @@ const App = () => {
 	};
 	setValue("true"); */
 	if (!loaded) return null;
+
+	AsyncStorage.getItem("ServiceMan").then((isServiceMan) => {
+		setServiceMan(isServiceMan);
+	});
+
 
 	AsyncStorage.getItem("firstTime").then((res) => {
 		setFirstTime(res != "false");
@@ -101,7 +108,9 @@ const App = () => {
 						firstTime
 							? "Onboarding"
 							: isLoggedIn
-							? "Onboarding"
+							? isServiceMan == "2"
+								? "ServiceManDashboard"
+								: "Home"
 							: "Onboarding"
 					}
 				>
@@ -122,6 +131,11 @@ const App = () => {
 					<Stack.Screen
 						name="PaymentApi"
 						component={PaymentApi}
+					/>
+					<Stack.Screen
+						options={{ gestureEnabled: false }}
+						name="ServiceManDashboard"
+						component={ServiceManDashboard}
 					/>
 					<Stack.Screen
 						name="Onboarding"

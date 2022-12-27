@@ -104,7 +104,7 @@ const RegisterSubService7 = ({ route }) => {
 							onChangeText={onChangeAge}
 							value={Age}
 							placeholder="Age"
-							keyboardType="numeric"
+							keyboardType="phone-pad"
 							placeholderTextColor="#a0a0a0"
 						/>
 						<TextInput
@@ -126,7 +126,7 @@ const RegisterSubService7 = ({ route }) => {
 							onChangeText={onChangePincode}
 							value={Pincode}
 							placeholder="Pincode"
-							keyboardType="numeric"
+							keyboardType="phone-pad"
 							placeholderTextColor="#a0a0a0"
 						/>
 

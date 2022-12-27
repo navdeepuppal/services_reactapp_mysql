@@ -166,20 +166,21 @@ const Onboarding = () => {
   };
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.primary}}>
-      <StatusBar backgroundColor={COLORS.primary} />
-      <FlatList
-        ref={ref}
-        onMomentumScrollEnd={updateCurrentSlideIndex}
-        contentContainerStyle={{height: height * 0.75}}
-        showsHorizontalScrollIndicator={false}
-        horizontal
-        data={slides}
-        pagingEnabled
-        renderItem={({item}) => <Slide item={item} />}
-      />
-      <Footer />
-    </SafeAreaView>
+		<SafeAreaView style={{ flex: 1, backgroundColor: COLORS.primary }}>
+			<StatusBar backgroundColor={COLORS.primary} />
+			<FlatList
+				nestedScrollEnabled
+				ref={ref}
+				onMomentumScrollEnd={updateCurrentSlideIndex}
+				contentContainerStyle={{ height: height * 0.75 }}
+				showsHorizontalScrollIndicator={false}
+				horizontal
+				data={slides}
+				pagingEnabled
+				renderItem={({ item }) => <Slide item={item} />}
+			/>
+			<Footer />
+		</SafeAreaView>
   );
 };
 

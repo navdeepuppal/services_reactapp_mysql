@@ -29,67 +29,77 @@ const HomeHeader = ({ onSearch }) => {
 			style={{
 				backgroundColor: COLORS.white,
 				padding: SIZES.font,
+				borderBottomEndRadius: 18,
+				borderBottomStartRadius: 18,
 			}}
 		>
 			<View
 				style={{
 					flexDirection: "row",
-					alignSelf: "flex-end",
-					width: "15%",
 					justifyContent: "space-between",
 				}}
 			>
-				<TouchableOpacity
-					style={{ width: 45, height: 45 }}
-					onPress={() => setModalVisible(true)}
-				>
-					<Image
-						source={assets.menuIcon}
-						resizeMode="contain"
-						style={{ width: "100%", height: "100%" }}
-					/>
-				</TouchableOpacity>
-
-				<Modal
-					animationType="fade"
-					transparent={true}
-					visible={modalVisible}
-					close={() => {
-						toggleModal(false);
-					}}
-				>
-					<Pressable
-						style={styles.loweredView}
-						onPress={() => {
-							setModalVisible(false);
+				<View style={{ marginVertical: "4%" }}>
+					<Text
+						style={{
+							fontWeight: "600",
+							fontSize: SIZES.large + 4,
+							color: COLORS.primary,
 						}}
 					>
-						<View style={styles.centeredView}>
-							<View style={styles.modalView}>
-								<ModalList
-									setVisible={setModalVisible}
-								/>
-							</View>
-						</View>
-					</Pressable>
-				</Modal>
-			</View>
+						Which service do you need
+					</Text>
+				</View>
 
-			<View style={{ marginVertical: "3%" }}>
-				<Text
+				<View
 					style={{
-						fontWeight: "600",
-						fontSize: SIZES.extraLarge,
-						color: COLORS.primary,
+						flexDirection: "row",
+						alignSelf: "flex-end",
+						width: "15%",
+						marginVertical: "2%",
 					}}
 				>
-					Which service do you need
-				</Text>
+					<TouchableOpacity
+						style={{ width: 45, height: 45 }}
+						onPress={() => setModalVisible(true)}
+					>
+						<Image
+							source={assets.menuIcon}
+							resizeMode="contain"
+							style={{ width: "100%", height: "100%" }}
+						/>
+					</TouchableOpacity>
+
+					<Modal
+						animationType="fade"
+						transparent={true}
+						visible={modalVisible}
+						close={() => {
+							toggleModal(false);
+						}}
+					>
+						<Pressable
+							style={styles.loweredView}
+							onPress={() => {
+								setModalVisible(false);
+							}}
+						>
+							<View style={styles.centeredView}>
+								<View style={styles.modalView}>
+									<ModalList
+										setVisible={setModalVisible}
+									/>
+								</View>
+							</View>
+						</Pressable>
+					</Modal>
+				</View>
 			</View>
+
 			<View
 				style={{
 					width: "100%",
-					borderRadius: SIZES.font,
+					borderRadius: SIZES.small,
 					backgroundColor: "#F8F8F8",
 					flexDirection: "row",
 					alignItems: "center",
@@ -107,7 +117,7 @@ const HomeHeader = ({ onSearch }) => {
 					}}
 				/>
 				<TextInput
-					placeholder="Search Plumber, Cleaning, Gardener, Fruits"
+					placeholder="Search Laundry, Cleaning, Gardener, Fruits"
 					placeholderTextColor="#A0A0A0"
 					style={{
 						fontSize: SIZES.font,

@@ -7,6 +7,7 @@ import {
 	ScrollView,
 	TouchableOpacity,
 	Pressable,
+	KeyboardAvoidingView,
 	Modal,
 	TextInput,
 	Alert,
@@ -53,169 +54,193 @@ const Login = ({ route }) => {
 	return (
 		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
 			<ScrollView style={{ backgroundColor: "white", flex: 1 }}>
-				<View style={styles.container}>
-					<Image
-						source={require("../assets/login.png")}
-						resizeMode="center"
-						style={styles.image}
-					/>
-					<Text style={styles.textTitle}>LOGIN</Text>
-					<Text style={styles.textBody}>
-						Enter your phone number to proceed
-					</Text>
-					<View
-						style={{
-							flexDirection: "row",
-							width: "85%",
-							alignSelf: "stretch",
-						}}
-					>
-						<Text style={styles.countrycode}>+91</Text>
-
-						<TextInput
-							style={styles.input}
-							onChangeText={onChangePhoneNumber}
-							value={PhoneNumber}
-							placeholder="Enter Phone Number"
-							keyboardType="numeric"
-							placeholderTextColor="#a0a0a0"
-							maxLength={10}
-							letterSpacing={1}
+				<KeyboardAvoidingView
+					behavior="padding"
+					style={styles.container}
+				>
+					<View style={styles.container}>
+						<Image
+							source={require("../assets/login.png")}
+							resizeMode="center"
+							style={styles.image}
 						/>
-					</View>
-					{validity == "true" ? null : (
-						<Text style={{ color: "#bb0000" }}>
-							Please enter {validity} properly
+						<Text style={styles.textTitle}>LOGIN</Text>
+						<Text style={styles.textBody}>
+							Enter your phone number to proceed
 						</Text>
-					)}
+						<View
+							style={{
+								flexDirection: "row",
+								width: "85%",
+								alignSelf: "stretch",
 
-					<TouchableOpacity
-						style={styles.button}
-						onPress={() => {
-							const validationtemp = validate();
+								marginTop: 50,
 
-							if (validationtemp == true) {
-								setModalVisible(true);
-								setValidity("true");
-							} else {
-								console.log(
-									"Validation unsuccessful for input " +
-										validationtemp
-								);
-								setValidity("Phone Number");
-							}
-						}}
-					>
-						<Text style={styles.buttontext}>SEND OTP</Text>
-					</TouchableOpacity>
-					<TouchableOpacity
-						style={styles.button2}
-						onPress={() => navigation.navigate("Home")}
-					>
-						<Text style={styles.buttontext2}>SKIP</Text>
-					</TouchableOpacity>
-
-					<View style={styles.centeredView}>
-						<Modal
-							animationType="slide"
-							transparent={true}
-							visible={modalVisible}
-							onRequestClose={() => {
-								setModalVisible(!modalVisible);
+								marginLeft: 20,
 							}}
 						>
-							<View style={styles.centeredView}>
-								<View style={styles.modalView}>
-									<Text
-										style={{
-											fontWeight: "bold",
-											fontSize: 19,
-											alignSelf: "flex-start",
-										}}
-									>
-										VERIFY DETAILS
-									</Text>
+							<Text style={styles.countrycode}>+91</Text>
 
-									<Text
-										style={{
-											marginTop: 20,
-											fontSize: 15,
-											alignSelf: "flex-start",
-										}}
-									>
-										OTP has been sent to{" "}
-										{PhoneNumber}
-									</Text>
-									<Text
-										style={{
-											marginTop: 20,
-											fontSize: 20,
-											alignSelf: "flex-start",
-										}}
-									>
-										Enter the OTP below
-									</Text>
-									<TextInput
-										caretHidden={true}
-										style={styles.otp}
-										onChangeText={onChangeOTP}
-										value={OTP}
-										placeholder="••••"
-										keyboardType="numeric"
-										placeholderTextColor="#a0a0a0"
-										maxLength={4}
-										letterSpacing={5}
-									/>
-									<TouchableOpacity
-										onPress={() => {
-											setModalVisible(false);
-										}}
-									>
+							<TextInput
+								style={styles.input}
+								onChangeText={onChangePhoneNumber}
+								value={PhoneNumber}
+								placeholder="Enter Phone Number"
+								keyboardType="phone-pad"
+								placeholderTextColor="#a0a0a0"
+								maxLength={10}
+								letterSpacing={1}
+							/>
+						</View>
+						{validity == "true" ? null : (
+							<Text style={{ color: "#bb0000" }}>
+								Please enter {validity} properly
+							</Text>
+						)}
+
+						<TouchableOpacity
+							style={styles.button}
+							onPress={() => {
+								const validationtemp = validate();
+
+								if (validationtemp == true) {
+									setModalVisible(true);
+									setValidity("true");
+								} else {
+									console.log(
+										"Validation unsuccessful for input " +
+											validationtemp
+									);
+									setValidity("Phone Number");
+								}
+							}}
+						>
+							<Text style={styles.buttontext}>
+								SEND OTP
+							</Text>
+						</TouchableOpacity>
+						<TouchableOpacity
+							style={styles.button2}
+							onPress={() => navigation.navigate("Home")}
+						>
+							<Text style={styles.buttontext2}>SKIP</Text>
+						</TouchableOpacity>
+
+						<View style={styles.centeredView}>
+							<Modal
+								animationType="slide"
+								transparent={true}
+								visible={modalVisible}
+								onRequestClose={() => {
+									setModalVisible(!modalVisible);
+								}}
+							>
+								<View style={styles.centeredView}>
+									<View style={styles.modalView}>
 										<Text
 											style={{
-												marginTop: 10,
-												color: "blue",
-												fontSize: 16,
+												fontWeight: "bold",
+												fontSize: 19,
+												alignSelf:
+													"flex-start",
 											}}
 										>
-											Resend OTP
+											VERIFY DETAILS
 										</Text>
-									</TouchableOpacity>
-									<TouchableOpacity
-										style={styles.verifyButton}
-										onPress={() => {
-											if (OTP == 1609) {
+
+										<Text
+											style={{
+												marginTop: 20,
+												fontSize: 15,
+												alignSelf:
+													"flex-start",
+											}}
+										>
+											OTP has been sent to{" "}
+											{PhoneNumber}
+										</Text>
+										<Text
+											style={{
+												marginTop: 20,
+												fontSize: 20,
+												alignSelf:
+													"flex-start",
+											}}
+										>
+											Enter the OTP below
+										</Text>
+										<TextInput
+											caretHidden={true}
+											style={styles.otp}
+											onChangeText={
+												onChangeOTP
+											}
+											value={OTP}
+											placeholder="••••"
+											keyboardType="phone-pad"
+											placeholderTextColor="#a0a0a0"
+											maxLength={4}
+											letterSpacing={5}
+										/>
+										<TouchableOpacity
+											onPress={() => {
 												setModalVisible(
 													false
 												);
-												saveValue();
-												navigation.navigate(
-													"Home"
-												),
-													Alert.alert(
-														"You are now logged in"
-													);
-											} else {
-												Alert.alert(
-													"Incorrect OTP, Please try again"
-												);
-												onChangeOTP("");
-											}
-										}}
-									>
-										<Text
-											style={styles.buttontext}
+											}}
 										>
-											VERIFY AND PROCEED
-										</Text>
-									</TouchableOpacity>
+											<Text
+												style={{
+													marginTop: 10,
+													color: "blue",
+													fontSize: 16,
+												}}
+											>
+												Resend OTP
+											</Text>
+										</TouchableOpacity>
+										<TouchableOpacity
+											style={
+												styles.verifyButton
+											}
+											onPress={() => {
+												if (OTP == 1609) {
+													setModalVisible(
+														false
+													);
+													saveValue();
+													navigation.navigate(
+														"Home"
+													),
+														Alert.alert(
+															"You are now logged in"
+														);
+												} else {
+													Alert.alert(
+														"Incorrect OTP"
+													);
+													onChangeOTP(
+														""
+													);
+												}
+											}}
+										>
+											<Text
+												style={
+													styles.buttontext
+												}
+											>
+												VERIFY AND PROCEED
+											</Text>
+										</TouchableOpacity>
 
-									<TermsCondition />
+										<TermsCondition />
+									</View>
 								</View>
-							</View>
-						</Modal>
+							</Modal>
+						</View>
 					</View>
-				</View>
+				</KeyboardAvoidingView>
 			</ScrollView>
 		</SafeAreaView>
 	);
@@ -229,7 +254,6 @@ const styles = StyleSheet.create({
 		backgroundColor: "rgba(0, 0, 0, 0.4)",
 	},
 	modalView: {
-		margin: 20,
 		backgroundColor: "white",
 		borderRadius: 20,
 		padding: 35,
@@ -243,7 +267,7 @@ const styles = StyleSheet.create({
 		shadowRadius: 4,
 		elevation: 5,
 		width: "100%",
-		minHeight: "50%",
+		minHeight: "65%",
 	},
 	loweredView: {
 		flex: 1,
@@ -253,14 +277,12 @@ const styles = StyleSheet.create({
 	},
 
 	countrycode: {
-		marginTop: 50,
-		fontSize: 27,
-		height: 70,
-		marginLeft: 30,
+		fontSize: 24,
 		borderColor: "silver",
 		borderRadius: 9,
 		borderWidth: 1,
-		padding: 13,
+		padding: 17,
+		justifyContent: "center",
 	},
 	button: {
 		marginTop: 50,
@@ -282,7 +304,7 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 	},
 	verifyButton: {
-		marginTop: 20,
+		marginTop: "25%",
 		shadowColor: "rgba(0,0,0, .4)", // IOS
 		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
@@ -301,21 +323,20 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 	},
 	input: {
-		marginTop: 50,
-		fontSize: SIZES.large,
+		fontSize: SIZES.extraLarge - 4,
 		height: 70,
-		margin: 8,
+		marginLeft: 8,
 		borderColor: "silver",
 		borderRadius: 9,
 		borderWidth: 0.5,
 		borderWidth: 1,
 		width: "78%",
-		padding: 13,
+		padding: 8,
 	},
 	otp: {
 		justifyContent: "center",
 		textAlign: "center",
-		marginTop: 50,
+		marginTop: 20,
 		fontSize: 40,
 		height: 70,
 		margin: 8,

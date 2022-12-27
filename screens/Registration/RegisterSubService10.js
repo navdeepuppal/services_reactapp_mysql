@@ -7,6 +7,7 @@ import {
 	TouchableOpacity,
 	Image,
 	SafeAreaView,
+	KeyboardAvoidingView,
 	Button,
 	TextInput,
 } from "react-native";
@@ -43,7 +44,10 @@ const RegisterSubService10 = ({ route }) => {
 			setImage(result.uri);
 		}
 	};
-
+const saveValue = () => {
+	AsyncStorage.setItem("ServiceMan", "1");
+};
+saveValue();
 	const validation = () => {
 		var validationtemp = null;
 		if (AadharNumber >= 100000000000) {
@@ -55,7 +59,9 @@ const RegisterSubService10 = ({ route }) => {
 	};
 
 	return (
-		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
+		<SafeAreaView
+			style={{ backgroundColor: "white", flex: 1, margin: 12 }}
+		>
 			<ScrollView>
 				<View style={styles.container}>
 					<Image
@@ -82,9 +88,10 @@ const RegisterSubService10 = ({ route }) => {
 						value={AadharNumber}
 						placeholder="Please provide your Aadhar Number (For Verification)"
 						placeholderTextColor="#a0a0a0"
-						keyboardType="numeric"
+						keyboardType="phone-pad"
 						multiline
 						numberOfLines={2}
+						maxLength={12}
 					/>
 
 					<Text style={{ fontSize: 20, margin: 16 }}>
@@ -143,15 +150,14 @@ const RegisterSubService10 = ({ route }) => {
 
 const styles = StyleSheet.create({
 	input: {
-		fontSize: 20,
-
+		fontSize: 25,
+		alignItems: "center",
 		margin: 16,
 		borderColor: "silver",
 		borderRadius: 9,
 		borderWidth: 0.5,
 		borderWidth: 1,
 		width: "90%",
-		padding: 4,
 	},
 	container: {
 		flex: 1,

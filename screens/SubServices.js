@@ -75,6 +75,7 @@ const SubServices = ({ route, navigation }) => {
 			) : (
 				<View style={{ flex: 1 }}>
 					<FlatList
+						nestedScrollEnabled
 						data={data2}
 						renderItem={({ item }) => (
 							<NFTCard2 data={item} />

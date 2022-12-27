@@ -5,7 +5,6 @@ import {
 	View,
 	Text,
 	Image,
-	TextInput,
 	TouchableOpacity,
 	Modal,
 	FlatList,
@@ -146,7 +145,7 @@ const Cart = ({ route, navigation }) => {
 						>
 							<NFTTitle
 								title={data.SubSubS_Name}
-								titleSize={SIZES.extraLarge - 5}
+								titleSize={SIZES.large}
 								fontColor={COLORS.primary}
 							/>
 							<Text
@@ -161,7 +160,7 @@ const Cart = ({ route, navigation }) => {
 							</Text>
 							<NFTTitle
 								title={data.SubSubS_Description}
-								titleSize={SIZES.medium}
+								titleSize={SIZES.font + 1}
 								titleFont={FONTS.regular}
 								fontColor={COLORS.primary}
 							/>
@@ -385,6 +384,7 @@ const Cart = ({ route, navigation }) => {
 						}}
 					>
 						<FlatList
+							nestedScrollEnabled
 							showsVerticalScrollIndicator={false}
 							contentContainerStyle={{ paddingBottom: 70 }}
 							data={subSubServices}
@@ -590,7 +590,7 @@ const Cart = ({ route, navigation }) => {
 								alignItems: "center",
 								padding: "2%",
 								marginRight: "5%",
-								width: "50%",
+								width: "40%",
 
 								height: "100%",
 							}}

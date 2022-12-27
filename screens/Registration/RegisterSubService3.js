@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
 	},
 	textTitle: {
 		fontWeight: "bold",
-
+		margin: SIZES.base,
 		marginTop: SIZES.large,
 		fontSize: 40,
 		marginVertical: 5,
@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
 
 	textBody: {
 		marginTop: SIZES.large,
+		margin: SIZES.base,
 		fontSize: 19,
 		textAlign: "center",
 	},

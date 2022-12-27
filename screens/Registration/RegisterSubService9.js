@@ -80,7 +80,7 @@ const RegisterSubService9 = ({ route }) => {
 							value={Experience}
 							placeholder="How much years experience do you have in this particular service?"
 							placeholderTextColor="#a0a0a0"
-							keyboardType="numeric"
+							keyboardType="phone-pad"
 							multiline
 							numberOfLines={2}
 						/>
@@ -103,6 +103,7 @@ const RegisterSubService9 = ({ route }) => {
 							contentContainerStyle={{ width: "100%" }}
 						>
 							<FlatList
+								nestedScrollEnabled
 								data={subServices}
 								keyExtractor={(item) => item.SubS_ID}
 								showsVerticalScrollIndicator={false}
@@ -127,7 +128,7 @@ const RegisterSubService9 = ({ route }) => {
 												item.SubS_Name
 											}
 											placeholderTextColor="#a0a0a0"
-											keyboardType="numeric"
+											keyboardType="phone-pad"
 											multiline
 											numberOfLines={2}
 										/>
@@ -155,7 +156,7 @@ const RegisterSubService9 = ({ route }) => {
 										"?"
 									}
 									placeholderTextColor="#a0a0a0"
-									keyboardType="numeric"
+									keyboardType="phone-pad"
 									multiline
 									numberOfLines={2}
 								/>

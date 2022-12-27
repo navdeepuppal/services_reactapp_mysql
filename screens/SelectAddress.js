@@ -8,6 +8,7 @@ import {
 	Alert,
 	SafeAreaView,
 	TextInput,
+	KeyboardAvoidingView,
 } from "react-native";
 
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
@@ -51,189 +52,234 @@ const SelectAddress = ({ navigation, route }) => {
 		<SafeAreaView style={{ backgroundColor: COLORS.white, flex: 1 }}>
 			<ScrollView>
 				<BackButton />
-
-				<View style={{ alignItems: "center", margin: 10 }}>
-					{modalVisible ? (
-						<View style={{ height: "100%" }} />
-					) : (
-						<View>
-							<Text
-								style={{
-									fontSize: 30,
-									fontWeight: "600",
-									marginTop: 70,
-								}}
-							>
-								CONFIRM ADDRESS
-							</Text>
-							<Text
-								style={{
-									fontSize: 15,
-									marginTop: 10,
-									color: "gray",
-								}}
-							>
-								Service Man will visit this address for
-								your booking
-							</Text>
-
-							<Text
-								style={{
-									fontSize: 25,
-									margin: 10,
-									marginTop: 60,
-								}}
-							>
-								Saved Address:
-							</Text>
-
-							<Text style={{ fontSize: 22, margin: 20 }}>
-								{AddressHouse}, {AddressArea}, Near{" "}
-								{AddressLandmark}, {AddressCity}.
-								Pincode: {Pincode}
-							</Text>
-						</View>
-					)}
-				</View>
-				<View
-					style={{
-						flexDirection: "row",
-						alignSelf: "center",
-					}}
+				<KeyboardAvoidingView
+					behavior="padding"
+					style={styles.container}
 				>
-					<TouchableOpacity
-						style={styles.editAddressButton}
-						onPress={() => {
-							setModalVisible(true);
+					<View style={{ alignItems: "center", margin: 10 }}>
+						{modalVisible ? (
+							<View style={{ height: "100%" }} />
+						) : (
+							<View>
+								<Text
+									style={{
+										fontSize: 30,
+										fontWeight: "600",
+										marginTop: 70,
+									}}
+								>
+									CONFIRM ADDRESS
+								</Text>
+								<Text
+									style={{
+										fontSize: 15,
+										marginTop: 10,
+										color: "gray",
+									}}
+								>
+									Service Man will visit this address
+									for your booking
+								</Text>
+
+								<Text
+									style={{
+										fontSize: 25,
+										margin: 10,
+										marginTop: 60,
+									}}
+								>
+									Saved Address:
+								</Text>
+
+								<Text
+									style={{
+										fontSize: 22,
+										margin: 20,
+									}}
+								>
+									{AddressHouse}, {AddressArea}, Near{" "}
+									{AddressLandmark}, {AddressCity}.
+									Pincode: {Pincode}
+								</Text>
+							</View>
+						)}
+					</View>
+					<View
+						style={{
+							flexDirection: "row",
+							alignSelf: "center",
 						}}
 					>
-						<Text style={styles.buttontext}>
-							Edit Address
-						</Text>
-					</TouchableOpacity>
-					{isAddressNull ? null : (
 						<TouchableOpacity
-							style={styles.deleteAddressButton}
+							style={styles.editAddressButton}
 							onPress={() => {
-								AsyncStorage.removeItem("Address");
-								setAddressHouse("");
-								setAddressArea("");
-								setAddressLandmark("");
-								setAddressCity("");
-								setPincode("");
-								setAddressNull(true);
+								setModalVisible(true);
 							}}
 						>
 							<Text style={styles.buttontext}>
-								Delete Address
+								Edit Address
 							</Text>
 						</TouchableOpacity>
-					)}
-				</View>
-				<TouchableOpacity
-					style={styles.proceedButton}
-					onPress={() => {
-						navigation.navigate("SelectTime", { cartData });
-					}}
-				>
-					<Text style={styles.confirmbuttontext}>Confirm</Text>
-				</TouchableOpacity>
-				<View style={styles.centeredView}>
-					<Modal
-						animationType="slide"
-						transparent={true}
-						visible={modalVisible}
-						onRequestClose={() => {
-							setModalVisible(!modalVisible);
+						{isAddressNull ? null : (
+							<TouchableOpacity
+								style={styles.deleteAddressButton}
+								onPress={() => {
+									AsyncStorage.removeItem("Address");
+									setAddressHouse("");
+									setAddressArea("");
+									setAddressLandmark("");
+									setAddressCity("");
+									setPincode("");
+									setAddressNull(true);
+								}}
+							>
+								<Text style={styles.buttontext}>
+									Delete Address
+								</Text>
+							</TouchableOpacity>
+						)}
+					</View>
+					<TouchableOpacity
+						style={styles.proceedButton}
+						onPress={() => {
+							navigation.navigate("SelectTime", {
+								cartData,
+							});
 						}}
 					>
-						<View style={styles.centeredView}>
-							<View style={styles.modalView}>
-								<BackButton />
-								<Text style={styles.inputText}>
-									FILL ADDRESS
-								</Text>
-								<TextInput
-									style={styles.input}
-									onChangeText={setAddressHouse}
-									value={AddressHouse}
-									placeholder="HOUSE / FLAT / FLOOR NO. "
-									placeholderTextColor="#a0a0a0"
-									numberOfLines={4}
-								/>
-								<TextInput
-									style={styles.input}
-									onChangeText={setAddressArea}
-									value={AddressArea}
-									placeholder="AREA / ROAD / STREET "
-									placeholderTextColor="#a0a0a0"
-									numberOfLines={4}
-								/>
-								<TextInput
-									style={styles.input}
-									onChangeText={setAddressLandmark}
-									value={AddressLandmark}
-									placeholder="LANDMARK"
-									placeholderTextColor="#a0a0a0"
-									numberOfLines={4}
-								/>
-								<TextInput
-									style={styles.input}
-									onChangeText={setAddressCity}
-									value={AddressCity}
-									placeholder="CITY"
-									placeholderTextColor="#a0a0a0"
-									numberOfLines={4}
-								/>
+						<Text style={styles.confirmbuttontext}>
+							Confirm
+						</Text>
+					</TouchableOpacity>
+					<View style={styles.centeredView}>
+						<Modal
+							animationType="slide"
+							transparent={true}
+							visible={modalVisible}
+							onRequestClose={() => {
+								setModalVisible(!modalVisible);
+							}}
+						>
+							<ScrollView>
+								<View style={styles.centeredView}>
+									<View style={styles.modalView}>
+										<BackButton />
+										<Text
+											style={styles.inputText}
+										>
+											FILL ADDRESS
+										</Text>
+										<TextInput
+											style={styles.input}
+											onChangeText={
+												setAddressHouse
+											}
+											value={AddressHouse}
+											placeholder="HOUSE / FLAT / FLOOR NO. "
+											placeholderTextColor="#a0a0a0"
+											numberOfLines={4}
+										/>
+										<TextInput
+											style={styles.input}
+											onChangeText={
+												setAddressArea
+											}
+											value={AddressArea}
+											placeholder="AREA / ROAD / STREET "
+											placeholderTextColor="#a0a0a0"
+											numberOfLines={4}
+										/>
+										<TextInput
+											style={styles.input}
+											onChangeText={
+												setAddressLandmark
+											}
+											value={AddressLandmark}
+											placeholder="LANDMARK"
+											placeholderTextColor="#a0a0a0"
+											numberOfLines={4}
+										/>
+										<TextInput
+											style={styles.input}
+											onChangeText={
+												setAddressCity
+											}
+											value={AddressCity}
+											placeholder="CITY"
+											placeholderTextColor="#a0a0a0"
+											numberOfLines={4}
+										/>
 
-								<Text style={styles.pincodeText}>
-									Pincode
-								</Text>
-								<TextInput
-									style={styles.pincodeinput}
-									onChangeText={setPincode}
-									value={Pincode}
-									placeholder=""
-									keyboardType="numeric"
-									placeholderTextColor="#a0a0a0"
-									maxLength={6}
-									letterSpacing={2}
-								/>
+										<Text
+											style={
+												styles.pincodeText
+											}
+										>
+											Pincode
+										</Text>
+										<TextInput
+											style={
+												styles.pincodeinput
+											}
+											onChangeText={setPincode}
+											value={Pincode}
+											placeholder=""
+											keyboardType="phone-pad"
+											placeholderTextColor="#a0a0a0"
+											maxLength={6}
+											letterSpacing={2}
+										/>
 
-								<TouchableOpacity
-									style={styles.verifyButton}
-									onPress={() => {
-										const add = JSON.stringify({
-											AddressHouse,
-											AddressArea,
-											AddressLandmark,
-											AddressCity,
-											Pincode,
-										});
-										if (
-											add.search('""') == -1 &&
-											Pincode >= 99999
-										) {
-											AsyncStorage.setItem(
-												"Address",
-												add
-											);
-											setModalVisible(false);
-										} else {
-											Alert.alert(
-												"Detailed address will help our service man reach your doorstep easily."
-											);
-										}
-									}}
-								>
-									<Text style={styles.buttontext}>
-										Save Address
-									</Text>
-								</TouchableOpacity>
-							</View>
-						</View>
-					</Modal>
-				</View>
+										<TouchableOpacity
+											style={
+												styles.verifyButton
+											}
+											onPress={() => {
+												const add =
+													JSON.stringify(
+														{
+															AddressHouse,
+															AddressArea,
+															AddressLandmark,
+															AddressCity,
+															Pincode,
+														}
+													);
+												if (
+													add.search(
+														'""'
+													) == -1 &&
+													Pincode >=
+														99999
+												) {
+													AsyncStorage.setItem(
+														"Address",
+														add
+													);
+													setModalVisible(
+														false
+													);
+												} else {
+													Alert.alert(
+														"Detailed address will help our service man to reach your doorstep easily."
+													);
+												}
+											}}
+										>
+											<Text
+												style={
+													styles.buttontext
+												}
+											>
+												Save Address
+											</Text>
+										</TouchableOpacity>
+									</View>
+								</View>
+							</ScrollView>
+						</Modal>
+					</View>
+				</KeyboardAvoidingView>
 			</ScrollView>
 		</SafeAreaView>
 	);
@@ -265,24 +311,13 @@ const styles = StyleSheet.create({
 	},
 	modalView: {
 		backgroundColor: "white",
-		borderRadius: 20,
-		padding: 35,
+		padding: 25,
 		shadowColor: "#000",
-		shadowOffset: {
-			width: 0,
-			height: 2,
-		},
 		shadowOpacity: 0.25,
 		shadowRadius: 4,
 		elevation: 5,
-		width: "110%",
-		minHeight: "100%",
-	},
-	loweredView: {
-		flex: 1,
-		justifyContent: "flex-end",
-		alignItems: "flex-end",
-		backgroundColor: "rgba(0, 0, 0, 0.4)",
+		width: "100%",
+		height: "140%",
 	},
 	extraText: {
 		fontSize: 15,
@@ -315,7 +350,7 @@ const styles = StyleSheet.create({
 		borderRadius: 9,
 		borderWidth: 1,
 		width: "90%",
-		height: "8%",
+		height: "5%",
 	},
 	editAddressButton: {
 		marginTop: 2,

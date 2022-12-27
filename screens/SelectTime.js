@@ -54,7 +54,7 @@ const SelectTime = ({ navigation, route }) => {
 							}
 							onPress={() => settimeSlot("Morning")}
 						/>
-						<Text style={{ fontSize: 23 }}>
+						<Text style={{ fontSize: 20 }}>
 							Morning Slot: After 7 AM{" "}
 						</Text>
 					</View>
@@ -82,7 +82,7 @@ const SelectTime = ({ navigation, route }) => {
 							}
 							onPress={() => settimeSlot("Evening")}
 						/>
-						<Text style={{ fontSize: 23 }}>
+						<Text style={{ fontSize: 20 }}>
 							Evening Slot: After 3 PM
 						</Text>
 					</View>

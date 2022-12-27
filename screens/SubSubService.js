@@ -14,6 +14,7 @@ import { NFTCard6, HomeHeader, FocusedStatusBar } from "../components";
 import { COLORS, config, SIZES } from "../constants";
 import SubSubServicesHeader from "../components/SubSubServicesHeader";
 import { Colors } from "react-native-paper";
+import { ScrollView } from "react-native-gesture-handler";
 
 const SubSubService = ({ route, navigation }) => {
 	const [isLoading, setLoading] = useState(true);
@@ -84,6 +85,7 @@ const SubSubService = ({ route, navigation }) => {
 			) : (
 				<View style={{ flex: 1 }}>
 					<FlatList
+						nestedScrollEnabled
 						data={data2}
 						renderItem={({ item, index }) => (
 							<NFTCard6
@@ -110,15 +112,15 @@ const SubSubService = ({ route, navigation }) => {
 					style={{
 						flexDirection: "row",
 						justifyContent: "space-between",
+						height: "7%",
+
 						alignContent: "center",
 						alignItems: "center",
-						minHeight: "10%",
 					}}
 				>
 					<Text
 						style={{
 							marginLeft: 25,
-							marginVertical: 10,
 							color: COLORS.primary,
 							fontSize: 22,
 						}}
@@ -129,14 +131,16 @@ const SubSubService = ({ route, navigation }) => {
 						style={{
 							backgroundColor: "#0E8D4D",
 							borderRadius: 10,
-							alignItems: "center",
 							marginRight: "5%",
 							padding: "1%",
-							height: "50%",
-							width: "40%",
+							width: "35%",
+							height: "80%",
+							justifyContent: "center",
 						}}
 						onPress={() =>
-							navigation.navigate("Cart", { data2_backup })
+							navigation.navigate("Cart", {
+								data2_backup,
+							})
 						}
 					>
 						<Text

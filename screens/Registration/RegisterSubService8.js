@@ -6,6 +6,7 @@ import {
 	Image,
 	ScrollView,
 	TouchableOpacity,
+	KeyboardAvoidingView,
 	TextInput,
 } from "react-native";
 
@@ -38,56 +39,64 @@ const RegisterSubService8 = ({ route }) => {
 	return (
 		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
 			<ScrollView style={{ backgroundColor: "white", flex: 1 }}>
-				<View style={styles.container}>
-					<Image
-						source={require("../../assets/login.png")}
-						resizeMode="center"
-						style={styles.image}
-					/>
-					<Text style={styles.textTitle}>Please Login</Text>
-					<Text style={styles.textBody}>
-						Log in to verify your phone number
-					</Text>
-					<View style={{ marginTop: 20 }} />
-					<TextInput
-						style={styles.input}
-						onChangeText={onChangePhoneNumber}
-						value={PhoneNumber}
-						placeholder="Phone Number"
-						keyboardType="numeric"
-						icon="user"
-						placeholderTextColor="#a0a0a0"
-					/>
-					{validity == "true" ? null : (
-						<Text style={{ color: "#bb0000" }}>
-							Please enter {validity} properly
+				<KeyboardAvoidingView
+					behavior="padding"
+					style={styles.container}
+				>
+					<View style={styles.container}>
+						<Image
+							source={require("../../assets/login.png")}
+							resizeMode="center"
+							style={styles.image}
+						/>
+						<Text style={styles.textTitle}>Please Login</Text>
+						<Text style={styles.textBody}>
+							Log in to verify your phone number
 						</Text>
-					)}
-					<TouchableOpacity
-						style={styles.button}
-						onPress={() => {
-							const validationtemp = validation();
-							if (validationtemp == "true") {
-								navigation.navigate(
-									"RegisterSubService9",
-									{
-										subServices,
-										SMan_Details1,
-										PhoneNumber,
-									}
-								);
-							} else {
-								console.log(
-									"Validation unsuccessful for input " +
-										validationtemp
-								);
-							}
-							setValidity(validationtemp);
-						}}
-					>
-						<Text style={styles.buttontext}>SEND OTP</Text>
-					</TouchableOpacity>
-				</View>
+						<View style={{ marginTop: 20 }} />
+						<TextInput
+							style={styles.input}
+							onChangeText={onChangePhoneNumber}
+							value={PhoneNumber}
+							placeholder="Phone Number"
+							keyboardType="phone-pad"
+							icon="user"
+							placeholderTextColor="#a0a0a0"
+							maxLength={10}
+						/>
+						{validity == "true" ? null : (
+							<Text style={{ color: "#bb0000" }}>
+								Please enter {validity} properly
+							</Text>
+						)}
+						<TouchableOpacity
+							style={styles.button}
+							onPress={() => {
+								const validationtemp = validation();
+								if (validationtemp == "true") {
+									navigation.navigate(
+										"RegisterSubService9",
+										{
+											subServices,
+											SMan_Details1,
+											PhoneNumber,
+										}
+									);
+								} else {
+									console.log(
+										"Validation unsuccessful for input " +
+											validationtemp
+									);
+								}
+								setValidity(validationtemp);
+							}}
+						>
+							<Text style={styles.buttontext}>
+								SEND OTP
+							</Text>
+						</TouchableOpacity>
+					</View>
+				</KeyboardAvoidingView>
 			</ScrollView>
 		</SafeAreaView>
 	);

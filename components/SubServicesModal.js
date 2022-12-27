@@ -36,6 +36,7 @@ const SubServicesModal = ({ data, setSubSModalVisible }) => {
 	) : (
 		<View style={{ width: "100%" }}>
 			<FlatList
+				nestedScrollEnabled
 				data={data2}
 				renderItem={({ item }) => (
 					<NFTCard2

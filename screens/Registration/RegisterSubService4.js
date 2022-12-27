@@ -110,19 +110,21 @@ const styles = StyleSheet.create({
 	},
 	textTitle: {
 		fontWeight: "bold",
-
+		margin: SIZES.base,
 		textAlign: "center",
 		marginTop: SIZES.large,
 		fontSize: 40,
 		marginVertical: 5,
 	},
 	littleTitle: {
+		margin: SIZES.base,
 		marginTop: SIZES.large,
 		fontSize: 19,
 		textAlign: "center",
 	},
 
 	textBody: {
+		margin: SIZES.base,
 		textAlign: "center",
 		marginTop: SIZES.large,
 		fontSize: 30,

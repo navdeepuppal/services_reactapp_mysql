@@ -93,6 +93,7 @@ const RegisterSubService5 = ({ navigation }) => {
 					</Text>
 
 					<FlatList
+						nestedScrollEnabled
 						data={data2}
 						renderItem={({ item }) => (
 							<NFTCard4 data={item} />

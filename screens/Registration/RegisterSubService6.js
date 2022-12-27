@@ -134,6 +134,7 @@ const RegisterSubService6 = ({ route }) => {
 						Window Repair, Full House Wood Work or any other.
 					</Text>
 					<FlatList
+						nestedScrollEnabled
 						data={data2}
 						renderItem={({ item, index }) => (
 							<NFTCard5

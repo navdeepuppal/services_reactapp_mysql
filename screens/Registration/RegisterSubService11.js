@@ -9,6 +9,7 @@ import {
 	SafeAreaView,
 } from "react-native";
 
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import { COLORS, SIZES, SHADOWS, assets, config } from "../../constants";
 
@@ -29,6 +30,10 @@ const RegisterSubService11 = ({ route }) => {
 	//console.log("reached6\t" + JSON.stringify(AadharImage));
 
 	const [postStatus, setPostStatus] = useState(0);
+	const saveValue = () => {
+		AsyncStorage.setItem("ServiceMan", "1");
+	};
+	saveValue();
 
 	subServices.forEach((item) => {
 		console.log(

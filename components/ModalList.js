@@ -24,7 +24,6 @@ const ModalList = ({ setVisible }) => {
 	AsyncStorage.getItem("PhoneNumber").then((user) => {
 		setUser(user);
 	});
-
 	return (
 		<SafeAreaView
 			style={{
@@ -33,48 +32,69 @@ const ModalList = ({ setVisible }) => {
 			}}
 		>
 			{user ? (
-				<TouchableOpacity
-					style={{
-						alignSelf: "center",
-					}}
-				>
-					<View
+				<View>
+					<TouchableOpacity
 						style={{
-							flexDirection: "row",
-							alignItems: "center",
+							alignSelf: "center",
 						}}
 					>
-						<Image
-							style={{ width: 50, height: 50 }}
-							source={require("../assets/images/user.png")}
-						/>
-
 						<View
 							style={{
-								flexDirection: "column",
-								margin: 10,
+								flexDirection: "row",
+								alignItems: "center",
 							}}
 						>
-							<Text
+							<Image
+								style={{ width: 50, height: 50 }}
+								source={require("../assets/images/user.png")}
+							/>
+
+							<View
 								style={{
-									fontSize: 20,
+									flexDirection: "column",
+									margin: 10,
 								}}
 							>
-								{user}
-							</Text>
-							<Text
-								style={{
-									fontSize: 15,
-								}}
-							>
-								5 ★
+								<Text
+									style={{
+										fontSize: 20,
+									}}
+								>
+									{user}
+								</Text>
+								<Text
+									style={{
+										fontSize: 15,
+									}}
+								>
+									5 ★
+								</Text>
+							</View>
+						</View>
+					</TouchableOpacity>
+
+					<TouchableOpacity style={styles.button2}>
+						<View
+							style={{
+								flexDirection: "row",
+								justifyContent: "space-between",
+								alignItems: "center",
+							}}
+						>
+							<Image
+								source={require("../assets/icons/wallet.png")}
+								style={styles.walletImage}
+							/>
+							<Text style={styles.loginText}>
+								{" "}
+								Wallet : ₹100
 							</Text>
 						</View>
-					</View>
-				</TouchableOpacity>
+					</TouchableOpacity>
+				</View>
 			) : (
 				<TouchableOpacity
-					style={styles.button2}
+					style={styles.loginButton}
 					onPress={() => {
 						setVisible(false);
 						navigation.navigate("Login");
@@ -83,20 +103,20 @@ const ModalList = ({ setVisible }) => {
 					<View
 						style={{
 							flexDirection: "row",
-							justifyContent: "center",
+							justifyContent: "space-between",
+							alignItems: "center",
 						}}
 					>
+						<Image
+							source={require("../assets/icons/in.png")}
+							style={styles.image}
+						/>
 						<Text style={styles.loginText}> Log In</Text>
 					</View>
 				</TouchableOpacity>
 			)}
 
-			<ScrollView
-				style={{
-					backgroundColor: "rgba(248,248,250,255)",
-					flex: 1,
-				}}
-			>
+			<ScrollView>
 				<View
 					style={{
 						marginTop: "5%",
@@ -133,10 +153,8 @@ const ModalList = ({ setVisible }) => {
 					<TouchableOpacity
 						onPress={() => {
 							setVisible(false);
-							AsyncStorage.setItem("isLoggedIn", "false");
-							AsyncStorage.setItem("Address", "");
-							AsyncStorage.setItem("PhoneNumber", "");
-							navigation.navigate("Login");
+							AsyncStorage.clear();
+							Alert.alert("Logged out");
 						}}
 					>
 						<View
@@ -192,6 +210,16 @@ const ModalList = ({ setVisible }) => {
 };
 
 const styles = StyleSheet.create({
+	image: {
+		width: 30,
+		height: 30,
+		marginVertical: 10,
+	},
+	walletImage: {
+		width: 20,
+		height: 20,
+		marginVertical: 10,
+	},
 	centeredView: {
 		flex: 1,
 		marginTop: 22,
@@ -234,6 +262,21 @@ const styles = StyleSheet.create({
 	buttonOpen: {
 		backgroundColor: "#F194FF",
 	},
+	loginButton: {
+		shadowColor: "rgba(0,0,0, .1)", // IOS
+		shadowOffset: { height: 1, width: 1 }, // IOS
+		shadowOpacity: 1, // IOS
+		shadowRadius: 1, //IOS
+		backgroundColor: "rgba(255,255,255,255)",
+		borderColor: COLORS.primary,
+		margin: SIZES.base,
+		height: "8%",
+		elevation: 20,
+		borderRadius: SIZES.small,
+		alignItems: "center",
+		justifyContent: "center",
+	},
+
 	button2: {
 		shadowColor: "rgba(0,0,0, .1)", // IOS
 		shadowOffset: { height: 1, width: 1 }, // IOS
@@ -242,13 +285,12 @@ const styles = StyleSheet.create({
 		backgroundColor: "rgba(255,255,255,255)",
 		borderColor: COLORS.primary,
 		margin: SIZES.base,
-		height: "7%",
+		height: "20%",
 		elevation: 20,
 		borderRadius: SIZES.small,
 		alignItems: "center",
 		justifyContent: "center",
 	},
-
 	textStyle: {
 		color: "white",
 		fontWeight: "bold",
@@ -264,6 +306,7 @@ const styles = StyleSheet.create({
 	loginText: {
 		textAlign: "center",
 		fontSize: 20,
+		justifyContent: "center",
 	},
 	modalText: {
 		marginBottom: 15,

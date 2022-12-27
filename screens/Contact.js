@@ -6,12 +6,13 @@ import {
 	TextInput,
 	TouchableOpacity,
 	SafeAreaView,
+	KeyboardAvoidingView,
 	Linking,
 	Alert,
 } from "react-native";
 import React, { useState } from "react";
 import { COLORS } from "../constants";
-import ExitHeader from "../components/ExitHeader";
+import BackButton from "../components/BackButton";
 
 const Contact = ({ navigation }) => {
 	const [name, setName] = useState("");
@@ -31,56 +32,68 @@ const Contact = ({ navigation }) => {
 
 	return (
 		<SafeAreaView style={{ backgroundColor: COLORS.white, flex: 1 }}>
-
-			<ExitHeader/>
+			<BackButton />
 			<ScrollView style={styles.mainContainer}>
-				<Text style={styles.mainHeader}>How can we help you ? </Text>
+				<KeyboardAvoidingView
+					behavior="padding"
+					style={styles.container}
+				>
+					<Text style={styles.mainHeader}>
+						How can we help you ?{" "}
+					</Text>
 
-				<Text style={styles.description}>
-					You can reach us anytime via sqera@gmail.com
-				</Text>
+					<Text style={styles.description}>
+						You can reach us anytime via sqera@gmail.com
+					</Text>
 
-				
+					<View style={styles.inputContainer}>
+						<Text style={styles.labels}>
+							{" "}
+							Tell us the Issue{" "}
+						</Text>
+						<TextInput
+							style={[
+								styles.inputStyle,
+								styles.multilineStyle,
+							]}
+							placeholder={""}
+							value={message}
+							onChangeText={(msg) => setMessage(msg)}
+							numberOfLines={10}
+							multiline={true}
+						/>
+					</View>
 
-				<View style={styles.inputContainer}>
-					<Text style={styles.labels}> Tell us the Issue </Text>
-					<TextInput
-						style={[styles.inputStyle, styles.multilineStyle]}
-						placeholder={""}
-						value={message}
-						onChangeText={(msg) => setMessage(msg)}
-						numberOfLines={10}
-						multiline={true}
-					/>
-				</View>
 
-				{/* checkbox  */}
-
-				
-
-				{/* submit button  */}
-
-				<TouchableOpacity
-				style={[
-					styles.buttonStyle,
-					{
-						backgroundColor:"#4630EB" ,
-					},
-				]}
-				disabled={!message}
-				onPress={() =>{ try {
-					Linking.openURL(
-						"whatsapp://send?text=" + message + "&phone=+919041504403"
-					)
-					Alert.alert("Opening Whatspp..")
-				} catch (error) {
-					Alert.alert("Make sure you have whatsapp installed on your phone. If non then you can send the details on 9041504403 via SMS or WhatsApp")
-				}}
-					
-				}
-			>
-				<Text style={styles.buttonText}> Contact Us </Text>
-			</TouchableOpacity>
+					<TouchableOpacity
+						style={[
+							styles.buttonStyle,
+							{
+								backgroundColor: "#4630EB",
+							},
+						]}
+						disabled={!message}
+						onPress={() => {
+							try {
+								Linking.openURL(
+									"whatsapp://send?text=" +
+										message +
+										"&phone=+919041504403"
+								);
+								Alert.alert("Opening Whatspp..");
+							} catch (error) {
+								Alert.alert(
+									"Make sure you have whatsapp installed on your phone. If non then you can send the details on 9041504403 via SMS or WhatsApp"
+								);
+							}
+						}}
+					>
+						<Text style={styles.buttonText}>
+							{" "}
+							Contact Us{" "}
+						</Text>
+					</TouchableOpacity>
+				</KeyboardAvoidingView>
 			</ScrollView>
 		</SafeAreaView>
 	);

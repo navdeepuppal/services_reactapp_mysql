@@ -17,7 +17,7 @@ import Checkbox from "expo-checkbox";
 import { COLORS } from "../constants";
 
 import { RadioButton } from "react-native-paper";
-import ExitHeader from "../components/ExitHeader";
+import BackButton from "../components/BackButton";
 
 const RequestNewService = ({ navigation }) => {
 	const [name, setName] = useState("");
@@ -39,71 +39,82 @@ const RequestNewService = ({ navigation }) => {
 
 	return (
 		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
-			<ExitHeader />
+			<BackButton />
 			<ScrollView style={styles.mainContainer}>
-				<Text style={styles.mainHeader}>Hey! Skilled Person.</Text>
-				<Text style={styles.mainHeader1}>
-					Tell us the skill you have, {"\n"}we will create a new
-					category for you, And broadcast to your customers 😉{" "}
-					{"\n\n"}
-				</Text>
-				<Text style={styles.description}>
-					You can reach us anytime via sqera@gmail.com
-				</Text>
-				<View style={styles.inputContainer}>
-					<Text style={styles.labels}>
-						Describe your skill which you want us to broadcast{" "}
+				<KeyboardAvoidingView
+					behavior="padding"
+					style={styles.container}
+				>
+					<Text style={styles.mainHeader}>
+						Hey! Skilled Person.
+					</Text>
+					<Text style={styles.mainHeader1}>
+						Tell us the skill you have, {"\n"}we will create a
+						new category for you, And broadcast to your
+						customers 😉 {"\n\n"}
 					</Text>
 
-					<Text style={styles.description2}>
-						Example: "Service: Consultation. Skill: I'm a
-						doctor and can help people to get cure from normal
-						virals or fever"
+					<View style={styles.inputContainer}>
+						<Text style={styles.labels}>
+							Describe your skill which you want us to
+							broadcast{" "}
+						</Text>
+
+						<Text style={styles.description2}>
+							Example: "Service: Consultation. Skill: I'm a
+							doctor and can help people to get cure from
+							normal virals or fever"
+						</Text>
+						<TextInput
+							style={[styles.inputStyle]}
+							placeholder={"Write Here.."}
+							value={message}
+							onChangeText={(msg) => setMessage(msg)}
+							multiline={true}
+						/>
+					</View>
+					<View style={styles.wrapper}>
+						<Checkbox
+							value={agree}
+							onValueChange={() => setAgree(!agree)}
+							color={agree ? "#4630EB" : undefined}
+						/>
+						<Text style={styles.wrapperText}>
+							Is this the legit service which can be in
+							demand for the Customers ?
+						</Text>
+					</View>
+					<TouchableOpacity
+						style={[
+							styles.buttonStyle,
+							{
+								backgroundColor: agree
+									? "#4630EB"
+									: "grey",
+							},
+						]}
+						disabled={!agree}
+						onPress={() => {
+							try {
+								Linking.openURL(
+									"whatsapp://send?text=" +
+										message +
+										"&phone=+919041504403"
+								);
+								Alert.alert("Opening Whatspp..");
+							} catch (error) {
+								Alert.alert(
+									"Make sure you have whatsapp installed on your phone. If non then you can send the details on 9041504403 via SMS or WhatsApp"
+								);
+							}
+						}}
+					>
+						<Text style={styles.buttonText}> Submit </Text>
+					</TouchableOpacity>
+					<Text style={styles.description}>
+						You can reach us anytime via sqera@gmail.com
 					</Text>
-					<TextInput
-						style={[styles.inputStyle]}
-						placeholder={"Write Here.."}
-						value={message}
-						onChangeText={(msg) => setMessage(msg)}
-						multiline={true}
-					/>
-				</View>
-				<View style={styles.wrapper}>
-					<Checkbox
-						value={agree}
-						onValueChange={() => setAgree(!agree)}
-						color={agree ? "#4630EB" : undefined}
-					/>
-					<Text style={styles.wrapperText}>
-						Is this the legit service which can be in demand
-						for the Customers ?
-					</Text>
-				</View>
-				<TouchableOpacity
-					style={[
-						styles.buttonStyle,
-						{
-							backgroundColor: agree ? "#4630EB" : "grey",
-						},
-					]}
-					disabled={!agree}
-					onPress={() => {
-						try {
-							Linking.openURL(
-								"whatsapp://send?text=" +
-									message +
-									"&phone=+919041504403"
-							);
-							Alert.alert("Opening Whatspp..");
-						} catch (error) {
-							Alert.alert(
-								"Make sure you have whatsapp installed on your phone. If non then you can send the details on 9041504403 via SMS or WhatsApp"
-							);
-						}
-					}}
-				>
-					<Text style={styles.buttonText}> Submit </Text>
-				</TouchableOpacity>
+				</KeyboardAvoidingView>
 			</ScrollView>
 		</SafeAreaView>
 	);
@@ -147,7 +158,6 @@ const styles = StyleSheet.create({
 		marginTop: 2,
 	},
 	labels: {
-		marginTop: 20,
 		fontWeight: "bold",
 		fontSize: 20,
 		color: "#7d7d7d",
