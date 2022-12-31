@@ -78,7 +78,7 @@ const SubSubService = ({ route, navigation }) => {
 	}, []);
 
 	return (
-		<SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
+		<SafeAreaView style={{ flex: 1 }}>
 			<FocusedStatusBar backgroundColor={COLORS.gray} />
 			{isLoading ? (
 				<ActivityIndicator />
@@ -113,7 +113,7 @@ const SubSubService = ({ route, navigation }) => {
 						flexDirection: "row",
 						justifyContent: "space-between",
 						height: "7%",
-
+						backgroundColor: "white",
 						alignContent: "center",
 						alignItems: "center",
 					}}
@@ -129,7 +129,7 @@ const SubSubService = ({ route, navigation }) => {
 					</Text>
 					<TouchableOpacity
 						style={{
-							backgroundColor: "#0E8D4D",
+							backgroundColor: "black",
 							borderRadius: 10,
 							marginRight: "5%",
 							padding: "1%",

@@ -66,6 +66,7 @@ const SelectAddress = ({ navigation, route }) => {
 										fontSize: 30,
 										fontWeight: "600",
 										marginTop: 70,
+										color: "gray",
 									}}
 								>
 									CONFIRM ADDRESS
@@ -86,6 +87,7 @@ const SelectAddress = ({ navigation, route }) => {
 										fontSize: 25,
 										margin: 10,
 										marginTop: 60,
+										color: "gray",
 									}}
 								>
 									Saved Address:
@@ -94,7 +96,8 @@ const SelectAddress = ({ navigation, route }) => {
 								<Text
 									style={{
 										fontSize: 22,
-										margin: 20,
+										margin: 14,
+										fontWeight: "bold",
 									}}
 								>
 									{AddressHouse}, {AddressArea}, Near{" "}
@@ -117,7 +120,7 @@ const SelectAddress = ({ navigation, route }) => {
 							}}
 						>
 							<Text style={styles.buttontext}>
-								Edit Address
+								Change Address
 							</Text>
 						</TouchableOpacity>
 						{isAddressNull ? null : (
@@ -134,7 +137,7 @@ const SelectAddress = ({ navigation, route }) => {
 								}}
 							>
 								<Text style={styles.buttontext}>
-									Delete Address
+									Delete
 								</Text>
 							</TouchableOpacity>
 						)}
@@ -163,7 +166,13 @@ const SelectAddress = ({ navigation, route }) => {
 							<ScrollView>
 								<View style={styles.centeredView}>
 									<View style={styles.modalView}>
+										<View
+											style={{
+												marginTop: "15%",
+											}}
+										></View>
 										<BackButton />
+
 										<Text
 											style={styles.inputText}
 										>
@@ -209,7 +218,6 @@ const SelectAddress = ({ navigation, route }) => {
 											placeholderTextColor="#a0a0a0"
 											numberOfLines={4}
 										/>
-
 										<Text
 											style={
 												styles.pincodeText
@@ -362,6 +370,7 @@ const styles = StyleSheet.create({
 		borderRadius: SIZES.font,
 		marginBottom: SIZES.extraLarge,
 		margin: SIZES.base,
+
 		...SHADOWS.dark,
 		elevation: 2, // Android
 		height: "28%",
@@ -376,14 +385,14 @@ const styles = StyleSheet.create({
 		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
 		shadowRadius: 1, //IOS
-		backgroundColor: "maroon",
+		backgroundColor: "rgba(252, 122, 122, 1)",
 		borderRadius: SIZES.font,
 		marginBottom: SIZES.extraLarge,
 		margin: SIZES.base,
 		...SHADOWS.dark,
 		elevation: 2, // Android
 		height: "28%",
-		width: "40%",
+		width: "20%",
 		justifyContent: "center",
 		alignItems: "center",
 		borderRadius: 10,
@@ -394,7 +403,7 @@ const styles = StyleSheet.create({
 		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
 		shadowRadius: 1, //IOS
-		backgroundColor: "green",
+		backgroundColor: "blue",
 		borderRadius: SIZES.font,
 		marginBottom: 100,
 		margin: SIZES.base,

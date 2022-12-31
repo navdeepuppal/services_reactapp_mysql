@@ -51,7 +51,7 @@ const RegisterSubService1 = () => {
 	return (
 		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
 			<ExitHeader />
-			<ScrollView style={{ backgroundColor: "white", flex: 1 }}>
+			<ScrollView style={{ backgroundColor: "white" }}>
 				<View style={styles.container}>
 					<Image
 						source={require("../../assets/signup.png")}

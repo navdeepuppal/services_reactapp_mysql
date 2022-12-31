@@ -23,10 +23,13 @@ const SelectTime = ({ navigation, route }) => {
 			<BackButton />
 
 			<Text style={styles.inputText}>Select Preferred Time Slot </Text>
+			<Text style={{ color: "gray", marginLeft: 15, fontSize: 27 }}>
+				for your Booking{" "}
+			</Text>
 			<View
 				style={{
 					flexDirection: "column",
-					width: "50%",
+					width: "100%",
 					alignItems: "center",
 					alignSelf: "center",
 				}}
@@ -41,7 +44,6 @@ const SelectTime = ({ navigation, route }) => {
 							borderWidth: 1,
 							borderRadius: 15,
 							padding: 20,
-							width: "150%",
 							margin: 25,
 						}}
 					>
@@ -54,7 +56,7 @@ const SelectTime = ({ navigation, route }) => {
 							}
 							onPress={() => settimeSlot("Morning")}
 						/>
-						<Text style={{ fontSize: 20 }}>
+						<Text style={{ fontSize: 22 }}>
 							Morning Slot: After 7 AM{" "}
 						</Text>
 					</View>
@@ -69,7 +71,6 @@ const SelectTime = ({ navigation, route }) => {
 							borderWidth: 1,
 							borderRadius: 15,
 							padding: 20,
-							width: "150%",
 							margin: 25,
 						}}
 					>
@@ -82,7 +83,7 @@ const SelectTime = ({ navigation, route }) => {
 							}
 							onPress={() => settimeSlot("Evening")}
 						/>
-						<Text style={{ fontSize: 20 }}>
+						<Text style={{ fontSize: 22 }}>
 							Evening Slot: After 3 PM
 						</Text>
 					</View>
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
 		alignSelf: "center",
 		fontSize: 15,
 		margin: 12,
-		color: "green",
+		color: "blue",
 	},
 	inputText: {
 		fontSize: 28,
@@ -125,7 +126,7 @@ const styles = StyleSheet.create({
 		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
 		shadowRadius: 1, //IOS
-		backgroundColor: "green",
+		backgroundColor: "blue",
 		borderRadius: SIZES.font,
 		marginBottom: SIZES.extraLarge,
 		margin: SIZES.base,

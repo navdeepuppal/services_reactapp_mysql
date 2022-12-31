@@ -53,7 +53,7 @@ const Login = ({ route }) => {
 
 	return (
 		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
-			<ScrollView style={{ backgroundColor: "white", flex: 1 }}>
+			<ScrollView style={{ backgroundColor: "white" }}>
 				<KeyboardAvoidingView
 					behavior="padding"
 					style={styles.container}

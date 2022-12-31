@@ -38,9 +38,11 @@ const RequestNewService = ({ navigation }) => {
 	};
 
 	return (
-		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
+		<SafeAreaView
+			style={{ backgroundColor: "white", flex: 1, margin: 18 }}
+		>
 			<BackButton />
-			<ScrollView style={styles.mainContainer}>
+			<ScrollView>
 				<KeyboardAvoidingView
 					behavior="padding"
 					style={styles.container}

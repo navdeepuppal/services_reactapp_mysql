@@ -27,40 +27,66 @@ const HomeHeader = ({ onSearch }) => {
 	return (
 		<View
 			style={{
-				backgroundColor: COLORS.white,
-				padding: SIZES.font,
-				borderBottomEndRadius: 18,
-				borderBottomStartRadius: 18,
+				backgroundColor: "rgba(28, 137, 255, 0.8)",
+				padding: SIZES.font - 2,
+
+				borderBottomStartRadius: 15,
+				borderBottomRightRadius: 15,
+				height: "6%",
 			}}
 		>
 			<View
 				style={{
 					flexDirection: "row",
 					justifyContent: "space-between",
+					backgroundColor: "white",
+					borderRadius: 12,
 				}}
 			>
-				<View style={{ marginVertical: "4%" }}>
-					<Text
+				<View
+					style={{
+						width: "80%",
+						borderRadius: SIZES.small,
+						backgroundColor: COLORS.white,
+						elevation: 40,
+						flexDirection: "row",
+						alignItems: "center",
+						paddingHorizontal: SIZES.font,
+						alignContent: "center",
+					}}
+				>
+					<TextInput
+						placeholder="Search Laundry, Cleaning, Gardener, Cook, Maid"
+						placeholderTextColor="#A0A0A0"
 						style={{
-							fontWeight: "600",
-							fontSize: SIZES.large + 4,
+							fontSize: SIZES.font + 1,
 							color: COLORS.primary,
+							width: 290,
+							height: 65,
 						}}
-					>
-						Which service do you need
-					</Text>
+						onChangeText={onSearch}
+					/>
+					<Image
+						source={assets.search}
+						resizeMode="contain"
+						style={{
+							width: 20,
+							height: 20,
+							marginRight: SIZES.base,
+						}}
+					/>
 				</View>
 
 				<View
 					style={{
 						flexDirection: "row",
 						alignSelf: "flex-end",
+						alignContent: "center",
 						width: "15%",
-						marginVertical: "2%",
 					}}
 				>
 					<TouchableOpacity
-						style={{ width: 45, height: 45 }}
+						style={{ width: 45, height: 60 }}
 						onPress={() => setModalVisible(true)}
 					>
 						<Image
@@ -94,38 +120,6 @@ const HomeHeader = ({ onSearch }) => {
 						</Pressable>
 					</Modal>
 				</View>
-			</View>
-
-			<View
-				style={{
-					width: "100%",
-					borderRadius: SIZES.small,
-					backgroundColor: "#F8F8F8",
-					flexDirection: "row",
-					alignItems: "center",
-					paddingHorizontal: SIZES.font,
-					paddingVertical: SIZES.base - 2,
-				}}
-			>
-				<Image
-					source={assets.search}
-					resizeMode="contain"
-					style={{
-						width: 20,
-						height: 20,
-						marginRight: SIZES.base,
-					}}
-				/>
-				<TextInput
-					placeholder="Search Laundry, Cleaning, Gardener, Fruits"
-					placeholderTextColor="#A0A0A0"
-					style={{
-						fontSize: SIZES.font,
-						color: COLORS.primary,
-						height: 30,
-					}}
-					onChangeText={onSearch}
-				/>
 			</View>
 		</View>
 	);

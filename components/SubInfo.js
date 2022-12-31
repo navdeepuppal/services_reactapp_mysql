@@ -3,7 +3,13 @@ import { View, Image, Text } from "react-native";
 
 import { SIZES, FONTS, COLORS, SHADOWS, assets } from "../constants";
 
-export const NFTTitle = ({ title, titleSize, titleFont = FONTS.semiBold, strike = 0, fontColor = COLORS.gray, textAlign = "center"}) => {
+export const NFTTitle = ({
+	title,
+	titleSize,
+	titleFont = FONTS.medium,
+	fontColor = COLORS.primary,
+	textAlign = "center",
+}) => {
 	return (
 		<View>
 			<Text
@@ -12,7 +18,6 @@ export const NFTTitle = ({ title, titleSize, titleFont = FONTS.semiBold, strike 
 					fontSize: titleSize,
 					color: fontColor,
 					textAlign: textAlign,
-					textDecorationLine: strike ? "line-through" : "none"
 				}}
 			>
 				{title}

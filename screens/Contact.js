@@ -101,7 +101,6 @@ const Contact = ({ navigation }) => {
 
 const styles = StyleSheet.create({
 	mainContainer: {
-		flex: 1,
 		height: "100%",
 		paddingHorizontal: 30,
 		backgroundColor: "#fff",

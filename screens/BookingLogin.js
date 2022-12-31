@@ -55,7 +55,7 @@ const BookingLogin = ({ navigation, route }) => {
 	return (
 		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
 			<BackButton />
-			<ScrollView style={{ backgroundColor: "white", flex: 1 }}>
+			<ScrollView style={{ backgroundColor: "white" }}>
 				<KeyboardAvoidingView
 					behavior="padding"
 					style={styles.container}
@@ -252,7 +252,7 @@ const styles = StyleSheet.create({
 	modalView: {
 		margin: 20,
 		backgroundColor: "white",
-		borderRadius: 20,
+		borderRadius: 15,
 		padding: 35,
 		alignItems: "center",
 		shadowColor: "#000",
@@ -264,13 +264,7 @@ const styles = StyleSheet.create({
 		shadowRadius: 4,
 		elevation: 5,
 		width: "100%",
-		minHeight: "65%",
-	},
-	loweredView: {
-		flex: 1,
-		justifyContent: "flex-end",
-		alignItems: "flex-end",
-		backgroundColor: "rgba(0, 0, 0, 0.4)",
+		height: "62%",
 	},
 
 	countrycode: {
@@ -278,8 +272,9 @@ const styles = StyleSheet.create({
 		borderColor: "silver",
 		borderRadius: 9,
 		borderWidth: 1,
-		padding: 17,
+		padding: 20,
 		justifyContent: "center",
+		alignSelf: "center",
 	},
 	button: {
 		marginTop: 50,
@@ -320,7 +315,6 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 	},
 	input: {
-		marginTop: 50,
 		fontSize: SIZES.extraLarge - 2,
 		height: 70,
 		margin: 8,

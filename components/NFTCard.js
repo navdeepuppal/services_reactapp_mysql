@@ -68,11 +68,13 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
 				backgroundColor:
 					data.isSelected != "false" ? COLORS.white : "#F8F8F8",
 				borderRadius: SIZES.font,
-				margin: SIZES.base,
+				margin: SIZES.base - 5,
 				...SHADOWS.dark,
-				width: "45.5%",
-				flex: 0,
-				height: "65%",
+				justifyContent: "center",
+				alignContent: "center",
+				alignItems: "center",
+				width: "48%",
+				height: "400%",
 			}}
 			onPress={() => {
 				setSubSModalVisible(index);
@@ -81,17 +83,17 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
 		>
 			<View
 				style={{
-					alignItems: "center",
 					width: "100%",
-					height: "82%",
+					height: "77%",
 				}}
 			>
 				<Image
 					source={{ uri: ImageURL }}
-					resizeMode="contain"
+					resizeMode="cover"
 					style={{
 						width: "100%",
 						height: "100%",
+						alignSelf: "center",
 						borderTopLeftRadius: SIZES.font,
 						borderTopRightRadius: SIZES.font,
 					}}
@@ -99,11 +101,13 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
 			</View>
 
 			<View style={{ width: "100%" }}>
-				<NFTTitle title={data.S_Name} titleSize={SIZES.medium} />
+				<NFTTitle title={data.S_Name} titleSize={SIZES.large - 1} />
 			</View>
 		</TouchableOpacity>
 	);
 };
+
+
 
 const NFTCard2 = ({ data, setSubSModalVisible }) => {
 	const navigation = useNavigation();
@@ -280,8 +284,7 @@ const NFTCard6 = ({ data, data2, setData, index }) => {
 	return (
 		<View
 			style={{
-				borderRadius: SIZES.font,
-				marginBottom: SIZES.extraLarge,
+				marginBottom: SIZES.small - 15,
 				padding: SIZES.medium,
 				flex: 1,
 			}}
@@ -296,14 +299,14 @@ const NFTCard6 = ({ data, data2, setData, index }) => {
 				<View
 					style={{
 						flex: 0,
-						height: "95%",
+						height: "100%",
 						justifyContent: "space-evenly",
 						alignItems: "flex-start",
 					}}
 				>
 					<NFTTitle
 						title={data.SubSubS_Name}
-						titleSize={SIZES.large - 3}
+						titleSize={SIZES.large}
 						fontColor={COLORS.primary}
 					/>
 					<View
@@ -358,7 +361,7 @@ const NFTCard6 = ({ data, data2, setData, index }) => {
 					>
 						<NFTTitle
 							title={"₹" + data.SubSubS_Price * 1}
-							titleSize={SIZES.medium}
+							titleSize={SIZES.large}
 							fontColor={COLORS.primary}
 						/>
 						<View style={{ width: "4%" }} />
@@ -368,9 +371,9 @@ const NFTCard6 = ({ data, data2, setData, index }) => {
 							strike={1}
 							titleFont={FONTS.regular}
 						/>
-						<View style={{ width: "7%" }} />
+						<View style={{ width: "1%" }} />
 						<NFTTitle
-							title={"  •  " + data.SubSubS_Duration}
+							title={"  / " + data.SubSubS_Duration}
 							titleSize={SIZES.font}
 						/>
 					</View>
@@ -387,29 +390,34 @@ const NFTCard6 = ({ data, data2, setData, index }) => {
 
 				<View
 					style={{
-						flex: 0,
-						flexDirection: "column",
-						justifyContent: "space-evenly",
-						alignItems: "flex-end",
+						width: "25%",
+						height: "90%",
+						justifyContent: "flex-end",
 					}}
 				>
 					<Image
 						source={{ uri: ImageURL }}
 						style={{
-							height: "30%",
-							width: "100%",
+							height: 120,
+							width: 120,
 							alignSelf: "center",
+							justifyContent: "flex-end",
 						}}
 						resizeMode={"cover"}
 					/>
+
 					<View
 						style={{
+							width: 100,
 							height: 40,
 							flexDirection: "row",
 							borderColor: "rgb(200, 10, 200)",
 							borderRadius: SIZES.font,
 							borderWidth: 1,
 							alignItems: "center",
+							marginTop: "3%",
+							alignSelf: "center",
+							position: "relative",
 						}}
 					>
 						<TouchableOpacity
@@ -465,7 +473,7 @@ const NFTCard6 = ({ data, data2, setData, index }) => {
 			</View>
 			<View
 				style={{
-					marginTop: "5%",
+					marginTop: "3%",
 					height: 1,
 					width: "95%",
 					alignSelf: "center",

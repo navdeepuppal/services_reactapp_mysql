@@ -34,6 +34,7 @@ import SelectAddress from "./screens/SelectAddress";
 import PaymentApi from "./screens/PaymentApi";
 import SelectTime from "./screens/SelectTime";
 import ServiceManDashboard from "./screens/ServiceMan/ServiceManDashboard";
+import RecentOrders from "./screens/RecentOrders";
 
 const theme = {
 	...DefaultTheme,
@@ -78,7 +79,6 @@ const App = () => {
 		setServiceMan(isServiceMan);
 	});
 
-
 	AsyncStorage.getItem("firstTime").then((res) => {
 		setFirstTime(res != "false");
 		//console.log(firstTime + "\tfirstTime");
@@ -109,7 +109,7 @@ const App = () => {
 							? "Onboarding"
 							: isLoggedIn
 							? isServiceMan == "2"
-								? "ServiceManDashboard"
+								? "Home"
 								: "Home"
 							: "Onboarding"
 					}
@@ -119,7 +119,11 @@ const App = () => {
 						name="Home"
 						component={Home}
 					/>
-
+					<Stack.Screen
+						options={{ gestureEnabled: false }}
+						name="RecentOrders"
+						component={RecentOrders}
+					/>
 					<Stack.Screen
 						name="SelectAddress"
 						component={SelectAddress}

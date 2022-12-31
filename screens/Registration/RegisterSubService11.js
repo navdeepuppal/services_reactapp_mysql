@@ -115,7 +115,7 @@ const RegisterSubService11 = ({ route }) => {
 
 	return (
 		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
-			<ScrollView style={{ backgroundColor: "white", flex: 1 }}>
+			<ScrollView style={{ backgroundColor: "white" }}>
 				<View style={styles.container}>
 					<Image
 						source={require("../../assets/signup.png")}
@@ -129,13 +129,13 @@ const RegisterSubService11 = ({ route }) => {
 						That's all we require from your side
 					</Text>
 					<Text style={styles.textBody}>
-						We will contact you and let you know that you're
-						eligible to become a professional once we verify
-						your document.
+						We will contact you via WhatsApp and let you know
+						that you're eligible to become a professional once
+						we verify your document.
 					</Text>
 					<Text style={styles.textBody}>
 						Verification status will be updated to you before
-						24 hours via SMS
+						24 hours via SMS/WhatsApp
 					</Text>
 
 					{/* <Input name="Password" icon="lock" pass={true} />

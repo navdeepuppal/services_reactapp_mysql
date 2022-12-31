@@ -25,12 +25,7 @@ const ModalList = ({ setVisible }) => {
 		setUser(user);
 	});
 	return (
-		<SafeAreaView
-			style={{
-				backgroundColor: "rgba(248,248,250,255)",
-				flex: 1,
-			}}
-		>
+		<SafeAreaView>
 			{user ? (
 				<View>
 					<TouchableOpacity
@@ -73,23 +68,13 @@ const ModalList = ({ setVisible }) => {
 						</View>
 					</TouchableOpacity>
 
-					<TouchableOpacity style={styles.button2}>
-						<View
-							style={{
-								flexDirection: "row",
-								justifyContent: "space-between",
-								alignItems: "center",
-							}}
-						>
-							<Image
-								source={require("../assets/icons/wallet.png")}
-								style={styles.walletImage}
-							/>
-							<Text style={styles.loginText}>
-								{" "}
-								Wallet : ₹100
-							</Text>
-						</View>
+					<TouchableOpacity
+						onPress={() => {
+							navigation.navigate("RecentOrders"),
+								setVisible(false);
+						}}
+					>
+						<Text style={styles.textBody}>Recent Orders</Text>
 					</TouchableOpacity>
 				</View>
 			) : (
@@ -117,19 +102,7 @@ const ModalList = ({ setVisible }) => {
 			)}
 
 			<ScrollView>
-				<View
-					style={{
-						marginTop: "5%",
-						height: 1,
-						width: "200%",
-
-						alignSelf: "center",
-						backgroundColor: "#cccccc",
-					}}
-				/>
-
 				<TouchableOpacity
-					style={styles.button}
 					onPress={() => {
 						setVisible(false), navigation.navigate("Contact");
 					}}
@@ -282,10 +255,10 @@ const styles = StyleSheet.create({
 		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
 		shadowRadius: 1, //IOS
-		backgroundColor: "rgba(255,255,255,255)",
+		backgroundColor: "rgba(240,240,240,240)",
 		borderColor: COLORS.primary,
 		margin: SIZES.base,
-		height: "20%",
+		height: "23%",
 		elevation: 20,
 		borderRadius: SIZES.small,
 		alignItems: "center",
