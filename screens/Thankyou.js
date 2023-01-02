@@ -135,8 +135,8 @@ const Thankyou = ({ route, navigation }) => {
 			>
 				<Image
 					source={require("../assets/rightarrow.png")}
-					resizeMode="stretch"
-					style={{ width: "95%", height: "95%" }}
+					resizeMode="contain"
+					style={{ width: 70, height: 70 }}
 				/>
 			</TouchableOpacity>
 		</SafeAreaView>

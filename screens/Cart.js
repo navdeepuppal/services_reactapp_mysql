@@ -318,7 +318,7 @@ const Cart = ({ route, navigation }) => {
 			(item) => item.itemCount > 0
 		);
 		if (filteredData.length === 0) {
-			return (
+			return ( 
 				<SafeAreaView
 					style={{ backgroundColor: COLORS.white, flex: 1 }}
 				>
@@ -583,7 +583,7 @@ const Cart = ({ route, navigation }) => {
 							style={{
 								backgroundColor:
 									totalPrice > 50
-										? "#0E8D4D"
+										? "black"
 										: "#cccccc",
 								borderRadius: 10,
 								alignItems: "center",

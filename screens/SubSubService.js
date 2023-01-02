@@ -78,35 +78,32 @@ const SubSubService = ({ route, navigation }) => {
 	}, []);
 
 	return (
-		<SafeAreaView style={{ flex: 1 }}>
+		<SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
 			<FocusedStatusBar backgroundColor={COLORS.gray} />
-			{isLoading ? (
-				<ActivityIndicator />
-			) : (
-				<View style={{ flex: 1 }}>
-					<FlatList
-						nestedScrollEnabled
-						data={data2}
-						renderItem={({ item, index }) => (
-							<NFTCard6
-								data={item}
-								data2={data2_backup}
-								setData={setDataBackup}
-								index={index}
-							/>
-						)}
-						keyExtractor={(item, index) => index.toString()}
-						numColumns={1}
-						showsVerticalScrollIndicator={false}
-						ListHeaderComponent={
-							<SubSubServicesHeader
-								onSearch={handleSearch}
-								SubS_Name={prevData.SubS_Name}
-							/>
-						}
-					/>
-				</View>
-			)}
+
+			<View style={{ flex: 1 }}>
+				<FlatList
+					nestedScrollEnabled
+					data={data2}
+					renderItem={({ item, index }) => (
+						<NFTCard6
+							data={item}
+							data2={data2_backup}
+							setData={setDataBackup}
+							index={index}
+						/>
+					)}
+					keyExtractor={(item, index) => index.toString()}
+					numColumns={1}
+					showsVerticalScrollIndicator={false}
+					ListHeaderComponent={
+						<SubSubServicesHeader
+							onSearch={handleSearch}
+							SubS_Name={prevData.SubS_Name}
+						/>
+					}
+				/>
+			</View>
 			{totalPrice ? (
 				<View
 					style={{

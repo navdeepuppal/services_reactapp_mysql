@@ -3,11 +3,19 @@ import { useNavigation } from "@react-navigation/native";
 
 import React from "react";
 
-import { View, Image, TouchableOpacity, StyleSheet, Text } from "react-native";
+import {
+	View,
+	Image,
+	TouchableOpacity,
+	StyleSheet,
+	Text,
+	ImageBackground,
+} from "react-native";
 
 import { COLORS, SIZES, SHADOWS, assets, FONTS } from "../constants";
 import { NFTTitle } from "./SubInfo";
 import * as Haptics from "expo-haptics";
+import { LinearGradient } from "expo-linear-gradient";
 
 const NFTCard = ({ data }) => {
 	const navigation = useNavigation();
@@ -66,43 +74,45 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
 		<TouchableOpacity
 			style={{
 				backgroundColor:
-					data.isSelected != "false" ? COLORS.white : "#F8F8F8",
-				borderRadius: SIZES.font,
-				margin: SIZES.base - 5,
-				...SHADOWS.dark,
-				justifyContent: "center",
-				alignContent: "center",
-				alignItems: "center",
-				width: "48%",
-				height: "400%",
+					data.isSelected != "false"
+						? "rgba(245,245,245,255)"
+						: "#F8F8F8",
+				borderRadius: SIZES.extraLarge,
+				margin: SIZES.base,
+				width: 195,
+				justifyContent: "flex-end",
+				height: 220,
+				paddingBottom: 8,
 			}}
 			onPress={() => {
 				setSubSModalVisible(index);
 				//navigation.navigate("SubServices" /* data.S_NextPage */, { data })
 			}}
 		>
-			<View
+			<ImageBackground
+				resizeMode="cover"
+				source={{ uri: ImageURL }}
 				style={{
+					height: "105%",
+
+					borderBottomLeftRadius: 20,
+					borderBottomRightRadius: 20,
+					borderTopRightRadius: 20,
+					borderTopLeftRadius: 20,
+					overflow: "hidden",
 					width: "100%",
-					height: "77%",
+					position: "absolute",
 				}}
 			>
-				<Image
-					source={{ uri: ImageURL }}
-					resizeMode="cover"
-					style={{
-						width: "100%",
-						height: "100%",
-						alignSelf: "center",
-						borderTopLeftRadius: SIZES.font,
-						borderTopRightRadius: SIZES.font,
-					}}
-				/>
-			</View>
+				<LinearGradient
+					colors={["#00000000", "#000000"]}
+					style={{ height: "100%", width: "100%" }}
+					start={{ x: 0.8, y: 0.1 }}
+					end={{ x: 1.0, y: 1.0 }}
+				></LinearGradient>
+			</ImageBackground>
 
-			<View style={{ width: "100%" }}>
-				<NFTTitle title={data.S_Name} titleSize={SIZES.large - 1} />
-			</View>
+			<NFTTitle title={data.S_Name} titleSize={SIZES.large} />
 		</TouchableOpacity>
 	);
 };

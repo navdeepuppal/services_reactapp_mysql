@@ -7,7 +7,7 @@ export const NFTTitle = ({
 	title,
 	titleSize,
 	titleFont = FONTS.medium,
-	fontColor = COLORS.primary,
+	fontColor = COLORS.white,
 	textAlign = "center",
 }) => {
 	return (
