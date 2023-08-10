@@ -54,7 +54,7 @@ const RegisterSubService6 = ({ route }) => {
 	};
 
 	const querystring =
-		'SELECT *, "false" as isSelected, null as SMan_BasePrice FROM SubService WHERE S_ID = ' +
+		'SELECT *, "false" as isSelected, null as SMan_BasePrice FROM subservice WHERE S_ID = ' +
 		prevData +
 		";";
 

@@ -49,7 +49,7 @@ const Contact = ({ navigation }) => {
 					<View style={styles.inputContainer}>
 						<Text style={styles.labels}>
 							{" "}
-							Tell us the Issue{" "}
+							Please explain your concern here{" "}
 						</Text>
 						<TextInput
 							style={[
@@ -63,7 +63,6 @@ const Contact = ({ navigation }) => {
 							multiline={true}
 						/>
 					</View>
-
 
 					<TouchableOpacity
 						style={[

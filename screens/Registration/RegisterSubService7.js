@@ -76,9 +76,7 @@ const RegisterSubService7 = ({ route }) => {
 						<Text style={styles.textTitle}>
 							Register as a Professional
 						</Text>
-						<Text style={styles.textBody}>
-							Join Sqera to change your life.
-						</Text>
+
 						<Text style={styles.textBody}>
 							Share your details and we'll reach out with
 							next steps.

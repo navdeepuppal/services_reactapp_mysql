@@ -27,71 +27,41 @@ const HomeHeader = ({ onSearch }) => {
 	return (
 		<View
 			style={{
-				marginTop: "10%",
 				borderRadius: SIZES.medium,
-				backgroundColor: "rgba(245,245,245,255)",
-				elevation: 200,
+				backgroundColor: COLORS.white,
+				elevation: 100,
 				...SHADOWS.dark,
+				height: 50,
+				width: "90%",
+				alignSelf: "center",
+				borderColor: COLORS.white,
+				borderWidth: 1,
 				flexDirection: "row",
 				alignItems: "center",
+				alignContent: "flex-start",
 				justifyContent: "space-evenly",
+				marginTop: "2%",
 				paddingHorizontal: SIZES.font,
-				alignContent: "center",
 			}}
 		>
 			<Image
 				source={assets.search}
-				resizeMode="contain"
 				style={{
-					width: 20,
-					height: 20,
-					marginRight: SIZES.base,
+					width: 16,
+					height: 16,
 				}}
 			/>
 			<TextInput
-				placeholder="Search Laundry, Cleaning, Gardener, Cook, Maid"
+				placeholder="Search for Laundry, Gardener, Cook, Taxi"
 				placeholderTextColor="#A0A0A0"
 				style={{
 					fontSize: SIZES.font + 1,
 					color: COLORS.primary,
-					width: 290,
+					width: 320,
 					height: 65,
 				}}
 				onChangeText={onSearch}
 			/>
-
-			<TouchableOpacity
-				style={{ width: 45, height: 60 }}
-				onPress={() => setModalVisible(true)}
-			>
-				<Image
-					source={assets.menuIcon}
-					resizeMode="contain"
-					style={{ width: "100%", height: "100%" }}
-				/>
-			</TouchableOpacity>
-
-			<Modal
-				animationType="fade"
-				transparent={true}
-				visible={modalVisible}
-				close={() => {
-					toggleModal(false);
-				}}
-			>
-				<Pressable
-					style={styles.loweredView}
-					onPress={() => {
-						setModalVisible(false);
-					}}
-				>
-					<View style={styles.centeredView}>
-						<View style={styles.modalView}>
-							<ModalList setVisible={setModalVisible} />
-						</View>
-					</View>
-				</Pressable>
-			</Modal>
 		</View>
 	);
 };

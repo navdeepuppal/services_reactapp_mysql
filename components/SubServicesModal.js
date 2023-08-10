@@ -15,7 +15,7 @@ const SubServicesModal = ({ data, setSubSModalVisible }) => {
 	const [data2, setData] = useState([]);
 
 	const querystring =
-		"SELECT * FROM SubService WHERE S_ID = " + [data.S_ID] + ";";
+		"SELECT * FROM subservice WHERE S_ID = " + [data.S_ID] + ";";
 
 	useEffect(() => {
 		fetch(config.domain + "/get/" + querystring, {

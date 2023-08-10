@@ -35,6 +35,8 @@ import PaymentApi from "./screens/PaymentApi";
 import SelectTime from "./screens/SelectTime";
 import ServiceManDashboard from "./screens/ServiceMan/ServiceManDashboard";
 import RecentOrders from "./screens/RecentOrders";
+import Bookings from "./screens/Bookings";
+import Search from "./screens/Search";
 
 const theme = {
 	...DefaultTheme,
@@ -119,6 +121,7 @@ const App = () => {
 						name="Home"
 						component={Home}
 					/>
+
 					<Stack.Screen
 						options={{ gestureEnabled: false }}
 						name="RecentOrders"
@@ -231,6 +234,8 @@ const App = () => {
 						name="RegisterSubService11"
 						component={RegisterSubService11}
 					/>
+					<Stack.Screen name="Bookings" component={Bookings} />
+					<Stack.Screen name="Search" component={Search} />
 				</Stack.Navigator>
 			)}
 		</NavigationContainer>

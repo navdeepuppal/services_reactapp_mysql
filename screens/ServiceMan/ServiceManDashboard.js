@@ -14,6 +14,7 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import React, { useState, useEffect } from "react";
 import { COLORS, assets, SIZES, SHADOWS } from "../../constants";
+import { Colors, Snackbar } from "react-native-paper";
 
 function HomeScreen() {
 	const navigation = useNavigation();
@@ -23,238 +24,204 @@ function HomeScreen() {
 			<ScrollView>
 				<View
 					style={{
-						flex: 1,
-						borderColor: "gray",
-						borderBottomWidth: 1,
-						backgroundColor: "",
+						margin: "3%",
+						flexDirection: "row",
+						justifyContent: "space-between",
 					}}
 				>
-					<Text
-						style={{
-							margin: "2%",
-							fontSize: 25,
-							alignSelf: "center",
-							color: "black",
-							fontWeight: "600",
-						}}
-					>
-						Please Confirm Your Schedule
+					<Text style={{ fontWeight: "900", fontSize: 24 }}>
+						{" "}
+						Hi, Genus
 					</Text>
-					<Text
-						style={{
-							margin: "2%",
-							fontSize: 15,
-							color: "gray",
-							alignSelf: "center",
-							justifyContent: "center",
-						}}
-					>
-						You will not recieve future orders unless you will
-						confirm your schedule
-					</Text>
-					<TouchableOpacity
-						style={styles.button6}
-						onPress={() => navigation.navigate("Profile")}
-					>
-						<Text
-							style={{
-								fontWeight: "bold",
-								fontSize: 25,
-								textAlign: "center",
-								color: "white",
-							}}
-						>
-							Confirm Schedule
-						</Text>
-					</TouchableOpacity>
+					<Image
+						source={assets.icon}
+						style={{ width: 38, height: 38 }}
+					/>
 				</View>
 				<View
 					style={{
-						borderColor: "gray",
-
-						padding: 1,
+						flexWrap: "wrap",
+						flexDirection: "row",
+						margin: "2%",
+						justifyContent: "space-evenly",
 					}}
 				>
-					<Text
-						style={{
-							margin: "2%",
-							fontSize: 27,
-						}}
-					>
-						Ongoing Order
-					</Text>
 					<View
 						style={{
-							borderRadius: "10%",
-							marginBottom: "20%",
-							backgroundColor: "lightblue",
-							flex: 1,
+							borderRadius: 7,
+							alignItems: "center",
+							justifyContent: "center",
+							alignSelf: "center",
+							width: 160,
+							height: 70,
+							backgroundColor: COLORS.primary,
 						}}
+						onPress={() => navigation.navigate("Orders")}
 					>
 						<View
 							style={{
-								flexWrap: "wrap",
-								flexDirection: "row",
+								alignItems: "center",
 							}}
 						>
-							<Text style={styles.upcomingOrderText}>
-								Service Name:
+							<Text
+								style={{
+									fontSize: 24,
+									color: COLORS.white,
+								}}
+							>
+								₹120
 							</Text>
-							<Text style={styles.upcomingOrderText}>
-								Slot Deadline:
-							</Text>
-
-							<Text style={styles.upcomingOrderText}>
-								Order Details:
-							</Text>
-							<Text style={styles.upcomingOrderText}>
-								Address Details:
-							</Text>
-							<Text style={styles.upcomingOrderText}>
-								Payment Mode:
-							</Text>
-							<Text style={styles.upcomingOrderText}>
-								Other Details:
-							</Text>
-							<Text style={styles.upcomingOrderText}>
-								Customer Phone No:
-							</Text>
-							<Text style={styles.upcomingOrderText}>
-								Price:
+							<Text
+								style={{
+									fontSize: "14%",
+									textAlign: "center",
+									fontWeight: "bold",
+									color: "gray",
+								}}
+							>
+								TODAYS EARNING
 							</Text>
 						</View>
-						<TouchableOpacity style={styles.button3}>
-							<Text style={{ fontSize: 25 }}>
-								Finish Order{" "}
-							</Text>
-						</TouchableOpacity>
 					</View>
+					<View
+						style={{
+							borderRadius: 7,
+							alignItems: "center",
+							justifyContent: "center",
+							alignSelf: "center",
+							width: 160,
+							height: 70,
+							backgroundColor: COLORS.primary,
+						}}
+						onPress={() => navigation.navigate("Orders")}
+					>
+						<View
+							style={{
+								alignItems: "center",
+							}}
+						>
+							<Text
+								style={{
+									fontSize: 25,
+									fontWeight: "900",
+									color: "green",
+								}}
+							>
+								ON
+							</Text>
+							<Text
+								style={{
+									fontSize: "13%",
+									textAlign: "center",
+									fontWeight: "bold",
+									color: "gray",
+								}}
+							>
+								BROADCAST MODE
+							</Text>
+						</View>
+					</View>
+
+					<View
+						style={{
+							marginTop: "5%",
+							height: 1,
+							width: "95%",
+							alignSelf: "center",
+							backgroundColor: "#cccccc",
+						}}
+					/>
 				</View>
+
 				<Text
 					style={{
 						margin: "2%",
-						fontSize: 27,
+						fontSize: 18,
 					}}
 				>
-					Pending Orders
+					Pending Orders (1)
 				</Text>
-				<View
-					style={{
-						borderColor: "gray",
-
-						padding: 1,
-					}}
-				>
-					<View
-						style={{
-							borderRadius: "10%",
-							marginBottom: "5%",
-							backgroundColor: "lightblue",
-							flex: 1,
-						}}
-					>
+				<TouchableOpacity>
+					<View style={{ margin: "4%" }}>
 						<View
 							style={{
-								flexWrap: "wrap",
 								flexDirection: "row",
+								justifyContent: "space-between",
 							}}
 						>
-							<Text style={styles.upcomingOrderText}>
-								Service Name:
+							<Text
+								style={{
+									fontSize: 16,
+									fontWeight: "600",
+								}}
+							>
+								{" "}
+								AC Cleaning
 							</Text>
-							<Text style={styles.upcomingOrderText}>
-								Slot Deadline:
-							</Text>
-
-							<Text style={styles.upcomingOrderText}>
-								Payment Mode:
+							<Text
+								style={{
+									fontSize: 16,
+									fontWeight: "500",
+								}}
+							>
+								Rs. 800
 							</Text>
 						</View>
-						<TouchableOpacity style={styles.button3}>
-							<Text style={{ fontSize: 25 }}>
-								Start Order{" "}
-							</Text>
-						</TouchableOpacity>
-					</View>
-				</View>
-				<View
-					style={{
-						borderColor: "gray",
-
-						padding: 1,
-					}}
-				>
-					<View
-						style={{
-							borderRadius: "10%",
-							marginBottom: "5%",
-							backgroundColor: "lightblue",
-							flex: 1,
-						}}
-					>
 						<View
 							style={{
-								flexWrap: "wrap",
+								marginTop: "2%",
 								flexDirection: "row",
+								justifyContent: "space-between",
 							}}
 						>
-							<Text style={styles.upcomingOrderText}>
-								Service Name:
-							</Text>
-							<Text style={styles.upcomingOrderText}>
-								Slot Deadline:
-							</Text>
-
-							<Text style={styles.upcomingOrderText}>
-								Payment Mode:
+							<Text
+								style={{
+									fontSize: 14,
+									fontWeight: "400",
+								}}
+							>
+								{" "}
+								Details: Navdeep | Kothi 103, Phase 9,
+								Mohali
 							</Text>
 						</View>
-						<TouchableOpacity style={styles.button3}>
-							<Text style={{ fontSize: 25 }}>
-								Start Order{" "}
-							</Text>
-						</TouchableOpacity>
-					</View>
-				</View>
-				<View
-					style={{
-						borderColor: "gray",
-
-						padding: 1,
-					}}
-				>
-					<View
-						style={{
-							borderRadius: "10%",
-							marginBottom: "5%",
-							backgroundColor: "lightblue",
-							flex: 1,
-						}}
-					>
 						<View
 							style={{
-								flexWrap: "wrap",
+								marginTop: "3%",
 								flexDirection: "row",
+								justifyContent: "space-between",
 							}}
 						>
-							<Text style={styles.upcomingOrderText}>
-								Service Name:
+							<Text
+								style={{
+									fontSize: 14,
+									color: COLORS.gray,
+								}}
+							>
+								{" "}
+								09/08/2023 | 10:26 AM
 							</Text>
-							<Text style={styles.upcomingOrderText}>
-								Slot Deadline:
-							</Text>
-
-							<Text style={styles.upcomingOrderText}>
-								Payment Mode:
+							<Text
+								style={{
+									fontSize: 16,
+									fontWeight: "500",
+									color: "red",
+								}}
+							>
+								Pending
 							</Text>
 						</View>
-						<TouchableOpacity style={styles.button3}>
-							<Text style={{ fontSize: 25 }}>
-								Start Order{" "}
-							</Text>
-						</TouchableOpacity>
+						<View
+							style={{
+								marginTop: "5%",
+								height: 1,
+								width: "95%",
+								alignSelf: "center",
+								backgroundColor: "#cccccc",
+							}}
+						/>
 					</View>
-				</View>
+				</TouchableOpacity>
 			</ScrollView>
 		</SafeAreaView>
 	);
@@ -262,13 +229,178 @@ function HomeScreen() {
 function OrdersScreen() {
 	return (
 		<View>
-			<Text style={{ fontSize: 30, margin: 12 }}>Recent Orders</Text>
+			<TouchableOpacity>
+				<View style={{ margin: "4%" }}>
+					<View
+						style={{
+							flexDirection: "row",
+							justifyContent: "space-between",
+						}}
+					>
+						<Text
+							style={{
+								fontSize: 16,
+								fontWeight: "600",
+							}}
+						>
+							{" "}
+							AC Cleaning
+						</Text>
+						<Text
+							style={{
+								fontSize: 16,
+								fontWeight: "500",
+							}}
+						>
+							Rs. 800
+						</Text>
+					</View>
+					<View
+						style={{
+							marginTop: "2%",
+							flexDirection: "row",
+							justifyContent: "space-between",
+						}}
+					>
+						<Text
+							style={{
+								fontSize: 14,
+								fontWeight: "400",
+							}}
+						>
+							{" "}
+							Details: Navdeep | Kothi 103, Phase 9, Mohali
+						</Text>
+					</View>
+					<View
+						style={{
+							marginTop: "3%",
+							flexDirection: "row",
+							justifyContent: "space-between",
+						}}
+					>
+						<Text
+							style={{
+								fontSize: 14,
+								color: COLORS.gray,
+							}}
+						>
+							{" "}
+							09/08/2023 | 10:26 AM
+						</Text>
+						<Text
+							style={{
+								fontSize: 16,
+								fontWeight: "500",
+								color: "red",
+							}}
+						>
+							Pending
+						</Text>
+					</View>
+					<View
+						style={{
+							marginTop: "5%",
+							height: 1,
+							width: "95%",
+							alignSelf: "center",
+							backgroundColor: "#cccccc",
+						}}
+					/>
+				</View>
+			</TouchableOpacity>
+			<TouchableOpacity>
+				<View style={{ margin: "4%" }}>
+					<View
+						style={{
+							flexDirection: "row",
+							justifyContent: "space-between",
+						}}
+					>
+						<Text
+							style={{
+								fontSize: 16,
+								fontWeight: "600",
+							}}
+						>
+							{" "}
+							Bathroom Cleaning
+						</Text>
+						<Text
+							style={{
+								fontSize: 16,
+								fontWeight: "500",
+							}}
+						>
+							Rs. 250
+						</Text>
+					</View>
+					<View
+						style={{
+							marginTop: "2%",
+							flexDirection: "row",
+							justifyContent: "space-between",
+						}}
+					>
+						<Text
+							style={{
+								fontSize: 14,
+								fontWeight: "400",
+							}}
+						>
+							{" "}
+							Details: Navdeep | Kothi 103, Phase 9, Mohali
+						</Text>
+					</View>
+					<View
+						style={{
+							marginTop: "3%",
+							flexDirection: "row",
+							justifyContent: "space-between",
+						}}
+					>
+						<Text
+							style={{
+								fontSize: 14,
+								color: COLORS.gray,
+							}}
+						>
+							{" "}
+							09/08/2023 | 10:26 AM
+						</Text>
+						<Text
+							style={{
+								fontSize: 16,
+								fontWeight: "500",
+								color: "green",
+							}}
+						>
+							Completed
+						</Text>
+					</View>
+					<View
+						style={{
+							marginTop: "5%",
+							height: 1,
+							width: "95%",
+							alignSelf: "center",
+							backgroundColor: "#cccccc",
+						}}
+					/>
+				</View>
+			</TouchableOpacity>
 		</View>
 	);
 }
 function ProfileScreen() {
 	const navigation = useNavigation();
 	const [modalVisible, setModalVisible] = useState(false);
+
+	const [visible, setVisible] = React.useState(true);
+
+	const onToggleSnackBar = () => setVisible(!visible);
+
+	const onDismissSnackBar = () => setVisible(false);
 	return (
 		<SafeAreaView style={{ flex: 1 }}>
 			<ScrollView>
@@ -303,7 +435,7 @@ function ProfileScreen() {
 						</Text>
 					</View>
 
-					<View style={{ margin: 12 }}>
+					{/* <View style={{ margin: 12 }}>
 						<Text
 							style={{
 								fontSize: 18,
@@ -378,7 +510,7 @@ function ProfileScreen() {
 							Confirm Schedule
 						</Text>
 					</TouchableOpacity>
-
+ */}
 					<Modal
 						animationType="slide"
 						transparent={true}
@@ -481,20 +613,11 @@ function ProfileScreen() {
 							})}
 						</View>
 					</View>  */}
-					<View
-						style={{
-							backgroundColor: "#CACACA",
-							alignSelf: "center",
-							marginTop: "5%",
-
-							marginBottom: "5%",
-							width: "90%",
-							height: 1,
-						}}
-					/>
 
 					<View
 						style={{
+							alignContent: "center",
+
 							flexDirection: "row",
 							flexWrap: "wrap",
 							justifyContent: "space-evenly",
@@ -602,14 +725,7 @@ function ProfileScreen() {
 								</Text>
 							</View>
 						</TouchableOpacity>
-					</View>
-					<View
-						style={{
-							flexDirection: "row",
-							flexWrap: "wrap",
-							justifyContent: "space-evenly",
-						}}
-					>
+
 						<TouchableOpacity
 							style={styles.button3}
 							onPress={() =>
@@ -630,6 +746,15 @@ function ProfileScreen() {
 					</View>
 				</View>
 			</ScrollView>
+			<View>
+				<Snackbar
+					bodyStyle={{ backgroundColor: COLORS.white }}
+					visible={visible}
+					onDismiss={onDismissSnackBar}
+				>
+					Schedule has been confirmed for this week.
+				</Snackbar>
+			</View>
 		</SafeAreaView>
 	);
 }
@@ -638,9 +763,9 @@ export default function App() {
 	return (
 		<NavigationContainer independent={true}>
 			<Tab.Navigator initialRouteName="Dashboard">
-				<Tab.Screen name="Dashboard" component={HomeScreen} />
-				<Tab.Screen name="Orders" component={OrdersScreen} />
-				<Tab.Screen name="Profile" component={ProfileScreen} />
+				<Tab.Screen name="Home" component={HomeScreen} />
+				<Tab.Screen name="Bookings" component={OrdersScreen} />
+				<Tab.Screen name="Dashboard" component={ProfileScreen} />
 			</Tab.Navigator>
 		</NavigationContainer>
 	);
@@ -675,11 +800,7 @@ const styles = StyleSheet.create({
 		width: "100%",
 		height: "62%",
 	},
-	walletImage: {
-		width: 25,
-		height: 25,
-		marginVertical: 10,
-	},
+
 	button: {
 		shadowColor: "rgb(255,255,0)", // IOS
 		shadowOffset: { height: 1, width: 1 }, // IOS
@@ -769,7 +890,7 @@ const styles = StyleSheet.create({
 		margin: 8,
 	},
 	button6: {
-		marginBottom: "15%",
+		marginBottom: "8%",
 		backgroundColor: "green",
 		borderRadius: SIZES.font,
 		...SHADOWS.dark,

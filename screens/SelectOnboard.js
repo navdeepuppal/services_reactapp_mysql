@@ -54,16 +54,16 @@ const SelectOnboard = (props) => {
 							Find a Service
 						</Text>
 						<Text style={styles.littleTitle}>
-							Are you Looking for any Professional Services
-							like Gardener, Business Consultant or Painter
-							for your house nearby at every price point.
-							Here we are!
+							Need Professional Services at your doorstep?{" "}
+							{"\n"} Whether it's a Gardener, Business
+							Consultant, or Painter for your home, find
+							them nearby at any budget.
 						</Text>
 					</View>
 				</TouchableOpacity>
 
 				<TouchableOpacity
-					style={styles.button}
+					style={styles.button2}
 					onPress={() =>
 						navigation.navigate("SelectOnboardProfessional")
 					}
@@ -73,8 +73,8 @@ const SelectOnboard = (props) => {
 							Register as a Professional
 						</Text>
 						<Text style={styles.littleTitle}>
-							Join our growing community and get paid for
-							your work
+							Join, Create, Earn – Be a Part of Something
+							Big!
 						</Text>
 					</View>
 				</TouchableOpacity>
@@ -93,13 +93,10 @@ const styles = StyleSheet.create({
 	textTitle: {
 		fontSize: 40,
 		color: COLORS.gray,
-		marginRight: SIZES.base / 99,
 		textAlign: "center",
-		marginBottom: SIZES.large,
 	},
 	subTitle: {
 		fontWeight: "bold",
-		marginTop: SIZES.extraLarge,
 		fontSize: 20,
 		color: COLORS.gray,
 		marginRight: SIZES.base / 99,
@@ -107,16 +104,15 @@ const styles = StyleSheet.create({
 	},
 	littleTitle: {
 		fontSize: 13,
-		color: COLORS.gray,
-		marginRight: SIZES.base / 99,
+		color: COLORS.white,
 		textAlign: "center",
 		fontStyle: "italic",
 	},
 	textBody: {
 		marginBottom: SIZES.medium,
 		fontSize: 28,
-		color: Colors.secondary,
-
+		color: COLORS.white,
+		fontWeight: "700",
 		textAlign: "center",
 	},
 	container: {
@@ -136,14 +132,34 @@ const styles = StyleSheet.create({
 		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
 		shadowRadius: 1, //IOS
-		backgroundColor: COLORS.white,
+		backgroundColor: COLORS.primary,
+		borderRadius: SIZES.font,
+		marginBottom: SIZES.extraLarge,
+		margin: SIZES.base,
+		...SHADOWS.dark,
+		elevation: 2, // Android
+		height: "30%",
+		width: "90%",
+		justifyContent: "center",
+		alignItems: "center",
+		flexDirection: "row",
+		borderRadius: 10,
+		padding: "2%",
+	},
+	button2: {
+		padding: "2%",
+		shadowColor: "rgba(0,0,0, .4)", // IOS
+		shadowOffset: { height: 1, width: 1 }, // IOS
+		shadowOpacity: 1, // IOS
+		shadowRadius: 1, //IOS
+		backgroundColor: "green",
 		borderRadius: SIZES.font,
 		marginBottom: SIZES.extraLarge,
 		margin: SIZES.base,
 		...SHADOWS.dark,
 		elevation: 2, // Android
 		height: 130,
-		width: 320,
+		width: 380,
 		justifyContent: "center",
 		alignItems: "center",
 		flexDirection: "row",

@@ -108,8 +108,7 @@ const Thankyou = ({ route, navigation }) => {
 				</Text>
 				<Text style={styles.subtextTitle}>
 					{" "}
-					Order Updates will be sent to you via WhatsApp on same
-					number
+					Order Updates will be sent to you via WhatsApp/SMS
 				</Text>
 
 				{/* 

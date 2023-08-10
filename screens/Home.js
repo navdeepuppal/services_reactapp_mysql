@@ -27,6 +27,10 @@ import { ScrollView } from "react-native-gesture-handler";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { TabActions } from "@react-navigation/core";
 import DeliverablesHeader from "../components/DelieverablesHeader";
+import ModalList from "../components/ModalList";
+import Deliverables from "./Bookings";
+import Bookings from "./Bookings";
+import Search from "./Search";
 
 let apiKey = "YOUR_API_KEY";
 
@@ -38,6 +42,8 @@ function ServicesScreen() {
 	const [location, setLocation] = useState(null);
 	const [errorMsg, setErrorMsg] = useState(null);
 	const [address, setAddress] = useState(null);
+
+	const [modalVisible, setModalVisible] = useState(false);
 	const navigation = useNavigation();
 	//vahan se utha le
 
@@ -133,94 +139,152 @@ function ServicesScreen() {
 					<Text
 						style={{
 							alignSelf: "center",
-							margin: 40,
-							marginTop: "30%",
-							fontSize: 34,
+							fontSize: 30,
+							marginTop: "50%",
 							justifyContent: "center",
+							fontWeight: "bold",
 						}}
 					>
-						Finding services near your location..{" "}
+						Finding services nearby
 					</Text>
 					<Image
-						source={require("../assets/images/findservice.gif")}
+						source={require("../assets/images/octoloader.gif")}
 						style={styles.image}
 					/>
 				</View>
 			) : (
-				<View>
+				<SafeAreaView>
+					<View
+						style={{
+							borderRadius: SIZES.medium,
+							backgroundColor: "white",
+							elevation: 100,
+
+							width: "100%",
+							borderColor: COLORS.white,
+							borderWidth: 1,
+							flexDirection: "row",
+							paddingHorizontal: SIZES.font,
+							justifyContent: "space-between",
+						}}
+					>
+						<View
+							style={{
+								backgroundColor: COLORS.white,
+							}}
+						>
+							<View style={{ flexDirection: "row" }}>
+								<Image
+									source={require("../assets/icons/location.png")}
+									resizeMode="contain"
+									style={{
+										width: 17,
+										height: 17,
+									}}
+								/>
+								<Text
+									style={{
+										fontWeight: "700",
+										fontSize: 16,
+									}}
+								>
+									{" "}
+									Kothi 103
+								</Text>
+							</View>
+							<Text style={{ fontSize: 12, margin: "1%" }}>
+								{" "}
+								Phase 9, Mohali
+							</Text>
+						</View>
+						<View
+							style={{
+								justifyContent: "flex-end",
+								flexDirection: "row",
+								height: 35,
+							}}
+						>
+							<Image
+								source={require("../assets/sqera.png")}
+								resizeMode="cover"
+								style={{
+									alignContent: "center",
+									alignSelf: "center",
+									width: 70,
+									height: 25,
+									marginRight: 13,
+								}}
+							/>
+
+							<TouchableOpacity
+								style={{
+									marginTop: "1%",
+									width: 40,
+									height: 10,
+								}}
+								onPress={() => setModalVisible(true)}
+							>
+								<Image
+									source={assets.menuIcon}
+									resizeMode="cover"
+									style={{
+										alignContent: "center",
+										alignSelf: "center",
+										width: 48,
+										height: 30,
+									}}
+								/>
+							</TouchableOpacity>
+						</View>
+						<Modal
+							animationIn="slideInLeft"
+							animationOut="slideOutRight"
+							transparent={true}
+							visible={modalVisible}
+							close={() => {
+								toggleModal(false);
+							}}
+						>
+							<Pressable
+								style={styles.loweredView}
+								onPress={() => {
+									setModalVisible(false);
+								}}
+							>
+								<View style={styles.centeredView}>
+									<View style={styles.modalView}>
+										<ModalList
+											setVisible={
+												setModalVisible
+											}
+										/>
+									</View>
+								</View>
+							</Pressable>
+						</Modal>
+					</View>
 					<HomeHeader onSearch={handleSearch} />
 					<ScrollView
 						style={{
-							backgroundColor: "white",
+							backgroundColor: COLORS.white,
+							marginTop: "2%",
+							height: "100%",
+							borderRadius: 5,
 						}}
 					>
-						<View>
-							<View
-								style={{
-									marginTop: "2%",
-									height: 150,
-								}}
-							>
-								<SliderBox
-									inactiveDotColor="#90A4AE"
-									sliderBoxHeight={300}
-									resizeMethod={"resize"}
-									resizeMode={"cover"}
-									autoplay
-									circleLoop
-									autoplayInterval={3000}
-									height={"100%"}
-									width={"98%"}
-									opacity={0.8}
-									borderRadius={20}
-									dotStyle={{
-										width: 0,
-										height: 0,
-										borderRadius: 5,
-										marginHorizontal: 0,
-										padding: 0,
-										backgroundColor:
-											"rgba(128, 128, 128, 0.92)",
-									}}
-									images={[
-										"https://img.freepik.com/free-photo/rear-view-programmer-working-all-night-long_1098-18697.jpg?w=2000&t=st=1672688375~exp=1672688975~hmac=8416e203ce399ec68facdf58c3080d1db24be40cc787610e70880e32166d1d9f",
-										"https://img.freepik.com/free-photo/housewife-woking-home-lady-blue-shirt-woman-bathroom_1157-45526.jpg?w=2000&t=st=1672688038~exp=1672688638~hmac=d24482e0caf4b75f753a2435569d1c59b940371a9adf3ba4382d8c0d445c8d91",
-										"https://img.freepik.com/free-photo/maintenance-repair-works-renovation-concept_343059-3524.jpg?w=2000&t=st=1672688423~exp=1672689023~hmac=23284809561f25ae7ad531b9e57fa8351ab30ab35ce9853ba1abcbb3e8482bb1",
-										"https://img.freepik.com/free-photo/hvac-technician-working-capacitor-part-condensing-unit-male-worker-repairman-uniform-repairing-adjusting-conditioning-system-diagnosing-looking-technical-issues_155003-18256.jpg?w=2000&t=st=1672688457~exp=1672689057~hmac=8d5efa29abacc4dc73fef70cf4fbd600751fbb48465853c6b1170639fb45c73b", // Network image
-									]}
-									// onCurrentImagePressed={(
-									// 	index
-									// ) =>
-									// 	console.log(
-									// 		`image ${index} pressed`
-									// 	)
-									// }
-									// currentImageEmitter={(
-									// 	index
-									// ) =>
-									// 	console.log(
-									// 		`current pos is: ${index}`
-									// 	)
-									// }
-								/>
-							</View>
-							<View>
-								<Text
-									style={{
-										marginTop: "6%",
-										margin: 10,
-										fontSize: 25,
-										fontWeight: "600",
-									}}
-								>
-									Found popular services near you
-								</Text>
-							</View>
+						<View
+							style={{
+								justifyContent: "center",
+								alignItems: "center",
+								alignContent: "center",
+							}}
+						>
 							<FlatList
 								horizontal
 								data={data2}
 								renderItem={({ item, index }) => (
 									<NFTCard1
+										key={index}
 										data={item}
 										index={index}
 										setSubSModalVisible={
@@ -228,14 +292,86 @@ function ServicesScreen() {
 										}
 									/>
 								)}
-								keyExtractor={(index) =>
-									index.toString()
-								}
 								contentContainerStyle={{
-									height: 300,
+									height: "100%",
+									alignSelf: "center",
+									width: "100%",
+									margin: "1%",
 								}}
 							/>
 						</View>
+
+						<View
+							style={{
+								margin: "3%",
+								height: 7,
+								width: "100%",
+								alignSelf: "center",
+								backgroundColor:
+									"rgba(244,244,244,244)",
+							}}
+						/>
+
+						{/* <View
+							style={{
+								backgroundColor: COLORS.white,
+								height: "15%",
+								justifyContent: "center",
+								alignItems: "center",
+							}}
+						>
+							<SliderBox
+								inactiveDotColor="#90A4AE"
+								sliderBoxHeight={300}
+								autoplay
+								circleLoop
+								autoplayInterval={3000}
+								height={"100%"}
+								width={"90%"}
+								opacity={0.8}
+								borderRadius={8}
+								dotStyle={{
+									width: 0,
+									height: 0,
+									borderRadius: 1,
+									marginHorizontal: 0,
+									padding: 0,
+									backgroundColor:
+										"rgba(128, 128, 128, 0.92)",
+								}}
+								images={[
+									"https://img.freepik.com/free-photo/rear-view-programmer-working-all-night-long_1098-18697.jpg?w=2000&t=st=1672688375~exp=1672688975~hmac=8416e203ce399ec68facdf58c3080d1db24be40cc787610e70880e32166d1d9f",
+									"https://img.freepik.com/free-photo/housewife-woking-home-lady-blue-shirt-woman-bathroom_1157-45526.jpg?w=2000&t=st=1672688038~exp=1672688638~hmac=d24482e0caf4b75f753a2435569d1c59b940371a9adf3ba4382d8c0d445c8d91",
+									"https://img.freepik.com/free-photo/maintenance-repair-works-renovation-concept_343059-3524.jpg?w=2000&t=st=1672688423~exp=1672689023~hmac=23284809561f25ae7ad531b9e57fa8351ab30ab35ce9853ba1abcbb3e8482bb1",
+									"https://img.freepik.com/free-photo/hvac-technician-working-capacitor-part-condensing-unit-male-worker-repairman-uniform-repairing-adjusting-conditioning-system-diagnosing-looking-technical-issues_155003-18256.jpg?w=2000&t=st=1672688457~exp=1672689057~hmac=8d5efa29abacc4dc73fef70cf4fbd600751fbb48465853c6b1170639fb45c73b", // Network image
+								]}
+								// onCurrentImagePressed={(
+								// 	index
+								// ) =>
+								// 	console.log(
+								// 		`image ${index} pressed`
+								// 	)
+								// }
+								// currentImageEmitter={(
+								// 	index
+								// ) =>
+								// 	console.log(
+								// 		`current pos is: ${index}`
+								// 	)
+								// }
+							/>
+						</View>
+						<View
+							style={{
+								margin: "3%",
+								height: 7,
+								width: "100%",
+								alignSelf: "center",
+								backgroundColor:
+									"rgba(244,244,244,244)",
+								borderRadius: 20,
+							}}
+						/>  */}
 
 						<View style={styles.loweredView}>
 							<Modal
@@ -283,454 +419,61 @@ function ServicesScreen() {
 							</Modal>
 						</View>
 					</ScrollView>
-				</View>
+				</SafeAreaView>
 			)}
 		</View>
 	);
 }
 
-function DeliverablesScreen() {
-	let totalPrice = 3;
-	const [state, setButtonStatus] = useState("1");
-	return (
-		<SafeAreaView
-			style={{
-				flex: 1,
-			}}
-		>
-			<View
-				style={{
-					flexDirection: "row",
-					margin: 20,
-					justifyContent: "space-between",
-				}}
-			>
-				<Text style={{ fontSize: 20, marginLeft: 20 }}>
-					Fruits and Vegetables
-				</Text>
-				<Image
-					source={assets.search}
-					resizeMode="contain"
-					style={{
-						width: 20,
-						height: 20,
-						marginRight: SIZES.base,
-					}}
-				/>
-			</View>
-			<View
-				style={{
-					flexDirection: "row",
-					flex: 1,
-					backgroundColor: "rgba(245,245,245,255)",
-				}}
-			>
-				<View
-					style={{
-						width: "24%",
-						padding: 2,
-						borderRightColor: "gray",
-						borderRightWidth: 1,
-					}}
-				>
-					<ScrollView>
-						<TouchableOpacity
-							style={{
-								backgroundColor: "#ffded9",
-								margin: 10,
-								borderRadius: 15,
-								height: 150,
-								width: "90%",
-								paddingTop: 15,
-								justifyContent: "flex-start",
-							}}
-							onPress={() => setButtonStatus("2")}
-						>
-							<Image
-								source={require("../assets/images/icon.png")}
-								resizeMode="center"
-								style={styles.inventoryImage}
-							/>
-							<Text
-								style={{
-									fontSize: 16,
-									marginTop: 20,
-									alignContent: "flex-end",
-									justifyContent: "center",
-									alignSelf: "center",
-									textAlign: "center",
-									color: COLORS.primary,
-								}}
-							>
-								Fresh Vegetables
-							</Text>
-						</TouchableOpacity>
-						<TouchableOpacity
-							style={{
-								backgroundColor: "#d9ffde",
-								margin: 10,
-								borderRadius: 15,
-								height: 150,
-								width: "90%",
-								paddingTop: 15,
-								justifyContent: "flex-start",
-							}}
-							onPress={() => setButtonStatus("1")}
-						>
-							<Image
-								source={require("../assets/images/icon.png")}
-								resizeMode="center"
-								style={styles.inventoryImage}
-							/>
-							<Text
-								style={{
-									fontSize: 16,
-									marginTop: 20,
-									alignContent: "flex-end",
-									justifyContent: "center",
-									alignSelf: "center",
-									textAlign: "center",
-									color: "black",
-								}}
-							>
-								Fresh Fruits
-							</Text>
-						</TouchableOpacity>
-					</ScrollView>
-				</View>
-
-				{/* Fruits Screen */}
-
-				{state == 1 ? (
-					<View style={{ width: "76%" }}>
-						<ScrollView>
-							<View
-								style={{
-									flexWrap: "wrap",
-									flexDirection: "row",
-								}}
-							>
-								<View
-									style={{
-										width: "49%",
-										height: 220,
-										paddingTop: 15,
-										justifyContent: "flex-start",
-										borderColor: "white",
-										borderWidth: 1,
-									}}
-								>
-									<Image
-										source={require("../assets/images/icon.png")}
-										resizeMode="cover"
-										style={styles.image2}
-									/>
-									<Text
-										style={{
-											fontSize: 20,
-											marginTop: 20,
-											alignContent: "flex-end",
-											justifyContent: "center",
-											alignSelf: "center",
-											textAlign: "center",
-											color: "black",
-										}}
-									>
-										Fresh Fruits
-									</Text>
-
-									<View
-										style={{
-											width: 100,
-											height: 40,
-											flexDirection: "row",
-											borderColor:
-												"rgb(200, 10, 200)",
-											borderRadius: SIZES.font,
-											borderWidth: 1,
-											alignItems: "center",
-											marginTop: "3%",
-											alignSelf: "center",
-											position: "relative",
-										}}
-									>
-										<TouchableOpacity
-											style={{
-												borderRadius:
-													SIZES.font,
-												width: 40,
-												height: 40,
-												alignItems:
-													"center",
-												justifyContent:
-													"center",
-											}}
-											onPress={() => {}}
-										>
-											<Text
-												style={{
-													fontSize: 25,
-												}}
-											>
-												{" "}
-												-{" "}
-											</Text>
-										</TouchableOpacity>
-
-										<Text
-											style={{ fontSize: 25 }}
-										>
-											11
-										</Text>
-
-										<TouchableOpacity
-											style={{
-												borderRadius:
-													SIZES.font,
-												width: 40,
-												height: 40,
-												alignItems:
-													"center",
-												justifyContent:
-													"center",
-											}}
-											onPress={() => {
-												//setItemCount(itemCount + 1);
-												//data.itemCount = itemCount;
-											}}
-										>
-											<Text
-												style={{
-													fontSize: 25,
-												}}
-											>
-												{" "}
-												+{" "}
-											</Text>
-										</TouchableOpacity>
-									</View>
-								</View>
-							</View>
-						</ScrollView>
-					</View>
-				) : state == "2" ? (
-					<View style={{ width: "69%" }}>
-						<ScrollView>
-							<View
-								style={{
-									flexWrap: "wrap",
-									flexDirection: "row",
-								}}
-							>
-								<View
-									style={{
-										margin: 1,
-										width: "49%",
-										paddingTop: 15,
-										justifyContent: "flex-start",
-										borderColor: "white",
-										borderWidth: 3,
-									}}
-								>
-									<Image
-										source={require("../assets/images/icon.png")}
-										resizeMode="cover"
-										style={styles.image2}
-									/>
-									<Text
-										style={{
-											fontSize: 20,
-											marginTop: 20,
-											alignContent: "flex-end",
-											justifyContent: "center",
-											alignSelf: "center",
-											textAlign: "center",
-											color: "black",
-										}}
-									>
-										Fresh Vegetables
-									</Text>
-									<Text
-										style={{
-											fontSize: 25,
-											marginTop: 5,
-											alignContent: "flex-end",
-											justifyContent: "center",
-											alignSelf: "center",
-											textAlign: "center",
-											color: "black",
-										}}
-									>
-										₹100
-									</Text>
-									<Text
-										style={{
-											fontSize: 25,
-											marginTop: 5,
-											alignContent: "flex-end",
-											justifyContent: "center",
-											alignSelf: "center",
-											textAlign: "center",
-											color: "black",
-										}}
-									>
-										₹100
-									</Text>
-									<View
-										style={{
-											width: 100,
-											height: 40,
-											flexDirection: "row",
-											borderColor:
-												"rgb(200, 10, 200)",
-											borderRadius: SIZES.font,
-											borderWidth: 1,
-											alignItems: "center",
-											marginTop: "3%",
-											alignSelf: "center",
-											position: "relative",
-										}}
-									>
-										<TouchableOpacity
-											style={{
-												borderRadius:
-													SIZES.font,
-												width: 40,
-												height: 40,
-												alignItems:
-													"center",
-												justifyContent:
-													"center",
-											}}
-											onPress={() => {}}
-										>
-											<Text
-												style={{
-													fontSize: 25,
-												}}
-											>
-												{" "}
-												-{" "}
-											</Text>
-										</TouchableOpacity>
-
-										<Text
-											style={{ fontSize: 25 }}
-										>
-											11
-										</Text>
-
-										<TouchableOpacity
-											style={{
-												borderRadius:
-													SIZES.font,
-												width: 40,
-												height: 40,
-												alignItems:
-													"center",
-												justifyContent:
-													"center",
-											}}
-											onPress={() => {
-												//setItemCount(itemCount + 1);
-												//data.itemCount = itemCount;
-											}}
-										>
-											<Text
-												style={{
-													fontSize: 25,
-												}}
-											>
-												{" "}
-												+{" "}
-											</Text>
-										</TouchableOpacity>
-									</View>
-								</View>
-							</View>
-						</ScrollView>
-					</View>
-				) : null}
-			</View>
-
-			<View
-				style={{
-					flexDirection: "row",
-					justifyContent: "space-between",
-					width: "100%",
-					height: "8%",
-					alignContent: "center",
-					alignItems: "center",
-				}}
-			>
-				<Text
-					style={{
-						marginLeft: 25,
-						color: COLORS.primary,
-						fontSize: 22,
-					}}
-				>
-					₹ {totalPrice}
-				</Text>
-				<TouchableOpacity
-					style={{
-						backgroundColor: "black",
-						borderRadius: 10,
-						marginRight: "5%",
-						padding: "1%",
-						width: "35%",
-						height: "60%",
-						justifyContent: "center",
-					}}
-					onPress={() => navigation.navigate("Cart")}
-				>
-					<Text
-						style={{
-							color: COLORS.white,
-							fontSize: 22,
-							fontWeight: "600",
-							alignSelf: "center",
-						}}
-					>
-						View Cart
-					</Text>
-				</TouchableOpacity>
-			</View>
-		</SafeAreaView>
-	);
-}
 const Tab = createMaterialBottomTabNavigator();
 export default function App() {
+	{
+		/* <ServicesScreen /> */
+	}
 	return (
 		<Tab.Navigator
-			initialRouteName="DeliverablesScreen"
+			initialRouteName="Services"
 			screenOptions={{ headerShown: false }}
-			barStyle={{ backgroundColor: "white" }}
+			barStyle={{ backgroundColor: "white", height: 70 }}
 		>
 			<Tab.Screen
-				name="Deliverables"
-				component={DeliverablesScreen}
+				name="Services"
+				component={ServicesScreen}
 				options={{
-					tabBarLabel: "Deliverables",
+					tabBarLabel: "",
 					tabBarIcon: ({ color }) => (
 						<MaterialCommunityIcons
-							name="cart"
+							name="account-group-outline"
 							color={color}
-							size={26}
+							size={30}
 						/>
 					),
 				}}
 			/>
 			<Tab.Screen
-				name="Services"
-				component={ServicesScreen}
+				name="Search"
+				component={Search}
 				options={{
-					tabBarLabel: "Services",
+					tabBarLabel: "",
 					tabBarIcon: ({ color }) => (
 						<MaterialCommunityIcons
-							name="account-group-outline"
+							name="cart"
 							color={color}
-							size={26}
+							size={25}
+						/>
+					),
+				}}
+			/>
+			<Tab.Screen
+				name="Bookings"
+				component={Bookings}
+				options={{
+					tabBarLabel: "",
+					tabBarIcon: ({ color }) => (
+						<MaterialCommunityIcons
+							name="cart"
+							color={color}
+							size={25}
 						/>
 					),
 				}}
@@ -790,9 +533,11 @@ const styles = StyleSheet.create({
 	},
 	image: {
 		opacity: 0.2,
-		width: 700,
-		height: 800,
+		width: 500,
+		height: 500,
 		backgroundColor: "white",
+		alignSelf: "center",
+		justifyContent: "center",
 	},
 	image2: {
 		opacity: 0.8,

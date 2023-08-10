@@ -6,8 +6,8 @@ import { SIZES, FONTS, COLORS, SHADOWS, assets } from "../constants";
 export const NFTTitle = ({
 	title,
 	titleSize,
-	titleFont = FONTS.medium,
-	fontColor = COLORS.white,
+	titleFont = FONTS.font,
+	fontColor = COLORS.primary,
 	textAlign = "center",
 }) => {
 	return (
@@ -66,7 +66,11 @@ export const People = () => {
 		<View style={{ flexDirection: "row" }}>
 			{[assets.person02, assets.person03, assets.person04].map(
 				(imgUrl, index) => (
-					<ImageCmp imgUrl={imgUrl} index={index} key={`People-${index}`} />
+					<ImageCmp
+						key={`People-${index}`}
+						imgUrl={imgUrl}
+						index={index}
+					/>
 				)
 			)}
 		</View>

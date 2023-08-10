@@ -29,6 +29,10 @@ const ModalList = ({ setVisible }) => {
 			{user ? (
 				<View>
 					<TouchableOpacity
+						onPress={() => {
+							navigation.navigate("Profile"),
+								setVisible(false);
+						}}
 						style={{
 							alignSelf: "center",
 						}}
@@ -67,15 +71,55 @@ const ModalList = ({ setVisible }) => {
 							</View>
 						</View>
 					</TouchableOpacity>
-
-					<TouchableOpacity
-						onPress={() => {
-							navigation.navigate("RecentOrders"),
-								setVisible(false);
+					<View
+						style={{
+							backgroundColor: COLORS.primary,
+							width: 120,
+							borderRadius: 10,
+							padding: 7,
+							margin: 20,
+							alignSelf: "center",
 						}}
 					>
-						<Text style={styles.textBody}>Recent Orders</Text>
-					</TouchableOpacity>
+						<TouchableOpacity
+							onPress={() => {
+								navigation.navigate("RecentOrders"),
+									setVisible(false);
+							}}
+						>
+							<Text
+								style={{
+									color: COLORS.white,
+									fontSize: 20,
+									alignSelf: "center",
+									justifyContent: "center",
+									fontWeight: "700",
+								}}
+							>
+								Rs 10
+							</Text>
+							<Text
+								style={{
+									color: COLORS.white,
+									fontSize: 15,
+									alignSelf: "center",
+									justifyContent: "center",
+								}}
+							>
+								Wallet Balance
+							</Text>
+						</TouchableOpacity>
+					</View>
+
+					<View
+						style={{
+							marginTop: "5%",
+							height: 1,
+							width: "95%",
+							alignSelf: "center",
+							backgroundColor: "#cccccc",
+						}}
+					/>
 				</View>
 			) : (
 				<TouchableOpacity
@@ -107,7 +151,7 @@ const ModalList = ({ setVisible }) => {
 						setVisible(false), navigation.navigate("Contact");
 					}}
 				>
-					<Text style={styles.textBody}>Contact Us</Text>
+					<Text style={styles.textBody}>Support</Text>
 				</TouchableOpacity>
 
 				<TouchableOpacity
@@ -121,6 +165,25 @@ const ModalList = ({ setVisible }) => {
 						Request New Service
 					</Text>
 				</TouchableOpacity>
+				<TouchableOpacity
+					style={styles.button}
+					onPress={() => {
+						navigation.navigate("RequestNewService"),
+							setVisible(false);
+					}}
+				>
+					<Text style={styles.textBody}>Privacy Policy</Text>
+				</TouchableOpacity>
+
+				{/* 	<TouchableOpacity
+					style={styles.button}
+					onPress={() => {
+						navigation.navigate("Deliverables"),
+							setVisible(false);
+					}}
+				>
+					<Text style={styles.textBody}>Deliverables</Text>
+				</TouchableOpacity> */}
 
 				{user ? (
 					<TouchableOpacity
@@ -128,6 +191,7 @@ const ModalList = ({ setVisible }) => {
 							setVisible(false);
 							AsyncStorage.clear();
 							Alert.alert("Logged out");
+							navigation.navigate("SelectOnboard");
 						}}
 					>
 						<View
@@ -142,7 +206,7 @@ const ModalList = ({ setVisible }) => {
 						<Text
 							style={{
 								marginTop: 23,
-								fontSize: 20,
+								fontSize: 16,
 								alignSelf: "center",
 								color: "#E2000B",
 							}}
@@ -218,6 +282,8 @@ const styles = StyleSheet.create({
 		padding: 10,
 		elevation: 2,
 		backgroundColor: "green",
+		width: "65%",
+		alignSelf: "center",
 	},
 	modeButton: {
 		borderRadius: 5,
@@ -229,7 +295,7 @@ const styles = StyleSheet.create({
 	textBody: {
 		padding: 20,
 		alignSelf: "flex-start",
-		fontSize: 20,
+		fontSize: 17,
 		color: COLORS.primary,
 	},
 	buttonOpen: {
@@ -268,7 +334,7 @@ const styles = StyleSheet.create({
 		color: "white",
 		fontWeight: "bold",
 		textAlign: "center",
-		fontSize: 20,
+		fontSize: 18,
 		margin: 5,
 	},
 	textStyle1: {

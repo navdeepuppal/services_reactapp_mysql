@@ -77,41 +77,32 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
 					data.isSelected != "false"
 						? "rgba(245,245,245,255)"
 						: "#F8F8F8",
-				borderRadius: SIZES.extraLarge,
-				margin: SIZES.base,
-				width: 195,
+				borderRadius: SIZES.small,
+				width: 133,
+				height: 145,
+				margin: "1.5%",
+				padding: "4%",
 				justifyContent: "flex-end",
-				height: 220,
-				paddingBottom: 8,
+				alignSelf: "center",
 			}}
 			onPress={() => {
 				setSubSModalVisible(index);
 				//navigation.navigate("SubServices" /* data.S_NextPage */, { data })
 			}}
 		>
-			<ImageBackground
-				resizeMode="cover"
-				source={{ uri: ImageURL }}
-				style={{
-					height: "105%",
-
-					borderBottomLeftRadius: 20,
-					borderBottomRightRadius: 20,
-					borderTopRightRadius: 20,
-					borderTopLeftRadius: 20,
-					overflow: "hidden",
-					width: "100%",
-					position: "absolute",
-				}}
+			<View
+				style={{ height: "75%", width: "100%", marginBottom: "2%" }}
 			>
-				<LinearGradient
-					colors={["#00000000", "#000000"]}
-					style={{ height: "100%", width: "100%" }}
-					start={{ x: 0.8, y: 0.1 }}
-					end={{ x: 1.0, y: 1.0 }}
-				></LinearGradient>
-			</ImageBackground>
-
+				<ImageBackground
+					resizeMode="cover"
+					source={{ uri: ImageURL }}
+					style={{
+						height: "100%",
+						alignSelf: "center",
+						width: "100%",
+					}}
+				></ImageBackground>
+			</View>
 			<NFTTitle title={data.S_Name} titleSize={SIZES.large} />
 		</TouchableOpacity>
 	);
@@ -121,7 +112,7 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
 
 const NFTCard2 = ({ data, setSubSModalVisible }) => {
 	const navigation = useNavigation();
-
+	console.log("SubS_Image", data.SubS_Image);
 	return (
 		<TouchableOpacity
 			style={{
@@ -157,6 +148,7 @@ const NFTCard2 = ({ data, setSubSModalVisible }) => {
 				title={data.SubS_Name}
 				titleSize={SIZES.medium}
 				titleFont={FONTS.medium}
+				fontColor={COLORS.primary}
 			/>
 		</TouchableOpacity>
 	);

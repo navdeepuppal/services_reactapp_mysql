@@ -9,6 +9,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as Haptics from "expo-haptics";
 
+import { COLORS, SIZES, SHADOWS, assets } from "../constants";
 import { RadioButton } from "react-native-paper";
 import BackButton from "../components/BackButton";
 
@@ -60,13 +61,13 @@ const PaymentApi = ({ navigation, route }) => {
 				</View>
 			</TouchableWithoutFeedback>
 
-			<Text style={style.textInfo}>Default payment mode : COD</Text>
 			<Text style={style.textInfo}>
 				Other payment method options will be available soon.
 			</Text>
 			<Text style={style.textInfo}>
-				You can also pay via UPI / Gpay / Paytm to the service man
-				after completion of your service.
+				Upon the completion of your service, you have the option to
+				make payment to the service provider using UPI, Gpay, or
+				Paytm.
 			</Text>
 
 			<TouchableOpacity
@@ -86,24 +87,27 @@ const PaymentApi = ({ navigation, route }) => {
 
 const style = StyleSheet.create({
 	textInfo: {
-		fontSize: 17,
+		fontSize: 16,
 		margin: 7,
 		color: "gray",
 	},
 	verifyButton: {
 		alignSelf: "center",
-		marginTop: "25%",
+		marginTop: "17%",
 		shadowColor: "rgba(0,0,0, .4)", // IOS
 		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
 		shadowRadius: 1, //IOS
-		backgroundColor: "green",
+		backgroundColor: "black",
+		borderRadius: SIZES.font,
+		marginBottom: SIZES.extraLarge,
+		margin: SIZES.base,
+		...SHADOWS.dark,
 		elevation: 2, // Android
 		height: 50,
 		width: "80%",
 		justifyContent: "center",
 		alignItems: "center",
-		flexDirection: "row",
 		borderRadius: 10,
 	},
 	buttontext: {

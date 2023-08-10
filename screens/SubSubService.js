@@ -13,7 +13,7 @@ import { useNavigation } from "@react-navigation/native";
 import { NFTCard6, HomeHeader, FocusedStatusBar } from "../components";
 import { COLORS, config, SIZES } from "../constants";
 import SubSubServicesHeader from "../components/SubSubServicesHeader";
-import { Colors } from "react-native-paper";
+import { Colors, Snackbar } from "react-native-paper";
 import { ScrollView } from "react-native-gesture-handler";
 
 const SubSubService = ({ route, navigation }) => {
@@ -21,9 +21,15 @@ const SubSubService = ({ route, navigation }) => {
 	const [data2, setData] = useState([]);
 	const [data2_backup, setDataBackup] = useState([]);
 	const prevData = route.params.data;
+	const [visible, setVisible] = React.useState(true);
+
+	const onToggleSnackBar = () => setVisible(!visible);
+
+	const onDismissSnackBar = () => setVisible(false);
 
 	const handleSearch = (value) => {
 		if (value.length === 0) {
+			s;
 			setData(data2_backup);
 		}
 
@@ -103,6 +109,10 @@ const SubSubService = ({ route, navigation }) => {
 						/>
 					}
 				/>
+				<Snackbar visible={visible} onDismiss={onDismissSnackBar}>
+					The prices for each service here are calculated based
+					on the average ask/demand price in your local area.
+				</Snackbar>
 			</View>
 			{totalPrice ? (
 				<View

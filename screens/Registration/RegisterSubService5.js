@@ -34,7 +34,7 @@ const RegisterSubService5 = ({ navigation }) => {
 			setData(filteredData);
 		}
 	};
-	const querystring = "SELECT * FROM Service;";
+	const querystring = "SELECT * FROM service;";
 
 	useEffect(() => {
 		fetch(config.domain + "/get/" + querystring, {
@@ -67,7 +67,7 @@ const RegisterSubService5 = ({ navigation }) => {
 							backgroundColor: COLORS.primary,
 							alignSelf: "center",
 							fontWeight: "bold",
-							fontSize: 30,
+							fontSize: 20,
 							color: COLORS.white,
 							width: "100%",
 							textAlign: "center",

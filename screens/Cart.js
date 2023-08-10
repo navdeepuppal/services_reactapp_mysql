@@ -12,12 +12,19 @@ import {
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { COLORS, SIZES, SHADOWS, assets, FONTS, config } from "../constants";
 import { NFTTitle } from "../components/SubInfo";
+import { Colors, Snackbar } from "react-native-paper";
 
 const Cart = ({ route, navigation }) => {
 	const [subSubServices, setData] = useState(route.params.data2_backup);
 	const [extraData, setExtraData] = useState([]);
 	const [isLoading, setLoading] = useState(true);
 	const [modalVisible, setModalVisible] = useState(false);
+
+	const [visible, setVisible] = React.useState(true);
+
+	const onToggleSnackBar = () => setVisible(!visible);
+
+	const onDismissSnackBar = () => setVisible(false);
 
 	const [isLoggedIn, setLoggedIn] = useState("");
 
@@ -26,7 +33,7 @@ const Cart = ({ route, navigation }) => {
 	});
 
 	const querystring =
-		"SELECT service.S_MinCartPrice, service.S_Discount, service.S_MinCharges, service.S_PlatformFee FROM Service WHERE service.S_ID = " +
+		"SELECT service.S_MinCartPrice, service.S_Discount, service.S_MinCharges, service.S_PlatformFee FROM service WHERE service.S_ID = " +
 		subSubServices[0].S_ID +
 		";";
 
@@ -318,7 +325,7 @@ const Cart = ({ route, navigation }) => {
 			(item) => item.itemCount > 0
 		);
 		if (filteredData.length === 0) {
-			return ( 
+			return (
 				<SafeAreaView
 					style={{ backgroundColor: COLORS.white, flex: 1 }}
 				>
@@ -560,7 +567,16 @@ const Cart = ({ route, navigation }) => {
 							)}
 						/>
 					</View>
-
+					<View>
+						<Snackbar
+							visible={visible}
+							onDismiss={onDismissSnackBar}
+						>
+							We assure you that we will only apply the
+							modest fees that are currently being
+							requested for any service in the market.
+						</Snackbar>
+					</View>
 					<View
 						style={{
 							marginTop: 23,

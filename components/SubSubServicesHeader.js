@@ -12,8 +12,6 @@ const SubSubServicesHeader = ({ onSearch, SubS_Name }) => {
 				padding: SIZES.font,
 			}}
 		>
-
-
 			<View
 				style={{
 					flexDirection: "row",
@@ -21,7 +19,7 @@ const SubSubServicesHeader = ({ onSearch, SubS_Name }) => {
 				}}
 			>
 				<View
-					style={{ 
+					style={{
 						flexDirection: "row",
 					}}
 				>
@@ -35,24 +33,11 @@ const SubSubServicesHeader = ({ onSearch, SubS_Name }) => {
 							style={{ width: "100%", height: "100%" }}
 						/>
 					</TouchableOpacity>
-					<Text style={{ marginLeft: 10, fontSize: 19}}>{SubS_Name}</Text>
+					<Text style={{ marginLeft: 10, fontSize: 19 }}>
+						{SubS_Name}
+					</Text>
 				</View>
-
-				<TouchableOpacity
-					style={{ width: 20, height: 20, marginTop: 2 }}
-					onPress={() => navigation.goBack()}
-				>
-					<Image
-						source={assets.search}
-						resizeMode="contain"
-						style={{ width: "100%", height: "100%" }}
-					/>
-				</TouchableOpacity>
 			</View>
-
-			
-
-
 
 			{/* 	<View style={{ marginVertical: SIZES.font }}>
 				<Text

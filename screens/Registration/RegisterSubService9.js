@@ -67,8 +67,7 @@ const RegisterSubService9 = ({ route }) => {
 							Register as a Professional
 						</Text>
 						<Text style={styles.textBody}>
-							Join Sqera to change your life. {"\n\n"}Tell
-							us a bit about yourself. {"\n"}This
+							Tell us a bit about yourself. {"\n"}This
 							information will appear on your public
 							profile, so that potential buyers can get to
 							know you better.
@@ -94,9 +93,16 @@ const RegisterSubService9 = ({ route }) => {
 							multiline
 							numberOfLines={4}
 						/>
-						<Text>
-							What are the base prices for your selected
-							services...?
+						<Text
+							style={{
+								fontSize: 20,
+								margin: 13.5,
+								borderTopWidth: 1,
+								borderTopColor: COLORS.gray,
+							}}
+						>
+							What's the hourly rate for these services?
+							Example: Rs.120/hr
 						</Text>
 						<ScrollView
 							horizontal={true}
@@ -547,7 +553,6 @@ const styles = StyleSheet.create({
 	},
 
 	textBody: {
-		marginTop: 80,
 		fontSize: 19,
 		margin: 13,
 		fontWeight: "bold",
