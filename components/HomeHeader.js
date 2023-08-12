@@ -28,14 +28,14 @@ const HomeHeader = ({ onSearch }) => {
 		<View
 			style={{
 				borderRadius: SIZES.medium,
-				backgroundColor: COLORS.white,
+				backgroundColor: "#f2f2f2",
 				elevation: 100,
-				...SHADOWS.dark,
+				...SHADOWS.medium,
 				height: 50,
 				width: "90%",
 				alignSelf: "center",
 				borderColor: COLORS.white,
-				borderWidth: 1,
+				borderWidth: 0.3,
 				flexDirection: "row",
 				alignItems: "center",
 				alignContent: "flex-start",

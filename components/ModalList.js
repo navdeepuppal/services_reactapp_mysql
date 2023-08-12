@@ -14,6 +14,7 @@ import React, { useState } from "react";
 import { COLORS, FONTS, SIZES, assets } from "../constants";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Col } from "react-native-easy-grid";
 
 const ModalList = ({ setVisible }) => {
 	const navigation = useNavigation();
@@ -25,16 +26,29 @@ const ModalList = ({ setVisible }) => {
 		setUser(user);
 	});
 	return (
-		<SafeAreaView>
+		<View
+			style={{
+				marginTop: "20%",
+				height: "100%",
+				width: 210,
+				backgroundColor: "white",
+				padding: 15,
+			}}
+		>
 			{user ? (
 				<View>
 					<TouchableOpacity
 						onPress={() => {
-							navigation.navigate("Profile"),
-								setVisible(false);
+							setVisible(false),
+								setTimeout(function () {
+									//Put All Your Code Here, Which You Want To Execute After Some Delay Time.
+									navigation.navigate("Profile");
+								}, 200);
 						}}
 						style={{
 							alignSelf: "center",
+							alignItems: "center",
+							width: "100%",
 						}}
 					>
 						<View
@@ -61,6 +75,7 @@ const ModalList = ({ setVisible }) => {
 								>
 									{user}
 								</Text>
+
 								<Text
 									style={{
 										fontSize: 15,
@@ -90,7 +105,7 @@ const ModalList = ({ setVisible }) => {
 							<Text
 								style={{
 									color: COLORS.white,
-									fontSize: 20,
+									fontSize: 19,
 									alignSelf: "center",
 									justifyContent: "center",
 									fontWeight: "700",
@@ -101,7 +116,7 @@ const ModalList = ({ setVisible }) => {
 							<Text
 								style={{
 									color: COLORS.white,
-									fontSize: 15,
+									fontSize: 14,
 									alignSelf: "center",
 									justifyContent: "center",
 								}}
@@ -110,16 +125,6 @@ const ModalList = ({ setVisible }) => {
 							</Text>
 						</TouchableOpacity>
 					</View>
-
-					<View
-						style={{
-							marginTop: "5%",
-							height: 1,
-							width: "95%",
-							alignSelf: "center",
-							backgroundColor: "#cccccc",
-						}}
-					/>
 				</View>
 			) : (
 				<TouchableOpacity
@@ -146,6 +151,15 @@ const ModalList = ({ setVisible }) => {
 			)}
 
 			<ScrollView>
+				<View
+					style={{
+						marginTop: "5%",
+						height: 0.2,
+						width: "95%",
+						alignSelf: "center",
+						backgroundColor: "#cccccc",
+					}}
+				/>
 				<TouchableOpacity
 					onPress={() => {
 						setVisible(false), navigation.navigate("Contact");
@@ -161,20 +175,30 @@ const ModalList = ({ setVisible }) => {
 							setVisible(false);
 					}}
 				>
-					<Text style={styles.textBody}>
-						Request New Service
-					</Text>
-				</TouchableOpacity>
-				<TouchableOpacity
-					style={styles.button}
-					onPress={() => {
-						navigation.navigate("RequestNewService"),
-							setVisible(false);
-					}}
-				>
 					<Text style={styles.textBody}>Privacy Policy</Text>
 				</TouchableOpacity>
 
+				<View
+					style={{
+						marginTop: "5%",
+						height: 0.5,
+						width: "95%",
+						alignSelf: "center",
+						backgroundColor: "#cccccc",
+					}}
+				/>
+
+				<Text
+					style={{
+						margin: 30,
+						alignSelf: "center",
+						color: "silver",
+						fontSize: 13,
+					}}
+				>
+					{" "}
+					Version 1.0.1{" "}
+				</Text>
 				{/* 	<TouchableOpacity
 					style={styles.button}
 					onPress={() => {
@@ -184,37 +208,6 @@ const ModalList = ({ setVisible }) => {
 				>
 					<Text style={styles.textBody}>Deliverables</Text>
 				</TouchableOpacity> */}
-
-				{user ? (
-					<TouchableOpacity
-						onPress={() => {
-							setVisible(false);
-							AsyncStorage.clear();
-							Alert.alert("Logged out");
-							navigation.navigate("SelectOnboard");
-						}}
-					>
-						<View
-							style={{
-								marginTop: "5%",
-								height: 1,
-								width: "95%",
-								alignSelf: "center",
-								backgroundColor: "#cccccc",
-							}}
-						/>
-						<Text
-							style={{
-								marginTop: 23,
-								fontSize: 16,
-								alignSelf: "center",
-								color: "#E2000B",
-							}}
-						>
-							Logout
-						</Text>
-					</TouchableOpacity>
-				) : null}
 			</ScrollView>
 			<TouchableOpacity
 				style={[styles.modeButton1]}
@@ -242,7 +235,7 @@ const ModalList = ({ setVisible }) => {
 										Find Services Near Me
 									</Text>
 								</TouchableOpacity> */}
-		</SafeAreaView>
+		</View>
 	);
 };
 
@@ -280,10 +273,11 @@ const styles = StyleSheet.create({
 	modeButton1: {
 		borderRadius: 5,
 		padding: 10,
+		height: 65,
 		elevation: 2,
 		backgroundColor: "green",
-		width: "65%",
-		alignSelf: "center",
+		width: 190,
+		marginBottom: 100,
 	},
 	modeButton: {
 		borderRadius: 5,
@@ -302,16 +296,18 @@ const styles = StyleSheet.create({
 		backgroundColor: "#F194FF",
 	},
 	loginButton: {
+		alignSelf: "center",
 		shadowColor: "rgba(0,0,0, .1)", // IOS
 		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
 		shadowRadius: 1, //IOS
-		backgroundColor: "rgba(255,255,255,255)",
+		backgroundColor: "#f2f2f2",
 		borderColor: COLORS.primary,
 		margin: SIZES.base,
-		height: "8%",
+		height: 50,
 		elevation: 20,
-		borderRadius: SIZES.small,
+		width: 200,
+		borderRadius: SIZES.small - 5,
 		alignItems: "center",
 		justifyContent: "center",
 	},
@@ -343,9 +339,12 @@ const styles = StyleSheet.create({
 		fontSize: 12,
 	},
 	loginText: {
+		marginLeft: 7,
 		textAlign: "center",
 		fontSize: 20,
 		justifyContent: "center",
+		color: COLORS.primary,
+		fontWeight: "600",
 	},
 	modalText: {
 		marginBottom: 15,

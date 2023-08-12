@@ -42,7 +42,25 @@ const Bookings = ({ navigation }) => {
 				style={{ height: "100%", backgroundColor: "#f2f2f2" }}
 			>
 				<TouchableOpacity>
-					<View style={{ margin: "4%" }}>
+					<View
+						style={{
+							margin: "2%",
+							backgroundColor: COLORS.white,
+							borderRadius: 10,
+							padding: 10,
+							elevation: 20,
+						}}
+					>
+						<Text
+							style={{
+								fontSize: 16,
+								marginBottom: 10,
+								fontWeight: "200",
+							}}
+						>
+							{" "}
+							Booking ID : #129130
+						</Text>
 						<View
 							style={{
 								flexDirection: "row",
@@ -111,19 +129,29 @@ const Bookings = ({ navigation }) => {
 								Pending
 							</Text>
 						</View>
-						<View
-							style={{
-								marginTop: "5%",
-								height: 1,
-								width: "95%",
-								alignSelf: "center",
-								backgroundColor: "#cccccc",
-							}}
-						/>
 					</View>
 				</TouchableOpacity>
+
 				<TouchableOpacity>
-					<View style={{ margin: "4%" }}>
+					<View
+						style={{
+							margin: "2%",
+							backgroundColor: COLORS.white,
+							borderRadius: 10,
+							padding: 10,
+							elevation: 20,
+						}}
+					>
+						<Text
+							style={{
+								fontSize: 16,
+								marginBottom: 10,
+								fontWeight: "200",
+							}}
+						>
+							{" "}
+							Booking ID : #1292230
+						</Text>
 						<View
 							style={{
 								flexDirection: "row",
@@ -162,8 +190,7 @@ const Bookings = ({ navigation }) => {
 								}}
 							>
 								{" "}
-								Details: Navdeep | Kothi 103, Phase 9,
-								Mohali
+								Place: Kothi 103, Phase 9, Mohali
 							</Text>
 						</View>
 						<View
@@ -192,15 +219,6 @@ const Bookings = ({ navigation }) => {
 								Completed
 							</Text>
 						</View>
-						<View
-							style={{
-								marginTop: "5%",
-								height: 1,
-								width: "95%",
-								alignSelf: "center",
-								backgroundColor: "#cccccc",
-							}}
-						/>
 					</View>
 				</TouchableOpacity>
 			</ScrollView>

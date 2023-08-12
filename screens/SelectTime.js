@@ -13,6 +13,7 @@ import { COLORS, SIZES, SHADOWS, assets } from "../constants";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useState } from "react";
 import BackButton from "../components/BackButton";
+import { ScrollView } from "react-native-gesture-handler";
 
 const SelectTime = ({ navigation, route }) => {
 	const cartData = route.params.cartData;
@@ -23,9 +24,82 @@ const SelectTime = ({ navigation, route }) => {
 			<BackButton />
 
 			<Text style={styles.inputText}>Select Preferred Time Slot </Text>
-			<Text style={{ color: "gray", marginLeft: 15, fontSize: 27 }}>
+			<Text
+				style={{
+					color: "gray",
+					marginLeft: 15,
+					fontSize: 27,
+					marginBottom: "10%",
+				}}
+			>
 				for your Booking{" "}
 			</Text>
+
+			<View
+				style={{
+					width: "100%",
+					height: "10%",
+					padding: 2,
+					borderRightColor: "gray",
+					flexDirection: "row",
+				}}
+			>
+				<ScrollView
+					horizontal
+					style={{
+						flexDirection: "row",
+					}}
+				>
+					<TouchableOpacity style={{ marginBottom: 40 }}>
+						<View
+							style={{
+								backgroundColor: "#f2f2f2",
+								margin: 10,
+								borderRadius: 15,
+								height: 60,
+								width: 90,
+
+								justifyContent: "center",
+							}}
+						>
+							<Text
+								style={{
+									fontSize: 18,
+									alignSelf: "center",
+									fontWeight: "400",
+									color: COLORS.primary,
+								}}
+							>
+								Today
+							</Text>
+						</View>
+					</TouchableOpacity>
+					<TouchableOpacity style={{ marginBottom: 40 }}>
+						<View
+							style={{
+								backgroundColor: "#f2f2f2",
+								margin: 10,
+								borderRadius: 15,
+								height: 60,
+								width: 90,
+
+								justifyContent: "center",
+							}}
+						>
+							<Text
+								style={{
+									fontSize: 18,
+									alignSelf: "center",
+									fontWeight: "400",
+									color: COLORS.primary,
+								}}
+							>
+								Tomorrow
+							</Text>
+						</View>
+					</TouchableOpacity>
+				</ScrollView>
+			</View>
 			<View
 				style={{
 					flexDirection: "column",
@@ -43,8 +117,11 @@ const SelectTime = ({ navigation, route }) => {
 							borderColor: "gray",
 							borderWidth: 1,
 							borderRadius: 15,
-							padding: 20,
-							margin: 25,
+							marginTop: 70,
+							padding: 16,
+							margin: 10,
+							width: 330,
+							height: 70,
 						}}
 					>
 						<RadioButton
@@ -56,7 +133,13 @@ const SelectTime = ({ navigation, route }) => {
 							}
 							onPress={() => settimeSlot("Morning")}
 						/>
-						<Text style={{ fontSize: 22 }}>
+						<Text
+							style={{
+								fontSize: 22,
+								fontWeight: "600",
+								alignSelf: "center",
+							}}
+						>
 							Morning Slot: After 7 AM{" "}
 						</Text>
 					</View>
@@ -70,8 +153,10 @@ const SelectTime = ({ navigation, route }) => {
 							borderColor: "gray",
 							borderWidth: 1,
 							borderRadius: 15,
-							padding: 20,
-							margin: 25,
+							padding: 16,
+							margin: 10,
+							width: 330,
+							height: 70,
 						}}
 					>
 						<RadioButton
@@ -83,7 +168,13 @@ const SelectTime = ({ navigation, route }) => {
 							}
 							onPress={() => settimeSlot("Evening")}
 						/>
-						<Text style={{ fontSize: 22 }}>
+						<Text
+							style={{
+								fontSize: 22,
+								fontWeight: "600",
+								alignSelf: "center",
+							}}
+						>
 							Evening Slot: After 3 PM
 						</Text>
 					</View>
@@ -107,15 +198,16 @@ const SelectTime = ({ navigation, route }) => {
 
 const styles = StyleSheet.create({
 	extraText: {
+		marginTop: "20%",
 		alignSelf: "center",
 		fontSize: 15,
 		margin: 12,
-		color: "blue",
+		color: "gray",
 	},
 	inputText: {
 		fontSize: 28,
 		margin: 16,
-		marginTop: "30%",
+		marginTop: "10%",
 		fontWeight: "600",
 	},
 

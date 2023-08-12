@@ -14,7 +14,7 @@ import {
 import React, { useState } from "react";
 import BackButton from "../components/BackButton";
 
-const RecentOrders = ({ navigation }) => {
+const Wallet = ({ navigation }) => {
 	const [state, setButtonStatus] = useState("1");
 	return (
 		<SafeAreaView
@@ -23,7 +23,7 @@ const RecentOrders = ({ navigation }) => {
 			}}
 		>
 			<BackButton />
-			<Text> Recent Orders</Text>
+			<Text> Wallet Transactions</Text>
 		</SafeAreaView>
 	);
 };
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default RecentOrders;
+export default Wallet;

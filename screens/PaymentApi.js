@@ -38,14 +38,15 @@ const PaymentApi = ({ navigation, route }) => {
 				<View
 					style={{
 						alignSelf: "center",
-						marginTop: "10%",
+						marginTop: "20%",
 						flexDirection: "row",
 						borderColor: "gray",
 						borderWidth: 1,
 						borderRadius: 15,
 						padding: 20,
-						width: "70%",
+						width: 270,
 						margin: 25,
+						marginBottom: "20%",
 					}}
 				>
 					<RadioButton
@@ -57,7 +58,15 @@ const PaymentApi = ({ navigation, route }) => {
 						}
 						onPress={() => setPayment("Payment")}
 					/>
-					<Text style={{ fontSize: 22 }}>Cash On Delivery</Text>
+					<Text
+						style={{
+							fontSize: 22,
+							fontWeight: "600",
+							alignSelf: "center",
+						}}
+					>
+						Cash On Delivery
+					</Text>
 				</View>
 			</TouchableWithoutFeedback>
 

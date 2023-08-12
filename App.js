@@ -37,6 +37,7 @@ import ServiceManDashboard from "./screens/ServiceMan/ServiceManDashboard";
 import RecentOrders from "./screens/RecentOrders";
 import Bookings from "./screens/Bookings";
 import Search from "./screens/Search";
+import Profile from "./screens/Profile";
 
 const theme = {
 	...DefaultTheme,
@@ -111,8 +112,8 @@ const App = () => {
 							? "Onboarding"
 							: isLoggedIn
 							? isServiceMan == "2"
-								? "Home"
-								: "Home"
+								? "Onboarding"
+								: "Onboarding"
 							: "Onboarding"
 					}
 				>
@@ -236,6 +237,7 @@ const App = () => {
 					/>
 					<Stack.Screen name="Bookings" component={Bookings} />
 					<Stack.Screen name="Search" component={Search} />
+					<Stack.Screen name="Profile" component={Profile} />
 				</Stack.Navigator>
 			)}
 		</NavigationContainer>

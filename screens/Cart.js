@@ -185,8 +185,8 @@ const Cart = ({ route, navigation }) => {
 									titleSize={SIZES.medium}
 									fontColor={COLORS.primary}
 								/>
-								<View style={{ width: "4%" }} />
-								<NFTTitle
+								<View style={{ width: "3%" }} />
+								{/* <NFTTitle
 									title={
 										"₹" +
 										data.SubSubS_Price * 1.25
@@ -195,13 +195,13 @@ const Cart = ({ route, navigation }) => {
 									strike={1}
 									titleFont={FONTS.regular}
 								/>
-								<View style={{ width: "7%" }} />
+								<View style={{ width: "7%" }} /> */}
 								<NFTTitle
 									title={
 										"  •  " +
 										data.SubSubS_Duration
 									}
-									titleSize={SIZES.font}
+									titleSize={SIZES.font + 1}
 								/>
 							</View>
 						</View>

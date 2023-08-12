@@ -44,11 +44,12 @@ const Search = ({ navigation, onSearch }) => {
 
 				<View
 					style={{
-						borderRadius: SIZES.small,
-						backgroundColor: COLORS.primary,
-						padding: 10,
-						height: 35,
-						width: 130,
+						borderTopLeftRadius: SIZES.small,
+						borderBottomLeftRadius: SIZES.small,
+						backgroundColor: "#f2f2f2",
+						padding: 7,
+						height: 37,
+						width: 145,
 						borderColor: COLORS.gray,
 						flexDirection: "row",
 					}}
@@ -69,7 +70,7 @@ const Search = ({ navigation, onSearch }) => {
 							margin: "2%",
 							marginLeft: 7,
 							fontSize: SIZES.large - 2,
-							color: COLORS.white,
+							color: COLORS.primary,
 							width: 80,
 							height: 65,
 						}}

@@ -31,6 +31,7 @@ import ModalList from "../components/ModalList";
 import Deliverables from "./Bookings";
 import Bookings from "./Bookings";
 import Search from "./Search";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 let apiKey = "YOUR_API_KEY";
 
@@ -153,7 +154,7 @@ function ServicesScreen() {
 					/>
 				</View>
 			) : (
-				<SafeAreaView>
+				<SafeAreaView style={{ backgroundColor: COLORS.white }}>
 					<View
 						style={{
 							borderRadius: SIZES.medium,
@@ -277,6 +278,7 @@ function ServicesScreen() {
 								justifyContent: "center",
 								alignItems: "center",
 								alignContent: "center",
+								marginLeft: 7,
 							}}
 						>
 							<FlatList
@@ -300,17 +302,6 @@ function ServicesScreen() {
 								}}
 							/>
 						</View>
-
-						<View
-							style={{
-								margin: "3%",
-								height: 7,
-								width: "100%",
-								alignSelf: "center",
-								backgroundColor:
-									"rgba(244,244,244,244)",
-							}}
-						/>
 
 						{/* <View
 							style={{
@@ -434,19 +425,15 @@ export default function App() {
 		<Tab.Navigator
 			initialRouteName="Services"
 			screenOptions={{ headerShown: false }}
-			barStyle={{ backgroundColor: "white", height: 70 }}
+			barStyle={{ backgroundColor: "white", height: 74 }}
 		>
 			<Tab.Screen
 				name="Services"
 				component={ServicesScreen}
 				options={{
-					tabBarLabel: "",
+					tabBarLabel: "Home",
 					tabBarIcon: ({ color }) => (
-						<MaterialCommunityIcons
-							name="account-group-outline"
-							color={color}
-							size={30}
-						/>
+						<Icon name="home" color={color} size={23} />
 					),
 				}}
 			/>
@@ -454,13 +441,9 @@ export default function App() {
 				name="Search"
 				component={Search}
 				options={{
-					tabBarLabel: "",
+					tabBarLabel: "Discover",
 					tabBarIcon: ({ color }) => (
-						<MaterialCommunityIcons
-							name="cart"
-							color={color}
-							size={25}
-						/>
+						<Icon name="search" color={color} size={23} />
 					),
 				}}
 			/>
@@ -468,13 +451,9 @@ export default function App() {
 				name="Bookings"
 				component={Bookings}
 				options={{
-					tabBarLabel: "",
+					tabBarLabel: "Bookings",
 					tabBarIcon: ({ color }) => (
-						<MaterialCommunityIcons
-							name="cart"
-							color={color}
-							size={25}
-						/>
+						<Icon name="book" color={color} size={23} />
 					),
 				}}
 			/>

@@ -73,7 +73,7 @@ const SubServices = ({ route, navigation }) => {
 			{isLoading ? (
 				<ActivityIndicator />
 			) : (
-				<View style={{ flex: 1 }}>
+				<View style={{ flex: 1, height: "100%" }}>
 					<FlatList
 						nestedScrollEnabled
 						data={data2}

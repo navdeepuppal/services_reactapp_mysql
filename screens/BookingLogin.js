@@ -53,7 +53,14 @@ const BookingLogin = ({ navigation, route }) => {
 	};
 
 	return (
-		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
+		<View
+			style={{
+				backgroundColor: "white",
+				flex: 1,
+				height: "100%",
+				marginTop: "15%",
+			}}
+		>
 			<View>
 				<BackButton />
 			</View>
@@ -63,15 +70,18 @@ const BookingLogin = ({ navigation, route }) => {
 					style={styles.container}
 				>
 					<View style={styles.container}>
-						<Text style={{ fontSize: 27 }}>
+						<Text style={{ fontSize: 30 }}>
 							Enter your mobile {"\n"}number
 						</Text>
+
 						<View
 							style={{
+								width: "90%",
 								flexDirection: "row",
 								borderWidth: 1,
-								borderRadius: 20,
-								marginTop: 30,
+								borderColor: "silver",
+								borderRadius: 13,
+								marginTop: "10%",
 							}}
 						>
 							<Text style={styles.countrycode}>+91</Text>
@@ -81,16 +91,16 @@ const BookingLogin = ({ navigation, route }) => {
 								onChangeText={onChangePhoneNumber}
 								value={PhoneNumber}
 								placeholder="Enter your number"
-								keyboardType="number-pad"
+								keyboardType="numeric"
 								placeholderTextColor="#a0a0a0"
 								maxLength={10}
-								letterSpacing={1}
+								letterSpacing={1.5}
 							/>
 						</View>
 
 						{validity == "true" ? null : (
 							<Text style={{ color: "#bb0000" }}>
-								Please enter {validity} properly
+								{validity} Incorrect!
 							</Text>
 						)}
 
@@ -99,6 +109,7 @@ const BookingLogin = ({ navigation, route }) => {
 								justifyContent: "flex-end",
 								alignContent: "flex-end",
 								alignItems: "center",
+								marginTop: "70%",
 							}}
 						>
 							<Text
@@ -182,7 +193,8 @@ const BookingLogin = ({ navigation, route }) => {
 												marginTop: 20,
 												alignSelf:
 													"flex-start",
-												fontSize: 18,
+												fontSize: 16,
+												letterSpacing: 1,
 											}}
 										>
 											Sqera has sent a 4-digit
@@ -201,7 +213,7 @@ const BookingLogin = ({ navigation, route }) => {
 											keyboardType="number-pad"
 											placeholderTextColor="#a0a0a0"
 											maxLength={4}
-											letterSpacing={5}
+											letterSpacing={20}
 										/>
 										<View
 											style={{
@@ -280,7 +292,7 @@ const BookingLogin = ({ navigation, route }) => {
 					</View>
 				</KeyboardAvoidingView>
 			</ScrollView>
-		</SafeAreaView>
+		</View>
 	);
 };
 
@@ -293,14 +305,13 @@ const styles = StyleSheet.create({
 		backgroundColor: "rgba(0, 0, 0, 0.4)",
 	},
 	modalView: {
-		margin: 20,
 		backgroundColor: "white",
 		borderRadius: 15,
 		padding: 35,
 		alignItems: "center",
 		elevation: 5,
 		width: "100%",
-		height: "60%",
+		height: "65%",
 	},
 
 	countrycode: {
@@ -331,7 +342,7 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 	},
 	verifyButton: {
-		marginTop: "10%",
+		marginTop: "15%",
 		shadowColor: "rgba(0,0,0, .4)", // IOS
 		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
@@ -350,25 +361,23 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 	},
 	input: {
-		fontSize: SIZES.extraLarge - 4,
+		fontSize: SIZES.extraLarge + 2,
 		height: 80,
 		borderRadius: 9,
-		width: "78%",
+		width: "80%",
 	},
 	otp: {
-		justifyContent: "center",
 		textAlign: "center",
-		marginTop: 20,
-		fontSize: 40,
-		height: 70,
+
+		fontSize: 50,
+		height: 80,
 		margin: 8,
-		marginTop: "20%",
+		marginTop: 40,
 		borderColor: "silver",
 		borderRadius: 9,
-		borderWidth: 0.5,
-		borderWidth: 1,
-		width: "78%",
-		padding: 13,
+		borderWidth: 0.7,
+
+		width: "70%",
 	},
 	button2: {
 		marginTop: 50,
@@ -415,7 +424,8 @@ const styles = StyleSheet.create({
 		color: COLORS.primary,
 	},
 	container: {
-		margin: 10,
+		marginTop: 30,
+		margin: 15,
 	},
 	image: {
 		width: 400,

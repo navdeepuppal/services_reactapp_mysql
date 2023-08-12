@@ -93,6 +93,21 @@ const Contact = ({ navigation }) => {
 						</Text>
 					</TouchableOpacity>
 				</KeyboardAvoidingView>
+
+				<TouchableOpacity
+					style={{
+						margin: 20,
+						marginTop: "50%",
+						alignSelf: "center",
+					}}
+					onPress={() => {
+						navigation.navigate("RequestNewService");
+					}}
+				>
+					<Text style={{ fontSize: 18, fontWeight: "600" }}>
+						Request for a new service ?
+					</Text>
+				</TouchableOpacity>
 			</ScrollView>
 		</SafeAreaView>
 	);
@@ -109,6 +124,7 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 		color: "#344055",
 		fontWeight: "500",
+		marginTop: 20,
 		paddingTop: 20,
 		paddingBottom: 15,
 		textTransform: "capitalize",
@@ -149,7 +165,7 @@ const styles = StyleSheet.create({
 		display: "flex",
 		justifyContent: "center",
 		alignItems: "center",
-		marginVertical: 30,
+		marginVertical: 10,
 	},
 	buttonText: {
 		color: "#eee",

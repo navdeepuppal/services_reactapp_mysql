@@ -79,7 +79,7 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
 						: "#F8F8F8",
 				borderRadius: SIZES.small,
 				width: 133,
-				height: 145,
+				height: 148,
 				margin: "1.5%",
 				padding: "4%",
 				justifyContent: "flex-end",
@@ -91,7 +91,7 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
 			}}
 		>
 			<View
-				style={{ height: "75%", width: "100%", marginBottom: "2%" }}
+				style={{ height: "75%", width: "100%", marginBottom: "6%" }}
 			>
 				<ImageBackground
 					resizeMode="cover"
@@ -99,7 +99,7 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
 					style={{
 						height: "100%",
 						alignSelf: "center",
-						width: "100%",
+						width: "96%",
 					}}
 				></ImageBackground>
 			</View>
@@ -107,8 +107,6 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
 		</TouchableOpacity>
 	);
 };
-
-
 
 const NFTCard2 = ({ data, setSubSModalVisible }) => {
 	const navigation = useNavigation();
@@ -131,13 +129,14 @@ const NFTCard2 = ({ data, setSubSModalVisible }) => {
 				navigation.navigate("SubSubService", { data });
 			}}
 		>
-			<View style={{ width: "100%", height: "100%" }}>
+			<View style={{ width: "100%", height: "100%", marginBottom: 5 }}>
 				<Image
 					source={{ uri: data.SubS_Image }}
 					resizeMode="contain"
 					style={{
 						width: "100%",
 						height: "100%",
+
 						borderTopLeftRadius: SIZES.font,
 						borderTopRightRadius: SIZES.font,
 					}}
@@ -366,17 +365,17 @@ const NFTCard6 = ({ data, data2, setData, index }) => {
 							titleSize={SIZES.large}
 							fontColor={COLORS.primary}
 						/>
-						<View style={{ width: "4%" }} />
-						<NFTTitle
+						<View style={{ width: "2%" }} />
+						{/*  	<NFTTitle
 							title={"₹" + data.SubSubS_Price * 1.25}
 							titleSize={SIZES.font}
 							strike={1}
 							titleFont={FONTS.regular}
 						/>
-						<View style={{ width: "1%" }} />
+						<View style={{ width: "1%" }} />*/}
 						<NFTTitle
-							title={"  / " + data.SubSubS_Duration}
-							titleSize={SIZES.font}
+							title={"  • " + data.SubSubS_Duration}
+							titleSize={SIZES.font + 1}
 						/>
 					</View>
 					<View style={{ width: "70%" }}>
