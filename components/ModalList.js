@@ -276,7 +276,7 @@ const styles = StyleSheet.create({
 		height: 65,
 		elevation: 2,
 		backgroundColor: "green",
-		width: 190,
+		width: "100%",
 		marginBottom: 100,
 	},
 	modeButton: {
@@ -330,7 +330,7 @@ const styles = StyleSheet.create({
 		color: "white",
 		fontWeight: "bold",
 		textAlign: "center",
-		fontSize: 18,
+		fontSize: 16,
 		margin: 5,
 	},
 	textStyle1: {

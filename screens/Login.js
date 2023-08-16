@@ -90,7 +90,7 @@ const Login = ({ route }) => {
 								onChangeText={onChangePhoneNumber}
 								value={PhoneNumber}
 								placeholder="Enter your number"
-								keyboardType="numeric"
+								keyboardType="number-pad"
 								placeholderTextColor="#a0a0a0"
 								maxLength={10}
 								letterSpacing={1.5}
@@ -108,7 +108,7 @@ const Login = ({ route }) => {
 								justifyContent: "flex-end",
 								alignContent: "flex-end",
 								alignItems: "center",
-								marginTop: "70%",
+								marginTop: "40%",
 							}}
 						>
 							<Text
@@ -304,7 +304,8 @@ const styles = StyleSheet.create({
 	},
 	modalView: {
 		backgroundColor: "white",
-		borderRadius: 15,
+		borderTopStartRadius: 15,
+		borderTopEndRadius: 15,
 		padding: 35,
 		alignItems: "center",
 		elevation: 5,
@@ -315,7 +316,7 @@ const styles = StyleSheet.create({
 	countrycode: {
 		fontSize: 24,
 		borderColor: "silver",
-		borderBottomWidth: 1,
+
 		padding: 20,
 		fontWeight: "bold",
 		justifyContent: "center",
@@ -335,7 +336,7 @@ const styles = StyleSheet.create({
 		...SHADOWS.dark,
 		elevation: 2, // Android
 		height: "22%",
-		width: 400,
+		width: 300,
 		justifyContent: "center",
 		flexDirection: "row",
 	},

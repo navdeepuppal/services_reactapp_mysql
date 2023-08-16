@@ -239,7 +239,7 @@ const Profile = ({ navigation }) => {
 								}}
 							>
 								{" "}
-								Share app
+								Account
 							</Text>
 							<Text
 								style={{

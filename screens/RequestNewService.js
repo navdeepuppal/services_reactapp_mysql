@@ -114,7 +114,7 @@ const RequestNewService = ({ navigation }) => {
 						<Text style={styles.buttonText}> Submit </Text>
 					</TouchableOpacity>
 					<Text style={styles.description}>
-						You can reach us anytime via sqera@gmail.com
+						You can reach us anytime via {"\n"}sqera@gmail.com
 					</Text>
 				</KeyboardAvoidingView>
 			</ScrollView>

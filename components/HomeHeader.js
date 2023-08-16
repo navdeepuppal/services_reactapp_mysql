@@ -27,7 +27,7 @@ const HomeHeader = ({ onSearch }) => {
 	return (
 		<View
 			style={{
-				borderRadius: SIZES.large,
+				borderRadius: SIZES.large - 3,
 				backgroundColor: "#f2f2f2",
 
 				height: 40,
@@ -56,7 +56,6 @@ const HomeHeader = ({ onSearch }) => {
 					fontSize: SIZES.font + 1,
 					backgroundColor: "#f2f2f2",
 					color: COLORS.primary,
-					borderRadius: 6,
 				}}
 				onChangeText={onSearch}
 			/>

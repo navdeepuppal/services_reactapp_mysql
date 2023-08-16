@@ -139,6 +139,7 @@ const Search = ({ navigation, onSearch }) => {
 							</View>
 						</TouchableOpacity>
 						<TouchableOpacity
+							style={{ marginBottom: 80 }}
 							onPress={() => setButtonStatus("1")}
 						>
 							<View
@@ -146,7 +147,7 @@ const Search = ({ navigation, onSearch }) => {
 									backgroundColor: "#f2f2f2",
 
 									borderRadius: 15,
-									height: 90,
+									height: 70,
 									width: 70,
 									paddingTop: 15,
 									justifyContent: "flex-start",
@@ -159,9 +160,8 @@ const Search = ({ navigation, onSearch }) => {
 								/>
 								<Text
 									style={{
-										fontSize: 12,
+										fontSize: 14,
 										marginTop: 10,
-										alignSelf: "center",
 										alignContent: "flex-end",
 										justifyContent: "center",
 										alignSelf: "center",

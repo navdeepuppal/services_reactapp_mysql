@@ -32,6 +32,7 @@ import Deliverables from "./Bookings";
 import Bookings from "./Bookings";
 import Search from "./Search";
 import Icon from "react-native-vector-icons/FontAwesome";
+import Profile from "./Profile";
 
 let apiKey = "YOUR_API_KEY";
 
@@ -163,7 +164,7 @@ function ServicesScreen() {
 						style={{
 							backgroundColor: COLORS.white,
 
-							height: "20%",
+							height: "18%",
 							paddingVertical: SIZES.small - 3,
 							width: "100%",
 							flexDirection: "row",
@@ -185,8 +186,8 @@ function ServicesScreen() {
 									source={require("../assets/icons/location.png")}
 									resizeMode="contain"
 									style={{
-										width: 17,
-										height: 17,
+										width: 16,
+										height: 16,
 									}}
 								/>
 								<Text
@@ -467,6 +468,16 @@ export default function App() {
 					tabBarLabel: "Bookings",
 					tabBarIcon: ({ color }) => (
 						<Icon name="book" color={color} size={22} />
+					),
+				}}
+			/>
+			<Tab.Screen
+				name="Profile"
+				component={Profile}
+				options={{
+					tabBarLabel: "Profile",
+					tabBarIcon: ({ color }) => (
+						<Icon name="user" color={color} size={22} />
 					),
 				}}
 			/>

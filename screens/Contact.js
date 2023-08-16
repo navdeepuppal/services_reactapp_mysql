@@ -43,7 +43,7 @@ const Contact = ({ navigation }) => {
 					</Text>
 
 					<Text style={styles.description}>
-						You can reach us anytime via sqera@gmail.com
+						You can reach us anytime via {"\n"}sqera@gmail.com
 					</Text>
 
 					<View style={styles.inputContainer}>
@@ -104,7 +104,13 @@ const Contact = ({ navigation }) => {
 						navigation.navigate("RequestNewService");
 					}}
 				>
-					<Text style={{ fontSize: 18, fontWeight: "600" }}>
+					<Text
+						style={{
+							fontSize: 18,
+							fontWeight: "600",
+							marginBottom: 10,
+						}}
+					>
 						Request for a new service ?
 					</Text>
 				</TouchableOpacity>
@@ -145,6 +151,7 @@ const styles = StyleSheet.create({
 		color: "#7d7d7d",
 		paddingBottom: 5,
 		lineHeight: 25,
+		fontSize: 18,
 	},
 	inputStyle: {
 		fontSize: 23,

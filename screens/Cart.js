@@ -461,6 +461,7 @@ const Cart = ({ route, navigation }) => {
 											<Text
 												style={{
 													fontSize: 18,
+													color: "green",
 												}}
 											>
 												Discount
@@ -468,9 +469,10 @@ const Cart = ({ route, navigation }) => {
 											<Text
 												style={{
 													fontSize: 18,
+													color: "green",
 												}}
 											>
-												₹{discount}
+												- ₹ {discount}
 											</Text>
 										</View>
 									) : null}
