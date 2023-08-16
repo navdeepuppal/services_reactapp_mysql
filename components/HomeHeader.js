@@ -27,19 +27,15 @@ const HomeHeader = ({ onSearch }) => {
 	return (
 		<View
 			style={{
-				borderRadius: SIZES.medium,
+				borderRadius: SIZES.large,
 				backgroundColor: "#f2f2f2",
-				elevation: 100,
-				...SHADOWS.medium,
-				height: 50,
+
+				height: 40,
 				width: "90%",
 				alignSelf: "center",
-				borderColor: COLORS.white,
-				borderWidth: 0.3,
 				flexDirection: "row",
 				alignItems: "center",
 				alignContent: "flex-start",
-				justifyContent: "space-evenly",
 				marginTop: "2%",
 				paddingHorizontal: SIZES.font,
 			}}
@@ -47,8 +43,10 @@ const HomeHeader = ({ onSearch }) => {
 			<Image
 				source={assets.search}
 				style={{
+					justifyContent: "flex-start",
 					width: 16,
 					height: 16,
+					margin: 13,
 				}}
 			/>
 			<TextInput
@@ -56,9 +54,9 @@ const HomeHeader = ({ onSearch }) => {
 				placeholderTextColor="#A0A0A0"
 				style={{
 					fontSize: SIZES.font + 1,
+					backgroundColor: "#f2f2f2",
 					color: COLORS.primary,
-					width: 320,
-					height: 65,
+					borderRadius: 6,
 				}}
 				onChangeText={onSearch}
 			/>

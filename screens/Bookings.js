@@ -17,12 +17,11 @@ import { COLORS, config, SIZES, assets } from "../constants";
 
 const Bookings = ({ navigation }) => {
 	return (
-		<View style={{ marginTop: "15%" }}>
+		<SafeAreaView>
 			<View
 				style={{
-					flexDirection: "row",
-					justifyContent: "space-between",
-					height: 43,
+					height: "9%",
+					paddingVertical: SIZES.large,
 					borderBottomWidth: 0.2,
 					borderColor: COLORS.gray,
 				}}
@@ -33,6 +32,8 @@ const Bookings = ({ navigation }) => {
 						fontWeight: "800",
 						marginLeft: 20,
 						marginTop: 3,
+						justifyContent: "center",
+						alignContent: "center",
 					}}
 				>
 					Bookings
@@ -222,7 +223,7 @@ const Bookings = ({ navigation }) => {
 					</View>
 				</TouchableOpacity>
 			</ScrollView>
-		</View>
+		</SafeAreaView>
 	);
 };
 

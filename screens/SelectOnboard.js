@@ -29,6 +29,7 @@ const SelectOnboard = (props) => {
 					justifyContent: "center",
 					alignItems: "center",
 					flexWrap: "wrap",
+					width: "90%",
 				}}
 			>
 				<TouchableOpacity
@@ -110,7 +111,7 @@ const styles = StyleSheet.create({
 	},
 	textBody: {
 		marginBottom: SIZES.medium,
-		fontSize: 28,
+		fontSize: 26,
 		color: COLORS.white,
 		fontWeight: "700",
 		textAlign: "center",
@@ -138,8 +139,8 @@ const styles = StyleSheet.create({
 		margin: SIZES.base,
 		...SHADOWS.dark,
 		elevation: 2, // Android
-		height: "30%",
-		width: "90%",
+		height: "27%",
+		width: "100%",
 		justifyContent: "center",
 		alignItems: "center",
 		flexDirection: "row",
@@ -158,11 +159,9 @@ const styles = StyleSheet.create({
 		margin: SIZES.base,
 		...SHADOWS.dark,
 		elevation: 2, // Android
-		height: 130,
-		width: 380,
+		height: "24%",
+		width: "100%",
 		justifyContent: "center",
-		alignItems: "center",
-		flexDirection: "row",
 		borderRadius: 10,
 	},
 });

@@ -129,7 +129,7 @@ function ServicesScreen() {
 	}, []);
 
 	return (
-		<View style={{ flex: 1 }}>
+		<View style={{ backgroundColor: COLORS.white }}>
 			{isLoading ? (
 				<View
 					style={{
@@ -140,7 +140,7 @@ function ServicesScreen() {
 					<Text
 						style={{
 							alignSelf: "center",
-							fontSize: 30,
+							fontSize: 18,
 							marginTop: "50%",
 							justifyContent: "center",
 							fontWeight: "bold",
@@ -154,18 +154,20 @@ function ServicesScreen() {
 					/>
 				</View>
 			) : (
-				<SafeAreaView style={{ backgroundColor: COLORS.white }}>
+				<SafeAreaView
+					style={{
+						backgroundColor: COLORS.white,
+					}}
+				>
 					<View
 						style={{
-							borderRadius: SIZES.medium,
-							backgroundColor: "white",
-							elevation: 100,
+							backgroundColor: COLORS.white,
 
+							height: "20%",
+							paddingVertical: SIZES.small - 3,
 							width: "100%",
-							borderColor: COLORS.white,
-							borderWidth: 1,
 							flexDirection: "row",
-							paddingHorizontal: SIZES.font,
+							paddingHorizontal: SIZES.large,
 							justifyContent: "space-between",
 						}}
 					>
@@ -174,7 +176,11 @@ function ServicesScreen() {
 								backgroundColor: COLORS.white,
 							}}
 						>
-							<View style={{ flexDirection: "row" }}>
+							<View
+								style={{
+									flexDirection: "row",
+								}}
+							>
 								<Image
 									source={require("../assets/icons/location.png")}
 									resizeMode="contain"
@@ -201,6 +207,7 @@ function ServicesScreen() {
 						<View
 							style={{
 								justifyContent: "flex-end",
+								backgroundColor: COLORS.white,
 								flexDirection: "row",
 								height: 35,
 							}}
@@ -211,17 +218,17 @@ function ServicesScreen() {
 								style={{
 									alignContent: "center",
 									alignSelf: "center",
-									width: 70,
-									height: 25,
-									marginRight: 13,
+									width: 60,
+									height: 20,
+									marginRight: 17,
 								}}
 							/>
 
 							<TouchableOpacity
 								style={{
 									marginTop: "1%",
-									width: 40,
-									height: 10,
+									width: 27,
+									height: 8,
 								}}
 								onPress={() => setModalVisible(true)}
 							>
@@ -231,8 +238,8 @@ function ServicesScreen() {
 									style={{
 										alignContent: "center",
 										alignSelf: "center",
-										width: 48,
-										height: 30,
+										width: 40,
+										height: 26,
 									}}
 								/>
 							</TouchableOpacity>
@@ -264,21 +271,26 @@ function ServicesScreen() {
 							</Pressable>
 						</Modal>
 					</View>
-					<HomeHeader onSearch={handleSearch} />
+					<View
+						style={{
+							backgroundColor: COLORS.white,
+						}}
+					>
+						<HomeHeader onSearch={handleSearch} />
+					</View>
 					<ScrollView
 						style={{
 							backgroundColor: COLORS.white,
-							marginTop: "2%",
-							height: "100%",
-							borderRadius: 5,
 						}}
 					>
 						<View
 							style={{
+								backgroundColor: COLORS.white,
 								justifyContent: "center",
 								alignItems: "center",
 								alignContent: "center",
 								marginLeft: 7,
+								marginTop: 15,
 							}}
 						>
 							<FlatList
@@ -297,6 +309,7 @@ function ServicesScreen() {
 								contentContainerStyle={{
 									height: "100%",
 									alignSelf: "center",
+									justifyContent: "center",
 									width: "100%",
 									margin: "1%",
 								}}
@@ -425,7 +438,7 @@ export default function App() {
 		<Tab.Navigator
 			initialRouteName="Services"
 			screenOptions={{ headerShown: false }}
-			barStyle={{ backgroundColor: "white", height: 74 }}
+			barStyle={{ backgroundColor: "white", height: "7%" }}
 		>
 			<Tab.Screen
 				name="Services"
@@ -433,7 +446,7 @@ export default function App() {
 				options={{
 					tabBarLabel: "Home",
 					tabBarIcon: ({ color }) => (
-						<Icon name="home" color={color} size={23} />
+						<Icon name="home" color={color} size={22} />
 					),
 				}}
 			/>
@@ -443,7 +456,7 @@ export default function App() {
 				options={{
 					tabBarLabel: "Discover",
 					tabBarIcon: ({ color }) => (
-						<Icon name="search" color={color} size={23} />
+						<Icon name="search" color={color} size={22} />
 					),
 				}}
 			/>
@@ -453,7 +466,7 @@ export default function App() {
 				options={{
 					tabBarLabel: "Bookings",
 					tabBarIcon: ({ color }) => (
-						<Icon name="book" color={color} size={23} />
+						<Icon name="book" color={color} size={22} />
 					),
 				}}
 			/>
@@ -512,8 +525,8 @@ const styles = StyleSheet.create({
 	},
 	image: {
 		opacity: 0.2,
-		width: 500,
-		height: 500,
+		width: 20,
+		height: 20,
 		backgroundColor: "white",
 		alignSelf: "center",
 		justifyContent: "center",

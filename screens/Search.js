@@ -36,19 +36,20 @@ const Search = ({ navigation, onSearch }) => {
 						fontSize: 20,
 						fontWeight: "600",
 						marginLeft: 20,
-						marginTop: 3,
+						marginTop: 10,
 					}}
 				>
-					Discover Talent
+					Discover
 				</Text>
 
 				<View
 					style={{
 						borderTopLeftRadius: SIZES.small,
 						borderBottomLeftRadius: SIZES.small,
+						marginTop: 5,
 						backgroundColor: "#f2f2f2",
 						padding: 7,
-						height: 37,
+						height: 34,
 						width: 145,
 						borderColor: COLORS.gray,
 						flexDirection: "row",
@@ -88,27 +89,30 @@ const Search = ({ navigation, onSearch }) => {
 				<View
 					style={{
 						width: "24%",
-						padding: 2,
-						borderRightColor: "gray",
+						padding: 10,
+						alignItems: "center",
+						justifyContent: "center",
+						backgroundColor: COLORS.white,
 					}}
 				>
 					<ScrollView
 						style={{
 							backgroundColor: COLORS.white,
 							borderTopRightRadius: 10,
+							height: "100%",
 						}}
 					>
 						<TouchableOpacity
-							style={{ marginBottom: 40 }}
+							style={{ marginBottom: 80 }}
 							onPress={() => setButtonStatus("2")}
 						>
 							<View
 								style={{
 									backgroundColor: "#f2f2f2",
-									margin: 10,
+
 									borderRadius: 15,
-									height: 100,
-									width: 80,
+									height: 70,
+									width: 70,
 									paddingTop: 15,
 									justifyContent: "flex-start",
 								}}
@@ -121,7 +125,7 @@ const Search = ({ navigation, onSearch }) => {
 								<Text
 									style={{
 										fontSize: 14,
-										marginTop: 20,
+										marginTop: 10,
 										alignContent: "flex-end",
 										justifyContent: "center",
 										alignSelf: "center",
@@ -135,18 +139,15 @@ const Search = ({ navigation, onSearch }) => {
 							</View>
 						</TouchableOpacity>
 						<TouchableOpacity
-							style={{
-								marginBottom: 30,
-							}}
 							onPress={() => setButtonStatus("1")}
 						>
 							<View
 								style={{
 									backgroundColor: "#f2f2f2",
-									margin: 10,
+
 									borderRadius: 15,
-									height: 100,
-									width: 80,
+									height: 90,
+									width: 70,
 									paddingTop: 15,
 									justifyContent: "flex-start",
 								}}
@@ -158,8 +159,9 @@ const Search = ({ navigation, onSearch }) => {
 								/>
 								<Text
 									style={{
-										fontSize: 14,
-										marginTop: 20,
+										fontSize: 12,
+										marginTop: 10,
+										alignSelf: "center",
 										alignContent: "flex-end",
 										justifyContent: "center",
 										alignSelf: "center",
@@ -178,13 +180,14 @@ const Search = ({ navigation, onSearch }) => {
 				{/* Fruits Screen */}
 
 				{state == 1 ? (
-					<View style={{ width: "76%" }}>
+					<View style={{ width: "80%", height: "100%" }}>
 						<ScrollView
 							style={{
-								marginLeft: 10,
+								marginLeft: 6,
 								backgroundColor: COLORS.white,
-								margin: 5,
+								marginTop: 5,
 								borderTopLeftRadius: 10,
+								height: "100%",
 							}}
 						>
 							<View
@@ -223,6 +226,7 @@ const Search = ({ navigation, onSearch }) => {
 										style={{
 											fontSize: 14,
 											color: "black",
+											width: "60%",
 										}}
 									>
 										Logo & Brand Identity, Gaming
@@ -265,6 +269,7 @@ const Search = ({ navigation, onSearch }) => {
 										style={{
 											fontSize: 14,
 											color: "black",
+											width: "60%",
 										}}
 									>
 										Social Media Marketing, Search
@@ -278,10 +283,11 @@ const Search = ({ navigation, onSearch }) => {
 					<View style={{ width: "76%" }}>
 						<ScrollView
 							style={{
-								marginLeft: 10,
+								marginLeft: 6,
 								backgroundColor: COLORS.white,
-								margin: 5,
+								marginTop: 5,
 								borderTopLeftRadius: 10,
+								height: "100%",
 							}}
 						>
 							<View
@@ -319,6 +325,7 @@ const Search = ({ navigation, onSearch }) => {
 									<Text
 										style={{
 											fontSize: 14,
+											width: "60%",
 											color: "black",
 										}}
 									>
@@ -362,6 +369,7 @@ const Search = ({ navigation, onSearch }) => {
 									<Text
 										style={{
 											fontSize: 14,
+											width: "60%",
 											color: "black",
 										}}
 									>

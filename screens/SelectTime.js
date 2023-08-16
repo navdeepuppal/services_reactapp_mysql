@@ -175,7 +175,7 @@ const SelectTime = ({ navigation, route }) => {
 								alignSelf: "center",
 							}}
 						>
-							Evening Slot: After 3 PM
+							Evening Slot: After 2 PM
 						</Text>
 					</View>
 				</TouchableWithoutFeedback>

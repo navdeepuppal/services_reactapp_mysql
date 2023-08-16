@@ -78,8 +78,9 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
 						? "rgba(245,245,245,255)"
 						: "#F8F8F8",
 				borderRadius: SIZES.small,
-				width: 133,
-				height: 148,
+
+				width: 113,
+				height: 128,
 				margin: "1.5%",
 				padding: "4%",
 				justifyContent: "flex-end",
@@ -285,7 +286,7 @@ const NFTCard6 = ({ data, data2, setData, index }) => {
 	return (
 		<View
 			style={{
-				marginBottom: SIZES.small - 15,
+				marginBottom: SIZES.extraLarge + 20,
 				padding: SIZES.medium,
 				flex: 1,
 			}}
@@ -474,7 +475,7 @@ const NFTCard6 = ({ data, data2, setData, index }) => {
 			</View>
 			<View
 				style={{
-					marginTop: "3%",
+					marginTop: "8%",
 					height: 1,
 					width: "95%",
 					alignSelf: "center",
