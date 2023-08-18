@@ -12,12 +12,19 @@ import {
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { COLORS, SIZES, SHADOWS, assets, FONTS, config } from "../constants";
 import { NFTTitle } from "../components/SubInfo";
+import { Colors, Snackbar } from "react-native-paper";
 
 const Cart = ({ route, navigation }) => {
 	const [subSubServices, setData] = useState(route.params.data2_backup);
 	const [extraData, setExtraData] = useState([]);
 	const [isLoading, setLoading] = useState(true);
 	const [modalVisible, setModalVisible] = useState(false);
+
+	const [visible, setVisible] = React.useState(true);
+
+	const onToggleSnackBar = () => setVisible(!visible);
+
+	const onDismissSnackBar = () => setVisible(false);
 
 	const [isLoggedIn, setLoggedIn] = useState("");
 
@@ -26,7 +33,7 @@ const Cart = ({ route, navigation }) => {
 	});
 
 	const querystring =
-		"SELECT service.S_MinCartPrice, service.S_Discount, service.S_MinCharges, service.S_PlatformFee FROM Service WHERE service.S_ID = " +
+		"SELECT service.S_MinCartPrice, service.S_Discount, service.S_MinCharges, service.S_PlatformFee FROM service WHERE service.S_ID = " +
 		subSubServices[0].S_ID +
 		";";
 
@@ -178,8 +185,8 @@ const Cart = ({ route, navigation }) => {
 									titleSize={SIZES.medium}
 									fontColor={COLORS.primary}
 								/>
-								<View style={{ width: "4%" }} />
-								<NFTTitle
+								<View style={{ width: "3%" }} />
+								{/* <NFTTitle
 									title={
 										"₹" +
 										data.SubSubS_Price * 1.25
@@ -188,13 +195,13 @@ const Cart = ({ route, navigation }) => {
 									strike={1}
 									titleFont={FONTS.regular}
 								/>
-								<View style={{ width: "7%" }} />
+								<View style={{ width: "7%" }} /> */}
 								<NFTTitle
 									title={
 										"  •  " +
 										data.SubSubS_Duration
 									}
-									titleSize={SIZES.font}
+									titleSize={SIZES.font + 1}
 								/>
 							</View>
 						</View>
@@ -369,6 +376,7 @@ const Cart = ({ route, navigation }) => {
 						</TouchableOpacity>
 						<Text
 							style={{
+								marginLeft: 5,
 								fontSize: 20,
 								fontWeight: "bold",
 							}}
@@ -454,6 +462,7 @@ const Cart = ({ route, navigation }) => {
 											<Text
 												style={{
 													fontSize: 18,
+													color: "green",
 												}}
 											>
 												Discount
@@ -461,9 +470,10 @@ const Cart = ({ route, navigation }) => {
 											<Text
 												style={{
 													fontSize: 18,
+													color: "green",
 												}}
 											>
-												₹{discount}
+												- ₹{discount}
 											</Text>
 										</View>
 									) : null}
@@ -560,7 +570,16 @@ const Cart = ({ route, navigation }) => {
 							)}
 						/>
 					</View>
-
+					<View>
+						<Snackbar
+							visible={visible}
+							onDismiss={onDismissSnackBar}
+						>
+							We assure you that we will only apply the
+							modest prices that are currently being
+							requested for this service in the market.
+						</Snackbar>
+					</View>
 					<View
 						style={{
 							marginTop: 23,
@@ -583,7 +602,7 @@ const Cart = ({ route, navigation }) => {
 							style={{
 								backgroundColor:
 									totalPrice > 50
-										? "#0E8D4D"
+										? "black"
 										: "#cccccc",
 								borderRadius: 10,
 								alignItems: "center",
@@ -654,7 +673,7 @@ const style = StyleSheet.create({
 		paddingVertical: "5%",
 		flexDirection: "row",
 		alignItems: "center",
-		marginHorizontal: "5%",
+		marginHorizontal: "2%",
 		width: "100%",
 	},
 	buttontext2: {

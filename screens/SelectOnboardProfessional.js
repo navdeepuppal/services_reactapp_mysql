@@ -24,56 +24,53 @@ const SelectOnboardProfessional = (props) => {
 			<Text style={styles.textTitle}>How do you want to start ?</Text>
 
 			<View style={{ justifyContent: "center", alignItems: "center" }}>
-		
+				<Text style={styles.subTitle}>
+					Broadcast your skill/service to the world and earn
+					money{" "}
+				</Text>
 
-
-        <Text style={styles.subTitle}>
-							Become your own boss! {'\n'}Broadcast your skill/service to the world
-							and earn money{" "}
-						</Text>
-
-			
 				<TouchableOpacity
 					style={styles.button}
-					onPress={() => navigation.navigate("RegisterSubService1")}
+					onPress={() =>
+						navigation.navigate("RegisterSubService1")
+					}
 				>
 					<View style={{ flexDirection: "column" }}>
-						<Text style={styles.textBody}>Register for a Service</Text>
-            <Text style={styles.littleTitle}>
-							I'm a Electrician, Building Constructor, Appliance Repairer,
-							Seller, Barber, Carpenter, Cleaner and many
-							more related to same..
+						<Text style={styles.textBody}>
+							Register for a Service
 						</Text>
-					
+						<Text style={styles.littleTitle}>
+							I'm a Electrician, Building Constructor,
+							Appliance Repairer, Seller, Barber,
+							Carpenter, Cleaner and many more related to
+							same..
+						</Text>
 					</View>
 				</TouchableOpacity>
 
+				<Text style={styles.subTitle}>
+					Join our growing freelance community and get paid for
+					your work{" "}
+				</Text>
 
-        <Text style={styles.subTitle}>
-							Join our growing freelance community and get paid for your work{" "}
-						</Text>
-
-					
 				<TouchableOpacity
 					style={styles.button}
-					onPress={() => navigation.navigate("RegisterSubService1")}
+					onPress={() =>
+						navigation.navigate("RegisterSubService1")
+					}
 				>
-
-          
 					<View style={{ flexDirection: "column" }}>
-
-            
-						<Text style={styles.textBody}>Start as a Freelancer</Text>
-            <Text style={styles.littleTitle}>
-							I'm a Coder/ Software Engineer/ Consultant/
-							Social Media Manager/ Marketing Specialist / any other..
+						<Text style={styles.textBody}>
+							Start as a Freelancer
 						</Text>
-				
+						<Text style={styles.littleTitle}>
+							I'm a Coder/ Software Engineer/ Consultant/
+							Social Media Manager/ Marketing Specialist /
+							any other..
+						</Text>
 					</View>
 				</TouchableOpacity>
 			</View>
-
-	
 		</SafeAreaView>
 	);
 };
@@ -94,28 +91,27 @@ const styles = StyleSheet.create({
 		fontWeight: "bold",
 		fontSize: 37,
 		color: COLORS.gray,
-		marginRight: SIZES.base / 99,
 		textAlign: "center",
-		marginBottom: SIZES.large,
+		marginBottom: SIZES.small,
 	},
 	subTitle: {
-		marginTop: SIZES.extraLarge,
+		margin: "2%",
 		fontSize: 22,
 		color: COLORS.gray,
-		marginRight: SIZES.base / 99,
 		textAlign: "center",
 	},
 	littleTitle: {
-		fontSize: 11,
+		fontSize: 13,
 		color: COLORS.gray,
-		marginRight: SIZES.base / 99,
+		margin: "2%",
 		textAlign: "center",
 		fontStyle: "italic",
 	},
 	textBody: {
-		fontSize: 29,
-		color: Colors.secondary,
-
+		fontSize: 24,
+		margin: "4%",
+		color: COLORS.white,
+		fontWeight: "700",
 		textAlign: "center",
 	},
 	button: {
@@ -123,14 +119,14 @@ const styles = StyleSheet.create({
 		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
 		shadowRadius: 1, //IOS
-		backgroundColor: COLORS.white,
+		backgroundColor: "black",
 		borderRadius: SIZES.font,
 		marginBottom: SIZES.extraLarge,
 		margin: SIZES.base,
 		...SHADOWS.dark,
 		elevation: 2, // Android
-		height: 100,
-		width: 300,
+		height: "22%",
+		width: "90%",
 		justifyContent: "center",
 		alignItems: "center",
 		flexDirection: "row",

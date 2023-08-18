@@ -53,32 +53,35 @@ const BookingLogin = ({ navigation, route }) => {
 	};
 
 	return (
-		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
-			<BackButton />
+		<View
+			style={{
+				backgroundColor: "white",
+				flex: 1,
+				height: "100%",
+				marginTop: "15%",
+			}}
+		>
+			<View>
+				<BackButton />
+			</View>
 			<ScrollView style={{ backgroundColor: "white" }}>
 				<KeyboardAvoidingView
 					behavior="padding"
 					style={styles.container}
 				>
 					<View style={styles.container}>
-						<Image
-							source={require("../assets/login.png")}
-							resizeMode="center"
-							style={styles.image}
-						/>
-						<Text style={styles.textTitle}>LOGIN</Text>
-						<Text style={styles.textBody}>
-							Enter your phone number to proceed
+						<Text style={{ fontSize: 30 }}>
+							Enter your mobile {"\n"}number
 						</Text>
+
 						<View
 							style={{
+								width: "90%",
 								flexDirection: "row",
-								width: "85%",
-								alignSelf: "stretch",
-
-								marginTop: 50,
-
-								marginLeft: 20,
+								borderWidth: 1,
+								borderColor: "silver",
+								borderRadius: 13,
+								marginTop: "10%",
 							}}
 						>
 							<Text style={styles.countrycode}>+91</Text>
@@ -87,40 +90,81 @@ const BookingLogin = ({ navigation, route }) => {
 								style={styles.input}
 								onChangeText={onChangePhoneNumber}
 								value={PhoneNumber}
-								placeholder="Enter Phone Number"
+								placeholder="Enter your number"
 								keyboardType="number-pad"
 								placeholderTextColor="#a0a0a0"
 								maxLength={10}
-								letterSpacing={1}
+								letterSpacing={1.5}
 							/>
 						</View>
+
 						{validity == "true" ? null : (
 							<Text style={{ color: "#bb0000" }}>
-								Please enter {validity} properly
+								{validity} Incorrect!
 							</Text>
 						)}
 
-						<TouchableOpacity
-							style={styles.button}
-							onPress={() => {
-								const validationtemp = validate();
-
-								if (validationtemp == true) {
-									setModalVisible(true);
-									setValidity("true");
-								} else {
-									console.log(
-										"Validation unsuccessful for input " +
-											validationtemp
-									);
-									setValidity("Phone Number");
-								}
+						<View
+							style={{
+								justifyContent: "flex-end",
+								alignContent: "flex-end",
+								alignItems: "center",
+								marginTop: "40%",
 							}}
 						>
-							<Text style={styles.buttontext}>
-								SEND OTP
+							<Text
+								style={{
+									color: "#cccccc",
+									margin: "2%",
+								}}
+							>
+								By proceeding, you agree with Sqera's
+								terms and conditions and privacy policy.
 							</Text>
-						</TouchableOpacity>
+
+							<TouchableOpacity
+								style={styles.button}
+								onPress={() => {
+									const validationtemp = validate();
+
+									if (validationtemp == true) {
+										setModalVisible(true);
+										setValidity("true");
+									} else {
+										console.log(
+											"Validation unsuccessful for input " +
+												validationtemp
+										);
+										setValidity("Phone Number");
+									}
+								}}
+							>
+								<Text style={styles.buttontext}>
+									Get OTP
+								</Text>
+							</TouchableOpacity>
+
+							<View
+								style={{
+									flexDirection: "row",
+									height: "20%",
+									alignItems: "center",
+								}}
+							>
+								<Image
+									source={require("../assets/icons/trustshield.png")}
+									style={{
+										height: 30,
+										width: 30,
+									}}
+								/>
+								<Text style={{ color: "#cccccc" }}>
+									{" "}
+									Trusted by more than 10 lakh+
+									Indians
+								</Text>
+							</View>
+						</View>
 
 						<View style={styles.centeredView}>
 							<Modal
@@ -136,12 +180,12 @@ const BookingLogin = ({ navigation, route }) => {
 										<Text
 											style={{
 												fontWeight: "bold",
-												fontSize: 19,
+												fontSize: 25,
 												alignSelf:
 													"flex-start",
 											}}
 										>
-											VERIFY DETAILS
+											Enter your OTP
 										</Text>
 
 										<Text
@@ -149,22 +193,14 @@ const BookingLogin = ({ navigation, route }) => {
 												marginTop: 20,
 												alignSelf:
 													"flex-start",
-												fontSize: 18,
+												fontSize: 16,
 											}}
 										>
-											OTP has been sent to{" "}
-											{PhoneNumber}
+											Sqera has sent a 4-digit
+											OTP on your phone number
+											+91 {PhoneNumber}
 										</Text>
-										<Text
-											style={{
-												marginTop: 20,
-												fontSize: 20,
-												alignSelf:
-													"flex-start",
-											}}
-										>
-											Enter the OTP below
-										</Text>
+
 										<TextInput
 											caretHidden={true}
 											style={styles.otp}
@@ -176,25 +212,42 @@ const BookingLogin = ({ navigation, route }) => {
 											keyboardType="number-pad"
 											placeholderTextColor="#a0a0a0"
 											maxLength={4}
-											letterSpacing={5}
+											letterSpacing={20}
 										/>
-										<TouchableOpacity
-											onPress={() => {
-												setModalVisible(
-													false
-												);
+										<View
+											style={{
+												flexDirection:
+													"row",
 											}}
 										>
 											<Text
 												style={{
 													marginTop: 10,
-													color: "blue",
+
 													fontSize: 16,
 												}}
 											>
-												Resend OTP
+												Didn't receive it?
 											</Text>
-										</TouchableOpacity>
+											<TouchableOpacity
+												onPress={() => {
+													setModalVisible(
+														false
+													);
+												}}
+											>
+												<Text
+													style={{
+														marginTop: 10,
+														color: "blue",
+														fontSize: 16,
+													}}
+												>
+													{" "}
+													Resend
+												</Text>
+											</TouchableOpacity>
+										</View>
 										<TouchableOpacity
 											style={
 												styles.verifyButton
@@ -238,65 +291,58 @@ const BookingLogin = ({ navigation, route }) => {
 					</View>
 				</KeyboardAvoidingView>
 			</ScrollView>
-		</SafeAreaView>
+		</View>
 	);
 };
 
 const styles = StyleSheet.create({
 	centeredView: {
 		flex: 1,
+		height: "100%",
 		justifyContent: "flex-end",
 		alignItems: "center",
 		backgroundColor: "rgba(0, 0, 0, 0.4)",
 	},
 	modalView: {
-		margin: 20,
 		backgroundColor: "white",
-		borderRadius: 15,
+		borderTopStartRadius: 15,
+		borderTopEndRadius: 15,
 		padding: 35,
 		alignItems: "center",
-		shadowColor: "#000",
-		shadowOffset: {
-			width: 0,
-			height: 2,
-		},
-		shadowOpacity: 0.25,
-		shadowRadius: 4,
 		elevation: 5,
 		width: "100%",
-		height: "62%",
+		height: "65%",
 	},
 
 	countrycode: {
 		fontSize: 24,
 		borderColor: "silver",
-		borderRadius: 9,
-		borderWidth: 1,
+
 		padding: 20,
+		fontWeight: "bold",
 		justifyContent: "center",
 		alignSelf: "center",
 	},
 	button: {
-		marginTop: 50,
+		alignItems: "center",
+
 		shadowColor: "rgba(0,0,0, .4)", // IOS
 		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
 		shadowRadius: 1, //IOS
 		backgroundColor: "green",
-		borderRadius: SIZES.font,
+		borderRadius: SIZES.extraLarge,
 		marginBottom: SIZES.extraLarge,
 		margin: SIZES.base,
 		...SHADOWS.dark,
 		elevation: 2, // Android
-		height: 50,
-		width: 200,
+		height: "22%",
+		width: 300,
 		justifyContent: "center",
-		alignItems: "center",
 		flexDirection: "row",
-		borderRadius: 10,
 	},
 	verifyButton: {
-		marginTop: "25%",
+		marginTop: "15%",
 		shadowColor: "rgba(0,0,0, .4)", // IOS
 		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
@@ -315,29 +361,23 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 	},
 	input: {
-		fontSize: SIZES.extraLarge - 2,
-		height: 70,
-		margin: 8,
-		borderColor: "silver",
+		fontSize: SIZES.extraLarge + 2,
+		height: 80,
 		borderRadius: 9,
-		borderWidth: 0.5,
-		borderWidth: 1,
-		width: "78%",
-		padding: 13,
+		width: "80%",
 	},
 	otp: {
-		justifyContent: "center",
 		textAlign: "center",
-		marginTop: 20,
-		fontSize: 40,
-		height: 70,
+
+		fontSize: 50,
+		height: 80,
 		margin: 8,
+		marginTop: 40,
 		borderColor: "silver",
 		borderRadius: 9,
-		borderWidth: 0.5,
-		borderWidth: 1,
-		width: "78%",
-		padding: 13,
+		borderWidth: 0.7,
+
+		width: "70%",
 	},
 	button2: {
 		marginTop: 50,
@@ -375,6 +415,7 @@ const styles = StyleSheet.create({
 		fontWeight: "bold",
 		fontSize: 19,
 		textAlign: "center",
+		alignSelf: "center",
 		color: COLORS.white,
 	},
 	buttontext2: {
@@ -383,9 +424,8 @@ const styles = StyleSheet.create({
 		color: COLORS.primary,
 	},
 	container: {
-		flex: 1,
-		alignItems: "center",
-		justifyContent: "center",
+		marginTop: 30,
+		margin: 15,
 	},
 	image: {
 		width: 400,

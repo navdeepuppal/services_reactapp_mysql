@@ -3,11 +3,19 @@ import { useNavigation } from "@react-navigation/native";
 
 import React from "react";
 
-import { View, Image, TouchableOpacity, StyleSheet, Text } from "react-native";
+import {
+	View,
+	Image,
+	TouchableOpacity,
+	StyleSheet,
+	Text,
+	ImageBackground,
+} from "react-native";
 
 import { COLORS, SIZES, SHADOWS, assets, FONTS } from "../constants";
 import { NFTTitle } from "./SubInfo";
 import * as Haptics from "expo-haptics";
+import { LinearGradient } from "expo-linear-gradient";
 
 const NFTCard = ({ data }) => {
 	const navigation = useNavigation();
@@ -66,15 +74,17 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
 		<TouchableOpacity
 			style={{
 				backgroundColor:
-					data.isSelected != "false" ? COLORS.white : "#F8F8F8",
-				borderRadius: SIZES.font,
-				margin: SIZES.base - 5,
-				...SHADOWS.dark,
-				justifyContent: "center",
-				alignContent: "center",
-				alignItems: "center",
-				width: "48%",
-				height: "400%",
+					data.isSelected != "false"
+						? "rgba(245,245,245,255)"
+						: "#F8F8F8",
+				borderRadius: SIZES.small,
+
+				width: 113,
+				height: 128,
+				margin: "1.5%",
+				padding: "4%",
+				justifyContent: "flex-end",
+				alignSelf: "center",
 			}}
 			onPress={() => {
 				setSubSModalVisible(index);
@@ -82,36 +92,26 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
 			}}
 		>
 			<View
-				style={{
-					width: "100%",
-					height: "77%",
-				}}
+				style={{ height: "75%", width: "100%", marginBottom: "6%" }}
 			>
-				<Image
-					source={{ uri: ImageURL }}
+				<ImageBackground
 					resizeMode="cover"
+					source={{ uri: ImageURL }}
 					style={{
-						width: "100%",
 						height: "100%",
 						alignSelf: "center",
-						borderTopLeftRadius: SIZES.font,
-						borderTopRightRadius: SIZES.font,
+						width: "96%",
 					}}
-				/>
+				></ImageBackground>
 			</View>
-
-			<View style={{ width: "100%" }}>
-				<NFTTitle title={data.S_Name} titleSize={SIZES.large - 1} />
-			</View>
+			<NFTTitle title={data.S_Name} titleSize={SIZES.large} />
 		</TouchableOpacity>
 	);
 };
 
-
-
 const NFTCard2 = ({ data, setSubSModalVisible }) => {
 	const navigation = useNavigation();
-
+	console.log("SubS_Image", data.SubS_Image);
 	return (
 		<TouchableOpacity
 			style={{
@@ -130,13 +130,14 @@ const NFTCard2 = ({ data, setSubSModalVisible }) => {
 				navigation.navigate("SubSubService", { data });
 			}}
 		>
-			<View style={{ width: "100%", height: "100%" }}>
+			<View style={{ width: "100%", height: "100%", marginBottom: 5 }}>
 				<Image
 					source={{ uri: data.SubS_Image }}
 					resizeMode="contain"
 					style={{
 						width: "100%",
 						height: "100%",
+
 						borderTopLeftRadius: SIZES.font,
 						borderTopRightRadius: SIZES.font,
 					}}
@@ -147,6 +148,7 @@ const NFTCard2 = ({ data, setSubSModalVisible }) => {
 				title={data.SubS_Name}
 				titleSize={SIZES.medium}
 				titleFont={FONTS.medium}
+				fontColor={COLORS.primary}
 			/>
 		</TouchableOpacity>
 	);
@@ -284,7 +286,7 @@ const NFTCard6 = ({ data, data2, setData, index }) => {
 	return (
 		<View
 			style={{
-				marginBottom: SIZES.small - 15,
+				marginBottom: SIZES.extraLarge + 20,
 				padding: SIZES.medium,
 				flex: 1,
 			}}
@@ -364,17 +366,17 @@ const NFTCard6 = ({ data, data2, setData, index }) => {
 							titleSize={SIZES.large}
 							fontColor={COLORS.primary}
 						/>
-						<View style={{ width: "4%" }} />
-						<NFTTitle
+						<View style={{ width: "2%" }} />
+						{/*  	<NFTTitle
 							title={"₹" + data.SubSubS_Price * 1.25}
 							titleSize={SIZES.font}
 							strike={1}
 							titleFont={FONTS.regular}
 						/>
-						<View style={{ width: "1%" }} />
+						<View style={{ width: "1%" }} />*/}
 						<NFTTitle
-							title={"  / " + data.SubSubS_Duration}
-							titleSize={SIZES.font}
+							title={"  • " + data.SubSubS_Duration}
+							titleSize={SIZES.font + 1}
 						/>
 					</View>
 					<View style={{ width: "70%" }}>
@@ -473,7 +475,7 @@ const NFTCard6 = ({ data, data2, setData, index }) => {
 			</View>
 			<View
 				style={{
-					marginTop: "3%",
+					marginTop: "8%",
 					height: 1,
 					width: "95%",
 					alignSelf: "center",

@@ -13,7 +13,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 
 import React, { useState } from "react";
-import { COLORS, FONTS, SIZES, assets } from "../constants";
+import { COLORS, FONTS, SIZES, assets, SHADOWS } from "../constants";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import ModalList from "./ModalList";
@@ -27,100 +27,38 @@ const HomeHeader = ({ onSearch }) => {
 	return (
 		<View
 			style={{
-				backgroundColor: "rgba(28, 137, 255, 0.8)",
-				padding: SIZES.font - 2,
+				borderRadius: SIZES.large - 3,
+				backgroundColor: "#f2f2f2",
 
-				borderBottomStartRadius: 15,
-				borderBottomRightRadius: 15,
-				height: "6%",
+				height: 40,
+				width: "90%",
+				alignSelf: "center",
+				flexDirection: "row",
+				alignItems: "center",
+				alignContent: "flex-start",
+				marginTop: "2%",
+				paddingHorizontal: SIZES.font,
 			}}
 		>
-			<View
+			<Image
+				source={assets.search}
 				style={{
-					flexDirection: "row",
-					justifyContent: "space-between",
-					backgroundColor: "white",
-					borderRadius: 12,
+					justifyContent: "flex-start",
+					width: 16,
+					height: 16,
+					margin: 13,
 				}}
-			>
-				<View
-					style={{
-						width: "80%",
-						borderRadius: SIZES.small,
-						backgroundColor: COLORS.white,
-						elevation: 40,
-						flexDirection: "row",
-						alignItems: "center",
-						paddingHorizontal: SIZES.font,
-						alignContent: "center",
-					}}
-				>
-					<TextInput
-						placeholder="Search Laundry, Cleaning, Gardener, Cook, Maid"
-						placeholderTextColor="#A0A0A0"
-						style={{
-							fontSize: SIZES.font + 1,
-							color: COLORS.primary,
-							width: 290,
-							height: 65,
-						}}
-						onChangeText={onSearch}
-					/>
-					<Image
-						source={assets.search}
-						resizeMode="contain"
-						style={{
-							width: 20,
-							height: 20,
-							marginRight: SIZES.base,
-						}}
-					/>
-				</View>
-
-				<View
-					style={{
-						flexDirection: "row",
-						alignSelf: "flex-end",
-						alignContent: "center",
-						width: "15%",
-					}}
-				>
-					<TouchableOpacity
-						style={{ width: 45, height: 60 }}
-						onPress={() => setModalVisible(true)}
-					>
-						<Image
-							source={assets.menuIcon}
-							resizeMode="contain"
-							style={{ width: "100%", height: "100%" }}
-						/>
-					</TouchableOpacity>
-
-					<Modal
-						animationType="fade"
-						transparent={true}
-						visible={modalVisible}
-						close={() => {
-							toggleModal(false);
-						}}
-					>
-						<Pressable
-							style={styles.loweredView}
-							onPress={() => {
-								setModalVisible(false);
-							}}
-						>
-							<View style={styles.centeredView}>
-								<View style={styles.modalView}>
-									<ModalList
-										setVisible={setModalVisible}
-									/>
-								</View>
-							</View>
-						</Pressable>
-					</Modal>
-				</View>
-			</View>
+			/>
+			<TextInput
+				placeholder="Search for Laundry, Gardener, Cook, Taxi"
+				placeholderTextColor="#A0A0A0"
+				style={{
+					fontSize: SIZES.font + 1,
+					backgroundColor: "#f2f2f2",
+					color: COLORS.primary,
+				}}
+				onChangeText={onSearch}
+			/>
 		</View>
 	);
 };

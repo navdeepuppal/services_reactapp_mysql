@@ -34,7 +34,10 @@ import SelectAddress from "./screens/SelectAddress";
 import PaymentApi from "./screens/PaymentApi";
 import SelectTime from "./screens/SelectTime";
 import ServiceManDashboard from "./screens/ServiceMan/ServiceManDashboard";
-import RecentOrders from "./screens/RecentOrders";
+import Wallet from "./screens/Wallet";
+import Bookings from "./screens/Bookings";
+import Search from "./screens/Search";
+import Profile from "./screens/Profile";
 
 const theme = {
 	...DefaultTheme,
@@ -109,8 +112,8 @@ const App = () => {
 							? "Onboarding"
 							: isLoggedIn
 							? isServiceMan == "2"
-								? "Home"
-								: "Home"
+								? "Onboarding"
+								: "Onboarding"
 							: "Onboarding"
 					}
 				>
@@ -119,10 +122,11 @@ const App = () => {
 						name="Home"
 						component={Home}
 					/>
+
 					<Stack.Screen
 						options={{ gestureEnabled: false }}
-						name="RecentOrders"
-						component={RecentOrders}
+						name="Wallet"
+						component={Wallet}
 					/>
 					<Stack.Screen
 						name="SelectAddress"
@@ -231,6 +235,9 @@ const App = () => {
 						name="RegisterSubService11"
 						component={RegisterSubService11}
 					/>
+					<Stack.Screen name="Bookings" component={Bookings} />
+					<Stack.Screen name="Search" component={Search} />
+					<Stack.Screen name="Profile" component={Profile} />
 				</Stack.Navigator>
 			)}
 		</NavigationContainer>

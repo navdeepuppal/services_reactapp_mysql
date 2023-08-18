@@ -8,22 +8,14 @@ const ExitHeader = ({ onSearch }) => {
 	const navigation = useNavigation();
 
 	return (
-		<View
-			style={{
-				flexDirection: "row",
-				alignSelf: "flex-end",
-				width: "19%",
+		<TouchableOpacity
+			style={styles.button2}
+			onPress={() => {
+				navigation.navigate("Home");
 			}}
 		>
-			<TouchableOpacity
-				style={styles.button2}
-				onPress={() => {
-					navigation.navigate("Home");
-				}}
-			>
-				<Text style={{ fontSize: 19 }}> Exit </Text>
-			</TouchableOpacity>
-		</View>
+			<Text style={{ fontSize: 19 }}> Exit </Text>
+		</TouchableOpacity>
 	);
 };
 

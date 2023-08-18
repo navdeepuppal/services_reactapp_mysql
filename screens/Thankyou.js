@@ -104,12 +104,12 @@ const Thankyou = ({ route, navigation }) => {
 				/>
 				<Text style={styles.textTitle}></Text>
 				<Text style={styles.textTitle}>
-					Your order has been placed!{" "}
+					Your booking has been confirmed!{" "}
 				</Text>
 				<Text style={styles.subtextTitle}>
 					{" "}
-					Order Updates will be sent to you via WhatsApp on same
-					number
+					Booking Updates will be sent to you via
+					{"\n"}WhatsApp/SMS
 				</Text>
 
 				{/* 
@@ -120,23 +120,26 @@ const Thankyou = ({ route, navigation }) => {
 				style={{
 					borderWidth: 1,
 					borderColor: "rgba(0,0,0,0)",
-					alignItems: "center",
-					alignSelf: "flex-end",
-					justifyContent: "flex-end",
 					marginLeft: "auto",
-					width: 80,
-					height: 80,
+					width: 85,
+					height: 85,
+					padding: 3,
 					backgroundColor: "black",
 					borderRadius: 80 / 2,
-					marginTop: 10,
 					marginRight: 10,
 				}}
 				onPress={() => navigation.navigate("Home")}
 			>
 				<Image
 					source={require("../assets/rightarrow.png")}
-					resizeMode="stretch"
-					style={{ width: "95%", height: "95%" }}
+					resizeMode="contain"
+					style={{
+						width: 60,
+						marginHorizontal: 6,
+						marginVertical: 10,
+						height: 60,
+						alignSelf: "flex-end",
+					}}
 				/>
 			</TouchableOpacity>
 		</SafeAreaView>
@@ -161,16 +164,17 @@ const styles = StyleSheet.create({
 		marginVertical: 10,
 	},
 	textTitle: {
-		fontSize: 30,
+		fontSize: 27,
+
 		marginVertical: 10,
 		textAlign: "center",
 		color: "white",
 	},
 	subtextTitle: {
-		color: "white",
+		color: "silver",
 		margin: 12,
 		marginTop: 50,
-		fontSize: 20,
+		fontSize: 17,
 		marginVertical: 10,
 		textAlign: "center",
 	},

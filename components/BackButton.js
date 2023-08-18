@@ -20,6 +20,7 @@ const BackButton = ({}) => {
 			style={{
 				flexDirection: "row",
 				justifyContent: "space-between",
+				marginTop: "3%",
 			}}
 		>
 			<View

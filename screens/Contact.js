@@ -43,13 +43,13 @@ const Contact = ({ navigation }) => {
 					</Text>
 
 					<Text style={styles.description}>
-						You can reach us anytime via sqera@gmail.com
+						You can reach us anytime via {"\n"}sqera@gmail.com
 					</Text>
 
 					<View style={styles.inputContainer}>
 						<Text style={styles.labels}>
 							{" "}
-							Tell us the Issue{" "}
+							Please explain your concern here{" "}
 						</Text>
 						<TextInput
 							style={[
@@ -63,7 +63,6 @@ const Contact = ({ navigation }) => {
 							multiline={true}
 						/>
 					</View>
-
 
 					<TouchableOpacity
 						style={[
@@ -94,6 +93,27 @@ const Contact = ({ navigation }) => {
 						</Text>
 					</TouchableOpacity>
 				</KeyboardAvoidingView>
+
+				<TouchableOpacity
+					style={{
+						margin: 20,
+						marginTop: "50%",
+						alignSelf: "center",
+					}}
+					onPress={() => {
+						navigation.navigate("RequestNewService");
+					}}
+				>
+					<Text
+						style={{
+							fontSize: 18,
+							fontWeight: "600",
+							marginBottom: 10,
+						}}
+					>
+						Request for a new service ?
+					</Text>
+				</TouchableOpacity>
 			</ScrollView>
 		</SafeAreaView>
 	);
@@ -110,6 +130,7 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 		color: "#344055",
 		fontWeight: "500",
+		marginTop: 20,
 		paddingTop: 20,
 		paddingBottom: 15,
 		textTransform: "capitalize",
@@ -130,6 +151,7 @@ const styles = StyleSheet.create({
 		color: "#7d7d7d",
 		paddingBottom: 5,
 		lineHeight: 25,
+		fontSize: 18,
 	},
 	inputStyle: {
 		fontSize: 23,
@@ -150,7 +172,7 @@ const styles = StyleSheet.create({
 		display: "flex",
 		justifyContent: "center",
 		alignItems: "center",
-		marginVertical: 30,
+		marginVertical: 10,
 	},
 	buttonText: {
 		color: "#eee",

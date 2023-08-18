@@ -269,7 +269,7 @@ const SelectAddress = ({ navigation, route }) => {
 													);
 												} else {
 													Alert.alert(
-														"Detailed address will help our service man to reach your doorstep easily."
+														"Look's address not correct. Please check your address"
 													);
 												}
 											}}
@@ -305,7 +305,7 @@ const styles = StyleSheet.create({
 		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
 		shadowRadius: 1, //IOS
-		backgroundColor: "green",
+		backgroundColor: "black",
 		borderRadius: SIZES.font,
 		marginBottom: SIZES.extraLarge,
 		margin: SIZES.base,
@@ -403,7 +403,7 @@ const styles = StyleSheet.create({
 		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
 		shadowRadius: 1, //IOS
-		backgroundColor: "blue",
+		backgroundColor: "black",
 		borderRadius: SIZES.font,
 		marginBottom: 100,
 		margin: SIZES.base,
@@ -420,6 +420,7 @@ const styles = StyleSheet.create({
 		fontSize: 19,
 		textAlign: "center",
 		color: COLORS.white,
+		fontWeight: "700",
 	},
 	confirmbuttontext: {
 		fontWeight: "bold",

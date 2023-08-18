@@ -15,6 +15,8 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
 
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 import * as ImagePicker from "expo-image-picker";
 
 const RegisterSubService10 = ({ route }) => {
@@ -44,10 +46,10 @@ const RegisterSubService10 = ({ route }) => {
 			setImage(result.uri);
 		}
 	};
-const saveValue = () => {
-	AsyncStorage.setItem("ServiceMan", "1");
-};
-saveValue();
+	const saveValue = () => {
+		AsyncStorage.setItem("ServiceMan", "1");
+	};
+	saveValue();
 	const validation = () => {
 		var validationtemp = null;
 		if (AadharNumber >= 100000000000) {
@@ -65,7 +67,7 @@ saveValue();
 			<ScrollView>
 				<View style={styles.container}>
 					<Image
-						source={require("../../assets/signup.png")}
+						source={require("../../assets/images/octoloader.gif")}
 						resizeMode="center"
 						style={styles.image}
 					/>
@@ -73,8 +75,7 @@ saveValue();
 						Privacy & Security
 					</Text>
 					<Text style={styles.textBody}>
-						Just one more step and then you are ready to go
-						boss!
+						You're Almost There, Boss!
 					</Text>
 					<Text style={styles.textBody}>
 						We need to protect our community.{"\n"} For that
@@ -82,11 +83,15 @@ saveValue();
 						you register as a professional
 					</Text>
 
+					<Text style={{ fontSize: 20, margin: "4%" }}>
+						Please enter your aadhar number
+					</Text>
+
 					<TextInput
 						style={styles.input}
 						onChangeText={onChangeAadharNumber}
 						value={AadharNumber}
-						placeholder="Please provide your Aadhar Number (For Verification)"
+						placeholder=""
 						placeholderTextColor="#a0a0a0"
 						keyboardType="phone-pad"
 						multiline
@@ -150,7 +155,7 @@ saveValue();
 
 const styles = StyleSheet.create({
 	input: {
-		fontSize: 25,
+		fontSize: 20,
 		alignItems: "center",
 		margin: 16,
 		borderColor: "silver",

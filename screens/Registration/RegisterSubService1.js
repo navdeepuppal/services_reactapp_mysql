@@ -24,9 +24,9 @@ const RegisterSubService1 = () => {
 
 	console.log("\nPage\t" + "RegisterSubService1");
 
-	AsyncStorage.setItem("ServiceMan", "2");
 	const getValue = () => {
 		AsyncStorage.getItem("ServiceMan").then((isServiceMan) => {
+			console.log("isServiceMan::", isServiceMan);
 			if (isServiceMan == "2") {
 				setModalVisible(true);
 			}
@@ -150,11 +150,11 @@ const RegisterSubService1 = () => {
 									<TouchableOpacity
 										style={styles.dashboardbutton}
 										onPress={() => {
-											navigation.navigate(
-												"Home"
+											setHoldModalVisible(
+												false
 											),
-												setHoldModalVisible(
-													false
+												setModalVisible(
+													true
 												);
 										}}
 									>
@@ -250,7 +250,7 @@ const styles = StyleSheet.create({
 	textTitle: {
 		fontWeight: "bold",
 		marginTop: SIZES.extraLarge + 10,
-		fontSize: 32,
+		fontSize: 29,
 		marginVertical: 5,
 	},
 
