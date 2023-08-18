@@ -15,7 +15,6 @@ import {
 } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
-import { SliderBox } from "react-native-image-slider-box";
 
 import { LinearGradient } from "expo-linear-gradient";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
