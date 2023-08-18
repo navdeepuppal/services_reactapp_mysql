@@ -44,7 +44,7 @@ const Profile = ({ navigation }) => {
 				<Text
 					style={{
 						fontSize: 24,
-						fontWeight: "800",
+						fontWeight: "700",
 					}}
 				>
 					Profile
@@ -58,8 +58,8 @@ const Profile = ({ navigation }) => {
 					>
 						<View
 							style={{
-								backgroundColor: COLORS.primary,
-								width: 70,
+								backgroundColor: COLORS.white,
+								width: 100,
 								margin: 10,
 								borderRadius: 10,
 								height: "100%",
@@ -74,26 +74,41 @@ const Profile = ({ navigation }) => {
 										setVisible(false);
 								}}
 							>
-								<Text
+								<View
 									style={{
-										color: COLORS.white,
-										fontSize: 16,
+										flexDirection: "row",
 										alignSelf: "center",
-										justifyContent: "center",
-										fontWeight: "700",
 									}}
 								>
-									Rs 10
-								</Text>
+									<Image
+										style={{
+											width: 23,
+											height: 23,
+											marginRight: 7,
+										}}
+										source={require("../assets/images/wallet.png")}
+									/>
+									<Text
+										style={{
+											color: COLORS.primary,
+											fontSize: 16,
+											alignSelf: "center",
+											justifyContent: "center",
+											fontWeight: "700",
+										}}
+									>
+										Rs 10
+									</Text>
+								</View>
 								<Text
 									style={{
-										color: COLORS.white,
+										color: COLORS.primary,
 										fontSize: 12,
 										alignSelf: "center",
 										justifyContent: "center",
 									}}
 								>
-									Wallet
+									Wallet Balance
 								</Text>
 							</TouchableOpacity>
 						</View>

@@ -33,7 +33,7 @@ const Bookings = ({ navigation }) => {
 				<Text
 					style={{
 						fontSize: 22,
-						fontWeight: "800",
+						fontWeight: "700",
 						marginLeft: 20,
 						marginTop: 3,
 						justifyContent: "center",
