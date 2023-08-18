@@ -376,6 +376,7 @@ const Cart = ({ route, navigation }) => {
 						</TouchableOpacity>
 						<Text
 							style={{
+								marginLeft: 5,
 								fontSize: 20,
 								fontWeight: "bold",
 							}}
@@ -472,7 +473,7 @@ const Cart = ({ route, navigation }) => {
 													color: "green",
 												}}
 											>
-												- ₹ {discount}
+												- ₹{discount}
 											</Text>
 										</View>
 									) : null}
@@ -575,8 +576,8 @@ const Cart = ({ route, navigation }) => {
 							onDismiss={onDismissSnackBar}
 						>
 							We assure you that we will only apply the
-							modest fees that are currently being
-							requested for any service in the market.
+							modest prices that are currently being
+							requested for this service in the market.
 						</Snackbar>
 					</View>
 					<View
@@ -672,7 +673,7 @@ const style = StyleSheet.create({
 		paddingVertical: "5%",
 		flexDirection: "row",
 		alignItems: "center",
-		marginHorizontal: "5%",
+		marginHorizontal: "2%",
 		width: "100%",
 	},
 	buttontext2: {

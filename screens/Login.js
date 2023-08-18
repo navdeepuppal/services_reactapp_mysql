@@ -193,7 +193,6 @@ const Login = ({ route }) => {
 												alignSelf:
 													"flex-start",
 												fontSize: 16,
-												letterSpacing: 1,
 											}}
 										>
 											Sqera has sent a 4-digit

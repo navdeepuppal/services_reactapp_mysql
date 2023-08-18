@@ -89,7 +89,7 @@ const Search = ({ navigation, onSearch }) => {
 				<View
 					style={{
 						width: "24%",
-						padding: 10,
+						padding: 9,
 						alignItems: "center",
 						justifyContent: "center",
 						backgroundColor: COLORS.white,
@@ -118,7 +118,7 @@ const Search = ({ navigation, onSearch }) => {
 								}}
 							>
 								<Image
-									source={require("../assets/images/icon.png")}
+									source={require("../assets/images/homeservices.png")}
 									resizeMode="center"
 									style={styles.inventoryImage}
 								/>
@@ -134,10 +134,11 @@ const Search = ({ navigation, onSearch }) => {
 										color: COLORS.primary,
 									}}
 								>
-									Services
+									Home Services
 								</Text>
 							</View>
 						</TouchableOpacity>
+
 						<TouchableOpacity
 							style={{ marginBottom: 80 }}
 							onPress={() => setButtonStatus("1")}
@@ -148,13 +149,13 @@ const Search = ({ navigation, onSearch }) => {
 
 									borderRadius: 15,
 									height: 70,
-									width: 70,
+									width: 78,
 									paddingTop: 15,
 									justifyContent: "flex-start",
 								}}
 							>
 								<Image
-									source={require("../assets/images/icon.png")}
+									source={require("../assets/images/freelancers.png")}
 									resizeMode="center"
 									style={styles.inventoryImage}
 								/>
@@ -204,7 +205,7 @@ const Search = ({ navigation, onSearch }) => {
 								}}
 							>
 								<Image
-									source={require("../assets/images/icon.png")}
+									source={require("../assets/images/graphicsdesign.png")}
 									resizeMode="contain"
 									style={{
 										width: 52,
@@ -247,7 +248,7 @@ const Search = ({ navigation, onSearch }) => {
 								}}
 							>
 								<Image
-									source={require("../assets/images/icon.png")}
+									source={require("../assets/images/digitalmarketing.png")}
 									resizeMode="contain"
 									style={{
 										width: 52,
@@ -304,7 +305,7 @@ const Search = ({ navigation, onSearch }) => {
 								}}
 							>
 								<Image
-									source={require("../assets/images/icon.png")}
+									source={require("../assets/images/carpenter.png")}
 									resizeMode="contain"
 									style={{
 										width: 52,
@@ -348,7 +349,7 @@ const Search = ({ navigation, onSearch }) => {
 								}}
 							>
 								<Image
-									source={require("../assets/images/icon.png")}
+									source={require("../assets/images/cleaning.png")}
 									resizeMode="contain"
 									style={{
 										width: 52,

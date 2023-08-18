@@ -33,6 +33,7 @@ import Bookings from "./Bookings";
 import Search from "./Search";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Profile from "./Profile";
+import { Col } from "react-native-easy-grid";
 
 let apiKey = "YOUR_API_KEY";
 
@@ -130,7 +131,7 @@ function ServicesScreen() {
 	}, []);
 
 	return (
-		<View style={{ backgroundColor: COLORS.white }}>
+		<View style={{ backgroundColor: COLORS.white, margin: "1%" }}>
 			{isLoading ? (
 				<View
 					style={{
@@ -158,6 +159,7 @@ function ServicesScreen() {
 				<SafeAreaView
 					style={{
 						backgroundColor: COLORS.white,
+						margin: "1%",
 					}}
 				>
 					<View
@@ -220,57 +222,11 @@ function ServicesScreen() {
 									alignContent: "center",
 									alignSelf: "center",
 									width: 60,
-									height: 20,
+									height: 21,
 									marginRight: 17,
 								}}
 							/>
-
-							<TouchableOpacity
-								style={{
-									marginTop: "1%",
-									width: 27,
-									height: 8,
-								}}
-								onPress={() => setModalVisible(true)}
-							>
-								<Image
-									source={assets.menuIcon}
-									resizeMode="cover"
-									style={{
-										alignContent: "center",
-										alignSelf: "center",
-										width: 40,
-										height: 26,
-									}}
-								/>
-							</TouchableOpacity>
 						</View>
-						<Modal
-							animationIn="slideInLeft"
-							animationOut="slideOutRight"
-							transparent={true}
-							visible={modalVisible}
-							close={() => {
-								toggleModal(false);
-							}}
-						>
-							<Pressable
-								style={styles.loweredView}
-								onPress={() => {
-									setModalVisible(false);
-								}}
-							>
-								<View style={styles.centeredView}>
-									<View style={styles.modalView}>
-										<ModalList
-											setVisible={
-												setModalVisible
-											}
-										/>
-									</View>
-								</View>
-							</Pressable>
-						</Modal>
 					</View>
 					<View
 						style={{
@@ -313,6 +269,7 @@ function ServicesScreen() {
 									justifyContent: "center",
 									width: "100%",
 									margin: "1%",
+									backgroundColor: COLORS.white,
 								}}
 							/>
 						</View>

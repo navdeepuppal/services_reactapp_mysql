@@ -15,7 +15,9 @@ import BackButton from "../components/BackButton";
 
 const PaymentApi = ({ navigation, route }) => {
 	const cartData = route.params.cartData;
-	const [Payment, setPayment] = useState("Payment");
+	const [Payment, setPayment] = useState("COD");
+	const [COD, setCOD] = useState("COD");
+	const [Wallet, setWallet] = useState("Wallet");
 
 	return (
 		<SafeAreaView
@@ -34,7 +36,7 @@ const PaymentApi = ({ navigation, route }) => {
 				PAYMENT PAGE{" "}
 			</Text>
 
-			<TouchableWithoutFeedback onPress={() => setPayment("Payment")}>
+			<TouchableWithoutFeedback onPress={() => setPayment("COD")}>
 				<View
 					style={{
 						alignSelf: "center",
@@ -46,13 +48,44 @@ const PaymentApi = ({ navigation, route }) => {
 						padding: 20,
 						width: 270,
 						margin: 25,
-						marginBottom: "20%",
 					}}
 				>
 					<RadioButton
 						value="Payment"
 						status={
-							Payment === "Payment"
+							Payment === "COD" ? "checked" : "unchecked"
+						}
+						onPress={() => setPayment("Payment")}
+					/>
+					<Text
+						style={{
+							fontSize: 22,
+							fontWeight: "600",
+							alignSelf: "center",
+						}}
+					>
+						Cash On Delivery
+					</Text>
+				</View>
+			</TouchableWithoutFeedback>
+			<TouchableWithoutFeedback onPress={() => setPayment("Wallet")}>
+				<View
+					style={{
+						alignSelf: "center",
+
+						flexDirection: "row",
+						borderColor: "gray",
+						borderWidth: 1,
+						borderRadius: 15,
+						padding: 20,
+						width: 270,
+						marginBottom: "20%",
+					}}
+				>
+					<RadioButton
+						value="Wallet"
+						status={
+							Payment === "Wallet"
 								? "checked"
 								: "unchecked"
 						}
@@ -65,7 +98,7 @@ const PaymentApi = ({ navigation, route }) => {
 							alignSelf: "center",
 						}}
 					>
-						Cash On Delivery
+						Wallet
 					</Text>
 				</View>
 			</TouchableWithoutFeedback>

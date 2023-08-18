@@ -17,18 +17,22 @@ import { COLORS, config, SIZES, assets } from "../constants";
 
 const Bookings = ({ navigation }) => {
 	return (
-		<SafeAreaView>
+		<SafeAreaView
+			style={{
+				backgroundColor: "#f2f2f2",
+			}}
+		>
 			<View
 				style={{
-					height: "9%",
-					paddingVertical: SIZES.large,
-					borderBottomWidth: 0.2,
+					height: "7%",
+					paddingVertical: SIZES.font,
 					borderColor: COLORS.gray,
+					backgroundColor: "#f2f2f2",
 				}}
 			>
 				<Text
 					style={{
-						fontSize: 25,
+						fontSize: 22,
 						fontWeight: "800",
 						marginLeft: 20,
 						marginTop: 3,
@@ -54,13 +58,15 @@ const Bookings = ({ navigation }) => {
 					>
 						<Text
 							style={{
-								fontSize: 16,
+								fontSize: 14,
 								marginBottom: 10,
-								fontWeight: "200",
+
+								fontWeight: "400",
+								color: "gray",
 							}}
 						>
 							{" "}
-							Booking ID : #129130
+							ID : #129130
 						</Text>
 						<View
 							style={{
@@ -145,13 +151,14 @@ const Bookings = ({ navigation }) => {
 					>
 						<Text
 							style={{
-								fontSize: 16,
+								fontSize: 14,
 								marginBottom: 10,
-								fontWeight: "200",
+								fontWeight: "400",
+								color: "gray",
 							}}
 						>
 							{" "}
-							Booking ID : #1292230
+							ID : #1292230
 						</Text>
 						<View
 							style={{
