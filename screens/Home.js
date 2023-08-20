@@ -283,10 +283,10 @@ function ServicesScreen() {
 								<Image
 									source={require("../assets/icons/frequent.png")}
 									style={{
-										marginLeft: 6,
+										marginLeft: 5,
 
-										width: 16,
-										height: 16,
+										width: 14,
+										height: 14,
 										alignSelf: "center",
 									}}
 								/>
