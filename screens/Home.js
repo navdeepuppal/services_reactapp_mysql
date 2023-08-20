@@ -165,7 +165,6 @@ function ServicesScreen() {
 						style={{
 							backgroundColor: COLORS.white,
 
-							height: "18%",
 							paddingVertical: SIZES.small - 3,
 							width: "100%",
 							flexDirection: "row",
@@ -197,7 +196,6 @@ function ServicesScreen() {
 										fontSize: 16,
 									}}
 								>
-									{" "}
 									Kothi 103
 								</Text>
 							</View>
@@ -237,20 +235,33 @@ function ServicesScreen() {
 					<ScrollView
 						style={{
 							backgroundColor: COLORS.white,
+							height: "100%",
 						}}
 					>
 						<View
 							style={{
 								backgroundColor: COLORS.white,
-								justifyContent: "center",
-								alignItems: "center",
-								alignContent: "center",
-								marginLeft: 7,
-								marginTop: 15,
+								borderRadius: 5,
+								marginTop: 10,
+								width: "98%",
+								alignSelf: "center",
 							}}
 						>
+							<Text
+								style={{
+									fontSize: 16,
+									borderTopWidth: 0.2,
+									marginLeft: 5,
+									margin: 10,
+									fontWeight: "500",
+								}}
+							>
+								{" "}
+								Frequently booked
+							</Text>
+
 							<FlatList
-								horizontal
+								numColumns={3}
 								data={data2}
 								renderItem={({ item, index }) => (
 									<NFTCard1
@@ -263,11 +274,54 @@ function ServicesScreen() {
 									/>
 								)}
 								contentContainerStyle={{
-									height: "100%",
 									alignSelf: "center",
 									justifyContent: "center",
 									width: "100%",
-									margin: "1%",
+									backgroundColor: COLORS.white,
+								}}
+							/>
+						</View>
+
+						<View></View>
+						<View
+							style={{
+								backgroundColor: COLORS.white,
+
+								marginLeft: 7,
+								marginTop: 15,
+							}}
+						>
+							<Text
+								style={{
+									fontSize: 16,
+									marginTop: 30,
+									borderTopWidth: 0.2,
+									marginLeft: 5,
+									margin: 10,
+									fontWeight: "500",
+								}}
+							>
+								{" "}
+								Popular services near you
+							</Text>
+							<FlatList
+								numColumns={3}
+								data={data2}
+								renderItem={({ item, index }) => (
+									<NFTCard1
+										key={index}
+										data={item}
+										index={index}
+										setSubSModalVisible={
+											setSubSModalVisible
+										}
+									/>
+								)}
+								contentContainerStyle={{
+									alignSelf: "center",
+									justifyContent: "center",
+
+									width: "100%",
 									backgroundColor: COLORS.white,
 								}}
 							/>

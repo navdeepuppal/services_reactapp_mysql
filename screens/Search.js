@@ -28,7 +28,7 @@ const Search = ({ navigation, onSearch }) => {
 				style={{
 					flexDirection: "row",
 					justifyContent: "space-between",
-					height: 43,
+					height: 50,
 				}}
 			>
 				<Text
@@ -49,8 +49,8 @@ const Search = ({ navigation, onSearch }) => {
 						marginTop: 5,
 						backgroundColor: "#f2f2f2",
 						padding: 7,
-						height: 34,
-						width: 145,
+						height: 40,
+						width: 200,
 						borderColor: COLORS.gray,
 						flexDirection: "row",
 					}}
@@ -64,15 +64,15 @@ const Search = ({ navigation, onSearch }) => {
 						}}
 					/>
 					<TextInput
-						placeholder="Search "
+						placeholder="Search"
 						placeholderTextColor="#A0A0A0"
 						style={{
 							alignSelf: "center",
 							margin: "2%",
-							marginLeft: 7,
+							marginLeft: 9,
 							fontSize: SIZES.large - 2,
 							color: COLORS.primary,
-							width: 80,
+							width: "80%",
 							height: 65,
 						}}
 						onChangeText={onSearch}

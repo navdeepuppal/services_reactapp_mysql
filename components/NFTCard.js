@@ -81,10 +81,8 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
 
 				width: 113,
 				height: 128,
-				margin: "1.5%",
-				padding: "4%",
-				justifyContent: "flex-end",
-				alignSelf: "center",
+				margin: 8,
+				padding: 10,
 			}}
 			onPress={() => {
 				setSubSModalVisible(index);
@@ -92,15 +90,21 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
 			}}
 		>
 			<View
-				style={{ height: "75%", width: "100%", marginBottom: "6%" }}
+				style={{
+					alignSelf: "center",
+					height: 85,
+					width: 85,
+					marginBottom: 8,
+				}}
 			>
 				<ImageBackground
 					resizeMode="cover"
 					source={{ uri: ImageURL }}
 					style={{
-						height: "100%",
+						height: 82,
 						alignSelf: "center",
-						width: "96%",
+
+						width: 82,
 					}}
 				></ImageBackground>
 			</View>

@@ -30,7 +30,7 @@ const HomeHeader = ({ onSearch }) => {
 				borderRadius: SIZES.large - 3,
 				backgroundColor: "#f2f2f2",
 
-				height: 40,
+				height: 48,
 				width: "90%",
 				alignSelf: "center",
 				flexDirection: "row",
@@ -46,7 +46,8 @@ const HomeHeader = ({ onSearch }) => {
 					justifyContent: "flex-start",
 					width: 16,
 					height: 16,
-					margin: 13,
+					margin: 2,
+					marginRight: 12,
 				}}
 			/>
 			<TextInput

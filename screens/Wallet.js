@@ -32,25 +32,29 @@ const Wallet = ({ navigation }) => {
 				<BackButton />
 				<Text
 					style={{
-						fontSize: 23,
-						alignSelf: "center",
-						paddingHorizontal: 75,
+						fontSize: 30,
+						fontWeight: "600",
+						margin: 10,
+
+						marginLeft: 120,
 						justifyContent: "center",
 					}}
 				>
 					{" "}
-					Wallet Transactions{" "}
+					Wallet
 				</Text>
 			</View>
 			<View>
 				<View
 					style={{
 						padding: 10,
-						margin: 10,
 						width: "60%",
+						height: 80,
 						alignSelf: "center",
 						borderRadius: 10,
+						borderWidth: 0.2,
 						backgroundColor: COLORS.white,
+						borderColor: "gray",
 					}}
 				>
 					<Text
@@ -63,23 +67,19 @@ const Wallet = ({ navigation }) => {
 						}}
 					>
 						{" "}
-						Rs 10
+						₹10
 					</Text>
 				</View>
 			</View>
 			<View
 				style={{
-					padding: 10,
-					margin: 10,
-
-					borderRadius: 20,
 					flexDirection: "row",
+					alignSelf: "center",
 				}}
 			>
 				<TouchableOpacity>
 					<View
 						style={{
-							margin: "1%",
 							borderColor: "gray",
 							borderRadius: 10,
 
@@ -89,22 +89,22 @@ const Wallet = ({ navigation }) => {
 						<View
 							style={{
 								flexDirection: "row",
-								justifyContent: "space-between",
 								backgroundColor: "green",
-								borderRadius: 10,
+								borderBottomLeftRadius: 10,
+								borderBottomRightRadius: 10,
 							}}
 						>
 							<Text
 								style={{
-									fontSize: 25,
+									fontSize: 18,
 									fontWeight: "500",
-									margin: 15,
+									margin: 11,
 									color: COLORS.white,
-									marginLeft: 30,
+									elevation: 30,
 								}}
 							>
 								{" "}
-								Add Money
+								+ Add Balance
 							</Text>
 							<Text
 								style={{

@@ -17,6 +17,7 @@ import React, { useState } from "react";
 import { COLORS, config, SIZES, assets } from "../constants";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { AnimatedFAB } from "react-native-paper";
 
 const Profile = ({ navigation }) => {
 	const [user, setUser] = useState("");
@@ -55,64 +56,7 @@ const Profile = ({ navigation }) => {
 							flexDirection: "row",
 							justifyContent: "flex-end",
 						}}
-					>
-						<View
-							style={{
-								backgroundColor: COLORS.white,
-								width: 100,
-								margin: 10,
-								borderRadius: 10,
-								height: "100%",
-								padding: 7,
-
-								alignSelf: "center",
-							}}
-						>
-							<TouchableOpacity
-								onPress={() => {
-									navigation.navigate("Wallet"),
-										setVisible(false);
-								}}
-							>
-								<View
-									style={{
-										flexDirection: "row",
-										alignSelf: "center",
-									}}
-								>
-									<Image
-										style={{
-											width: 23,
-											height: 23,
-											marginRight: 7,
-										}}
-										source={require("../assets/images/wallet.png")}
-									/>
-									<Text
-										style={{
-											color: COLORS.primary,
-											fontSize: 16,
-											alignSelf: "center",
-											justifyContent: "center",
-											fontWeight: "700",
-										}}
-									>
-										Rs 10
-									</Text>
-								</View>
-								<Text
-									style={{
-										color: COLORS.primary,
-										fontSize: 12,
-										alignSelf: "center",
-										justifyContent: "center",
-									}}
-								>
-									Wallet Balance
-								</Text>
-							</TouchableOpacity>
-						</View>
-					</View>
+					></View>
 				) : (
 					<TouchableOpacity
 						onPress={() => {
@@ -148,113 +92,279 @@ const Profile = ({ navigation }) => {
 				}}
 			>
 				{user ? (
-					<View
-						style={{
-							padding: 10,
-							margin: 10,
-							borderRadius: 20,
-							backgroundColor: COLORS.white,
-						}}
-					>
-						<Image
-							style={{
-								width: 70,
-								height: 70,
-								alignSelf: "center",
-							}}
-							source={require("../assets/images/user.png")}
-						/>
-						<Text
-							style={{
-								textAlign: "center",
-								marginTop: 5,
-								marginBottom: 10,
-								fontSize: 17,
-								fontWeight: "500",
-							}}
-						>
-							{" "}
-							{user}
-						</Text>
-						<TouchableOpacity>
-							<View
-								style={{
-									margin: "1%",
-									borderColor: "gray",
-								}}
-							>
-								<View
-									style={{
-										flexDirection: "row",
-										justifyContent:
-											"space-between",
-									}}
-								>
-									<Text
-										style={{
-											fontSize: 18,
-											fontWeight: "500",
-											margin: 15,
-											marginLeft: 30,
-										}}
-									>
-										{" "}
-										Edit Profile
-									</Text>
-									<Text
-										style={{
-											fontSize: 19,
-											fontWeight: "500",
-										}}
-									></Text>
-								</View>
-							</View>
-						</TouchableOpacity>
+					<View>
 						<View
 							style={{
-								height: 1,
-								width: "95%",
-								alignSelf: "center",
-								backgroundColor: "#cccccc",
+								padding: 10,
+								margin: 10,
+								borderRadius: 20,
+								backgroundColor: COLORS.white,
 							}}
-						/>
-						<TouchableOpacity>
-							<View
+						>
+							<Image
 								style={{
-									margin: "1%",
-									borderColor: "gray",
+									width: 70,
+									height: 70,
+									alignSelf: "center",
+								}}
+								source={require("../assets/images/user.png")}
+							/>
+							<Text
+								style={{
+									textAlign: "center",
+									marginTop: 5,
+									marginBottom: 10,
+									fontSize: 17,
+									fontWeight: "500",
 								}}
 							>
+								{" "}
+								{user}
+							</Text>
+							<TouchableOpacity>
 								<View
 									style={{
-										flexDirection: "row",
-										justifyContent:
-											"space-between",
+										margin: "1%",
+										borderColor: "gray",
 									}}
 								>
-									<Text
+									<View
 										style={{
-											fontSize: 18,
-											fontWeight: "500",
-											margin: 15,
-											marginLeft: 30,
+											flexDirection: "row",
+											justifyContent:
+												"space-between",
 										}}
 									>
-										{" "}
-										Change Address
-									</Text>
+										<Text
+											style={{
+												fontSize: 18,
+												fontWeight: "500",
+												margin: 15,
+												marginLeft: 30,
+											}}
+										>
+											{" "}
+											Edit Profile
+										</Text>
+										<Text
+											style={{
+												fontSize: 19,
+												fontWeight: "500",
+											}}
+										></Text>
+									</View>
+								</View>
+							</TouchableOpacity>
+							<View
+								style={{
+									height: 1,
+									width: "95%",
+									alignSelf: "center",
+									backgroundColor: "#cccccc",
+								}}
+							/>
+							<TouchableOpacity>
+								<View
+									style={{
+										margin: "1%",
+										borderColor: "gray",
+									}}
+								>
+									<View
+										style={{
+											flexDirection: "row",
+											justifyContent:
+												"space-between",
+										}}
+									>
+										<Text
+											style={{
+												fontSize: 18,
+												fontWeight: "500",
+												margin: 15,
+												marginLeft: 30,
+											}}
+										>
+											{" "}
+											Change Address
+										</Text>
+										<Text
+											style={{
+												fontSize: 19,
+												fontWeight: "500",
+											}}
+										></Text>
+									</View>
+								</View>
+							</TouchableOpacity>
+							<View
+								style={{
+									height: 1,
+									width: "95%",
+									alignSelf: "center",
+									backgroundColor: "#cccccc",
+								}}
+							/>
+							<TouchableOpacity>
+								<View
+									style={{
+										margin: "1%",
+										borderColor: "gray",
+									}}
+								>
+									<View
+										style={{
+											flexDirection: "row",
+											justifyContent:
+												"space-between",
+										}}
+									>
+										<Text
+											style={{
+												fontSize: 18,
+												fontWeight: "500",
+												margin: 15,
+												marginLeft: 30,
+											}}
+										>
+											{" "}
+											Contracts
+										</Text>
+										<Text
+											style={{
+												fontSize: 19,
+												fontWeight: "500",
+											}}
+										></Text>
+									</View>
+								</View>
+							</TouchableOpacity>
+						</View>
+						<View
+							style={{
+								padding: 10,
+								margin: 10,
+								borderRadius: 20,
+								backgroundColor: COLORS.white,
+								flexDirection: "row",
+							}}
+						>
+							<View
+								style={{
+									backgroundColor: COLORS.white,
+									width: 200,
+									margin: 10,
+									borderRadius: 10,
+
+									padding: 7,
+
+									alignSelf: "center",
+								}}
+							>
+								<TouchableOpacity
+									onPress={() => {
+										navigation.navigate("Wallet"),
+											setVisible(false);
+									}}
+								>
+									<View
+										style={{
+											alignSelf: "center",
+											padding: 3,
+										}}
+									>
+										<Image
+											style={{
+												width: 50,
+												height: 50,
+												alignSelf: "center",
+											}}
+											source={require("../assets/images/wallet.png")}
+										/>
+										<Text
+											style={{
+												color: COLORS.primary,
+												fontSize: 17,
+												alignSelf: "center",
+												justifyContent:
+													"center",
+												fontWeight: "700",
+												letterSpacing: 0.3,
+												marginTop: 7,
+											}}
+										>
+											₹109
+										</Text>
+									</View>
 									<Text
 										style={{
-											fontSize: 19,
-											fontWeight: "500",
+											color: "gray",
+											fontSize: 20,
+											alignSelf: "center",
+											justifyContent: "center",
 										}}
 									></Text>
-								</View>
+								</TouchableOpacity>
 							</View>
-						</TouchableOpacity>
+
+							<View style={{ alignSelf: "center" }}>
+								<TouchableOpacity
+									onPress={() => {
+										navigation.navigate(
+											"Contact"
+										);
+									}}
+								>
+									<View
+										style={{
+											margin: "1%",
+											borderColor: "gray",
+										}}
+									>
+										<View
+											style={{
+												justifyContent:
+													"space-between",
+											}}
+										>
+											<Image
+												style={{
+													width: 50,
+													height: 50,
+													alignSelf:
+														"center",
+												}}
+												source={require("../assets/images/support.png")}
+											/>
+											<Text
+												style={{
+													fontSize: 18,
+													fontWeight:
+														"500",
+													marginTop: 7,
+												}}
+											>
+												{" "}
+												Support
+											</Text>
+											<Text
+												style={{
+													fontSize: 18,
+													fontWeight:
+														"500",
+												}}
+											></Text>
+										</View>
+									</View>
+								</TouchableOpacity>
+							</View>
+						</View>
 					</View>
 				) : (
-					<Text></Text>
+					<Text style={{ marginBottom: 20, fontSize: 15 }}>
+						{" "}
+						Hi Guest! {"\n"} Please login to continue{" "}
+					</Text>
 				)}
 				<View
 					style={{
@@ -392,44 +502,6 @@ const Profile = ({ navigation }) => {
 						}}
 					/>
 
-					<TouchableOpacity
-						onPress={() => {
-							navigation.navigate("Contact");
-						}}
-					>
-						<View
-							style={{
-								margin: "1%",
-								borderColor: "gray",
-							}}
-						>
-							<View
-								style={{
-									flexDirection: "row",
-									justifyContent: "space-between",
-								}}
-							>
-								<Text
-									style={{
-										fontSize: 18,
-										fontWeight: "500",
-										margin: 15,
-										marginLeft: 30,
-									}}
-								>
-									{" "}
-									Contact Support
-								</Text>
-								<Text
-									style={{
-										fontSize: 18,
-										fontWeight: "500",
-									}}
-								></Text>
-							</View>
-						</View>
-					</TouchableOpacity>
-
 					<View
 						style={{
 							height: 1,
@@ -514,12 +586,22 @@ const Profile = ({ navigation }) => {
 					)}
 				</View>
 
+				<Image
+					style={{
+						marginTop: 30,
+						width: 50,
+						height: 20,
+						alignSelf: "center",
+						marginRight: 7,
+					}}
+					source={require("../assets/sqera.png")}
+				/>
 				<Text
 					style={{
-						margin: 30,
 						alignSelf: "center",
 						color: "silver",
 						fontSize: 13,
+						marginBottom: "10%",
 					}}
 				>
 					{" "}
@@ -687,8 +769,8 @@ const styles = StyleSheet.create({
 		height: "100%",
 	},
 	modeButton1: {
-		borderTopStartRadius: 10,
-		borderTopEndRadius: 10,
+		borderTopStartRadius: 12,
+		borderTopEndRadius: 12,
 		padding: 10,
 
 		elevation: 2,
