@@ -8,6 +8,7 @@ import {
 	NFTCard6,
 	NFTCard7,
 	NFTCard8,
+	NFTCard9,
 } from "./NFTCard";
 
 import { SubInfo, People, EndDate, EthPrice, NFTTitle } from "./SubInfo";
@@ -25,6 +26,7 @@ export {
 	NFTCard6,
 	NFTCard7,
 	NFTCard8,
+	NFTCard9,
 	SubInfo,
 	People,
 	EndDate,

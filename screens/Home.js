@@ -19,7 +19,12 @@ import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import * as Location from "expo-location";
-import { NFTCard1, HomeHeader, FocusedStatusBar } from "../components";
+import {
+	NFTCard1,
+	HomeHeader,
+	FocusedStatusBar,
+	NFTCard9,
+} from "../components";
 import { COLORS, config, SIZES, assets } from "../constants";
 import SubServicesModal from "../components/SubServicesModal";
 import { ScrollView } from "react-native-gesture-handler";
@@ -33,6 +38,8 @@ import Search from "./Search";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Profile from "./Profile";
 import { Col } from "react-native-easy-grid";
+
+import { SliderBox } from "react-native-image-slider-box";
 
 let apiKey = "YOUR_API_KEY";
 
@@ -130,21 +137,31 @@ function ServicesScreen() {
 	}, []);
 
 	return (
-		<View style={{ backgroundColor: COLORS.white, margin: "1%" }}>
+		<View style={{ backgroundColor: COLORS.white }}>
 			{isLoading ? (
 				<View
 					style={{
 						backgroundColor: "white",
 						height: "100%",
+						alignSelf: "center",
+						justifyContent: "center",
 					}}
 				>
+					<Image
+						source={require("../assets/sqera.png")}
+						style={{
+							width: 60,
+							height: 20,
+							marginBottom: 10,
+							alignSelf: "center",
+						}}
+					/>
 					<Text
 						style={{
 							alignSelf: "center",
 							fontSize: 18,
-							marginTop: "50%",
+							marginTop: 10,
 							justifyContent: "center",
-							fontWeight: "bold",
 						}}
 					>
 						Finding services nearby
@@ -158,7 +175,6 @@ function ServicesScreen() {
 				<SafeAreaView
 					style={{
 						backgroundColor: COLORS.white,
-						margin: "1%",
 					}}
 				>
 					<View
@@ -188,6 +204,7 @@ function ServicesScreen() {
 									style={{
 										width: 16,
 										height: 16,
+										marginRight: 2,
 									}}
 								/>
 								<Text
@@ -228,6 +245,7 @@ function ServicesScreen() {
 					<View
 						style={{
 							backgroundColor: COLORS.white,
+							marginBottom: 12,
 						}}
 					>
 						<HomeHeader onSearch={handleSearch} />
@@ -241,27 +259,41 @@ function ServicesScreen() {
 						<View
 							style={{
 								backgroundColor: COLORS.white,
-								borderRadius: 5,
-								marginTop: 10,
-								width: "98%",
-								alignSelf: "center",
+
+								marginLeft: 7,
 							}}
 						>
-							<Text
+							<View
 								style={{
-									fontSize: 16,
-									borderTopWidth: 0.2,
-									marginLeft: 5,
-									margin: 10,
-									fontWeight: "500",
+									flexDirection: "row",
+									marginTop: 1,
 								}}
 							>
-								{" "}
-								Frequently booked
-							</Text>
+								<Text
+									style={{
+										fontSize: 14,
+										marginLeft: 5,
+										fontWeight: "500",
+										alignSelf: "center",
+									}}
+								>
+									{" "}
+									Frequently booked
+								</Text>
+								<Image
+									source={require("../assets/icons/frequent.png")}
+									style={{
+										marginLeft: 6,
+
+										width: 16,
+										height: 16,
+										alignSelf: "center",
+									}}
+								/>
+							</View>
 
 							<FlatList
-								numColumns={3}
+								horizontal
 								data={data2}
 								renderItem={({ item, index }) => (
 									<NFTCard1
@@ -274,77 +306,28 @@ function ServicesScreen() {
 									/>
 								)}
 								contentContainerStyle={{
-									alignSelf: "center",
-									justifyContent: "center",
 									width: "100%",
 									backgroundColor: COLORS.white,
 								}}
 							/>
 						</View>
-
-						<View></View>
 						<View
 							style={{
 								backgroundColor: COLORS.white,
-
-								marginLeft: 7,
-								marginTop: 15,
-							}}
-						>
-							<Text
-								style={{
-									fontSize: 16,
-									marginTop: 30,
-									borderTopWidth: 0.2,
-									marginLeft: 5,
-									margin: 10,
-									fontWeight: "500",
-								}}
-							>
-								{" "}
-								Popular services near you
-							</Text>
-							<FlatList
-								numColumns={3}
-								data={data2}
-								renderItem={({ item, index }) => (
-									<NFTCard1
-										key={index}
-										data={item}
-										index={index}
-										setSubSModalVisible={
-											setSubSModalVisible
-										}
-									/>
-								)}
-								contentContainerStyle={{
-									alignSelf: "center",
-									justifyContent: "center",
-
-									width: "100%",
-									backgroundColor: COLORS.white,
-								}}
-							/>
-						</View>
-
-						{/* <View
-							style={{
-								backgroundColor: COLORS.white,
-								height: "15%",
-								justifyContent: "center",
-								alignItems: "center",
+								marginBottom: 10,
+								marginTop: 10,
 							}}
 						>
 							<SliderBox
 								inactiveDotColor="#90A4AE"
-								sliderBoxHeight={300}
+								alignSelf={"center"}
+								sliderBoxHeight={400}
 								autoplay
 								circleLoop
 								autoplayInterval={3000}
-								height={"100%"}
-								width={"90%"}
-								opacity={0.8}
-								borderRadius={8}
+								height={170}
+								width={450}
+								opacity={1}
 								dotStyle={{
 									width: 0,
 									height: 0,
@@ -357,36 +340,70 @@ function ServicesScreen() {
 								images={[
 									"https://img.freepik.com/free-photo/rear-view-programmer-working-all-night-long_1098-18697.jpg?w=2000&t=st=1672688375~exp=1672688975~hmac=8416e203ce399ec68facdf58c3080d1db24be40cc787610e70880e32166d1d9f",
 									"https://img.freepik.com/free-photo/housewife-woking-home-lady-blue-shirt-woman-bathroom_1157-45526.jpg?w=2000&t=st=1672688038~exp=1672688638~hmac=d24482e0caf4b75f753a2435569d1c59b940371a9adf3ba4382d8c0d445c8d91",
-									"https://img.freepik.com/free-photo/maintenance-repair-works-renovation-concept_343059-3524.jpg?w=2000&t=st=1672688423~exp=1672689023~hmac=23284809561f25ae7ad531b9e57fa8351ab30ab35ce9853ba1abcbb3e8482bb1",
 									"https://img.freepik.com/free-photo/hvac-technician-working-capacitor-part-condensing-unit-male-worker-repairman-uniform-repairing-adjusting-conditioning-system-diagnosing-looking-technical-issues_155003-18256.jpg?w=2000&t=st=1672688457~exp=1672689057~hmac=8d5efa29abacc4dc73fef70cf4fbd600751fbb48465853c6b1170639fb45c73b", // Network image
 								]}
-								// onCurrentImagePressed={(
-								// 	index
-								// ) =>
-								// 	console.log(
-								// 		`image ${index} pressed`
-								// 	)
-								// }
-								// currentImageEmitter={(
-								// 	index
-								// ) =>
-								// 	console.log(
-								// 		`current pos is: ${index}`
-								// 	)
-								// }
+								onCurrentImagePressed={(index) =>
+									console.log(
+										`image ${index} pressed`
+									)
+								}
+								currentImageEmitter={(index) =>
+									console.log(
+										`current pos is: ${index}`
+									)
+								}
 							/>
 						</View>
+
 						<View
 							style={{
-								margin: "3%",
-								height: 7,
-								width: "100%",
-								alignSelf: "center",
-								backgroundColor:
-									"rgba(244,244,244,244)",
-								borderRadius: 20,
+								backgroundColor: COLORS.white,
+
+								marginLeft: 7,
+								marginTop: 20,
 							}}
-						/>  */}
+						>
+							<View
+								style={{
+									flexDirection: "row",
+								}}
+							>
+								<Text
+									style={{
+										fontSize: 17,
+										marginLeft: 5,
+										fontWeight: "500",
+										marginBottom: 5,
+									}}
+								>
+									{" "}
+									Popular services near you
+								</Text>
+							</View>
+							<View style={{ alignSelf: "center" }}>
+								<FlatList
+									numColumns={3}
+									data={data2}
+									renderItem={({ item, index }) => (
+										<NFTCard9
+											key={index}
+											data={item}
+											index={index}
+											setSubSModalVisible={
+												setSubSModalVisible
+											}
+										/>
+									)}
+									contentContainerStyle={{
+										alignSelf: "center",
+										justifyContent: "center",
+
+										width: "100%",
+										backgroundColor: COLORS.white,
+									}}
+								/>
+							</View>
+						</View>
 
 						<View style={styles.loweredView}>
 							<Modal
@@ -545,9 +562,8 @@ const styles = StyleSheet.create({
 		textAlign: "center",
 	},
 	image: {
-		opacity: 0.2,
-		width: 20,
-		height: 20,
+		width: 30,
+		height: 30,
 		backgroundColor: "white",
 		alignSelf: "center",
 		justifyContent: "center",
