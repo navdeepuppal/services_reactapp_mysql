@@ -116,7 +116,6 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
 
 const NFTCard2 = ({ data, setSubSModalVisible }) => {
 	const navigation = useNavigation();
-	console.log("SubS_Image", data.SubS_Image);
 	return (
 		<TouchableOpacity
 			style={{
