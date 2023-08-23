@@ -12,28 +12,23 @@ import {
 	TextInput,
 	Alert,
 } from "react-native";
-
 import { SafeAreaView } from "react-native-safe-area-context";
-
 import { useNavigation } from "@react-navigation/native";
-
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
-
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import TermsCondition from "../components/TermsCondition";
 import BackButton from "../components/BackButton";
 
-const Login = ({ route }) => {
-	const navigation = useNavigation();
-
+const Login = ({ navigation, route }) => {
+	if (route.params.prev == "Cart")
+	{const filteredData = route.params.filteredData;}
 	const [validity, setValidity] = useState("true");
-
-	const [PhoneNumber, onChangePhoneNumber] = React.useState(null);
-
-	const [OTP, onChangeOTP] = React.useState(null);
+	const [PhoneNumber, onChangePhoneNumber] = useState(null);
+	const [OTP, onChangeOTP] = useState(null);
 	//const [value, setvalue] = useState("");
 	const [isLoggedIn, setLoggedIn] = useState("");
 	const [modalVisible, setModalVisible] = useState(false);
+
 	const saveValue = () => {
 		AsyncStorage.setItem("PhoneNumber", PhoneNumber);
 		AsyncStorage.setItem("isLoggedIn", "true");
@@ -56,6 +51,7 @@ const Login = ({ route }) => {
 		<View
 			style={{
 				backgroundColor: "white",
+				flex: 1,
 				height: "100%",
 				marginTop: "15%",
 			}}
@@ -257,9 +253,10 @@ const Login = ({ route }) => {
 														false
 													);
 													saveValue();
-													navigation.navigate(
-														"Home"
-													);
+													if (route.params.prev === "Profile")
+														navigation.goBack();
+													else
+														navigation.navigate("SelectAddress", { filteredData });
 													Alert.alert(
 														"You are now logged in!"
 													);
@@ -297,8 +294,9 @@ const Login = ({ route }) => {
 const styles = StyleSheet.create({
 	centeredView: {
 		flex: 1,
-		justifyContent: "flex-end",
 		height: "100%",
+		justifyContent: "flex-end",
+		alignItems: "center",
 		backgroundColor: "rgba(0, 0, 0, 0.4)",
 	},
 	modalView: {
