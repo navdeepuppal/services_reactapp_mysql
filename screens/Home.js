@@ -253,7 +253,6 @@ function ServicesScreen() {
 					<ScrollView
 						style={{
 							backgroundColor: COLORS.white,
-							height: "100%",
 						}}
 					>
 						<View
@@ -315,28 +314,36 @@ function ServicesScreen() {
 							style={{
 								backgroundColor: COLORS.white,
 								marginBottom: 10,
+								alignSelf: "center",
 								marginTop: 10,
+								width: "100%",
 							}}
 						>
 							<SliderBox
 								inactiveDotColor="#90A4AE"
 								alignSelf={"center"}
-								sliderBoxHeight={400}
+								borderRadius={20}
 								autoplay
+								imageLoadingColor="#2196F3"
 								circleLoop
-								autoplayInterval={3000}
-								height={170}
-								width={450}
-								opacity={1}
-								dotStyle={{
-									width: 0,
-									height: 0,
-									borderRadius: 1,
-									marginHorizontal: 0,
-									padding: 0,
-									backgroundColor:
-										"rgba(128, 128, 128, 0.92)",
+								parentWidth={410}
+								autoplayInterval={5000}
+								ImageComponentStyle={{
+									borderRadius: 15,
+									marginRight: 20,
 								}}
+								paginationBoxStyle={{
+									position: "absolute",
+									bottom: 0,
+									padding: 70,
+									alignItems: "center",
+									alignSelf: "center",
+									justifyContent: "center",
+									paddingVertical: 10,
+								}}
+								height={170}
+								width={430}
+								opacity={1}
 								images={[
 									"https://img.freepik.com/free-photo/rear-view-programmer-working-all-night-long_1098-18697.jpg?w=2000&t=st=1672688375~exp=1672688975~hmac=8416e203ce399ec68facdf58c3080d1db24be40cc787610e70880e32166d1d9f",
 									"https://img.freepik.com/free-photo/housewife-woking-home-lady-blue-shirt-woman-bathroom_1157-45526.jpg?w=2000&t=st=1672688038~exp=1672688638~hmac=d24482e0caf4b75f753a2435569d1c59b940371a9adf3ba4382d8c0d445c8d91",
@@ -562,8 +569,8 @@ const styles = StyleSheet.create({
 		textAlign: "center",
 	},
 	image: {
-		width: 30,
-		height: 30,
+		width: 80,
+		height: 80,
 		backgroundColor: "white",
 		alignSelf: "center",
 		justifyContent: "center",
