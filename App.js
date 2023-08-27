@@ -114,29 +114,7 @@ const App = () => {
 	return (
 		<NavigationContainer theme={theme}>
 			{isLoading ? (
-				<View
-					style={{
-						backgroundColor: "white",
-						height: "100%",
-						alignSelf: "center",
-						justifyContent: "center",
-					}}
-				>
-					<Image
-						source={require("./assets/sqera.png")}
-						style={{
-							width: 60,
-							height: 20,
-							marginBottom: 10,
-							alignSelf: "center",
-						}}
-					/>
-
-					<Image
-						source={require("./assets/images/loader.gif")}
-						style={{ width: 100, height: 100 }}
-					/>
-				</View>
+				<></>
 			) : (
 				<Stack.Navigator
 					screenOptions={{

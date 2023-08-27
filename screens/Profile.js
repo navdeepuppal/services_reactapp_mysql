@@ -724,7 +724,7 @@ const Profile = ({ navigation }) => {
 				>
 					<Text style={styles.textStyle}>Professional Mode</Text>
 					<Text style={styles.textStyle1}>
-						Broadcast your skills!
+						Broadcast your skills or service!
 					</Text>
 				</TouchableOpacity>
 			</View>
