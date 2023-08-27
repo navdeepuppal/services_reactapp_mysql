@@ -2,6 +2,19 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useState } from "react";
+import {
+	StyleSheet,
+	Text,
+	Image,
+	View,
+	ScrollView,
+	TextInput,
+	TouchableOpacity,
+	SafeAreaView,
+	KeyboardAvoidingView,
+	Linking,
+	Alert,
+} from "react-native";
 import "react-native-gesture-handler";
 import { useFonts } from "expo-font";
 
@@ -101,7 +114,29 @@ const App = () => {
 	return (
 		<NavigationContainer theme={theme}>
 			{isLoading ? (
-				<></>
+				<View
+					style={{
+						backgroundColor: "white",
+						height: "100%",
+						alignSelf: "center",
+						justifyContent: "center",
+					}}
+				>
+					<Image
+						source={require("./assets/sqera.png")}
+						style={{
+							width: 60,
+							height: 20,
+							marginBottom: 10,
+							alignSelf: "center",
+						}}
+					/>
+
+					<Image
+						source={require("./assets/images/loader.gif")}
+						style={{ width: 100, height: 100 }}
+					/>
+				</View>
 			) : (
 				<Stack.Navigator
 					screenOptions={{

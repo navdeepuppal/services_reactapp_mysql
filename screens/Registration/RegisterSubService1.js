@@ -14,6 +14,7 @@ import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
 import ExitHeader from "../../components/ExitHeader";
+import BackButton from "../../components/BackButton";
 
 const RegisterSubService1 = () => {
 	const navigation = useNavigation();
@@ -50,7 +51,7 @@ const RegisterSubService1 = () => {
 	redirect();
 	return (
 		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
-			<ExitHeader />
+			<BackButton></BackButton>
 			<ScrollView style={{ backgroundColor: "white" }}>
 				<View style={styles.container}>
 					<Image
@@ -68,7 +69,7 @@ const RegisterSubService1 = () => {
 					<TouchableOpacity
 						style={styles.button}
 						onPress={() =>
-							navigation.navigate("RegisterSubService2")
+							navigation.navigate("RegisterSubService5")
 						}
 					>
 						<Text style={styles.buttontext}>Continue</Text>
@@ -215,7 +216,7 @@ const styles = StyleSheet.create({
 		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
 		shadowRadius: 1, //IOS
-		backgroundColor: "green",
+		backgroundColor: COLORS.primary,
 		borderRadius: SIZES.font,
 		marginBottom: SIZES.extraLarge,
 		margin: SIZES.base,

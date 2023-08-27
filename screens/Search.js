@@ -28,7 +28,8 @@ const Search = ({ navigation, onSearch }) => {
 				style={{
 					flexDirection: "row",
 					justifyContent: "space-between",
-					height: 50,
+					height: 52,
+					width: "95%",
 				}}
 			>
 				<Text
@@ -44,13 +45,12 @@ const Search = ({ navigation, onSearch }) => {
 
 				<View
 					style={{
-						borderTopLeftRadius: SIZES.small,
-						borderBottomLeftRadius: SIZES.small,
+						borderRadius: 10,
 						marginTop: 5,
 						backgroundColor: "#f2f2f2",
-						padding: 7,
+						padding: 12,
 						height: 40,
-						width: 200,
+						width: 250,
 						borderColor: COLORS.gray,
 						flexDirection: "row",
 					}}
@@ -72,12 +72,20 @@ const Search = ({ navigation, onSearch }) => {
 							marginLeft: 9,
 							fontSize: SIZES.large - 2,
 							color: COLORS.primary,
-							width: "80%",
+
 							height: 65,
 						}}
 						onChangeText={onSearch}
 					/>
 				</View>
+				<Image
+					source={assets.search}
+					style={{
+						alignSelf: "center",
+						width: 16,
+						height: 16,
+					}}
+				/>
 			</View>
 			<View
 				style={{

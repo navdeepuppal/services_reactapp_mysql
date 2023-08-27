@@ -160,14 +160,14 @@ function ServicesScreen() {
 						style={{
 							alignSelf: "center",
 							fontSize: 18,
-							marginTop: 10,
+							marginTop: 8,
 							justifyContent: "center",
 						}}
 					>
-						Finding services nearby
+						Finding services nearby..
 					</Text>
 					<Image
-						source={require("../assets/images/octoloader.gif")}
+						source={require("../assets/images/loader.gif")}
 						style={styles.image}
 					/>
 				</View>
@@ -253,6 +253,7 @@ function ServicesScreen() {
 					<ScrollView
 						style={{
 							backgroundColor: COLORS.white,
+							height: "100%",
 						}}
 					>
 						<View
@@ -349,7 +350,7 @@ function ServicesScreen() {
 									"https://img.freepik.com/free-photo/housewife-woking-home-lady-blue-shirt-woman-bathroom_1157-45526.jpg?w=2000&t=st=1672688038~exp=1672688638~hmac=d24482e0caf4b75f753a2435569d1c59b940371a9adf3ba4382d8c0d445c8d91",
 									"https://img.freepik.com/free-photo/hvac-technician-working-capacitor-part-condensing-unit-male-worker-repairman-uniform-repairing-adjusting-conditioning-system-diagnosing-looking-technical-issues_155003-18256.jpg?w=2000&t=st=1672688457~exp=1672689057~hmac=8d5efa29abacc4dc73fef70cf4fbd600751fbb48465853c6b1170639fb45c73b", // Network image
 								]}
-								onCurrentImagePressed={(index) =>
+								/* onCurrentImagePressed={(index) =>
 									console.log(
 										`image ${index} pressed`
 									)
@@ -358,7 +359,7 @@ function ServicesScreen() {
 									console.log(
 										`current pos is: ${index}`
 									)
-								}
+								} */
 							/>
 						</View>
 
@@ -473,7 +474,7 @@ export default function App() {
 		<Tab.Navigator
 			initialRouteName="Services"
 			screenOptions={{ headerShown: false }}
-			barStyle={{ backgroundColor: "white", height: "7%" }}
+			barStyle={{ backgroundColor: "white", height: 70 }}
 		>
 			<Tab.Screen
 				name="Services"
@@ -569,8 +570,8 @@ const styles = StyleSheet.create({
 		textAlign: "center",
 	},
 	image: {
-		width: 80,
-		height: 80,
+		width: 150,
+		height: 100,
 		backgroundColor: "white",
 		alignSelf: "center",
 		justifyContent: "center",

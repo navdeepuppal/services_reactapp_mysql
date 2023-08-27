@@ -5,12 +5,16 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { COLORS, config, SIZES, assets } from "../constants";
 
 const Bookings = ({ navigation }) => {
+
 	const [isLoading, setLoading] = useState(true);
 	const [data2, setData] = useState([]);
 
 	useEffect(() => {
 		AsyncStorage.getItem("PhoneNumber").then((PhoneNumber) => {
-			const querystring = "SELECT b.*, ss.SubS_Name, c.C_Name FROM booking as b, subservice as ss, customer as c WHERE b.C_PhNo = " + [PhoneNumber] + " AND b.SubS_ID = ss.SubS_ID AND b.C_PhNo = c.C_PhNo;";
+			const querystring =
+				"SELECT b.*, ss.SubS_Name, c.C_Name FROM booking as b, subservice as ss, customer as c WHERE b.C_PhNo = " +
+				[PhoneNumber] +
+				" AND b.SubS_ID = ss.SubS_ID AND b.C_PhNo = c.C_PhNo;";
 			fetch(config.domain + "/get/" + querystring, {
 				method: "GET",
 			})
@@ -26,18 +30,53 @@ const Bookings = ({ navigation }) => {
 		});
 	}, []);
 
-	return isLoading ? null : (
+	return isLoading ? (
+		<View
+			style={{
+				backgroundColor: "white",
+				height: "100%",
+				alignSelf: "center",
+				justifyContent: "center",
+			}}
+		>
+			<Image
+				source={require("../assets/sqera.png")}
+				style={{
+					width: 60,
+					height: 20,
+					marginBottom: 10,
+					alignSelf: "center",
+				}}
+			/>
+			<Text
+				style={{
+					alignSelf: "center",
+					fontSize: 18,
+					marginTop: 8,
+					justifyContent: "center",
+				}}
+			>
+				Connecting to server..
+			</Text>
+			<Image
+				source={require("../assets/images/loader.gif")}
+				style={{ width: 100, height: 100, alignSelf: "center" }}
+			/>
+		</View>
+	) : (
 		<SafeAreaView
 			style={{
 				backgroundColor: "#f2f2f2",
-			}}>
+			}}
+		>
 			<View
 				style={{
 					height: "7%",
 					paddingVertical: SIZES.font,
 					borderColor: COLORS.gray,
 					backgroundColor: "#f2f2f2",
-				}}>
+				}}
+			>
 				<Text
 					style={{
 						fontSize: 22,
@@ -46,11 +85,21 @@ const Bookings = ({ navigation }) => {
 						marginTop: 3,
 						justifyContent: "center",
 						alignContent: "center",
-					}}>
+					}}
+				>
 					Bookings
 				</Text>
 			</View>
-			<FlatList data={data2} renderItem={({ item, index }) => <BookingCard key={item.index} data={item} />} contentContainerStyle={{ height: "100%", backgroundColor: "#f2f2f2" }} />
+			<FlatList
+				data={data2}
+				renderItem={({ item, index }) => (
+					<BookingCard key={item.index} data={item} />
+				)}
+				contentContainerStyle={{
+					height: "100%",
+					backgroundColor: "#f2f2f2",
+				}}
+			/>
 		</SafeAreaView>
 	);
 };

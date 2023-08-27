@@ -501,15 +501,6 @@ const Profile = ({ navigation }) => {
 							backgroundColor: "#cccccc",
 						}}
 					/>
-
-					<View
-						style={{
-							height: 1,
-							width: "95%",
-							alignSelf: "center",
-							backgroundColor: "#cccccc",
-						}}
-					/>
 					<TouchableOpacity>
 						<View
 							style={{
