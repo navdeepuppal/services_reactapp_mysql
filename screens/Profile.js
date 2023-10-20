@@ -11,6 +11,7 @@ import {
 	KeyboardAvoidingView,
 	Linking,
 	Alert,
+	Share,
 } from "react-native";
 import React, { useState } from "react";
 
@@ -18,16 +19,42 @@ import { COLORS, config, SIZES, assets } from "../constants";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AnimatedFAB } from "react-native-paper";
+import SelectAddress from "./SelectAddress";
 
 const Profile = ({ navigation }) => {
 	const [user, setUser] = useState("");
 	const [visible, setVisible] = React.useState(true);
 
-	const [modalVisible, setModalVisible] = useState(false);
+	const [AccountModal, setAccountModalVisible] = useState(false);
+
+	const [TermsModal, setTermsModalVisible] = useState(false);
+
+	const [PrivacyPolicy, setPrivacyPolicyVisible] = useState(false);
+
+	const [ChangeAddress, setChangeAddressVisible] = useState(false);
 
 	AsyncStorage.getItem("PhoneNumber").then((user) => {
 		setUser(user);
 	});
+
+	const onShare = async () => {
+		try {
+			const result = await Share.share({
+				message: "https://www.sqera.com",
+			});
+			if (result.action === Share.sharedAction) {
+				if (result.activityType) {
+					// shared with activity type of result.activityType
+				} else {
+					// shared
+				}
+			} else if (result.action === Share.dismissedAction) {
+				// dismissed
+			}
+		} catch (error) {
+			Alert.alert(error.message);
+		}
+	};
 
 	return (
 		<SafeAreaView style={{ backgroundColor: "#EDF6FD" }}>
@@ -50,6 +77,7 @@ const Profile = ({ navigation }) => {
 				>
 					Profile
 				</Text>
+
 				{user ? (
 					<View
 						style={{
@@ -121,49 +149,12 @@ const Profile = ({ navigation }) => {
 								{" "}
 								{user}
 							</Text>
-							<TouchableOpacity>
-								<View
-									style={{
-										margin: "1%",
-										borderColor: "gray",
-									}}
-								>
-									<View
-										style={{
-											flexDirection: "row",
-											justifyContent:
-												"space-between",
-										}}
-									>
-										<Text
-											style={{
-												fontSize: 18,
-												fontWeight: "500",
-												margin: 15,
-												marginLeft: 30,
-											}}
-										>
-											{" "}
-											Edit Profile
-										</Text>
-										<Text
-											style={{
-												fontSize: 19,
-												fontWeight: "500",
-											}}
-										></Text>
-									</View>
-								</View>
-							</TouchableOpacity>
-							<View
-								style={{
-									height: 1,
-									width: "95%",
-									alignSelf: "center",
-									backgroundColor: "#cccccc",
+
+							<TouchableOpacity
+								onPress={() => {
+									setChangeAddressVisible(true);
 								}}
-							/>
-							<TouchableOpacity>
+							>
 								<View
 									style={{
 										margin: "1%",
@@ -229,6 +220,52 @@ const Profile = ({ navigation }) => {
 										>
 											{" "}
 											Contracts
+										</Text>
+										<Text
+											style={{
+												fontSize: 19,
+												fontWeight: "500",
+											}}
+										></Text>
+									</View>
+								</View>
+							</TouchableOpacity>
+							<View
+								style={{
+									height: 1,
+									width: "95%",
+									alignSelf: "center",
+									backgroundColor: "#cccccc",
+								}}
+							/>
+							<TouchableOpacity
+								onPress={() => {
+									navigation.navigate("Bookings");
+								}}
+							>
+								<View
+									style={{
+										margin: "1%",
+										borderColor: "gray",
+									}}
+								>
+									<View
+										style={{
+											flexDirection: "row",
+											justifyContent:
+												"space-between",
+										}}
+									>
+										<Text
+											style={{
+												fontSize: 18,
+												fontWeight: "500",
+												margin: 15,
+												marginLeft: 30,
+											}}
+										>
+											{" "}
+											Bookings
 										</Text>
 										<Text
 											style={{
@@ -373,7 +410,7 @@ const Profile = ({ navigation }) => {
 						backgroundColor: COLORS.white,
 					}}
 				>
-					<TouchableOpacity>
+					<TouchableOpacity onPress={onShare}>
 						<View
 							style={{
 								margin: "1%",
@@ -416,7 +453,13 @@ const Profile = ({ navigation }) => {
 						}}
 					/>
 
-					<TouchableOpacity>
+					<TouchableOpacity
+						onPress={() => {
+							Linking.openURL(
+								"http://play.google.com/store/apps/details?id=<package_name>"
+							);
+						}}
+					>
 						<View
 							style={{
 								margin: "1%",
@@ -459,7 +502,11 @@ const Profile = ({ navigation }) => {
 						}}
 					/>
 
-					<TouchableOpacity>
+					<TouchableOpacity
+						onPress={() => {
+							setTermsModalVisible(true);
+						}}
+					>
 						<View
 							style={{
 								margin: "1%",
@@ -501,7 +548,11 @@ const Profile = ({ navigation }) => {
 							backgroundColor: "#cccccc",
 						}}
 					/>
-					<TouchableOpacity>
+					<TouchableOpacity
+						onPress={() => {
+							setPrivacyPolicyVisible(true);
+						}}
+					>
 						<View
 							style={{
 								margin: "1%",
@@ -541,7 +592,7 @@ const Profile = ({ navigation }) => {
 							/>
 							<TouchableOpacity
 								onPress={() => {
-									setModalVisible(true);
+									setAccountModalVisible(true);
 								}}
 							>
 								<View
@@ -604,9 +655,9 @@ const Profile = ({ navigation }) => {
 						<Modal
 							animationType="slide"
 							transparent={true}
-							visible={modalVisible}
+							visible={AccountModal}
 							onRequestClose={() => {
-								setModalVisible(!modalVisible);
+								setAccountModalVisible(!AccountModal);
 							}}
 						>
 							<View style={styles.modalView}>
@@ -630,7 +681,7 @@ const Profile = ({ navigation }) => {
 												marginTop: "15%",
 											}}
 											onPress={() =>
-												setModalVisible(
+												setAccountModalVisible(
 													false
 												)
 											}
@@ -656,7 +707,9 @@ const Profile = ({ navigation }) => {
 								>
 									<TouchableOpacity
 										onPress={() => {
-											setModalVisible(false);
+											setAccountModalVisible(
+												false
+											);
 											AsyncStorage.clear();
 											Alert.alert(
 												"Logged out"
@@ -704,6 +757,196 @@ const Profile = ({ navigation }) => {
 										</View>
 									</TouchableOpacity>
 								</View>
+							</View>
+						</Modal>
+						<Modal
+							animationType="slide"
+							transparent={true}
+							visible={TermsModal}
+							onRequestClose={() => {
+								setTermsModalVisible(!TermsModal);
+							}}
+						>
+							<View style={styles.modalView}>
+								<View
+									style={{
+										flexDirection: "row",
+										justifyContent:
+											"space-between",
+										marginTop: "5%",
+									}}
+								>
+									<View
+										style={{
+											flexDirection: "row",
+										}}
+									>
+										<TouchableOpacity
+											style={{
+												width: 40,
+												height: 40,
+												marginTop: "15%",
+											}}
+											onPress={() =>
+												setTermsModalVisible(
+													false
+												)
+											}
+										>
+											<Image
+												source={assets.left}
+												resizeMode="contain"
+												style={{
+													width: "100%",
+													height: "100%",
+												}}
+											/>
+										</TouchableOpacity>
+									</View>
+								</View>
+								<View
+									style={{
+										marginTop: 30,
+										margin: 10,
+										borderRadius: 20,
+										backgroundColor: COLORS.white,
+									}}
+								>
+									<Text
+										style={{
+											fontSize: 23,
+											fontWeight: "500",
+										}}
+									>
+										{" "}
+										Terms & Conditions{" \n \n"}
+										Open Sqera T&C Website Page
+										here
+									</Text>
+								</View>
+							</View>
+						</Modal>
+
+						<Modal
+							animationType="slide"
+							transparent={true}
+							visible={PrivacyPolicy}
+							onRequestClose={() => {
+								setPrivacyPolicyVisible(!PrivacyPolicy);
+							}}
+						>
+							<View style={styles.modalView}>
+								<View
+									style={{
+										flexDirection: "row",
+										justifyContent:
+											"space-between",
+										marginTop: "5%",
+									}}
+								>
+									<View
+										style={{
+											flexDirection: "row",
+										}}
+									>
+										<TouchableOpacity
+											style={{
+												width: 40,
+												height: 40,
+												marginTop: "15%",
+											}}
+											onPress={() =>
+												setPrivacyPolicyVisible(
+													false
+												)
+											}
+										>
+											<Image
+												source={assets.left}
+												resizeMode="contain"
+												style={{
+													width: "100%",
+													height: "100%",
+												}}
+											/>
+										</TouchableOpacity>
+									</View>
+								</View>
+								<View
+									style={{
+										marginTop: 30,
+										margin: 10,
+										borderRadius: 20,
+										backgroundColor: COLORS.white,
+									}}
+								>
+									<Text
+										style={{
+											fontSize: 23,
+											fontWeight: "500",
+										}}
+									>
+										{" "}
+										Privacy Policy{" \n \n"}
+										Open Sqera Privacy Policy
+										Website Page here
+									</Text>
+								</View>
+							</View>
+						</Modal>
+						<Modal
+							animationType="slide"
+							transparent={true}
+							visible={ChangeAddress}
+							onRequestClose={() => {
+								setChangeAddressVisible(!ChangeAddress);
+							}}
+						>
+							<View style={styles.modalView}>
+								<View
+									style={{
+										flexDirection: "row",
+										justifyContent:
+											"space-between",
+										marginTop: "5%",
+									}}
+								>
+									<View
+										style={{
+											flexDirection: "row",
+										}}
+									>
+										<TouchableOpacity
+											style={{
+												width: 40,
+												height: 40,
+												marginTop: "15%",
+											}}
+											onPress={() =>
+												setChangeAddressVisible(
+													false
+												)
+											}
+										>
+											<Image
+												source={assets.left}
+												resizeMode="contain"
+												style={{
+													width: "100%",
+													height: "100%",
+												}}
+											/>
+										</TouchableOpacity>
+									</View>
+								</View>
+								<View
+									style={{
+										marginTop: 30,
+										margin: 10,
+										borderRadius: 20,
+										backgroundColor: COLORS.white,
+									}}
+								></View>
 							</View>
 						</Modal>
 					</SafeAreaView>
@@ -841,5 +1084,3 @@ const styles = StyleSheet.create({
 	},
 });
 export default Profile;
-
-

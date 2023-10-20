@@ -128,7 +128,7 @@ const App = () => {
 							: isLoggedIn
 							? isServiceMan == "2"
 								? "ServiceMan"
-								: "Home"
+								: "ServiceMan"
 							: "Onboarding"
 					}
 				>
