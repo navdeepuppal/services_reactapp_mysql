@@ -37,7 +37,6 @@ const Wallet = ({ navigation }) => {
 						margin: 10,
 
 						marginLeft: 120,
-						justifyContent: "center",
 					}}
 				>
 					{" "}
@@ -66,14 +65,12 @@ const Wallet = ({ navigation }) => {
 							fontWeight: "500",
 						}}
 					>
-						{" "}
 						₹10
 					</Text>
 				</View>
 			</View>
 			<View
 				style={{
-					flexDirection: "row",
 					alignSelf: "center",
 				}}
 			>

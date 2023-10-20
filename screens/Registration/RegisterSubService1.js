@@ -99,7 +99,7 @@ const RegisterSubService1 = () => {
 										style={styles.dashboardbutton}
 										onPress={() => {
 											navigation.navigate(
-												"ServiceManDashboard"
+												"ServiceMan"
 											),
 												setModalVisible(
 													false
@@ -143,10 +143,10 @@ const RegisterSubService1 = () => {
 									<Text style={styles.textBody}>
 										We are reviewing your profile
 										yet.{"\n\n"} We will confirm
-										your application status to you
-										after verification within a
-										week. Thank you for being
-										patient
+										your application status within
+										a week once the verification
+										process is completed.{"\n\n"}
+										Thank you for being patient
 									</Text>
 									<TouchableOpacity
 										style={styles.dashboardbutton}
@@ -258,7 +258,7 @@ const styles = StyleSheet.create({
 	textBody: {
 		margin: 20,
 		marginTop: SIZES.large,
-		fontSize: 23,
+		fontSize: 20,
 		textAlign: "center",
 	},
 	buttontext: {

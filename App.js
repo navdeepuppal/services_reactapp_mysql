@@ -52,6 +52,8 @@ import Bookings from "./screens/Bookings";
 import Search from "./screens/Search";
 import Profile from "./screens/Profile";
 
+import ServiceMan from "./screens/ServiceMan/ServiceMan";
+
 const theme = {
 	...DefaultTheme,
 	colors: {
@@ -125,8 +127,8 @@ const App = () => {
 							? "Onboarding"
 							: isLoggedIn
 							? isServiceMan == "2"
-								? "Onboarding"
-								: "Onboarding"
+								? "ServiceMan"
+								: "Home"
 							: "Onboarding"
 					}
 				>
@@ -251,6 +253,11 @@ const App = () => {
 					<Stack.Screen name="Bookings" component={Bookings} />
 					<Stack.Screen name="Search" component={Search} />
 					<Stack.Screen name="Profile" component={Profile} />
+
+					<Stack.Screen
+						name="ServiceMan"
+						component={ServiceMan}
+					/>
 				</Stack.Navigator>
 			)}
 		</NavigationContainer>
