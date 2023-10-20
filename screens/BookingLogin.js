@@ -23,8 +23,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import TermsCondition from "../components/TermsCondition";
 import BackButton from "../components/BackButton";
 
-const Login = ({ route }) => {
-	const navigation = useNavigation();
+const BookingLogin = ({ navigation, route }) => {
+	const filteredData = route.params.filteredData;
 
 	const [validity, setValidity] = useState("true");
 
@@ -56,6 +56,7 @@ const Login = ({ route }) => {
 		<View
 			style={{
 				backgroundColor: "white",
+				flex: 1,
 				height: "100%",
 				marginTop: "15%",
 			}}
@@ -258,10 +259,10 @@ const Login = ({ route }) => {
 													);
 													saveValue();
 													navigation.navigate(
-														"Home"
-													);
-													Alert.alert(
-														"You are now logged in!"
+														"SelectAddress",
+														{
+															filteredData,
+														}
 													);
 												} else {
 													Alert.alert(
@@ -297,8 +298,9 @@ const Login = ({ route }) => {
 const styles = StyleSheet.create({
 	centeredView: {
 		flex: 1,
-		justifyContent: "flex-end",
 		height: "100%",
+		justifyContent: "flex-end",
+		alignItems: "center",
 		backgroundColor: "rgba(0, 0, 0, 0.4)",
 	},
 	modalView: {
@@ -439,4 +441,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default Login;
+export default BookingLogin;
