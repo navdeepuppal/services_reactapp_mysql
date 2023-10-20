@@ -2,6 +2,19 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useState } from "react";
+import {
+	StyleSheet,
+	Text,
+	Image,
+	View,
+	ScrollView,
+	TextInput,
+	TouchableOpacity,
+	SafeAreaView,
+	KeyboardAvoidingView,
+	Linking,
+	Alert,
+} from "react-native";
 import "react-native-gesture-handler";
 import { useFonts } from "expo-font";
 
@@ -36,6 +49,8 @@ import Wallet from "./screens/Wallet";
 import Bookings from "./screens/Bookings";
 import Search from "./screens/Search";
 import Profile from "./screens/Profile";
+
+import ServiceMan from "./screens/ServiceMan/ServiceMan";
 
 const theme = {
 	...DefaultTheme,
@@ -105,15 +120,53 @@ const App = () => {
 					screenOptions={{
 						headerShown: false,
 					}}
-					initialRouteName={firstTime ? "Onboarding" : !isLoggedIn ? "Onboarding" : isServiceMan == "2" ? "Onboarding" : "Onboarding"}>
-					<Stack.Screen options={{ gestureEnabled: false }} name="Home" component={Home} />
-					<Stack.Screen options={{ gestureEnabled: false }} name="Wallet" component={Wallet} />
-					<Stack.Screen name="SelectAddress" component={SelectAddress} />
-					<Stack.Screen name="SelectTime" component={SelectTime} />
-					<Stack.Screen name="PaymentApi" component={PaymentApi} />
-					<Stack.Screen options={{ gestureEnabled: false }} name="ServiceManDashboard" component={ServiceManDashboard} />
-					<Stack.Screen name="Onboarding" component={Onboarding} />
-					<Stack.Screen options={{ gestureEnabled: false }} name="Login" component={Login} />
+					initialRouteName={
+						firstTime
+							? "Onboarding"
+							: isLoggedIn
+							? isServiceMan == "2"
+								? "ServiceMan"
+								: "Home"
+							: "Onboarding"
+					}
+				>
+					<Stack.Screen
+						options={{ gestureEnabled: false }}
+						name="Home"
+						component={Home}
+					/>
+
+					<Stack.Screen
+						options={{ gestureEnabled: false }}
+						name="Wallet"
+						component={Wallet}
+					/>
+					<Stack.Screen
+						name="SelectAddress"
+						component={SelectAddress}
+					/>
+					<Stack.Screen
+						name="SelectTime"
+						component={SelectTime}
+					/>
+					<Stack.Screen
+						name="PaymentApi"
+						component={PaymentApi}
+					/>
+					<Stack.Screen
+						options={{ gestureEnabled: false }}
+						name="ServiceManDashboard"
+						component={ServiceManDashboard}
+					/>
+					<Stack.Screen
+						name="Onboarding"
+						component={Onboarding}
+					/>
+					<Stack.Screen
+						options={{ gestureEnabled: false }}
+						name="Login"
+						component={Login}
+					/>
 					<Stack.Screen name="Contact" component={Contact} />
 					<Stack.Screen name="SubServices" component={SubServices} />
 					<Stack.Screen name="SelectOnboard" component={SelectOnboard} />
@@ -137,6 +190,11 @@ const App = () => {
 					<Stack.Screen name="Bookings" component={Bookings} />
 					<Stack.Screen name="Search" component={Search} />
 					<Stack.Screen name="Profile" component={Profile} />
+
+					<Stack.Screen
+						name="ServiceMan"
+						component={ServiceMan}
+					/>
 				</Stack.Navigator>
 			)}
 		</NavigationContainer>

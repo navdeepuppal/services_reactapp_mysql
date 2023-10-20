@@ -29,12 +29,11 @@ function HomeScreen() {
 						justifyContent: "space-between",
 					}}
 				>
-					<Text style={{ fontWeight: "900", fontSize: 24 }}>
-						{" "}
+					<Text style={{ fontWeight: "700", fontSize: 24 }}>
 						Hi, Genus
 					</Text>
 					<Image
-						source={assets.icon}
+						source={assets.menuIcon}
 						style={{ width: 38, height: 38 }}
 					/>
 				</View>
@@ -49,6 +48,7 @@ function HomeScreen() {
 					<View
 						style={{
 							borderRadius: 7,
+							margin: 5,
 							alignItems: "center",
 							justifyContent: "center",
 							alignSelf: "center",
@@ -86,6 +86,7 @@ function HomeScreen() {
 					<View
 						style={{
 							borderRadius: 7,
+							margin: 5,
 							alignItems: "center",
 							justifyContent: "center",
 							alignSelf: "center",
@@ -124,6 +125,179 @@ function HomeScreen() {
 
 					<View
 						style={{
+							borderRadius: 7,
+							margin: 5,
+							alignItems: "center",
+							justifyContent: "center",
+							alignSelf: "center",
+							width: 160,
+							height: 70,
+							backgroundColor: COLORS.primary,
+						}}
+						onPress={() => navigation.navigate("Orders")}
+					>
+						<View
+							style={{
+								alignItems: "center",
+							}}
+						>
+							<Text
+								style={{
+									fontSize: 25,
+									fontWeight: "900",
+									color: "green",
+								}}
+							>
+								90
+							</Text>
+							<Text
+								style={{
+									fontSize: "13%",
+									textAlign: "center",
+									fontWeight: "bold",
+									color: "gray",
+								}}
+							>
+								Orders Completed
+							</Text>
+						</View>
+					</View>
+
+					<View
+						style={{
+							borderRadius: 7,
+							margin: 5,
+							alignItems: "center",
+							justifyContent: "center",
+							alignSelf: "center",
+							width: 160,
+							height: 70,
+							backgroundColor: COLORS.primary,
+						}}
+						onPress={() => navigation.navigate("Orders")}
+					>
+						<View
+							style={{
+								alignItems: "center",
+							}}
+						>
+							<Text
+								style={{
+									fontSize: 25,
+									fontWeight: "900",
+									color: "green",
+								}}
+							>
+								Rs 4000
+							</Text>
+							<Text
+								style={{
+									fontSize: "13%",
+									textAlign: "center",
+									fontWeight: "bold",
+									color: "gray",
+								}}
+							>
+								TOTAL EARNINGS
+							</Text>
+						</View>
+					</View>
+					<View
+						style={{
+							borderRadius: 7,
+							margin: 5,
+							alignItems: "center",
+							justifyContent: "center",
+							alignSelf: "center",
+							width: 160,
+							height: 70,
+							backgroundColor: COLORS.primary,
+						}}
+						onPress={() => navigation.navigate("Orders")}
+					>
+						<View
+							style={{
+								alignItems: "center",
+							}}
+						>
+							<Text
+								style={{
+									fontSize: 25,
+									fontWeight: "900",
+									color: "green",
+								}}
+							>
+								5 ⭐
+							</Text>
+							<Text
+								style={{
+									fontSize: "13%",
+									textAlign: "center",
+									fontWeight: "bold",
+									color: "gray",
+								}}
+							>
+								AVERAGE RATING
+							</Text>
+						</View>
+					</View>
+					<View
+						style={{
+							margin: 5,
+							borderRadius: 7,
+							alignItems: "center",
+							justifyContent: "center",
+							alignSelf: "center",
+							width: 160,
+							height: 70,
+							backgroundColor: COLORS.white,
+						}}
+						onPress={() => navigation.navigate("Orders")}
+					>
+						<View
+							style={{
+								alignItems: "center",
+							}}
+						>
+							<Text
+								style={{
+									fontSize: 25,
+									fontWeight: "900",
+									color: "green",
+								}}
+							>
+								Rs 200
+							</Text>
+							<Text
+								style={{
+									fontSize: "13%",
+									textAlign: "center",
+									fontWeight: "bold",
+									color: "gray",
+								}}
+							>
+								WALLET
+							</Text>
+						</View>
+					</View>
+
+					<TouchableOpacity
+						style={styles.button3}
+						onPress={() => navigation.navigate("Contact Us")}
+					>
+						<Text
+							style={{
+								fontWeight: "bold",
+								fontSize: 20,
+								textAlign: "center",
+								color: "black",
+							}}
+						>
+							Contact Us
+						</Text>
+					</TouchableOpacity>
+					<View
+						style={{
 							marginTop: "5%",
 							height: 1,
 							width: "95%",
@@ -132,15 +306,63 @@ function HomeScreen() {
 						}}
 					/>
 				</View>
-
 				<Text
+					style={{ fontSize: 20, fontWeight: "400", margin: 5 }}
+				>
+					{" "}
+					Orders{" "}
+				</Text>
+				<ScrollView
 					style={{
-						margin: "2%",
-						fontSize: 18,
+						width: "100%",
+						margin: 10,
+						flexDirection: "row",
 					}}
 				>
-					Pending Orders (1)
-				</Text>
+					<TouchableOpacity
+						style={{
+							backgroundColor: COLORS.white,
+							width: 120,
+							height: 35,
+							borderRadius: 10,
+							elevation: 10,
+							alignItems: "center",
+							alignContent: "center",
+							justifyContent: "center",
+						}}
+					>
+						<Text
+							style={{
+								margin: "1%",
+								fontSize: 18,
+							}}
+						>
+							Pending (1)
+						</Text>
+					</TouchableOpacity>
+					<TouchableOpacity
+						style={{
+							backgroundColor: COLORS.white,
+							width: 120,
+							height: 35,
+							borderRadius: 10,
+							elevation: 10,
+							alignItems: "center",
+							alignContent: "center",
+							justifyContent: "center",
+						}}
+					>
+						<Text
+							style={{
+								margin: "1%",
+								fontSize: 18,
+							}}
+						>
+							Completed (6)
+						</Text>
+					</TouchableOpacity>
+				</ScrollView>
+
 				<TouchableOpacity>
 					<View style={{ margin: "4%" }}>
 						<View
@@ -613,137 +835,6 @@ function ProfileScreen() {
 							})}
 						</View>
 					</View>  */}
-
-					<View
-						style={{
-							alignContent: "center",
-
-							flexDirection: "row",
-							flexWrap: "wrap",
-							justifyContent: "space-evenly",
-							borderColor: "gray",
-							borderBottomWidth: 1,
-						}}
-					>
-						<TouchableOpacity
-							style={styles.button2}
-							onPress={() => navigation.navigate("Orders")}
-						>
-							<View
-								style={{
-									flexWrap: "wrap",
-									alignItems: "center",
-								}}
-							>
-								<Text
-									style={{
-										fontSize: 18,
-										textAlign: "center",
-										fontWeight: "bold",
-										color: "gray",
-									}}
-								>
-									Total Earnings:
-								</Text>
-								<Text style={{ fontSize: 35 }}>
-									₹890
-								</Text>
-							</View>
-						</TouchableOpacity>
-						<TouchableOpacity
-							onPress={() => navigation.navigate("Orders")}
-							style={styles.button2}
-						>
-							<View
-								style={{
-									flexWrap: "wrap",
-									alignItems: "center",
-								}}
-							>
-								<Text
-									style={{
-										fontSize: 18,
-										textAlign: "center",
-										fontWeight: "bold",
-										color: "gray",
-									}}
-								>
-									Average Rating:
-								</Text>
-								<Text style={{ fontSize: 35 }}>
-									5 ⭐
-								</Text>
-							</View>
-						</TouchableOpacity>
-						<TouchableOpacity
-							onPress={() => navigation.navigate("Orders")}
-							style={styles.button2}
-						>
-							<View
-								style={{
-									flexWrap: "wrap",
-									alignItems: "center",
-								}}
-							>
-								<Text
-									style={{
-										fontSize: 20,
-										textAlign: "center",
-										fontWeight: "bold",
-										color: "gray",
-									}}
-								>
-									Orders Completed:
-								</Text>
-								<Text style={{ fontSize: 35 }}>27</Text>
-							</View>
-						</TouchableOpacity>
-
-						<TouchableOpacity
-							style={styles.button2}
-							onPress={() =>
-								navigation.navigate("Contact Us")
-							}
-						>
-							<View
-								style={{
-									flexWrap: "wrap",
-								}}
-							>
-								<Text
-									style={{
-										fontSize: 18,
-										textAlign: "center",
-										fontWeight: "bold",
-										color: "gray",
-									}}
-								>
-									Wallet:
-								</Text>
-								<Text style={{ fontSize: 35 }}>
-									₹100
-								</Text>
-							</View>
-						</TouchableOpacity>
-
-						<TouchableOpacity
-							style={styles.button3}
-							onPress={() =>
-								navigation.navigate("Contact Us")
-							}
-						>
-							<Text
-								style={{
-									fontWeight: "bold",
-									fontSize: 20,
-									textAlign: "center",
-									color: "black",
-								}}
-							>
-								Contact Us
-							</Text>
-						</TouchableOpacity>
-					</View>
 				</View>
 			</ScrollView>
 			<View>
@@ -762,10 +853,13 @@ const Tab = createBottomTabNavigator();
 export default function App() {
 	return (
 		<NavigationContainer independent={true}>
-			<Tab.Navigator initialRouteName="Dashboard">
-				<Tab.Screen name="Home" component={HomeScreen} />
-				<Tab.Screen name="Bookings" component={OrdersScreen} />
-				<Tab.Screen name="Dashboard" component={ProfileScreen} />
+			<Tab.Navigator
+				screenOptions={{
+					headerShown: false,
+				}}
+				initialRouteName="Dashboard"
+			>
+				<Tab.Screen name="Dashboard" component={HomeScreen} />
 			</Tab.Navigator>
 		</NavigationContainer>
 	);

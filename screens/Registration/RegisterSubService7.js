@@ -17,6 +17,7 @@ import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
 import { RadioButton } from "react-native-paper";
 
 import { useNavigation } from "@react-navigation/native";
+import ExitHeader from "../../components/ExitHeader";
 
 const RegisterSubService7 = ({ route }) => {
 	const navigation = useNavigation();
@@ -63,6 +64,7 @@ const RegisterSubService7 = ({ route }) => {
 
 	return (
 		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
+			<ExitHeader></ExitHeader>
 			<KeyboardAvoidingView
 				behavior={Platform.OS === "ios" ? "padding" : "height"}
 			>
@@ -291,7 +293,7 @@ const styles = StyleSheet.create({
 		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
 		shadowRadius: 1, //IOS
-		backgroundColor: "green",
+		backgroundColor: COLORS.primary,
 		borderRadius: SIZES.font,
 		marginBottom: SIZES.extraLarge,
 		margin: SIZES.base,

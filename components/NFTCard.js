@@ -208,8 +208,9 @@ const NFTCard4 = ({ data }) => {
 				marginBottom: SIZES.extraLarge,
 				margin: SIZES.base,
 				...SHADOWS.dark,
-				width: "45.5%",
-				height: "65%",
+
+				width: 195,
+				height: 170,
 			}}
 			onPress={() => {
 				const temp = data.S_ID;
@@ -219,16 +220,17 @@ const NFTCard4 = ({ data }) => {
 			<View
 				style={{
 					alignItems: "center",
-					width: "100%",
-					height: "82%",
+					width: 200,
+					height: 140,
 				}}
 			>
 				<Image
 					source={{ uri: ImageURL }}
-					resizeMode="contain"
+					resizeMode="cover"
 					style={{
-						width: "100%",
-						height: "100%",
+						marginTop: 10,
+						width: 120,
+						height: 120,
 						borderTopLeftRadius: SIZES.font,
 						borderTopRightRadius: SIZES.font,
 					}}

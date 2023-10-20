@@ -502,15 +502,6 @@ const Profile = ({ navigation, route }) => {
 							backgroundColor: "#cccccc",
 						}}
 					/>
-
-					<View
-						style={{
-							height: 1,
-							width: "95%",
-							alignSelf: "center",
-							backgroundColor: "#cccccc",
-						}}
-					/>
 					<TouchableOpacity>
 						<View
 							style={{
@@ -734,7 +725,7 @@ const Profile = ({ navigation, route }) => {
 				>
 					<Text style={styles.textStyle}>Professional Mode</Text>
 					<Text style={styles.textStyle1}>
-						Broadcast your skills!
+						Broadcast your skills or service!
 					</Text>
 				</TouchableOpacity>
 			</View>

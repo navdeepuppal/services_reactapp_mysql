@@ -7,9 +7,11 @@ import {
 	Text,
 	StyleSheet,
 	Pressable,
+	TouchableOpacity,
 } from "react-native";
 
 import { NFTCard4, HomeHeader, FocusedStatusBar } from "../../components";
+import ExitHeader from "../../components/ExitHeader";
 
 import { COLORS, config, SIZES } from "../../constants";
 
@@ -57,31 +59,77 @@ const RegisterSubService5 = ({ navigation }) => {
 		<SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
 			<FocusedStatusBar backgroundColor={COLORS.black} />
 			{isLoading ? (
-				<View>
-					<ActivityIndicator />
-				</View>
-			) : (
-				<View style={{ flex: 1 }}>
+				<View
+					style={{
+						backgroundColor: COLORS.white,
+						height: "100%",
+						width: "100%",
+						alignSelf: "center",
+						justifyContent: "center",
+					}}
+				>
 					<Text
 						style={{
-							backgroundColor: COLORS.primary,
 							alignSelf: "center",
-							fontWeight: "bold",
-							fontSize: 20,
-							color: COLORS.white,
-							width: "100%",
-							textAlign: "center",
+							fontSize: 18,
+							marginTop: 8,
+							justifyContent: "center",
 						}}
 					>
-						Sqera Registration
+						Looks like something is wrong!
 					</Text>
+					<Text
+						style={{
+							alignSelf: "center",
+							fontSize: 18,
+							marginBottom: 20,
+							justifyContent: "center",
+						}}
+					>
+						{" "}
+						Please check again after some while.
+					</Text>
+					<ActivityIndicator />
+					<TouchableOpacity
+						style={{
+							width: 150,
+							height: 50,
+							marginTop: 90,
+							alignSelf: "center",
+							backgroundColor: COLORS.primary,
+							borderRadius: 10,
+							borderWidth: 0.2,
+							padding: 10,
+							opacity: 40,
+							alignContent: "center",
+							justifyContent: "center",
+						}}
+						onPress={() => {
+							navigation.navigate("Home");
+						}}
+					>
+						<Text
+							style={{
+								alignSelf: "center",
+								fontSize: 16,
+								color: COLORS.white,
+							}}
+						>
+							{" "}
+							Go to Home{" "}
+						</Text>
+					</TouchableOpacity>
+				</View>
+			) : (
+				<View style={{ flex: 1, alignSelf: "center" }}>
+					<ExitHeader></ExitHeader>
 
 					<Text
 						style={{
 							backgroundColor: COLORS.white,
 							alignSelf: "center",
 							fontWeight: "bold",
-							fontSize: 22,
+							fontSize: 19,
 							color: COLORS.primary,
 							width: "100%",
 
@@ -101,7 +149,6 @@ const RegisterSubService5 = ({ navigation }) => {
 						keyExtractor={(item) => item.S_ID}
 						numColumns={2}
 						showsVerticalScrollIndicator={false}
-						contentContainerStyle={{ height: "100%" }}
 						ListEmptyComponent={
 							<Text
 								style={{ margin: 20, marginTop: "20%" }}

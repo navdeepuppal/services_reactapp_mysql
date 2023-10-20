@@ -8,6 +8,7 @@ import {
 	Image,
 	StyleSheet,
 	TouchableOpacity,
+	TextComponent,
 } from "react-native";
 
 import { NFTCard5, HomeHeader, FocusedStatusBar } from "../../components";
@@ -15,6 +16,7 @@ import { COLORS, SIZES, SHADOWS, config } from "../../constants";
 import { NFTTitle } from "../../components/SubInfo";
 
 import { useNavigation } from "@react-navigation/native";
+import ExitHeader from "../../components/ExitHeader";
 
 const RegisterSubService6 = ({ route }) => {
 	const navigation = useNavigation();
@@ -82,31 +84,36 @@ const RegisterSubService6 = ({ route }) => {
 
 	return (
 		<SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
+			<ExitHeader></ExitHeader>
 			<FocusedStatusBar backgroundColor={COLORS.black} />
 			{isLoading ? (
-				<ActivityIndicator />
-			) : (
-				<View style={{ flex: 1 }}>
-					<Text
+				<View>
+					<Text>
+						Looks like something is wrong! Check after some
+						while
+					</Text>
+					<TouchableOpacity
 						style={{
 							backgroundColor: COLORS.primary,
-							alignSelf: "center",
-							fontWeight: "bold",
-							fontSize: 30,
-							color: COLORS.white,
-							width: "100%",
-							textAlign: "center",
+							width: 30,
+							height: 30,
 						}}
 					>
-						Sqera Registration
-					</Text>
-
+						<Text style={{ color: "white" }}>
+							{" "}
+							Go to Home
+						</Text>
+					</TouchableOpacity>
+					<ActivityIndicator />
+				</View>
+			) : (
+				<View style={{ flex: 1 }}>
 					<Text
 						style={{
 							backgroundColor: COLORS.white,
 							alignSelf: "center",
 							fontWeight: "bold",
-							fontSize: 22,
+							fontSize: 19,
 							color: COLORS.primary,
 							width: "100%",
 
@@ -121,12 +128,13 @@ const RegisterSubService6 = ({ route }) => {
 						style={{
 							backgroundColor: COLORS.white,
 							alignSelf: "center",
-							fontSize: 12,
+							fontSize: 14,
 							color: COLORS.primary,
 							width: "100%",
 
 							textAlign: "center",
 							margin: SIZES.base,
+							marginBottom: SIZES.extraLarge,
 						}}
 					>
 						For Ex: If you are a Carpenter then your sub

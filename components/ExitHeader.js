@@ -1,4 +1,11 @@
-import { View, Text, TouchableOpacity, StyleSheet, Alert } from "react-native";
+import {
+	View,
+	Text,
+	TouchableOpacity,
+	StyleSheet,
+	Alert,
+	Image,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import React from "react";
@@ -8,14 +15,36 @@ const ExitHeader = ({ onSearch }) => {
 	const navigation = useNavigation();
 
 	return (
-		<TouchableOpacity
-			style={styles.button2}
-			onPress={() => {
-				navigation.navigate("Home");
+		<View
+			style={{
+				flexDirection: "row",
+				justifyContent: "space-between",
+				height: 60,
 			}}
 		>
-			<Text style={{ fontSize: 19 }}> Exit </Text>
-		</TouchableOpacity>
+			<Image
+				source={require("../assets/sqera.png")}
+				resizeMode="center"
+				style={{ width: 50, height: 50, marginLeft: 15 }}
+			/>
+			<TouchableOpacity
+				style={styles.button2}
+				onPress={() => {
+					navigation.navigate("Home");
+				}}
+			>
+				<Text
+					style={{
+						fontSize: 17,
+						fontWeight: "300",
+						color: COLORS.primary,
+					}}
+				>
+					{" "}
+					Exit{" "}
+				</Text>
+			</TouchableOpacity>
+		</View>
 	);
 };
 
@@ -65,15 +94,14 @@ const styles = StyleSheet.create({
 	button2: {
 		shadowColor: "rgba(0,0,0, .4)", // IOS
 		shadowOffset: { height: 1, width: 1 }, // IOS
-		shadowOpacity: 1, // IOS
 		shadowRadius: 1, //IOS
-		backgroundColor: "white",
+		borderWidth: 0.2,
+		borderColor: "silver",
 		borderRadius: SIZES.font,
 		marginBottom: SIZES.extraLarge,
 		margin: SIZES.base,
-		elevation: 20, // Android
-		height: 40,
-		width: 80,
+		height: 30,
+		width: 60,
 		alignSelf: "flex-end",
 		justifyContent: "center",
 		alignItems: "center",
