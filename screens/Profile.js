@@ -13,20 +13,21 @@ import {
 	Alert,
 } from "react-native";
 import React, { useState } from "react";
-
+import { useFocusEffect } from "@react-navigation/native";
 import { COLORS, config, SIZES, assets } from "../constants";
-
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AnimatedFAB } from "react-native-paper";
 
-const Profile = ({ navigation }) => {
+const Profile = ({ navigation, route }) => {
 	const [user, setUser] = useState("");
 	const [visible, setVisible] = React.useState(true);
 
 	const [modalVisible, setModalVisible] = useState(false);
 
-	AsyncStorage.getItem("PhoneNumber").then((user) => {
-		setUser(user);
+	useFocusEffect(() => {
+		AsyncStorage.getItem("PhoneNumber").then((user) => {
+			setUser(user);
+		});
 	});
 
 	return (
@@ -60,7 +61,7 @@ const Profile = ({ navigation }) => {
 				) : (
 					<TouchableOpacity
 						onPress={() => {
-							navigation.navigate("Login");
+							navigation.navigate("Login", { prev: "Profile" });
 						}}
 						style={{
 							backgroundColor: COLORS.primary,

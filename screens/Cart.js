@@ -617,8 +617,9 @@ const Cart = ({ route, navigation }) => {
 									? navigation.navigate(
 											isLoggedIn == "true"
 												? "SelectAddress"
-												: "BookingLogin",
+												: "Login",
 											{
+												prev: "Cart",
 												filteredData,
 											}
 									  )
