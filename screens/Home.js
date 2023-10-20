@@ -250,7 +250,7 @@ function ServicesScreen() {
 					>
 						<HomeHeader onSearch={handleSearch} />
 					</View>
-					<ScrollView
+					<View
 						style={{
 							backgroundColor: COLORS.white,
 						}}
@@ -457,7 +457,7 @@ function ServicesScreen() {
 								</TouchableOpacity>
 							</Modal>
 						</View>
-					</ScrollView>
+					</View>
 				</SafeAreaView>
 			)}
 		</View>
