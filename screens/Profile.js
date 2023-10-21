@@ -14,14 +14,14 @@ import {
 	Share,
 } from "react-native";
 import React, { useState } from "react";
-
+import { useFocusEffect } from "@react-navigation/native";
 import { COLORS, config, SIZES, assets } from "../constants";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AnimatedFAB } from "react-native-paper";
 import SelectAddress from "./SelectAddress";
 
-const Profile = ({ navigation }) => {
+const Profile = ({ navigation, route }) => {
 	const [user, setUser] = useState("");
 	const [visible, setVisible] = React.useState(true);
 
@@ -33,8 +33,10 @@ const Profile = ({ navigation }) => {
 
 	const [ChangeAddress, setChangeAddressVisible] = useState(false);
 
-	AsyncStorage.getItem("PhoneNumber").then((user) => {
-		setUser(user);
+	useFocusEffect(() => {
+		AsyncStorage.getItem("PhoneNumber").then((user) => {
+			setUser(user);
+		});
 	});
 
 	const onShare = async () => {
@@ -88,7 +90,7 @@ const Profile = ({ navigation }) => {
 				) : (
 					<TouchableOpacity
 						onPress={() => {
-							navigation.navigate("Login");
+							navigation.navigate("Login", { prev: "Profile" });
 						}}
 						style={{
 							backgroundColor: COLORS.primary,
