@@ -111,7 +111,7 @@ const Login = ({ navigation, route }) => {
 								justifyContent: "flex-end",
 								alignContent: "flex-end",
 								alignItems: "center",
-								marginTop: "40%",
+								marginTop: "70%",
 							}}
 						>
 							<Text
@@ -260,8 +260,20 @@ const Login = ({ navigation, route }) => {
 														false
 													);
 													saveValue();
-													if (route.params.prev === "Profile") navigation.goBack();
-													else navigation.navigate("SelectAddress", { filteredData });
+													if (
+														route
+															.params
+															.prev ===
+														"Profile"
+													)
+														navigation.goBack();
+													else
+														navigation.navigate(
+															"SelectAddress",
+															{
+																filteredData,
+															}
+														);
 													Alert.alert(
 														"You are now logged in!"
 													);

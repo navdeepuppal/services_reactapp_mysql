@@ -14,13 +14,13 @@ import { Colors } from "react-native/Libraries/NewAppScreen";
 import { useNavigation } from "@react-navigation/native";
 
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
-
-
+import BackButton from "../components/BackButton";
 
 const SelectOnboardProfessional = (props) => {
 	const navigation = useNavigation();
 	return (
 		<SafeAreaView style={styles.container}>
+			<BackButton></BackButton>
 			<Text style={styles.textTitle}>How do you want to start ?</Text>
 
 			<View style={{ justifyContent: "center", alignItems: "center" }}>
@@ -78,8 +78,6 @@ const SelectOnboardProfessional = (props) => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		alignItems: "center",
-		justifyContent: "center",
 		backgroundColor: "rgba(248,248,250,255)",
 	},
 	image: {

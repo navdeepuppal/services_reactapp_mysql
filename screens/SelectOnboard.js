@@ -20,16 +20,123 @@ const SelectOnboard = (props) => {
 	const navigation = useNavigation();
 	return (
 		<View style={styles.container}>
-			<Text style={styles.textTitle}>
-				How will you like to proceed ?
-			</Text>
-
 			<View
 				style={{
-					justifyContent: "center",
-					alignItems: "center",
-					flexWrap: "wrap",
-					width: "90%",
+					width: "100%",
+					borderRadius: 10,
+					marginBottom: 150,
+				}}
+			>
+				<View>
+					<View
+						style={{
+							marginLeft: 50,
+							width: 380,
+							flexWrap: "wrap",
+							flexDirection: "row",
+						}}
+					>
+						<View
+							style={{
+								margin: 10,
+								height: 90,
+								width: 90,
+								backgroundColor: "#f0f0f0",
+								borderRadius: 10,
+							}}
+						></View>
+						<View
+							style={{
+								margin: 10,
+								height: 90,
+								width: 90,
+								backgroundColor: "#f2f2f2",
+								borderRadius: 10,
+							}}
+						></View>
+						<View
+							style={{
+								margin: 10,
+								height: 90,
+								width: 90,
+								backgroundColor: "#f2f2f2",
+								borderRadius: 10,
+							}}
+						></View>
+
+						<View
+							style={{
+								margin: 10,
+								height: 90,
+								width: 90,
+								backgroundColor: "#f2f2f2",
+								borderRadius: 10,
+							}}
+						></View>
+
+						<View
+							style={{
+								margin: 10,
+								height: 90,
+								width: 90,
+								backgroundColor: "#f2f2f2",
+								borderRadius: 10,
+							}}
+						></View>
+						<View
+							style={{
+								margin: 10,
+								height: 90,
+								width: 90,
+								backgroundColor: "#f2f2f2",
+								borderRadius: 10,
+							}}
+						></View>
+					</View>
+					<View
+						style={{
+							width: 380,
+							flexDirection: "row",
+							marginLeft: 50,
+							alignSelf: "center",
+						}}
+					>
+						<View
+							style={{
+								margin: 10,
+								height: 90,
+								width: 90,
+								backgroundColor: "#f0f0f0",
+								borderRadius: 10,
+							}}
+						></View>
+						<View
+							style={{
+								margin: 10,
+								height: 90,
+								width: 90,
+								backgroundColor: "#f2f2f2",
+								borderRadius: 10,
+							}}
+						></View>
+						<View
+							style={{
+								margin: 10,
+								height: 90,
+								width: 90,
+								backgroundColor: "#f2f2f2",
+								borderRadius: 10,
+							}}
+						></View>
+					</View>
+				</View>
+			</View>
+			<View
+				style={{
+					backgroundColor: COLORS.white,
+					width: "100%",
+					height: "25%",
+					borderRadius: 70,
 				}}
 			>
 				<TouchableOpacity
@@ -50,42 +157,31 @@ const SelectOnboard = (props) => {
 						setValue("false");
 					}}
 				>
-					<View style={{ flexDirection: "column" }}>
-						<Text style={styles.textBody}>
-							Find a Service
-						</Text>
-						<Text style={styles.littleTitle}>
-							Need Professional Services at your doorstep?{" "}
-							{"\n"} Whether it's a Gardener, Business
-							Consultant, or Painter for your home, find
-							them nearby at any budget.
-						</Text>
-					</View>
+					<Text style={styles.textBody}>Find a Service</Text>
 				</TouchableOpacity>
-
+				<Text
+					style={{
+						fontSize: 20,
+						fontWeight: "600",
+						alignSelf: "center",
+						margin: 20,
+					}}
+				>
+					OR
+				</Text>
 				<TouchableOpacity
 					style={styles.button2}
 					onPress={() =>
 						navigation.navigate("SelectOnboardProfessional")
 					}
 				>
-					<View style={{ flexDirection: "column" }}>
+					<View>
 						<Text style={styles.textBody}>
 							Register as a Professional
-						</Text>
-						<Text style={styles.littleTitle}>
-							Join, Create, Earn – Be a Part of Something
-							Big!
 						</Text>
 					</View>
 				</TouchableOpacity>
 			</View>
-
-			<Button
-				onPress={() => navigation.navigate("Login")}
-				style={styles.button}
-				title="Already have an account with us ? Login"
-			/>
 		</View>
 	);
 };
@@ -104,17 +200,17 @@ const styles = StyleSheet.create({
 		textAlign: "center",
 	},
 	littleTitle: {
-		fontSize: 13,
-		color: COLORS.white,
+		fontSize: 15,
+		color: COLORS.primary,
 		textAlign: "center",
 		fontStyle: "italic",
 	},
 	textBody: {
-		marginBottom: SIZES.medium,
-		fontSize: 26,
+		fontSize: 20,
 		color: COLORS.white,
 		fontWeight: "700",
 		textAlign: "center",
+		alignSelf: "center",
 	},
 	container: {
 		flex: 1,
@@ -133,36 +229,39 @@ const styles = StyleSheet.create({
 		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
 		shadowRadius: 1, //IOS
-		backgroundColor: COLORS.primary,
+		backgroundColor: "green",
 		borderRadius: SIZES.font,
-		marginBottom: SIZES.extraLarge,
-		margin: SIZES.base,
 		...SHADOWS.dark,
 		elevation: 2, // Android
-		height: "27%",
-		width: "100%",
+		marginTop: 80,
+		height: 55,
+		width: 300,
+		alignSelf: "center",
 		justifyContent: "center",
 		alignItems: "center",
+
 		flexDirection: "row",
 		borderRadius: 10,
 		padding: "2%",
 	},
 	button2: {
-		padding: "2%",
 		shadowColor: "rgba(0,0,0, .4)", // IOS
 		shadowOffset: { height: 1, width: 1 }, // IOS
 		shadowOpacity: 1, // IOS
 		shadowRadius: 1, //IOS
-		backgroundColor: "green",
+		backgroundColor: COLORS.primary,
 		borderRadius: SIZES.font,
-		marginBottom: SIZES.extraLarge,
-		margin: SIZES.base,
 		...SHADOWS.dark,
 		elevation: 2, // Android
-		height: "24%",
-		width: "100%",
+		height: 55,
+		width: 300,
+		alignSelf: "center",
 		justifyContent: "center",
+		alignItems: "center",
+
+		flexDirection: "row",
 		borderRadius: 10,
+		padding: "2%",
 	},
 });
 
