@@ -111,7 +111,7 @@ const Login = ({ navigation, route }) => {
 								justifyContent: "flex-end",
 								alignContent: "flex-end",
 								alignItems: "center",
-								marginTop: "40%",
+								marginTop: "70%",
 							}}
 						>
 							<Text

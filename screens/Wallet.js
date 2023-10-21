@@ -10,6 +10,7 @@ import {
 	Image,
 	Alert,
 	TouchableOpacity,
+	TextComponent,
 } from "react-native";
 
 import { COLORS, config, SIZES, assets } from "../constants";
@@ -18,9 +19,17 @@ import BackButton from "../components/BackButton";
 
 const Wallet = ({ navigation }) => {
 	const [state, setButtonStatus] = useState("1");
+	const [amount, setAmount] = useState(1000);
+
+	const handleChange = (e) => {
+		setAmount(e);
+		/* TODO : Verify as a number */
+	};
+
 	return (
-		<SafeAreaView
+		<ScrollView
 			style={{
+				marginTop: "12%",
 				flex: 1,
 				backgroundColor: COLORS.white,
 			}}
@@ -110,7 +119,7 @@ const Wallet = ({ navigation }) => {
 							fontWeight: "500",
 						}}
 					>
-						₹ 10
+						₹ 0
 					</Text>
 				</View>
 			</View>
@@ -173,6 +182,8 @@ const Wallet = ({ navigation }) => {
 								fontSize: 30,
 								fontWeight: "500",
 							}}
+							value={amount}
+							onChangeText={handleChange}
 						></TextInput>
 					</View>
 					<TouchableOpacity
@@ -195,7 +206,7 @@ const Wallet = ({ navigation }) => {
 								textAlign: "center",
 							}}
 						>
-							Proceed to add Rs 1000
+							Proceed to add ₹{amount}
 						</Text>
 						<Text
 							style={{
@@ -215,17 +226,115 @@ const Wallet = ({ navigation }) => {
 			<View>
 				<Text
 					style={{
-						margin: 10,
+						margin: 15,
 						marginTop: 40,
 						fontSize: 20,
 						fontWeight: "600",
 					}}
 				>
-					{" "}
-					Transactions
+					Recent Transactions
 				</Text>
+				<View>
+					<View
+						style={{
+							width: "100%",
+							padding: 10,
+							height: 50,
+							backgroundColor: "#EDF6FD",
+							justifyContent: "center",
+						}}
+					>
+						<Text
+							style={{
+								justifyContent: "center",
+								color: COLORS.gray,
+								fontWeight: "600",
+							}}
+						>
+							{" "}
+							02 Oct 2023
+						</Text>
+					</View>
+					<View
+						style={{
+							margin: 20,
+							marginTop: 10,
+							width: "100%",
+							flexDirection: "row",
+							justifyContent: "flex-start",
+							alignSelf: "flex-start",
+						}}
+					>
+						<Image
+							source={require("../assets/sqera.png")}
+							style={{
+								alignSelf: "center",
+								width: 50,
+								height: 20,
+							}}
+						/>
+						<View
+							style={{
+								margin: 20,
+								marginLeft: 20,
+								width: "70%",
+							}}
+						>
+							<View
+								style={{
+									flexDirection: "row",
+									justifyContent: "space-between",
+								}}
+							>
+								<Text
+									style={{
+										fontWeight: "500",
+										fontSize: 13,
+									}}
+								>
+									Paid for Home Kitchen Cleaning
+								</Text>
+								<Text
+									style={{
+										fontSize: 18,
+										marginLeft: 55,
+									}}
+								>
+									-₹122.55
+								</Text>
+							</View>
+							<View
+								style={{
+									flexDirection: "row",
+									justifyContent: "space-between",
+								}}
+							>
+								<Text
+									style={{
+										fontSize: 11,
+										marginTop: 10,
+										color: COLORS.gray,
+									}}
+								>
+									06:28 PM
+								</Text>
+								<Text
+									style={{
+										fontSize: 11,
+										marginTop: 10,
+										marginLeft: 80,
+										alignSelf: "flex-end",
+										color: COLORS.gray,
+									}}
+								>
+									Sqera Wallet Closing Balance: ₹4.00
+								</Text>
+							</View>
+						</View>
+					</View>
+				</View>
 			</View>
-		</SafeAreaView>
+		</ScrollView>
 	);
 };
 

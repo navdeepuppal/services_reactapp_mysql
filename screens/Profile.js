@@ -90,7 +90,9 @@ const Profile = ({ navigation, route }) => {
 				) : (
 					<TouchableOpacity
 						onPress={() => {
-							navigation.navigate("Login", { prev: "Profile" });
+							navigation.navigate("Login", {
+								prev: "Profile",
+							});
 						}}
 						style={{
 							backgroundColor: COLORS.primary,
@@ -198,7 +200,11 @@ const Profile = ({ navigation, route }) => {
 									backgroundColor: "#cccccc",
 								}}
 							/>
-							<TouchableOpacity>
+							<TouchableOpacity
+								onPress={() => {
+									navigation.navigate("Search");
+								}}
+							>
 								<View
 									style={{
 										margin: "1%",
@@ -221,7 +227,7 @@ const Profile = ({ navigation, route }) => {
 											}}
 										>
 											{" "}
-											Contracts
+											Discover Talent
 										</Text>
 										<Text
 											style={{
@@ -400,9 +406,14 @@ const Profile = ({ navigation, route }) => {
 						</View>
 					</View>
 				) : (
-					<Text style={{ marginBottom: 20, fontSize: 15 }}>
-						{" "}
-						Hi Guest! {"\n"} Please login to continue{" "}
+					<Text
+						style={{
+							marginBottom: 20,
+							fontSize: 16,
+							margin: 4,
+						}}
+					>
+						Hi Guest! {"\n"}Please login to continue
 					</Text>
 				)}
 				<View
