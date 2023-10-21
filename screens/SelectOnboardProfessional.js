@@ -88,11 +88,12 @@ const styles = StyleSheet.create({
 	textTitle: {
 		fontWeight: "bold",
 		fontSize: 37,
+		marginTop: 30,
 		color: COLORS.gray,
 		textAlign: "center",
-		marginBottom: SIZES.small,
 	},
 	subTitle: {
+		marginTop: "10%",
 		margin: "2%",
 		fontSize: 22,
 		color: COLORS.gray,

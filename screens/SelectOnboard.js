@@ -43,55 +43,173 @@ const SelectOnboard = (props) => {
 								width: 90,
 								backgroundColor: "#f0f0f0",
 								borderRadius: 10,
+								justifyContent: "center",
 							}}
-						></View>
+						>
+							<Image
+								source={require("../assets/icons/maid.png")}
+								style={{
+									width: 40,
+									height: 40,
+									alignSelf: "center",
+								}}
+							/>
+							<Text
+								style={{
+									marginTop: 5,
+									alignSelf: "center",
+									fontSize: 16,
+									fontWeight: "300",
+								}}
+							>
+								Maid
+							</Text>
+						</View>
 						<View
 							style={{
 								margin: 10,
 								height: 90,
 								width: 90,
-								backgroundColor: "#f2f2f2",
+								backgroundColor: "#f0f0f0",
 								borderRadius: 10,
+								justifyContent: "center",
 							}}
-						></View>
+						>
+							<Image
+								source={require("../assets/icons/cleaning.png")}
+								style={{
+									width: 40,
+									height: 40,
+									alignSelf: "center",
+								}}
+							/>
+							<Text
+								style={{
+									marginTop: 5,
+									alignSelf: "center",
+									fontSize: 16,
+									fontWeight: "300",
+								}}
+							>
+								Cleaning
+							</Text>
+						</View>
 						<View
 							style={{
 								margin: 10,
 								height: 90,
 								width: 90,
-								backgroundColor: "#f2f2f2",
+								backgroundColor: "#f0f0f0",
 								borderRadius: 10,
+								justifyContent: "center",
 							}}
-						></View>
-
+						>
+							<Image
+								source={require("../assets/icons/painter.png")}
+								style={{
+									width: 40,
+									height: 40,
+									alignSelf: "center",
+								}}
+							/>
+							<Text
+								style={{
+									marginTop: 5,
+									alignSelf: "center",
+									fontSize: 16,
+									fontWeight: "300",
+								}}
+							>
+								Painter
+							</Text>
+						</View>
 						<View
 							style={{
 								margin: 10,
 								height: 90,
 								width: 90,
-								backgroundColor: "#f2f2f2",
+								backgroundColor: "#f0f0f0",
 								borderRadius: 10,
+								justifyContent: "center",
 							}}
-						></View>
-
+						>
+							<Image
+								source={require("../assets/icons/coder.png")}
+								style={{
+									width: 40,
+									height: 40,
+									alignSelf: "center",
+								}}
+							/>
+							<Text
+								style={{
+									marginTop: 5,
+									alignSelf: "center",
+									fontSize: 16,
+									fontWeight: "300",
+								}}
+							>
+								Coder
+							</Text>
+						</View>
 						<View
 							style={{
 								margin: 10,
 								height: 90,
 								width: 90,
-								backgroundColor: "#f2f2f2",
+								backgroundColor: "#f0f0f0",
 								borderRadius: 10,
+								justifyContent: "center",
 							}}
-						></View>
+						>
+							<Image
+								source={require("../assets/icons/carpenter.png")}
+								style={{
+									width: 40,
+									height: 40,
+									alignSelf: "center",
+								}}
+							/>
+							<Text
+								style={{
+									marginTop: 5,
+									alignSelf: "center",
+									fontSize: 16,
+									fontWeight: "300",
+								}}
+							>
+								Carpenter
+							</Text>
+						</View>
 						<View
 							style={{
 								margin: 10,
 								height: 90,
 								width: 90,
-								backgroundColor: "#f2f2f2",
+								backgroundColor: "#f0f0f0",
 								borderRadius: 10,
+								justifyContent: "center",
 							}}
-						></View>
+						>
+							<Image
+								source={require("../assets/icons/plumber.png")}
+								style={{
+									width: 40,
+									height: 40,
+									alignSelf: "center",
+								}}
+							/>
+							<Text
+								style={{
+									marginTop: 5,
+									alignSelf: "center",
+									fontSize: 16,
+									fontWeight: "300",
+								}}
+							>
+								Plumber
+							</Text>
+						</View>
 					</View>
 					<View
 						style={{
@@ -108,26 +226,87 @@ const SelectOnboard = (props) => {
 								width: 90,
 								backgroundColor: "#f0f0f0",
 								borderRadius: 10,
+								justifyContent: "center",
 							}}
-						></View>
+						>
+							<Image
+								source={require("../assets/icons/consultant.png")}
+								style={{
+									width: 40,
+									height: 40,
+									alignSelf: "center",
+								}}
+							/>
+							<Text
+								style={{
+									marginTop: 5,
+									alignSelf: "center",
+									fontSize: 16,
+									fontWeight: "300",
+								}}
+							>
+								Consultant
+							</Text>
+						</View>
+
 						<View
 							style={{
 								margin: 10,
 								height: 90,
 								width: 90,
-								backgroundColor: "#f2f2f2",
+								backgroundColor: "#f0f0f0",
 								borderRadius: 10,
+								justifyContent: "center",
 							}}
-						></View>
+						>
+							<Image
+								source={require("../assets/icons/driver.png")}
+								style={{
+									width: 40,
+									height: 40,
+									alignSelf: "center",
+								}}
+							/>
+							<Text
+								style={{
+									marginTop: 5,
+									alignSelf: "center",
+									fontSize: 16,
+									fontWeight: "300",
+								}}
+							>
+								Driver
+							</Text>
+						</View>
 						<View
 							style={{
 								margin: 10,
 								height: 90,
 								width: 90,
-								backgroundColor: "#f2f2f2",
+								backgroundColor: "#f0f0f0",
 								borderRadius: 10,
+								justifyContent: "center",
 							}}
-						></View>
+						>
+							<Image
+								source={require("../assets/icons/gardener.png")}
+								style={{
+									width: 40,
+									height: 40,
+									alignSelf: "center",
+								}}
+							/>
+							<Text
+								style={{
+									marginTop: 5,
+									alignSelf: "center",
+									fontSize: 16,
+									fontWeight: "300",
+								}}
+							>
+								Gardener
+							</Text>
+						</View>
 					</View>
 				</View>
 			</View>
@@ -208,7 +387,7 @@ const styles = StyleSheet.create({
 	textBody: {
 		fontSize: 20,
 		color: COLORS.white,
-		fontWeight: "700",
+		fontWeight: "600",
 		textAlign: "center",
 		alignSelf: "center",
 	},
