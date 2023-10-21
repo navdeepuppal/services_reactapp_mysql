@@ -178,6 +178,15 @@ const SelectAddress = ({ navigation, route }) => {
 										>
 											FILL ADDRESS
 										</Text>
+										<Text
+											style={{
+												fontSize: 12,
+												marginLeft: 13,
+											}}
+										>
+											Enter the address of your
+											current location
+										</Text>
 										<TextInput
 											style={styles.input}
 											onChangeText={
@@ -225,6 +234,7 @@ const SelectAddress = ({ navigation, route }) => {
 										>
 											Pincode
 										</Text>
+
 										<TextInput
 											style={
 												styles.pincodeinput
@@ -334,12 +344,13 @@ const styles = StyleSheet.create({
 	},
 	inputText: {
 		fontSize: 28,
-		margin: 16,
+		margin: 13,
 		fontWeight: "700",
 	},
 	pincodeText: {
 		fontSize: 25,
 		margin: 13,
+		marginTop: 30,
 	},
 	pincodeinput: {
 		fontSize: 38,

@@ -78,14 +78,6 @@ const Search = ({ navigation, onSearch }) => {
 						onChangeText={onSearch}
 					/>
 				</View>
-				<Image
-					source={assets.search}
-					style={{
-						alignSelf: "center",
-						width: 16,
-						height: 16,
-					}}
-				/>
 			</View>
 			<View
 				style={{

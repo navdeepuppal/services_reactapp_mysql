@@ -40,10 +40,10 @@ const Wallet = ({ navigation }) => {
 				<Image
 					source={require("../assets/sqera.png")}
 					style={{
-						width: 80,
-						height: 30,
+						width: 70,
+						height: 25,
 						marginTop: 18,
-						marginRight: 200,
+						marginRight: 230,
 					}}
 				/>
 				<TouchableOpacity

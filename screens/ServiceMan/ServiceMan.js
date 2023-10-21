@@ -10,12 +10,17 @@ import {
 	Image,
 	Alert,
 	TouchableOpacity,
+	Modal,
 } from "react-native";
 import React, { useState } from "react";
 
 import { COLORS, assets, SIZES, SHADOWS } from "../../constants";
 import { height } from "deprecated-react-native-prop-types/DeprecatedImagePropType";
 const ServiceMan = ({ navigation }) => {
+	const [ratingModal, setratingModalVisible] = useState(false);
+	const [todayEarnings, settodayEarningsVisible] = useState(false);
+
+	const [ordersDetails, setordersDetailsVisible] = useState(false);
 	return (
 		<SafeAreaView style={{ flex: 1, backgroundColor: "#f2f2f2" }}>
 			<ScrollView style={{ backgroundColor: "#f2f2f2" }}>
@@ -29,6 +34,7 @@ const ServiceMan = ({ navigation }) => {
 					<Text style={{ fontWeight: "700", fontSize: 24 }}>
 						Hi, Genus
 					</Text>
+
 					<View style={{ flexDirection: "row" }}>
 						<Image
 							source={require("../../assets/sqera.png")}
@@ -45,6 +51,16 @@ const ServiceMan = ({ navigation }) => {
 						/>
 					</View>
 				</View>
+				<Text
+					style={{
+						fontWeight: "700",
+						fontSize: 24,
+						margin: 10,
+						color: "red",
+					}}
+				>
+					Location
+				</Text>
 				<View
 					style={{
 						flexWrap: "wrap",
@@ -53,7 +69,7 @@ const ServiceMan = ({ navigation }) => {
 						justifyContent: "space-evenly",
 					}}
 				>
-					<View
+					<TouchableOpacity
 						style={{
 							borderRadius: 7,
 							margin: 5,
@@ -64,7 +80,9 @@ const ServiceMan = ({ navigation }) => {
 							height: 70,
 							backgroundColor: COLORS.primary,
 						}}
-						onPress={() => navigation.navigate("Orders")}
+						onPress={() => {
+							settodayEarningsVisible(true);
+						}}
 					>
 						<View
 							style={{
@@ -90,7 +108,7 @@ const ServiceMan = ({ navigation }) => {
 								TODAYS EARNING
 							</Text>
 						</View>
-					</View>
+					</TouchableOpacity>
 					<View
 						style={{
 							borderRadius: 7,
@@ -221,7 +239,9 @@ const ServiceMan = ({ navigation }) => {
 							height: 70,
 							backgroundColor: COLORS.white,
 						}}
-						onPress={() => navigation.navigate("Orders")}
+						onPress={() => {
+							setratingModalVisible(true);
+						}}
 					>
 						<View
 							style={{
@@ -268,24 +288,23 @@ const ServiceMan = ({ navigation }) => {
 								alignItems: "center",
 							}}
 						>
+							<Image
+								source={require("../../assets/images/wallet.png")}
+								style={{
+									width: 30,
+									height: 25,
+									alignSelf: "center",
+									margin: 5,
+								}}
+							/>
 							<Text
 								style={{
-									fontSize: 25,
+									fontSize: 16,
 									fontWeight: "900",
 									color: "green",
 								}}
 							>
 								Rs 200
-							</Text>
-							<Text
-								style={{
-									fontSize: "13%",
-									textAlign: "center",
-									fontWeight: "bold",
-									color: "gray",
-								}}
-							>
-								WALLET
 							</Text>
 						</View>
 					</View>
@@ -420,7 +439,9 @@ const ServiceMan = ({ navigation }) => {
 						</TouchableOpacity>
 					</View>
 
-					<TouchableOpacity>
+					<TouchableOpacity
+						onPress={() => setordersDetailsVisible(true)}
+					>
 						<View
 							style={{
 								marginTop: 30,
@@ -440,7 +461,6 @@ const ServiceMan = ({ navigation }) => {
 										fontWeight: "600",
 									}}
 								>
-									{" "}
 									AC Cleaning
 								</Text>
 								<Text
@@ -507,6 +527,151 @@ const ServiceMan = ({ navigation }) => {
 							/>
 						</View>
 					</TouchableOpacity>
+				</View>
+				<View style={{ flex: 1 }}>
+					<SafeAreaView>
+						<Modal
+							animationType="slide"
+							transparent={true}
+							visible={ratingModal}
+							onRequestClose={() => {
+								setratingModalVisible(!ratingModal);
+							}}
+						>
+							<View
+								style={{
+									backgroundColor: "#f2f2f2",
+									marginTop: "20%",
+									padding: 25,
+									borderTopStartRadius: 20,
+									borderTopEndRadius: 20,
+									shadowColor: "#000",
+									shadowOpacity: 0.25,
+									shadowRadius: 4,
+									elevation: 5,
+									width: "100%",
+									alignSelf: "flex-end",
+									height: "100%",
+								}}
+							>
+								<View
+									style={{
+										flexDirection: "row",
+										justifyContent:
+											"space-between",
+										marginTop: "5%",
+									}}
+								>
+									<View
+										style={{
+											flexDirection: "row",
+										}}
+									>
+										<TouchableOpacity
+											style={{
+												width: 40,
+												height: 40,
+												marginTop: "15%",
+											}}
+											onPress={() =>
+												setratingModalVisible(
+													false
+												)
+											}
+										>
+											<Image
+												source={assets.left}
+												resizeMode="contain"
+												style={{
+													width: "100%",
+													height: "100%",
+												}}
+											/>
+										</TouchableOpacity>
+									</View>
+								</View>
+								<View
+									style={{
+										marginTop: 30,
+										margin: 10,
+										borderRadius: 20,
+										backgroundColor: COLORS.white,
+									}}
+								></View>
+							</View>
+						</Modal>
+
+						<Modal
+							animationType="slide"
+							transparent={true}
+							visible={todayEarnings}
+							onRequestClose={() => {
+								settodayEarningsVisible(!todayEarnings);
+							}}
+						>
+							<View
+								style={{
+									backgroundColor: "#f2f2f2",
+									marginTop: "20%",
+									padding: 25,
+									borderTopStartRadius: 20,
+									borderTopEndRadius: 20,
+									shadowColor: "#000",
+									shadowOpacity: 0.25,
+									shadowRadius: 4,
+									elevation: 5,
+									width: "100%",
+									alignSelf: "flex-end",
+									height: "100%",
+								}}
+							>
+								<View
+									style={{
+										flexDirection: "row",
+										justifyContent:
+											"space-between",
+										marginTop: "5%",
+									}}
+								>
+									<View
+										style={{
+											flexDirection: "row",
+										}}
+									>
+										<TouchableOpacity
+											style={{
+												width: 40,
+												height: 40,
+												marginTop: "15%",
+											}}
+											onPress={() =>
+												settodayEarningsVisible(
+													false
+												)
+											}
+										>
+											<Image
+												source={assets.left}
+												resizeMode="contain"
+												style={{
+													width: "100%",
+													height: "100%",
+												}}
+											/>
+										</TouchableOpacity>
+									</View>
+								</View>
+								<View
+									style={{
+										marginTop: 30,
+										margin: 10,
+										borderRadius: 20,
+										backgroundColor: COLORS.white,
+									}}
+								></View>
+							</View>
+						</Modal>
+					</SafeAreaView>
 				</View>
 			</ScrollView>
 		</SafeAreaView>

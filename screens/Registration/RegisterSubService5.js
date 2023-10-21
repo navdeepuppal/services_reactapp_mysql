@@ -1,3 +1,4 @@
+import { width } from "deprecated-react-native-prop-types/DeprecatedImagePropType";
 import React, { useState, useEffect } from "react";
 import {
 	View,
@@ -6,6 +7,7 @@ import {
 	FlatList,
 	Text,
 	StyleSheet,
+	Image,
 	Pressable,
 	TouchableOpacity,
 } from "react-native";
@@ -68,10 +70,19 @@ const RegisterSubService5 = ({ navigation }) => {
 						justifyContent: "center",
 					}}
 				>
+					<Image
+						source={require("../../assets/sqera.png")}
+						resizeMode="center"
+						style={{
+							width: 50,
+							height: 50,
+							alignSelf: "center",
+						}}
+					/>
 					<Text
 						style={{
 							alignSelf: "center",
-							fontSize: 18,
+							fontSize: 15,
 							marginTop: 8,
 							justifyContent: "center",
 						}}
@@ -81,7 +92,7 @@ const RegisterSubService5 = ({ navigation }) => {
 					<Text
 						style={{
 							alignSelf: "center",
-							fontSize: 18,
+							fontSize: 15,
 							marginBottom: 20,
 							justifyContent: "center",
 						}}
