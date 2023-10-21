@@ -24,7 +24,7 @@ import TermsCondition from "../components/TermsCondition";
 import BackButton from "../components/BackButton";
 
 const Login = ({ navigation, route }) => {
-	if (route.params.prev == "Cart") {
+	if (route.params !== undefined && route.params.prev === "Cart") {
 		const filteredData = route.params.filteredData;
 	}
 
@@ -260,8 +260,12 @@ const Login = ({ navigation, route }) => {
 														false
 													);
 													saveValue();
-													if (route.params.prev === "Profile") navigation.goBack();
-													else navigation.navigate("SelectAddress", { filteredData });
+													if (route.params !== undefined)
+													{
+														if (route.params.prev === "Profile") navigation.goBack();
+														else navigation.navigate("SelectAddress", { filteredData });
+													}
+													else navigation.goBack();
 													Alert.alert(
 														"You are now logged in!"
 													);
