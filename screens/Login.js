@@ -23,8 +23,10 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import TermsCondition from "../components/TermsCondition";
 import BackButton from "../components/BackButton";
 
-const Login = ({ route }) => {
-	const navigation = useNavigation();
+const Login = ({ navigation, route }) => {
+	if (route.params.prev == "Cart") {
+		const filteredData = route.params.filteredData;
+	}
 
 	const [validity, setValidity] = useState("true");
 
@@ -56,6 +58,7 @@ const Login = ({ route }) => {
 		<View
 			style={{
 				backgroundColor: "white",
+				flex: 1,
 				height: "100%",
 				marginTop: "15%",
 			}}
@@ -257,9 +260,8 @@ const Login = ({ route }) => {
 														false
 													);
 													saveValue();
-													navigation.navigate(
-														"Home"
-													);
+													if (route.params.prev === "Profile") navigation.goBack();
+													else navigation.navigate("SelectAddress", { filteredData });
 													Alert.alert(
 														"You are now logged in!"
 													);
@@ -298,6 +300,7 @@ const styles = StyleSheet.create({
 	centeredView: {
 		flex: 1,
 		justifyContent: "flex-end",
+		alignItems: "center",
 		height: "100%",
 		backgroundColor: "rgba(0, 0, 0, 0.4)",
 	},
