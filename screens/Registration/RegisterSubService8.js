@@ -17,6 +17,7 @@ import { useNavigation } from "@react-navigation/native";
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
 
 const RegisterSubService8 = ({ route }) => {
+	/* TODO: Remove this Page */
 	const navigation = useNavigation();
 	const subServices = route.params.prevData;
 	const SMan_Details1 = route.params.temp;

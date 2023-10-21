@@ -21,7 +21,6 @@ const RegisterSubService1 = () => {
 	const [modalVisible, setModalVisible] = useState("");
 	const [HoldModalVisible, setHoldModalVisible] = useState("");
 	const [isServiceMan, setServiceMan] = useState("");
-	const [user, setUser] = useState("");
 
 	console.log("\nPage\t" + "RegisterSubService1");
 
@@ -36,19 +35,18 @@ const RegisterSubService1 = () => {
 			}
 		});
 	};
-	const redirect = () => {
+	function redirect(forward = false) {
 		AsyncStorage.getItem("PhoneNumber").then((user) => {
-			setUser(user);
+			console.log("user", user);
+			if (user == null) {
+				navigation.navigate("Login");
+			} else {
+				if (!forward) getValue();
+				else navigation.navigate("RegisterSubService5");
+			}
 		});
-		console.log(user);
-		if (user == null) {
-			navigation.navigate("Login");
-		} else {
-			console.log("HJejkn");
-			getValue();
-		}
-	};
-	redirect();
+	}
+	// redirect();
 	return (
 		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
 			<BackButton></BackButton>
@@ -68,9 +66,9 @@ const RegisterSubService1 = () => {
 					</Text>
 					<TouchableOpacity
 						style={styles.button}
-						onPress={() =>
-							navigation.navigate("RegisterSubService5")
-						}
+						onPress={() => {
+							redirect(true);
+						}}
 					>
 						<Text style={styles.buttontext}>Continue</Text>
 					</TouchableOpacity>

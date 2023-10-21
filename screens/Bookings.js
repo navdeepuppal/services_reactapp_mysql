@@ -11,6 +11,10 @@ const Bookings = ({ navigation }) => {
 
 	useEffect(() => {
 		AsyncStorage.getItem("PhoneNumber").then((PhoneNumber) => {
+			if (PhoneNumber === null) {
+				setLoading(false);
+				return;
+			}
 			const querystring =
 				"SELECT b.*, ss.SubS_Name, c.C_Name FROM booking as b, subservice as ss, customer as c WHERE b.C_PhNo = " +
 				[PhoneNumber] +
@@ -99,6 +103,8 @@ const Bookings = ({ navigation }) => {
 					height: "100%",
 					backgroundColor: "#f2f2f2",
 				}}
+				/* TODO */
+				ListEmptyComponent={<Text>Login...??</Text>}
 			/>
 		</SafeAreaView>
 	);

@@ -138,7 +138,6 @@ const ServiceMan = ({ navigation }) => {
 							</Text>
 							<Text
 								style={{
-									fontSize: "13%",
 									textAlign: "center",
 									fontWeight: "bold",
 									color: "gray",
@@ -178,7 +177,6 @@ const ServiceMan = ({ navigation }) => {
 							</Text>
 							<Text
 								style={{
-									fontSize: "13%",
 									textAlign: "center",
 									fontWeight: "bold",
 									color: "gray",
@@ -218,7 +216,6 @@ const ServiceMan = ({ navigation }) => {
 							</Text>
 							<Text
 								style={{
-									fontSize: "13%",
 									textAlign: "center",
 									fontWeight: "bold",
 									color: "gray",
