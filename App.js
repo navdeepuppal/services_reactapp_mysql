@@ -28,7 +28,6 @@ import SelectOnboardProfessional from "./screens/SelectOnboardProfessional";
 
 import Thankyou from "./screens/Thankyou";
 import SubSubService from "./screens/SubSubService";
-import BookingLogin from "./screens/BookingLogin";
 import Cart from "./screens/Cart";
 import RegisterSubService1 from "./screens/Registration/RegisterSubService1";
 import RegisterSubService2 from "./screens/Registration/RegisterSubService2";
@@ -194,11 +193,6 @@ const App = () => {
 						component={SubSubService}
 					/>
 					<Stack.Screen name="Cart" component={Cart} />
-
-					<Stack.Screen
-						name="BookingLogin"
-						component={BookingLogin}
-					/>
 
 					<Stack.Screen
 						name="RequestNewService"
