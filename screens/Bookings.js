@@ -103,8 +103,46 @@ const Bookings = ({ navigation }) => {
 					height: "100%",
 					backgroundColor: "#f2f2f2",
 				}}
-				/* TODO */
-				ListEmptyComponent={<Text>Login...??</Text>}
+				ListEmptyComponent={
+					<View style={{ paddingHorizontal: 10 }}>
+						<Text
+							style={{
+								alignSelf: "center",
+								justifyContent: "center",
+								fontWeight: "500",
+								fontSize: 19,
+								marginTop: 300,
+							}}
+						>
+							No Recent Bookings Found
+						</Text>
+						<TouchableOpacity
+							onPress={() => {
+								navigation.navigate("Home");
+							}}
+							style={{
+								backgroundColor: COLORS.primary,
+								width: 300,
+								justifyContent: "center",
+								alignSelf: "center",
+								margin: 40,
+								borderRadius: 10,
+								height: 40,
+							}}
+						>
+							<Text
+								style={{
+									fontSize: 17,
+									fontWeight: "600",
+									alignSelf: "center",
+									color: COLORS.white,
+								}}
+							>
+								Find Services Nearby
+							</Text>
+						</TouchableOpacity>
+					</View>
+				}
 			/>
 		</SafeAreaView>
 	);
