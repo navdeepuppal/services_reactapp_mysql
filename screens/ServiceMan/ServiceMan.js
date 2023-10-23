@@ -192,7 +192,7 @@ const ServiceMan = ({ navigation }) => {
 				>
 					<View
 						style={{
-							backgroundColor: COLORS.white,
+							backgroundColor: "#f2f2f2",
 							padding: 19,
 						}}
 					>
@@ -227,7 +227,7 @@ const ServiceMan = ({ navigation }) => {
 								<Text
 									style={{
 										margin: "1%",
-										fontSize: 18,
+										fontSize: 15,
 										color: "white",
 									}}
 								>
@@ -236,7 +236,7 @@ const ServiceMan = ({ navigation }) => {
 							</TouchableOpacity>
 							<TouchableOpacity
 								style={{
-									backgroundColor: "#f2f2f2",
+									backgroundColor: COLORS.white,
 									width: 140,
 									height: 35,
 									borderRadius: 10,
@@ -250,7 +250,7 @@ const ServiceMan = ({ navigation }) => {
 								<Text
 									style={{
 										margin: "1%",
-										fontSize: 18,
+										fontSize: 15,
 									}}
 								>
 									Completed (6)
@@ -264,10 +264,11 @@ const ServiceMan = ({ navigation }) => {
 					>
 						<View
 							style={{
-								marginTop: 20,
+								marginTop: 14,
+								borderRadius: 20,
 								alignSelf: "center",
-								width: "100%",
-								padding: 20,
+								width: "97%",
+								padding: 16,
 								backgroundColor: COLORS.white,
 							}}
 						>
