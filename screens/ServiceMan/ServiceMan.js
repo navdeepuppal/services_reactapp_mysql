@@ -8,6 +8,7 @@ import {
 	KeyboardAvoidingView,
 	Linking,
 	Image,
+	Dimensions,
 	Alert,
 	TouchableOpacity,
 	Modal,
@@ -27,6 +28,7 @@ const ServiceMan = ({ navigation }) => {
 	const [statisticsModal, setstatisticsModalVisible] = useState(false);
 
 	const [navigationDrawer, setnavigationDrawerVisible] = useState(false);
+
 	return (
 		<SafeAreaView style={{ flex: 1, backgroundColor: "#f2f2f2" }}>
 			<View
@@ -185,71 +187,76 @@ const ServiceMan = ({ navigation }) => {
 				</View>
 				<View
 					style={{
-						backgroundColor: COLORS.white,
 						borderRadius: 10,
-						padding: 17,
 					}}
 				>
-					<Text
-						style={{
-							fontSize: 20,
-							fontWeight: "500",
-							marginBottom: 20,
-						}}
-					>
-						Orders
-					</Text>
 					<View
 						style={{
-							width: "100%",
-							flexDirection: "row",
+							backgroundColor: COLORS.white,
+							padding: 19,
 						}}
 					>
-						<TouchableOpacity
+						<Text
 							style={{
-								backgroundColor: COLORS.primary,
-								width: 120,
+								fontSize: 20,
+								fontWeight: "500",
+								marginBottom: 20,
+							}}
+						>
+							Orders
+						</Text>
+						<View
+							style={{
+								width: "100%",
+								flexDirection: "row",
+							}}
+						>
+							<TouchableOpacity
+								style={{
+									backgroundColor: COLORS.primary,
+									width: 120,
 
-								height: 35,
-								borderRadius: 10,
-								elevation: 10,
-								alignItems: "center",
-								alignContent: "center",
-								justifyContent: "center",
-							}}
-						>
-							<Text
-								style={{
-									margin: "1%",
-									fontSize: 18,
-									color: "white",
+									height: 35,
+									borderRadius: 10,
+									elevation: 10,
+									alignItems: "center",
+									alignContent: "center",
+									justifyContent: "center",
 								}}
 							>
-								Pending (1)
-							</Text>
-						</TouchableOpacity>
-						<TouchableOpacity
-							style={{
-								backgroundColor: "#f2f2f2",
-								width: 140,
-								height: 35,
-								borderRadius: 10,
-								marginLeft: 10,
-								elevation: 10,
-								alignItems: "center",
-								alignContent: "center",
-								justifyContent: "center",
-							}}
-						>
-							<Text
+								<Text
+									style={{
+										margin: "1%",
+										fontSize: 18,
+										color: "white",
+									}}
+								>
+									Pending (1)
+								</Text>
+							</TouchableOpacity>
+							<TouchableOpacity
 								style={{
-									margin: "1%",
-									fontSize: 18,
+									backgroundColor: "#f2f2f2",
+									width: 140,
+									height: 35,
+									borderRadius: 10,
+									marginLeft: 10,
+									elevation: 10,
+									alignItems: "center",
+									alignContent: "center",
+									justifyContent: "center",
 								}}
 							>
-								Completed (6)
-							</Text>
-						</TouchableOpacity>
+								<Text
+									style={{
+										margin: "1%",
+										fontSize: 18,
+									}}
+								>
+									Completed (6)
+								</Text>
+							</TouchableOpacity>
+						</View>
 					</View>
 
 					<TouchableOpacity
@@ -257,15 +264,18 @@ const ServiceMan = ({ navigation }) => {
 					>
 						<View
 							style={{
-								marginTop: 30,
+								marginTop: 20,
+								alignSelf: "center",
+								width: "100%",
+								padding: 20,
 								backgroundColor: COLORS.white,
-								borderRadius: 10,
 							}}
 						>
 							<View
 								style={{
 									flexDirection: "row",
 									justifyContent: "space-between",
+									alignItems: "center",
 								}}
 							>
 								<Text
@@ -276,48 +286,182 @@ const ServiceMan = ({ navigation }) => {
 								>
 									AC Cleaning
 								</Text>
-								<Text
+
+								<View
 									style={{
-										fontSize: 16,
-										fontWeight: "500",
+										flexDirection: "row",
+										alignItems: "center",
 									}}
 								>
-									Rs. 800
-								</Text>
+									<Image
+										source={require("../../assets/images/cleaning.png")}
+										style={{
+											width: 30,
+											height: 30,
+											marginRight: 10,
+											alignSelf: "center",
+										}}
+									/>
+									<Text
+										style={{
+											fontSize: 16,
+											fontWeight: "500",
+										}}
+									>
+										Rs. 800
+									</Text>
+								</View>
+							</View>
+
+							<View
+								style={{
+									flexDirection: "row",
+									marginTop: 20,
+								}}
+							>
+								<View
+									style={{
+										backgroundColor: "yellow",
+										height: 35,
+										borderTopLeftRadius: 10,
+										borderBottomLeftRadius: 10,
+									}}
+								>
+									<Text
+										style={{
+											padding: 3,
+											margin: 3,
+											color: COLORS.gray,
+										}}
+									>
+										Address
+									</Text>
+								</View>
+								<View
+									style={{
+										backgroundColor: "#EDF6FD",
+										height: 35,
+										borderTopRightRadius: 10,
+										borderBottomEndRadius: 10,
+									}}
+								>
+									<Text
+										style={{
+											padding: 3,
+											margin: 3,
+											color: COLORS.gray,
+										}}
+									>
+										{" "}
+										Kothi 103, Phase 9 Mohali,
+										Sector 63
+									</Text>
+								</View>
 							</View>
 							<View
 								style={{
-									marginTop: "2%",
+									flexDirection: "row",
+									marginTop: 10,
+								}}
+							>
+								<View
+									style={{
+										backgroundColor: "yellow",
+										height: 35,
+										borderTopLeftRadius: 10,
+										borderBottomLeftRadius: 10,
+									}}
+								>
+									<Text
+										style={{
+											padding: 3,
+											margin: 3,
+											color: COLORS.gray,
+										}}
+									>
+										Booking Slot
+									</Text>
+								</View>
+								<View
+									style={{
+										backgroundColor: "#EDF6FD",
+										height: 35,
+										borderTopRightRadius: 10,
+										borderBottomEndRadius: 10,
+									}}
+								>
+									<Text
+										style={{
+											padding: 3,
+											margin: 3,
+											color: COLORS.gray,
+										}}
+									>
+										{" "}
+										09th October 2023 (Monday)
+									</Text>
+								</View>
+							</View>
+
+							<View
+								style={{
+									marginTop: 10,
 									flexDirection: "row",
 									justifyContent: "space-between",
 								}}
 							>
-								<Text
+								<View
 									style={{
-										fontSize: 14,
-										fontWeight: "400",
+										flexDirection: "row",
 									}}
 								>
-									Details: Navdeep | Kothi 103, Phase
-									9, Mohali
-								</Text>
-							</View>
-							<View
-								style={{
-									marginTop: "3%",
-									flexDirection: "row",
-									justifyContent: "space-between",
-								}}
-							>
-								<Text
+									<View
+										style={{
+											backgroundColor:
+												"yellow",
+											height: 35,
+											borderTopLeftRadius: 10,
+											borderBottomLeftRadius: 10,
+										}}
+									>
+										<Text
+											style={{
+												padding: 3,
+												margin: 3,
+												color: COLORS.gray,
+											}}
+										>
+											Scheduled Time :
+										</Text>
+									</View>
+									<View
+										style={{
+											backgroundColor:
+												"#EDF6FD",
+											height: 35,
+											borderTopRightRadius: 10,
+											borderBottomEndRadius: 10,
+										}}
+									>
+										<Text
+											style={{
+												padding: 3,
+												margin: 3,
+												color: COLORS.gray,
+											}}
+										>
+											{" "}
+											10:26 AM
+										</Text>
+									</View>
+								</View>
+
+								<View
 									style={{
-										fontSize: 14,
-										color: COLORS.gray,
+										flexDirection: "row",
+										marginTop: 10,
 									}}
 								>
-									09/08/2023 | 10:26 AM
-								</Text>
-								<View style={{ flexDirection: "row" }}>
 									<Text
 										style={{
 											fontSize: 16,
@@ -1142,6 +1286,48 @@ const ServiceMan = ({ navigation }) => {
 											Statistics
 										</Text>
 									</TouchableOpacity>
+									<TouchableOpacity
+										style={{
+											backgroundColor:
+												COLORS.white,
+											width: "100%",
+											marginTop: 15,
+											height: 50,
+											justifyContent: "center",
+										}}
+									>
+										<Text
+											style={{
+												textAlign: "center",
+												fontSize: 20,
+												fontWeight: "600",
+												color: COLORS.gray,
+											}}
+										>
+											Workshops
+										</Text>
+									</TouchableOpacity>
+									<TouchableOpacity
+										style={{
+											backgroundColor:
+												COLORS.white,
+											width: "100%",
+											marginTop: 15,
+											height: 50,
+											justifyContent: "center",
+										}}
+									>
+										<Text
+											style={{
+												textAlign: "center",
+												fontSize: 20,
+												fontWeight: "600",
+												color: COLORS.gray,
+											}}
+										>
+											Support
+										</Text>
+									</TouchableOpacity>
 								</View>
 
 								<View
@@ -1153,6 +1339,558 @@ const ServiceMan = ({ navigation }) => {
 									}}
 								></View>
 							</View>
+						</Modal>
+
+						<Modal
+							animationType="slide"
+							transparent={true}
+							visible={ordersDetails}
+							onRequestClose={() => {
+								setordersDetailsVisible(!ordersDetails);
+							}}
+						>
+							<ScrollView
+								style={{
+									backgroundColor: "#f2f2f2",
+									padding: 23,
+									borderTopStartRadius: 20,
+									borderTopEndRadius: 20,
+									shadowColor: "#000",
+									shadowOpacity: 0.25,
+									shadowRadius: 4,
+									elevation: 5,
+									width: "100%",
+									alignSelf: "flex-end",
+									height: "100%",
+								}}
+							>
+								<View
+									style={{
+										marginTop: 30,
+										borderRadius: 20,
+									}}
+								>
+									<View
+										style={{
+											paddingVertical: 20,
+											flexDirection: "row",
+											justifyContent:
+												"space-between",
+										}}
+									>
+										<View
+											style={{
+												flexDirection:
+													"row",
+												alignItems:
+													"center",
+											}}
+										>
+											<TouchableOpacity
+												style={{
+													width: 40,
+													height: 40,
+												}}
+												onPress={() =>
+													setordersDetailsVisible(
+														false
+													)
+												}
+											>
+												<Image
+													source={
+														assets.left
+													}
+													resizeMode="contain"
+													style={{
+														width: "100%",
+														height: "100%",
+													}}
+												/>
+											</TouchableOpacity>
+											<Text
+												style={{
+													color: COLORS.gray,
+													fontSize: 22,
+													fontWeight:
+														"600",
+												}}
+											>
+												Order Details
+											</Text>
+										</View>
+										<View
+											style={{
+												flexDirection:
+													"row",
+											}}
+										>
+											<Image
+												source={require("../../assets/images/cleaning.png")}
+												style={{
+													width: 50,
+													height: 50,
+													marginRight: 10,
+													alignSelf:
+														"center",
+												}}
+											/>
+										</View>
+									</View>
+
+									<View
+										style={{
+											flexDirection: "row",
+											justifyContent:
+												"space-between",
+											margin: 10,
+										}}
+									>
+										<View
+											style={{
+												flexDirection:
+													"column",
+												alignItems:
+													"center",
+											}}
+										>
+											<View
+												style={{
+													borderRadius:
+														Math.round(
+															Dimensions.get(
+																"window"
+															)
+																.width +
+																Dimensions.get(
+																	"window"
+																)
+																	.height
+														) / 2,
+													width:
+														Dimensions.get(
+															"window"
+														).width *
+														0.04,
+													borderWidth: 0.2,
+													borderColor:
+														COLORS.gray,
+													height:
+														Dimensions.get(
+															"window"
+														).width *
+														0.04,
+													backgroundColor:
+														"#f2f2f2",
+													justifyContent:
+														"center",
+													alignItems:
+														"center",
+												}}
+											></View>
+											<Text
+												style={{
+													color: COLORS.gray,
+													margin: 10,
+													fontWeight:
+														"600",
+												}}
+											>
+												Started
+											</Text>
+										</View>
+										<View
+											style={{
+												flexDirection:
+													"column",
+												alignItems:
+													"center",
+											}}
+										>
+											<View
+												style={{
+													borderRadius:
+														Math.round(
+															Dimensions.get(
+																"window"
+															)
+																.width +
+																Dimensions.get(
+																	"window"
+																)
+																	.height
+														) / 2,
+													width:
+														Dimensions.get(
+															"window"
+														).width *
+														0.04,
+													borderWidth: 0.2,
+													borderColor:
+														COLORS.gray,
+													height:
+														Dimensions.get(
+															"window"
+														).width *
+														0.04,
+													backgroundColor:
+														"#f2f2f2",
+													justifyContent:
+														"center",
+													alignItems:
+														"center",
+												}}
+											></View>
+											<Text
+												style={{
+													color: COLORS.gray,
+													margin: 10,
+													fontWeight:
+														"600",
+												}}
+											>
+												In Progress
+											</Text>
+										</View>
+										<View
+											style={{
+												flexDirection:
+													"column",
+												alignItems:
+													"center",
+											}}
+										>
+											<View
+												style={{
+													borderRadius:
+														Math.round(
+															Dimensions.get(
+																"window"
+															)
+																.width +
+																Dimensions.get(
+																	"window"
+																)
+																	.height
+														) / 2,
+													width:
+														Dimensions.get(
+															"window"
+														).width *
+														0.04,
+													borderWidth: 0.2,
+													borderColor:
+														COLORS.gray,
+													height:
+														Dimensions.get(
+															"window"
+														).width *
+														0.04,
+													backgroundColor:
+														"#f2f2f2",
+													justifyContent:
+														"center",
+													alignItems:
+														"center",
+												}}
+											></View>
+
+											<Text
+												style={{
+													color: COLORS.gray,
+													margin: 10,
+													fontWeight:
+														"600",
+												}}
+											>
+												Completed
+											</Text>
+										</View>
+									</View>
+								</View>
+
+								<View
+									style={{
+										marginTop: 30,
+										flexDirection: "row",
+										margin: 10,
+									}}
+								>
+									<Text
+										style={{
+											fontSize: 15,
+											color: COLORS.gray,
+										}}
+									>
+										Service Name:
+									</Text>
+									<Text
+										style={{
+											marginLeft: 10,
+											fontSize: 16,
+											fontWeight: "600",
+										}}
+									>
+										Cleaning
+									</Text>
+								</View>
+								<View
+									style={{
+										flexDirection: "row",
+										margin: 10,
+									}}
+								>
+									<Text
+										style={{
+											fontSize: 15,
+											color: COLORS.gray,
+										}}
+									>
+										Sub Service Name:
+									</Text>
+									<Text
+										style={{
+											marginLeft: 10,
+											fontSize: 16,
+											fontWeight: "600",
+										}}
+									>
+										AC Cleaning
+									</Text>
+								</View>
+								<View
+									style={{
+										flexDirection: "row",
+										margin: 10,
+										width: "60%",
+									}}
+								>
+									<Text
+										style={{
+											fontSize: 15,
+											color: COLORS.gray,
+										}}
+									>
+										Payment Mode:
+									</Text>
+									<Text
+										style={{
+											marginLeft: 10,
+											fontSize: 15,
+											fontWeight: "600",
+										}}
+									>
+										COD / UPI
+									</Text>
+								</View>
+
+								<View
+									style={{
+										flexDirection: "row",
+										margin: 10,
+										width: "60%",
+									}}
+								>
+									<Text
+										style={{
+											fontSize: 15,
+											color: COLORS.gray,
+										}}
+									>
+										Booking Slot:
+									</Text>
+									<Text
+										style={{
+											marginLeft: 10,
+											fontSize: 15,
+											fontWeight: "600",
+										}}
+									>
+										Wednesday, 24th October 2023
+										at 09:00 AM
+									</Text>
+								</View>
+								<View
+									style={{
+										flexDirection: "row",
+										margin: 10,
+										width: "80%",
+									}}
+								>
+									<Text
+										style={{
+											fontSize: 15,
+											color: COLORS.gray,
+										}}
+									>
+										Deadline:
+									</Text>
+									<Text
+										style={{
+											marginLeft: 10,
+											fontSize: 12,
+											fontWeight: "500",
+											color: "red",
+										}}
+									>
+										Penalty fee will be charged if
+										the service isn't finished
+										during the customer's
+										scheduled time.
+									</Text>
+								</View>
+								<View
+									style={{
+										margin: 10,
+										borderWidth: 0.2,
+										borderColor: COLORS.gray,
+										borderRadius: 10,
+										padding: 10,
+									}}
+								>
+									<Text
+										style={{
+											fontSize: 15,
+											color: COLORS.gray,
+										}}
+									>
+										Customer Address:
+									</Text>
+									<Text
+										style={{
+											margin: 10,
+											fontSize: 16,
+											fontWeight: "600",
+										}}
+									>
+										Kothi 103 Phase 9 Mohali
+									</Text>
+									<TouchableOpacity
+										style={{
+											backgroundColor: "blue",
+											margin: 10,
+											fontSize: 16,
+											color: COLORS.white,
+											borderRadius: 10,
+											height: 40,
+											padding: 10,
+											textAlign: "center",
+										}}
+									>
+										<Text
+											style={{
+												fontSize: 16,
+												color: COLORS.white,
+												borderRadius: 10,
+												textAlign: "center",
+											}}
+										>
+											Open on Google Maps
+										</Text>
+									</TouchableOpacity>
+								</View>
+								<View
+									style={{
+										margin: 10,
+										borderWidth: 0.2,
+										borderColor: COLORS.gray,
+										borderRadius: 10,
+										padding: 10,
+										flexDirection: "row",
+										justifyContent:
+											"space-between",
+									}}
+								>
+									<View>
+										<Text
+											style={{
+												fontSize: 15,
+												color: COLORS.gray,
+											}}
+										>
+											Contact Customer:
+										</Text>
+										<Text
+											style={{
+												margin: 10,
+												fontSize: 16,
+												fontWeight: "600",
+											}}
+										>
+											+91 9041504403
+										</Text>
+									</View>
+									<TouchableOpacity
+										style={{
+											backgroundColor:
+												COLORS.white,
+											margin: 10,
+											fontSize: 16,
+											color: COLORS.white,
+											borderRadius: 10,
+											height: 40,
+											width: 90,
+											padding: 10,
+											textAlign: "center",
+										}}
+									>
+										<Text
+											style={{
+												fontSize: 16,
+												color: "green",
+												borderRadius: 10,
+												textAlign: "center",
+											}}
+										>
+											Call
+										</Text>
+									</TouchableOpacity>
+								</View>
+								<View
+									style={{
+										margin: 10,
+										borderWidth: 0.2,
+										borderColor: COLORS.gray,
+										backgroundColor: COLORS.white,
+										borderRadius: 10,
+										padding: 10,
+									}}
+								>
+									<Text
+										style={{
+											fontSize: 20,
+											color: COLORS.gray,
+										}}
+									>
+										Booking Started ?
+									</Text>
+
+									<TouchableOpacity
+										style={{
+											backgroundColor: "green",
+											margin: 10,
+											fontSize: 16,
+											color: COLORS.white,
+											borderRadius: 10,
+											height: 40,
+											padding: 5,
+											textAlign: "center",
+										}}
+									>
+										<Text
+											style={{
+												fontSize: 20,
+												fontWeight: "700",
+												color: COLORS.white,
+												borderRadius: 10,
+												textAlign: "center",
+											}}
+										>
+											Started
+										</Text>
+									</TouchableOpacity>
+								</View>
+							</ScrollView>
 						</Modal>
 					</SafeAreaView>
 				</View>
