@@ -7,12 +7,12 @@ import {
 	TextInput,
 	Modal,
 	TouchableOpacity,
-	SafeAreaView,
 	KeyboardAvoidingView,
 	Linking,
 	Alert,
 	Share,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import React, { useState } from "react";
 import { useFocusEffect } from "@react-navigation/native";
 import { COLORS, config, SIZES, assets } from "../constants";

@@ -1,22 +1,8 @@
-import {
-	View,
-	Text,
-	Image,
-	TextInput,
-	TouchableOpacity,
-	Modal,
-	StyleSheet,
-	Pressable,
-	SafeAreaView,
-	ScrollView,
-} from "react-native";
+import { View, Image, TextInput, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import React, { useState } from "react";
-import { COLORS, FONTS, SIZES, assets, SHADOWS } from "../constants";
-
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import ModalList from "./ModalList";
+import { COLORS, SIZES, assets } from "../constants";
 
 const HomeHeader = ({ onSearch }) => {
 	const navigation = useNavigation();
