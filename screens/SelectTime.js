@@ -114,8 +114,8 @@ const SelectTime = ({ navigation, route }) => {
 					<View
 						style={{
 							flexDirection: "row",
-							borderColor: "gray",
-							borderWidth: 1,
+							borderColor: COLORS.gray,
+							borderWidth: 0.2,
 							borderRadius: 15,
 							marginTop: 70,
 							padding: 16,
@@ -135,7 +135,7 @@ const SelectTime = ({ navigation, route }) => {
 						/>
 						<Text
 							style={{
-								fontSize: 22,
+								fontSize: 20,
 								fontWeight: "600",
 								alignSelf: "center",
 							}}
@@ -150,8 +150,8 @@ const SelectTime = ({ navigation, route }) => {
 					<View
 						style={{
 							flexDirection: "row",
-							borderColor: "gray",
-							borderWidth: 1,
+							borderColor: COLORS.gray,
+							borderWidth: 0.2,
 							borderRadius: 15,
 							padding: 16,
 							margin: 10,
@@ -170,7 +170,7 @@ const SelectTime = ({ navigation, route }) => {
 						/>
 						<Text
 							style={{
-								fontSize: 22,
+								fontSize: 20,
 								fontWeight: "600",
 								alignSelf: "center",
 							}}
@@ -181,7 +181,7 @@ const SelectTime = ({ navigation, route }) => {
 				</TouchableWithoutFeedback>
 			</View>
 			<Text style={styles.extraText}>
-				Service Man will contact you before visiting your place
+				Service Man will contact you before visiting your place.
 			</Text>
 			<TouchableOpacity
 				style={styles.verifyButton}

@@ -48,7 +48,7 @@ const ServiceMan = ({ navigation }) => {
 						color: COLORS.white,
 					}}
 				>
-					Your service is currently getting broadcasted
+					Your service is currently getting broadcasted nearby
 				</Text>
 			</View>
 			<ScrollView style={{ backgroundColor: "#f2f2f2" }}>
@@ -848,7 +848,7 @@ const ServiceMan = ({ navigation }) => {
 						>
 							<View
 								style={{
-									backgroundColor: "#f2f2f2",
+									backgroundColor: COLORS.white,
 									marginTop: "20%",
 									padding: 25,
 									borderTopStartRadius: 20,
@@ -861,305 +861,144 @@ const ServiceMan = ({ navigation }) => {
 									height: "100%",
 								}}
 							>
+								<TouchableOpacity
+									style={{
+										width: 40,
+										height: 40,
+									}}
+									onPress={() =>
+										setstatisticsModalVisible(
+											false
+										)
+									}
+								>
+									<Image
+										source={assets.left}
+										resizeMode="contain"
+										style={{
+											width: "100%",
+											height: "100%",
+										}}
+									/>
+								</TouchableOpacity>
+
+								<Text
+									style={{
+										margin: 10,
+										fontWeight: "600",
+										fontSize: 20,
+									}}
+								>
+									Service Man Statistics
+								</Text>
 								<View
 									style={{
-										marginTop: "5%",
-										flexWrap: "wrap",
+										height: 1,
+										width: "80%",
+										backgroundColor: "#cccccc",
+									}}
+								/>
+								<View
+									style={{
+										borderRadius: 7,
+										margin: 5,
 									}}
 								>
 									<View
 										style={{
+											alignItems: "center",
 											flexDirection: "row",
 										}}
 									>
-										<TouchableOpacity
-											style={{
-												width: 40,
-												height: 40,
-											}}
-											onPress={() =>
-												setstatisticsModalVisible(
-													false
-												)
-											}
-										>
-											<Image
-												source={assets.left}
-												resizeMode="contain"
-												style={{
-													width: "100%",
-													height: "100%",
-												}}
-											/>
-										</TouchableOpacity>
-									</View>
-
-									<TouchableOpacity
-										style={{
-											borderRadius: 7,
-											margin: 5,
-											alignItems: "center",
-											justifyContent: "center",
-											alignSelf: "center",
-											width: 160,
-											height: 70,
-											backgroundColor:
-												COLORS.white,
-										}}
-										onPress={() =>
-											navigation.navigate(
-												"Orders"
-											)
-										}
-									>
-										<View
-											style={{
-												alignItems:
-													"center",
-											}}
-										>
-											<Text
-												style={{
-													fontSize: 25,
-													fontWeight:
-														"900",
-													color: "green",
-												}}
-											>
-												90
-											</Text>
-											<Text
-												style={{
-													textAlign:
-														"center",
-													fontWeight:
-														"bold",
-													color: "gray",
-												}}
-											>
-												Orders Completed
-											</Text>
-										</View>
-									</TouchableOpacity>
-
-									<TouchableOpacity
-										style={{
-											borderRadius: 7,
-											margin: 5,
-											alignItems: "center",
-											justifyContent: "center",
-											alignSelf: "center",
-											width: 160,
-											height: 70,
-											backgroundColor:
-												COLORS.white,
-										}}
-										onPress={() =>
-											navigation.navigate(
-												"Orders"
-											)
-										}
-									>
-										<View
-											style={{
-												alignItems:
-													"center",
-											}}
-										>
-											<Text
-												style={{
-													fontSize: 25,
-													fontWeight:
-														"900",
-													color: "green",
-												}}
-											>
-												Rs 4000
-											</Text>
-											<Text
-												style={{
-													textAlign:
-														"center",
-													fontWeight:
-														"bold",
-													color: "gray",
-												}}
-											>
-												TOTAL EARNINGS
-											</Text>
-										</View>
-									</TouchableOpacity>
-									<TouchableOpacity
-										style={{
-											borderRadius: 7,
-											margin: 5,
-											alignItems: "center",
-											justifyContent: "center",
-											alignSelf: "center",
-											width: 160,
-											height: 70,
-											backgroundColor:
-												COLORS.white,
-										}}
-										onPress={() => {
-											setratingModalVisible(
-												true
-											);
-										}}
-									>
-										<View
-											style={{
-												alignItems:
-													"center",
-											}}
-										>
-											<Text
-												style={{
-													fontSize: 25,
-													fontWeight:
-														"900",
-													color: "green",
-												}}
-											>
-												5 ⭐
-											</Text>
-											<Text
-												style={{
-													fontSize:
-														"13%",
-													textAlign:
-														"center",
-													fontWeight:
-														"bold",
-													color: "gray",
-												}}
-											>
-												AVERAGE RATING
-											</Text>
-										</View>
-									</TouchableOpacity>
-									<View
-										style={{
-											margin: 5,
-											borderRadius: 7,
-											alignItems: "center",
-											justifyContent: "center",
-											alignSelf: "center",
-											width: 160,
-											height: 70,
-											backgroundColor:
-												COLORS.white,
-										}}
-										onPress={() =>
-											navigation.navigate(
-												"Orders"
-											)
-										}
-									>
-										<View
-											onPress={() =>
-												navigation.navigate(
-													"Wallet"
-												)
-											}
-											style={{
-												alignItems:
-													"center",
-											}}
-										>
-											<Image
-												source={require("../../assets/images/wallet.png")}
-												style={{
-													width: 30,
-													height: 25,
-													alignSelf:
-														"center",
-													margin: 5,
-												}}
-											/>
-											<Text
-												style={{
-													fontSize: 16,
-													fontWeight:
-														"900",
-													color: "green",
-												}}
-											>
-												Rs 200
-											</Text>
-										</View>
-									</View>
-
-									<TouchableOpacity
-										style={styles.button3}
-										onPress={() =>
-											navigation.navigate(
-												"Contact"
-											)
-										}
-									>
 										<Text
 											style={{
 												fontWeight: "bold",
-												fontSize: 20,
-												textAlign: "center",
-												color: "black",
+												color: "gray",
 											}}
 										>
-											Contact Us
-										</Text>
-									</TouchableOpacity>
-									<TouchableOpacity
-										style={{
-											width: 200,
-											height: 50,
-											borderRadius: 10,
-											backgroundColor:
-												COLORS.primary,
-
-											alignSelf: "center",
-											justifyContent: "center",
-										}}
-										onPress={() =>
-											navigation.navigate(
-												"Home"
-											)
-										}
-									>
-										<Text
-											style={{
-												fontWeight: "bold",
-												fontSize: 21,
-												textAlign: "center",
-												color: "white",
-											}}
-										>
-											Customer Mode
+											Orders Completed:
 										</Text>
 										<Text
 											style={{
-												fontSize: 12,
-												textAlign: "center",
-												color: "white",
+												fontSize: 15,
+												fontWeight: "900",
+												color: "green",
+												margin: 3,
 											}}
 										>
-											Find & book a service
+											90
 										</Text>
-									</TouchableOpacity>
+									</View>
 								</View>
 								<View
 									style={{
-										marginTop: 30,
-										margin: 10,
-										borderRadius: 20,
-										backgroundColor: COLORS.white,
+										borderRadius: 7,
+										margin: 5,
 									}}
-								></View>
+								>
+									<View
+										style={{
+											alignItems: "center",
+											flexDirection: "row",
+										}}
+									>
+										<Text
+											style={{
+												fontWeight: "bold",
+												color: "gray",
+											}}
+										>
+											Total Earnings:
+										</Text>
+										<Text
+											style={{
+												fontSize: 15,
+												fontWeight: "900",
+												color: "green",
+												margin: 3,
+											}}
+										>
+											Rs 4000
+										</Text>
+									</View>
+								</View>
+								<View
+									style={{
+										borderRadius: 7,
+										margin: 5,
+									}}
+								>
+									<View
+										style={{
+											alignItems: "center",
+											flexDirection: "row",
+										}}
+									>
+										<Text
+											style={{
+												fontWeight: "bold",
+												color: "gray",
+											}}
+										>
+											Average Rating:
+										</Text>
+										<Text
+											style={{
+												fontSize: 15,
+												fontWeight: "900",
+												color: "green",
+												margin: 3,
+											}}
+										>
+											5 ⭐
+										</Text>
+									</View>
+								</View>
 							</View>
 						</Modal>
 
 						<Modal
-							animationType="slide"
+							animationType="fade"
 							transparent={true}
 							visible={navigationDrawer}
 							onRequestClose={() => {
@@ -1225,48 +1064,6 @@ const ServiceMan = ({ navigation }) => {
 											height: 50,
 											justifyContent: "center",
 										}}
-									>
-										<Text
-											style={{
-												textAlign: "center",
-												fontSize: 20,
-												fontWeight: "600",
-												color: COLORS.gray,
-											}}
-										>
-											Profile
-										</Text>
-									</TouchableOpacity>
-									<TouchableOpacity
-										style={{
-											backgroundColor:
-												COLORS.white,
-											width: "100%",
-											marginTop: 15,
-											height: 50,
-											justifyContent: "center",
-										}}
-									>
-										<Text
-											style={{
-												textAlign: "center",
-												fontSize: 20,
-												fontWeight: "600",
-												color: COLORS.gray,
-											}}
-										>
-											Wallet
-										</Text>
-									</TouchableOpacity>
-									<TouchableOpacity
-										style={{
-											backgroundColor:
-												COLORS.white,
-											width: "100%",
-											marginTop: 15,
-											height: 50,
-											justifyContent: "center",
-										}}
 										onPress={() => {
 											setnavigationDrawerVisible(
 												false
@@ -1276,17 +1073,82 @@ const ServiceMan = ({ navigation }) => {
 												);
 										}}
 									>
+										<Image
+											source={require("../../assets/images/user.png")}
+											style={{
+												width: 50,
+												height: 50,
+												alignSelf: "center",
+											}}
+										/>
 										<Text
 											style={{
 												textAlign: "center",
-												fontSize: 20,
 												fontWeight: "600",
-												color: COLORS.gray,
+												fontSize: 12,
 											}}
 										>
-											Statistics
+											+91 9041504403
 										</Text>
 									</TouchableOpacity>
+
+									<TouchableOpacity
+										style={{
+											margin: 5,
+											marginTop: 30,
+											borderRadius: 15,
+											alignItems: "center",
+											justifyContent: "center",
+											alignSelf: "center",
+											width: 160,
+											height: 70,
+											marginBottom: 100,
+											backgroundColor:
+												"#f2f2f2",
+										}}
+										onPress={() => {
+											navigation.navigate(
+												"Wallet"
+											),
+												setnavigationDrawerVisible(
+													false
+												);
+										}}
+									>
+										<View
+											onPress={() =>
+												navigation.navigate(
+													"Wallet"
+												)
+											}
+											style={{
+												alignItems:
+													"center",
+											}}
+										>
+											<Image
+												source={require("../../assets/images/wallet.png")}
+												style={{
+													width: 30,
+													height: 25,
+													alignSelf:
+														"center",
+													margin: 5,
+												}}
+											/>
+											<Text
+												style={{
+													fontSize: 16,
+													fontWeight:
+														"900",
+													color: COLORS.primary,
+												}}
+											>
+												Rs 200
+											</Text>
+										</View>
+									</TouchableOpacity>
+
 									<TouchableOpacity
 										style={{
 											backgroundColor:
@@ -1317,6 +1179,14 @@ const ServiceMan = ({ navigation }) => {
 											height: 50,
 											justifyContent: "center",
 										}}
+										onPress={() => {
+											setnavigationDrawerVisible(
+												false
+											),
+												navigation.navigate(
+													"Contact"
+												);
+										}}
 									>
 										<Text
 											style={{
@@ -1331,6 +1201,55 @@ const ServiceMan = ({ navigation }) => {
 									</TouchableOpacity>
 								</View>
 
+								<View
+									style={{
+										position: "absolute",
+										bottom: 30,
+										alignSelf: "center",
+										left: 5,
+									}}
+								>
+									<TouchableOpacity
+										style={{
+											width: 180,
+											height: 50,
+											borderRadius: 10,
+											backgroundColor:
+												COLORS.primary,
+
+											alignSelf: "center",
+											justifyContent: "center",
+										}}
+										onPress={() => {
+											navigation.navigate(
+												"Home"
+											),
+												setnavigationDrawerVisible(
+													false
+												);
+										}}
+									>
+										<Text
+											style={{
+												fontWeight: "bold",
+												fontSize: 17,
+												textAlign: "center",
+												color: "white",
+											}}
+										>
+											Customer Mode
+										</Text>
+										<Text
+											style={{
+												fontSize: 10,
+												textAlign: "center",
+												color: "white",
+											}}
+										>
+											Find & book a service
+										</Text>
+									</TouchableOpacity>
+								</View>
 								<View
 									style={{
 										marginTop: 30,
@@ -1441,6 +1360,11 @@ const ServiceMan = ({ navigation }) => {
 
 									<View
 										style={{
+											backgroundColor:
+												COLORS.white,
+											padding: 10,
+											alignItems: "center",
+											borderRadius: 10,
 											flexDirection: "row",
 											justifyContent:
 												"space-between",
@@ -1609,10 +1533,33 @@ const ServiceMan = ({ navigation }) => {
 										</View>
 									</View>
 								</View>
-
 								<View
 									style={{
-										marginTop: 30,
+										marginTop: 10,
+										flexDirection: "row",
+										margin: 10,
+									}}
+								>
+									<Text
+										style={{
+											fontSize: 15,
+											color: COLORS.gray,
+										}}
+									>
+										Booking ID:
+									</Text>
+									<Text
+										style={{
+											marginLeft: 10,
+											fontSize: 16,
+											fontWeight: "600",
+										}}
+									>
+										C12992ZC
+									</Text>
+								</View>
+								<View
+									style={{
 										flexDirection: "row",
 										margin: 10,
 									}}
@@ -1702,6 +1649,8 @@ const ServiceMan = ({ navigation }) => {
 									</Text>
 									<Text
 										style={{
+											backgroundColor:
+												"yellow",
 											marginLeft: 10,
 											fontSize: 15,
 											fontWeight: "600",
@@ -1859,8 +1808,9 @@ const ServiceMan = ({ navigation }) => {
 								>
 									<Text
 										style={{
-											fontSize: 20,
+											fontSize: 17,
 											color: COLORS.gray,
+											fontWeight: "600",
 										}}
 									>
 										Booking Started ?

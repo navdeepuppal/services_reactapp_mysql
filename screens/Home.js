@@ -156,6 +156,7 @@ function ServicesScreen() {
 							alignSelf: "center",
 						}}
 					/>
+
 					<Text
 						style={{
 							alignSelf: "center",
@@ -237,7 +238,18 @@ function ServicesScreen() {
 									alignSelf: "center",
 									width: 60,
 									height: 21,
-									marginRight: 17,
+									marginRight: 7,
+								}}
+							/>
+							<Image
+								source={require("../assets/sqera.png")}
+								resizeMode="cover"
+								style={{
+									alignContent: "center",
+									alignSelf: "center",
+									width: 60,
+									height: 21,
+									marginRight: 4,
 								}}
 							/>
 						</View>
