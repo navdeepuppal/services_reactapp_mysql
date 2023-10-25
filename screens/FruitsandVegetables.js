@@ -6,11 +6,11 @@ import {
 	ScrollView,
 	TextInput,
 	TouchableOpacity,
-	SafeAreaView,
 	KeyboardAvoidingView,
 	Linking,
 	Alert,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import React, { useState } from "react";
 
 import { COLORS, config, SIZES, assets } from "../constants";

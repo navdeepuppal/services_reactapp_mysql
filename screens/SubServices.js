@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import {
 	View,
 	Text,
-	SafeAreaView,
 	Image,
 	ActivityIndicator,
 	StatusBar,
 	FlatList,
 } from "react-native";
-
+import { SafeAreaView } from "react-native-safe-area-context";
 import { COLORS, SIZES, assets, SHADOWS, FONTS, config } from "../constants";
 import {
 	NFTCard2,

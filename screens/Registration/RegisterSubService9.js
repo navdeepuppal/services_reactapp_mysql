@@ -6,13 +6,12 @@ import {
 	ScrollView,
 	TouchableOpacity,
 	Image,
-	SafeAreaView,
 	TextInput,
 	KeyboardAvoidingView,
 	TouchableWithoutFeedback,
 	FlatList,
 } from "react-native";
-
+import { SafeAreaView } from "react-native-safe-area-context";
 import { RadioButton } from "react-native-paper";
 
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";

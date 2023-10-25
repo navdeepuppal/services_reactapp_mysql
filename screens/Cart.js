@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { SafeAreaView, StyleSheet, View, Text, Image, TouchableOpacity, FlatList } from "react-native";
+import {
+	StyleSheet,
+	View,
+	Text,
+	Image,
+	TouchableOpacity,
+	FlatList,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { COLORS, SIZES, SHADOWS, assets, FONTS, config } from "../constants";
 import { NFTTitle } from "../components/SubInfo";

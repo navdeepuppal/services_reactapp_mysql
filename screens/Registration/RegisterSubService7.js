@@ -1,5 +1,16 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text, ScrollView, Image, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, TouchableWithoutFeedback, TextInput } from "react-native";
+import {
+	View,
+	StyleSheet,
+	Text,
+	ScrollView,
+	Image,
+	TouchableOpacity,
+	KeyboardAvoidingView,
+	TouchableWithoutFeedback,
+	TextInput,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
 

@@ -1,15 +1,15 @@
 import React from 'react';
 import {
-  SafeAreaView,
-  Image,
-  StyleSheet,
-  FlatList,
-  View,
-  Text,
-  StatusBar,
-  TouchableOpacity,
-  Dimensions
-} from 'react-native';
+	Image,
+	StyleSheet,
+	FlatList,
+	View,
+	Text,
+	StatusBar,
+	TouchableOpacity,
+	Dimensions,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { useNavigation } from "@react-navigation/native";
 

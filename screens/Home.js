@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { View, SafeAreaView, FlatList, Text, Image, StyleSheet, Modal, TouchableOpacity } from "react-native";
+import {
+	View,
+	FlatList,
+	Text,
+	Image,
+	StyleSheet,
+	Modal,
+	TouchableOpacity,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import * as Location from "expo-location";
 import { NFTCard1, HomeHeader, NFTCard9, SubServicesModal } from "../components";

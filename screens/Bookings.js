@@ -1,11 +1,23 @@
-import { StyleSheet, Text, Image, View, ScrollView, TextInput, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Linking, Alert, FlatList } from "react-native";
+import {
+	StyleSheet,
+	Text,
+	Image,
+	View,
+	ScrollView,
+	TextInput,
+	TouchableOpacity,
+	KeyboardAvoidingView,
+	Linking,
+	Alert,
+	FlatList,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import React, { useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { COLORS, config, SIZES, assets } from "../constants";
 
 const Bookings = ({ navigation }) => {
-
 	const [isLoading, setLoading] = useState(true);
 	const [data2, setData] = useState([]);
 
@@ -168,7 +180,8 @@ function BookingCard({ data }) {
 					borderRadius: 10,
 					padding: 10,
 					elevation: 20,
-				}}>
+				}}
+			>
 				<Text
 					style={{
 						fontSize: 14,
@@ -176,7 +189,8 @@ function BookingCard({ data }) {
 
 						fontWeight: "400",
 						color: "gray",
-					}}>
+					}}
+				>
 					{" "}
 					ID : #{data.B_ID}
 				</Text>
@@ -184,19 +198,22 @@ function BookingCard({ data }) {
 					style={{
 						flexDirection: "row",
 						justifyContent: "space-between",
-					}}>
+					}}
+				>
 					<Text
 						style={{
 							fontSize: 16,
 							fontWeight: "600",
-						}}>
+						}}
+					>
 						{" " + data.SubS_Name}
 					</Text>
 					<Text
 						style={{
 							fontSize: 16,
 							fontWeight: "500",
-						}}>
+						}}
+					>
 						{"Rs. " + data.B_Price}
 					</Text>
 				</View>
@@ -205,13 +222,24 @@ function BookingCard({ data }) {
 						marginTop: "2%",
 						flexDirection: "row",
 						justifyContent: "space-between",
-					}}>
+					}}
+				>
 					<Text
 						style={{
 							fontSize: 14,
 							fontWeight: "400",
-						}}>
-						{" Details: " + data.C_Name + " | " + data.B_Address.AddressHouse + ", " + data.B_Address.AddressArea + ", " + data.B_Address.AddressCity + ", " + data.B_Address.Pincode}
+						}}
+					>
+						{" Details: " +
+							data.C_Name +
+							" | " +
+							data.B_Address.AddressHouse +
+							", " +
+							data.B_Address.AddressArea +
+							", " +
+							data.B_Address.AddressCity +
+							", " +
+							data.B_Address.Pincode}
 					</Text>
 				</View>
 				<View
@@ -219,20 +247,34 @@ function BookingCard({ data }) {
 						marginTop: "3%",
 						flexDirection: "row",
 						justifyContent: "space-between",
-					}}>
+					}}
+				>
 					<Text
 						style={{
 							fontSize: 14,
 							color: COLORS.gray,
-						}}>
-						{" " + date + "/" + month + "/" + year + " | " + hour + ":" + minute + " " + day_half}
+						}}
+					>
+						{" " +
+							date +
+							"/" +
+							month +
+							"/" +
+							year +
+							" | " +
+							hour +
+							":" +
+							minute +
+							" " +
+							day_half}
 					</Text>
 					<Text
 						style={{
 							fontSize: 16,
 							fontWeight: "500",
 							color: data.B_Status !== 2 ? "red" : "green",
-						}}>
+						}}
+					>
 						{data.B_Status !== 2 ? "Pending" : "Completed"}
 					</Text>
 				</View>

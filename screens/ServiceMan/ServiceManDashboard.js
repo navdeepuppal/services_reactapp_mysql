@@ -1,6 +1,15 @@
 import { useNavigation } from "@react-navigation/native";
 // import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { SafeAreaView, Image, StyleSheet, Modal, View, Text, ScrollView, TouchableOpacity } from "react-native";
+import {
+	Image,
+	StyleSheet,
+	Modal,
+	View,
+	Text,
+	ScrollView,
+	TouchableOpacity,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import React, { useState, useEffect } from "react";
 import { COLORS, assets, SIZES, SHADOWS } from "../../constants";

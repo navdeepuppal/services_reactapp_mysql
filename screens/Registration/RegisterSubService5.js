@@ -1,6 +1,16 @@
 import { width } from "deprecated-react-native-prop-types/DeprecatedImagePropType";
 import React, { useState, useEffect } from "react";
-import { View, SafeAreaView, ActivityIndicator, FlatList, Text, StyleSheet, Image, Pressable, TouchableOpacity } from "react-native";
+import {
+	View,
+	ActivityIndicator,
+	FlatList,
+	Text,
+	StyleSheet,
+	Image,
+	Pressable,
+	TouchableOpacity,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { NFTCard4, HomeHeader, FocusedStatusBar, ExitHeader } from "../../components";
 

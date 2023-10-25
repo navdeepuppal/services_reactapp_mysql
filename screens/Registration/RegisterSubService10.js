@@ -6,12 +6,11 @@ import {
 	ScrollView,
 	TouchableOpacity,
 	Image,
-	SafeAreaView,
 	KeyboardAvoidingView,
 	Button,
 	TextInput,
 } from "react-native";
-
+import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
 

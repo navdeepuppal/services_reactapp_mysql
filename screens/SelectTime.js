@@ -1,4 +1,12 @@
-import { StyleSheet, TouchableOpacity, Text, SafeAreaView, TextInput, View, TouchableWithoutFeedback } from "react-native";
+import {
+	StyleSheet,
+	TouchableOpacity,
+	Text,
+	TextInput,
+	View,
+	TouchableWithoutFeedback,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { RadioButton } from "react-native-paper";
 
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
@@ -22,7 +30,8 @@ const SelectTime = ({ navigation, route }) => {
 					marginLeft: 15,
 					fontSize: 27,
 					marginBottom: "10%",
-				}}>
+				}}
+			>
 				for your Booking{" "}
 			</Text>
 
@@ -33,12 +42,14 @@ const SelectTime = ({ navigation, route }) => {
 					padding: 2,
 					borderRightColor: "gray",
 					flexDirection: "row",
-				}}>
+				}}
+			>
 				<ScrollView
 					horizontal
 					style={{
 						flexDirection: "row",
-					}}>
+					}}
+				>
 					<TouchableOpacity style={{ marginBottom: 40 }}>
 						<View
 							style={{
@@ -49,14 +60,16 @@ const SelectTime = ({ navigation, route }) => {
 								width: 90,
 
 								justifyContent: "center",
-							}}>
+							}}
+						>
 							<Text
 								style={{
 									fontSize: 18,
 									alignSelf: "center",
 									fontWeight: "400",
 									color: COLORS.primary,
-								}}>
+								}}
+							>
 								Today
 							</Text>
 						</View>
@@ -71,14 +84,16 @@ const SelectTime = ({ navigation, route }) => {
 								width: 90,
 
 								justifyContent: "center",
-							}}>
+							}}
+						>
 							<Text
 								style={{
 									fontSize: 18,
 									alignSelf: "center",
 									fontWeight: "400",
 									color: COLORS.primary,
-								}}>
+								}}
+							>
 								Tomorrow
 							</Text>
 						</View>
@@ -91,8 +106,11 @@ const SelectTime = ({ navigation, route }) => {
 					width: "100%",
 					alignItems: "center",
 					alignSelf: "center",
-				}}>
-				<TouchableWithoutFeedback onPress={() => settimeSlot("Morning")}>
+				}}
+			>
+				<TouchableWithoutFeedback
+					onPress={() => settimeSlot("Morning")}
+				>
 					<View
 						style={{
 							flexDirection: "row",
@@ -104,19 +122,31 @@ const SelectTime = ({ navigation, route }) => {
 							margin: 10,
 							width: 330,
 							height: 70,
-						}}>
-						<RadioButton value="Morning" status={timeSlot === "Morning" ? "checked" : "unchecked"} onPress={() => settimeSlot("Morning")} />
+						}}
+					>
+						<RadioButton
+							value="Morning"
+							status={
+								timeSlot === "Morning"
+									? "checked"
+									: "unchecked"
+							}
+							onPress={() => settimeSlot("Morning")}
+						/>
 						<Text
 							style={{
 								fontSize: 20,
 								fontWeight: "600",
 								alignSelf: "center",
-							}}>
+							}}
+						>
 							Morning Slot: After 7 AM{" "}
 						</Text>
 					</View>
 				</TouchableWithoutFeedback>
-				<TouchableWithoutFeedback onPress={() => settimeSlot("Evening")}>
+				<TouchableWithoutFeedback
+					onPress={() => settimeSlot("Evening")}
+				>
 					<View
 						style={{
 							flexDirection: "row",
@@ -127,26 +157,39 @@ const SelectTime = ({ navigation, route }) => {
 							margin: 10,
 							width: 330,
 							height: 70,
-						}}>
-						<RadioButton value="Evening" status={timeSlot === "Evening" ? "checked" : "unchecked"} onPress={() => settimeSlot("Evening")} />
+						}}
+					>
+						<RadioButton
+							value="Evening"
+							status={
+								timeSlot === "Evening"
+									? "checked"
+									: "unchecked"
+							}
+							onPress={() => settimeSlot("Evening")}
+						/>
 						<Text
 							style={{
 								fontSize: 20,
 								fontWeight: "600",
 								alignSelf: "center",
-							}}>
+							}}
+						>
 							Evening Slot: After 2 PM
 						</Text>
 					</View>
 				</TouchableWithoutFeedback>
 			</View>
-			<Text style={styles.extraText}>Service Man will contact you before visiting your place.</Text>
+			<Text style={styles.extraText}>
+				Service Man will contact you before visiting your place.
+			</Text>
 			<TouchableOpacity
 				style={styles.verifyButton}
 				onPress={() => {
 					AsyncStorage.setItem("timeSlot", timeSlot);
 					navigation.navigate("PaymentApi", { cartData });
-				}}>
+				}}
+			>
 				<Text style={styles.buttontext}>PROCEED</Text>
 			</TouchableOpacity>
 		</SafeAreaView>

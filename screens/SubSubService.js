@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { View, SafeAreaView, TouchableOpacity, FlatList, Text } from "react-native";
+import { View, TouchableOpacity, FlatList, Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { NFTCard6, FocusedStatusBar, SubSubServicesHeader } from "../components";
 import { COLORS, config, SIZES } from "../constants";

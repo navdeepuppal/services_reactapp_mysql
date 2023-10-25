@@ -1,5 +1,15 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text, ScrollView, Image, Modal, TouchableOpacity, SafeAreaView, Alert } from "react-native";
+import {
+	View,
+	StyleSheet,
+	Text,
+	ScrollView,
+	Image,
+	Modal,
+	TouchableOpacity,
+	Alert,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";

@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { View, SafeAreaView, ActivityIndicator, FlatList, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import {
+	View,
+	ActivityIndicator,
+	FlatList,
+	Text,
+	Image,
+	StyleSheet,
+	TouchableOpacity,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { NFTCard5, FocusedStatusBar, ExitHeader } from "../../components";
 import { COLORS, SIZES, config } from "../../constants";

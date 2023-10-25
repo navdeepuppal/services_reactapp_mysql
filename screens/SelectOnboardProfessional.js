@@ -1,5 +1,13 @@
 import React from "react";
-import { View, StyleSheet, Text, ScrollView, Image, TouchableOpacity, SafeAreaView } from "react-native";
+import {
+	View,
+	StyleSheet,
+	Text,
+	ScrollView,
+	Image,
+	TouchableOpacity,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
 import { BackButton } from "../components";

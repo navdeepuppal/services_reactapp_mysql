@@ -1,4 +1,15 @@
-import { StyleSheet, TouchableOpacity, Text, View, Modal, Image, Alert, SafeAreaView, TextInput, KeyboardAvoidingView } from "react-native";
+import {
+	StyleSheet,
+	TouchableOpacity,
+	Text,
+	View,
+	Modal,
+	Image,
+	Alert,
+	TextInput,
+	KeyboardAvoidingView,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
 import React, { useState } from "react";
@@ -41,7 +52,10 @@ const SelectAddress = ({ navigation, route }) => {
 		<SafeAreaView style={{ backgroundColor: COLORS.white, flex: 1 }}>
 			<ScrollView>
 				<BackButton />
-				<KeyboardAvoidingView behavior="padding" style={styles.container}>
+				<KeyboardAvoidingView
+					behavior="padding"
+					style={styles.container}
+				>
 					<View style={{ alignItems: "center", margin: 10 }}>
 						{modalVisible ? (
 							<View style={{ height: "100%" }} />
@@ -53,7 +67,8 @@ const SelectAddress = ({ navigation, route }) => {
 										fontWeight: "600",
 										marginTop: 70,
 										color: "gray",
-									}}>
+									}}
+								>
 									CONFIRM ADDRESS
 								</Text>
 								<Text
@@ -61,8 +76,10 @@ const SelectAddress = ({ navigation, route }) => {
 										fontSize: 15,
 										marginTop: 10,
 										color: "gray",
-									}}>
-									Service Man will visit this address for your booking
+									}}
+								>
+									Service Man will visit this address
+									for your booking
 								</Text>
 
 								<Text
@@ -71,7 +88,8 @@ const SelectAddress = ({ navigation, route }) => {
 										margin: 10,
 										marginTop: 60,
 										color: "gray",
-									}}>
+									}}
+								>
 									Saved Address:
 								</Text>
 
@@ -80,8 +98,11 @@ const SelectAddress = ({ navigation, route }) => {
 										fontSize: 22,
 										margin: 14,
 										fontWeight: "bold",
-									}}>
-									{AddressHouse}, {AddressArea}, Near {AddressLandmark}, {AddressCity}. Pincode: {Pincode}
+									}}
+								>
+									{AddressHouse}, {AddressArea}, Near{" "}
+									{AddressLandmark}, {AddressCity}.
+									Pincode: {Pincode}
 								</Text>
 							</View>
 						)}
@@ -90,13 +111,17 @@ const SelectAddress = ({ navigation, route }) => {
 						style={{
 							flexDirection: "row",
 							alignSelf: "center",
-						}}>
+						}}
+					>
 						<TouchableOpacity
 							style={styles.editAddressButton}
 							onPress={() => {
 								setModalVisible(true);
-							}}>
-							<Text style={styles.buttontext}>Change Address</Text>
+							}}
+						>
+							<Text style={styles.buttontext}>
+								Change Address
+							</Text>
 						</TouchableOpacity>
 						{isAddressNull ? null : (
 							<TouchableOpacity
@@ -109,8 +134,11 @@ const SelectAddress = ({ navigation, route }) => {
 									setAddressCity("");
 									setPincode("");
 									setAddressNull(true);
-								}}>
-								<Text style={styles.buttontext}>Delete</Text>
+								}}
+							>
+								<Text style={styles.buttontext}>
+									Delete
+								</Text>
 							</TouchableOpacity>
 						)}
 					</View>
@@ -120,8 +148,11 @@ const SelectAddress = ({ navigation, route }) => {
 							navigation.navigate("SelectTime", {
 								cartData,
 							});
-						}}>
-						<Text style={styles.confirmbuttontext}>Confirm</Text>
+						}}
+					>
+						<Text style={styles.confirmbuttontext}>
+							Confirm
+						</Text>
 					</TouchableOpacity>
 					<View style={styles.centeredView}>
 						<Modal
@@ -130,50 +161,136 @@ const SelectAddress = ({ navigation, route }) => {
 							visible={modalVisible}
 							onRequestClose={() => {
 								setModalVisible(!modalVisible);
-							}}>
+							}}
+						>
 							<ScrollView>
 								<View style={styles.centeredView}>
 									<View style={styles.modalView}>
 										<View
 											style={{
 												marginTop: "15%",
-											}}></View>
+											}}
+										></View>
 										<BackButton />
 
-										<Text style={styles.inputText}>FILL ADDRESS</Text>
+										<Text
+											style={styles.inputText}
+										>
+											FILL ADDRESS
+										</Text>
 										<Text
 											style={{
 												fontSize: 12,
 												marginLeft: 13,
-											}}>
-											Enter the address of your current location
+											}}
+										>
+											Enter the address of your
+											current location
 										</Text>
-										<TextInput style={styles.input} onChangeText={setAddressHouse} value={AddressHouse} placeholder="HOUSE / FLAT / FLOOR NO. " placeholderTextColor="#a0a0a0" numberOfLines={4} />
-										<TextInput style={styles.input} onChangeText={setAddressArea} value={AddressArea} placeholder="AREA / ROAD / STREET " placeholderTextColor="#a0a0a0" numberOfLines={4} />
-										<TextInput style={styles.input} onChangeText={setAddressLandmark} value={AddressLandmark} placeholder="LANDMARK" placeholderTextColor="#a0a0a0" numberOfLines={4} />
-										<TextInput style={styles.input} onChangeText={setAddressCity} value={AddressCity} placeholder="CITY" placeholderTextColor="#a0a0a0" numberOfLines={4} />
-										<Text style={styles.pincodeText}>Pincode</Text>
+										<TextInput
+											style={styles.input}
+											onChangeText={
+												setAddressHouse
+											}
+											value={AddressHouse}
+											placeholder="HOUSE / FLAT / FLOOR NO. "
+											placeholderTextColor="#a0a0a0"
+											numberOfLines={4}
+										/>
+										<TextInput
+											style={styles.input}
+											onChangeText={
+												setAddressArea
+											}
+											value={AddressArea}
+											placeholder="AREA / ROAD / STREET "
+											placeholderTextColor="#a0a0a0"
+											numberOfLines={4}
+										/>
+										<TextInput
+											style={styles.input}
+											onChangeText={
+												setAddressLandmark
+											}
+											value={AddressLandmark}
+											placeholder="LANDMARK"
+											placeholderTextColor="#a0a0a0"
+											numberOfLines={4}
+										/>
+										<TextInput
+											style={styles.input}
+											onChangeText={
+												setAddressCity
+											}
+											value={AddressCity}
+											placeholder="CITY"
+											placeholderTextColor="#a0a0a0"
+											numberOfLines={4}
+										/>
+										<Text
+											style={
+												styles.pincodeText
+											}
+										>
+											Pincode
+										</Text>
 
-										<TextInput style={styles.pincodeinput} onChangeText={setPincode} value={Pincode} placeholder="" keyboardType="phone-pad" placeholderTextColor="#a0a0a0" maxLength={6} letterSpacing={2} />
+										<TextInput
+											style={
+												styles.pincodeinput
+											}
+											onChangeText={setPincode}
+											value={Pincode}
+											placeholder=""
+											keyboardType="phone-pad"
+											placeholderTextColor="#a0a0a0"
+											maxLength={6}
+											letterSpacing={2}
+										/>
 
 										<TouchableOpacity
-											style={styles.verifyButton}
+											style={
+												styles.verifyButton
+											}
 											onPress={() => {
-												const add = JSON.stringify({
-													AddressHouse,
-													AddressArea,
-													AddressLandmark,
-													AddressCity,
-													Pincode,
-												});
-												if (add.search('""') == -1 && Pincode >= 99999) {
-													AsyncStorage.setItem("Address", add);
-													setModalVisible(false);
+												const add =
+													JSON.stringify(
+														{
+															AddressHouse,
+															AddressArea,
+															AddressLandmark,
+															AddressCity,
+															Pincode,
+														}
+													);
+												if (
+													add.search(
+														'""'
+													) == -1 &&
+													Pincode >=
+														99999
+												) {
+													AsyncStorage.setItem(
+														"Address",
+														add
+													);
+													setModalVisible(
+														false
+													);
 												} else {
-													Alert.alert("Look's address not correct. Please check your address");
+													Alert.alert(
+														"Look's address not correct. Please check your address"
+													);
 												}
-											}}>
-											<Text style={styles.buttontext}>Save Address</Text>
+											}}
+										>
+											<Text
+												style={
+													styles.buttontext
+												}
+											>
+												Save Address
+											</Text>
 										</TouchableOpacity>
 									</View>
 								</View>

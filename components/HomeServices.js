@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { SafeAreaView, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import * as Location from "expo-location";
 import { HomeHeader } from "../components";
 import { config } from "../constants";
-
+import { SafeAreaView } from "react-native-safe-area-context";
 let apiKey = "YOUR_API_KEY";
 
 const HomeServices = ({}) => {
