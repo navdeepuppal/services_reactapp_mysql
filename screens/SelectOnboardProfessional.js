@@ -9,15 +9,11 @@ import {
   SafeAreaView
 } from "react-native";
 
-import { Colors } from "react-native/Libraries/NewAppScreen";
-
-import { useNavigation } from "@react-navigation/native";
 
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
 import BackButton from "../components/BackButton";
 
-const SelectOnboardProfessional = (props) => {
-	const navigation = useNavigation();
+const SelectOnboardProfessional = ({ navigation }) => {
 	return (
 		<SafeAreaView style={styles.container}>
 			<BackButton></BackButton>

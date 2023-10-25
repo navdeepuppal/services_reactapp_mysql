@@ -112,7 +112,6 @@ function HomeScreen() {
 							</Text>
 							<Text
 								style={{
-									fontSize: "13%",
 									textAlign: "center",
 									fontWeight: "bold",
 									color: "gray",
@@ -152,7 +151,6 @@ function HomeScreen() {
 							</Text>
 							<Text
 								style={{
-									fontSize: "13%",
 									textAlign: "center",
 									fontWeight: "bold",
 									color: "gray",
@@ -192,7 +190,6 @@ function HomeScreen() {
 							</Text>
 							<Text
 								style={{
-									fontSize: "13%",
 									textAlign: "center",
 									fontWeight: "bold",
 									color: "gray",
@@ -231,7 +228,6 @@ function HomeScreen() {
 							</Text>
 							<Text
 								style={{
-									fontSize: "13%",
 									textAlign: "center",
 									fontWeight: "bold",
 									color: "gray",
@@ -270,7 +266,6 @@ function HomeScreen() {
 							</Text>
 							<Text
 								style={{
-									fontSize: "13%",
 									textAlign: "center",
 									fontWeight: "bold",
 									color: "gray",
