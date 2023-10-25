@@ -1,17 +1,9 @@
 import React from "react";
-import {
-	View,
-	StyleSheet,
-	Text,
-	ScrollView,
-	Image,
-	SafeAreaView,
-	TouchableOpacity,
-} from "react-native";
+import { View, StyleSheet, Text, ScrollView, Image, SafeAreaView, TouchableOpacity } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
-import ExitHeader from "../../components/ExitHeader";
+import { ExitHeader } from "../../components";
 
 const RegisterSubService3 = () => {
 	const navigation = useNavigation();
@@ -21,46 +13,20 @@ const RegisterSubService3 = () => {
 			<ExitHeader />
 			<ScrollView style={{ backgroundColor: "white" }}>
 				<View style={styles.container}>
-					<Image
-						source={require("../../assets/signup.png")}
-						resizeMode="center"
-						style={styles.image}
-					/>
-					<Text style={styles.textTitle}>
-						What makes a successful Sqera profile?
-					</Text>
+					<Image source={require("../../assets/signup.png")} resizeMode="center" style={styles.image} />
+					<Text style={styles.textTitle}>What makes a successful Sqera profile?</Text>
 
-					<Text style={styles.textBody}>
-						Your first impression matters! Create a profile
-						that will stand out from the crowd on Sqera.
-					</Text>
+					<Text style={styles.textBody}>Your first impression matters! Create a profile that will stand out from the crowd on Sqera.</Text>
 
-					<Text style={styles.textBody}>
-						Take your time in creating your profile so it’s
-						exactly as you want it to be.
-					</Text>
+					<Text style={styles.textBody}>Take your time in creating your profile so it’s exactly as you want it to be.</Text>
 
-					<Text style={styles.textBody}>
-						Accurately describe your professional skills to
-						help you get more work.
-					</Text>
+					<Text style={styles.textBody}>Accurately describe your professional skills to help you get more work.</Text>
 
-					<Text style={styles.textBody}>
-						Put a face to your name! Upload a profile picture
-						that clearly shows your face.
-					</Text>
+					<Text style={styles.textBody}>Put a face to your name! Upload a profile picture that clearly shows your face.</Text>
 
-					<Text style={styles.textBody}>
-						To keep our community secure for everyone, we may
-						ask you to verify your ID.
-					</Text>
+					<Text style={styles.textBody}>To keep our community secure for everyone, we may ask you to verify your ID.</Text>
 
-					<TouchableOpacity
-						style={styles.button}
-						onPress={() =>
-							navigation.navigate("RegisterSubService4")
-						}
-					>
+					<TouchableOpacity style={styles.button} onPress={() => navigation.navigate("RegisterSubService4")}>
 						<Text style={styles.buttontext}>Continue</Text>
 					</TouchableOpacity>
 				</View>

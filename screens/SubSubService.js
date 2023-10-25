@@ -1,20 +1,9 @@
 import React, { useState, useEffect } from "react";
-import {
-	View,
-	SafeAreaView,
-	ActivityIndicator,
-	TouchableOpacity,
-	FlatList,
-	Text,
-	Image,
-} from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { View, SafeAreaView, TouchableOpacity, FlatList, Text } from "react-native";
 
-import { NFTCard6, HomeHeader, FocusedStatusBar } from "../components";
+import { NFTCard6, FocusedStatusBar, SubSubServicesHeader } from "../components";
 import { COLORS, config, SIZES } from "../constants";
-import SubSubServicesHeader from "../components/SubSubServicesHeader";
 import { Colors, Snackbar } from "react-native-paper";
-import { ScrollView } from "react-native-gesture-handler";
 
 const SubSubService = ({ route, navigation }) => {
 	const [isLoading, setLoading] = useState(true);
@@ -33,15 +22,7 @@ const SubSubService = ({ route, navigation }) => {
 			setData(data2_backup);
 		}
 
-		const filteredData = data2_backup.filter(
-			(item) =>
-				item.SubSubS_Name.toLowerCase().includes(
-					value.toLowerCase()
-				) ||
-				item.SubSubS_Description.toLowerCase().includes(
-					value.toLowerCase()
-				)
-		);
+		const filteredData = data2_backup.filter((item) => item.SubSubS_Name.toLowerCase().includes(value.toLowerCase()) || item.SubSubS_Description.toLowerCase().includes(value.toLowerCase()));
 
 		/* if (filteredData.length === 0) {
 			setData(data2_backup);
@@ -60,12 +41,7 @@ const SubSubService = ({ route, navigation }) => {
 		[prevData.S_ID] +
 		";"; */
 
-	const querystring =
-		"SELECT subsubservice.*, " +
-		prevData.S_ID +
-		" as S_ID, 0 as itemCount FROM subsubservice where subsubservice.SubS_ID = " +
-		[prevData.SubS_ID] +
-		";";
+	const querystring = "SELECT subsubservice.*, " + prevData.S_ID + " as S_ID, 0 as itemCount FROM subsubservice where subsubservice.SubS_ID = " + [prevData.SubS_ID] + ";";
 
 	useEffect(() => {
 		fetch(config.domain + "/get/" + querystring, {
@@ -91,27 +67,14 @@ const SubSubService = ({ route, navigation }) => {
 				<FlatList
 					nestedScrollEnabled
 					data={data2}
-					renderItem={({ item, index }) => (
-						<NFTCard6
-							data={item}
-							data2={data2_backup}
-							setData={setDataBackup}
-							index={index}
-						/>
-					)}
+					renderItem={({ item, index }) => <NFTCard6 data={item} data2={data2_backup} setData={setDataBackup} index={index} />}
 					keyExtractor={(item, index) => index.toString()}
 					numColumns={1}
 					showsVerticalScrollIndicator={false}
-					ListHeaderComponent={
-						<SubSubServicesHeader
-							onSearch={handleSearch}
-							SubS_Name={prevData.SubS_Name}
-						/>
-					}
+					ListHeaderComponent={<SubSubServicesHeader onSearch={handleSearch} SubS_Name={prevData.SubS_Name} />}
 				/>
 				<Snackbar visible={visible} onDismiss={onDismissSnackBar}>
-					The prices for each service here are calculated based
-					on the average ask/demand price in your local area.
+					The prices for each service here are calculated based on the average ask/demand price in your local area.
 				</Snackbar>
 			</View>
 			{totalPrice ? (
@@ -123,15 +86,13 @@ const SubSubService = ({ route, navigation }) => {
 						backgroundColor: "white",
 						alignContent: "center",
 						alignItems: "center",
-					}}
-				>
+					}}>
 					<Text
 						style={{
 							marginLeft: 25,
 							color: COLORS.primary,
 							fontSize: 22,
-						}}
-					>
+						}}>
 						₹ {totalPrice}
 					</Text>
 					<TouchableOpacity
@@ -148,16 +109,14 @@ const SubSubService = ({ route, navigation }) => {
 							navigation.navigate("Cart", {
 								data2_backup,
 							})
-						}
-					>
+						}>
 						<Text
 							style={{
 								color: COLORS.white,
 								fontSize: 22,
 								fontWeight: "600",
 								alignSelf: "center",
-							}}
-						>
+							}}>
 							View Cart
 						</Text>
 					</TouchableOpacity>

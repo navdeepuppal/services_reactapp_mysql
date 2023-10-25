@@ -1,23 +1,12 @@
 import React, { useState } from "react";
-import {
-	View,
-	StyleSheet,
-	Text,
-	ScrollView,
-	Image,
-	TouchableOpacity,
-	SafeAreaView,
-	KeyboardAvoidingView,
-	TouchableWithoutFeedback,
-	TextInput,
-} from "react-native";
+import { View, StyleSheet, Text, ScrollView, Image, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, TouchableWithoutFeedback, TextInput } from "react-native";
 
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
 
 import { RadioButton } from "react-native-paper";
 
 import { useNavigation } from "@react-navigation/native";
-import ExitHeader from "../../components/ExitHeader";
+import { ExitHeader } from "../../components";
 
 const RegisterSubService7 = ({ route }) => {
 	const navigation = useNavigation();
@@ -39,11 +28,7 @@ const RegisterSubService7 = ({ route }) => {
 		var validationtemp = null;
 		if (Name == null || Name.toString().length < 5) {
 			validationtemp = "Name";
-		} else if (
-			Email == null ||
-			Email.toString().length <= 8 ||
-			!Email.toString().includes("@")
-		) {
+		} else if (Email == null || Email.toString().length <= 8 || !Email.toString().includes("@")) {
 			validationtemp = "Email";
 		} else if (Age == null || Age < 18) {
 			validationtemp = "Age";
@@ -65,77 +50,27 @@ const RegisterSubService7 = ({ route }) => {
 	return (
 		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
 			<ExitHeader></ExitHeader>
-			<KeyboardAvoidingView
-				behavior={Platform.OS === "ios" ? "padding" : "height"}
-			>
+			<KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}>
 				<ScrollView style={{ backgroundColor: "white" }}>
 					<View style={styles.container}>
-						<Image
-							source={require("../../assets/signup.png")}
-							resizeMode="center"
-							style={styles.image}
-						/>
-						<Text style={styles.textTitle}>
-							Register as a Professional
-						</Text>
+						<Image source={require("../../assets/signup.png")} resizeMode="center" style={styles.image} />
+						<Text style={styles.textTitle}>Register as a Professional</Text>
 
-						<Text style={styles.textBody}>
-							Share your details and we'll reach out with
-							next steps.
-						</Text>
+						<Text style={styles.textBody}>Share your details and we'll reach out with next steps.</Text>
 
-						<TextInput
-							style={styles.input}
-							onChangeText={onChangeName}
-							value={Name}
-							placeholder="Full Name (Ex. John Doe)"
-							placeholderTextColor="#a0a0a0"
-						/>
+						<TextInput style={styles.input} onChangeText={onChangeName} value={Name} placeholder="Full Name (Ex. John Doe)" placeholderTextColor="#a0a0a0" />
 
-						<TextInput
-							style={styles.input}
-							onChangeText={onChangeEmail}
-							value={Email}
-							placeholder="Email"
-							placeholderTextColor="#a0a0a0"
-						/>
-						<TextInput
-							style={styles.input}
-							onChangeText={onChangeAge}
-							value={Age}
-							placeholder="Age"
-							keyboardType="phone-pad"
-							placeholderTextColor="#a0a0a0"
-						/>
-						<TextInput
-							style={styles.input}
-							onChangeText={onChangeCity}
-							value={City}
-							placeholder="City"
-							placeholderTextColor="#a0a0a0"
-						/>
-						<TextInput
-							style={styles.input}
-							onChangeText={onChangeFullAddress}
-							value={FullAddress}
-							placeholder="Full Address"
-							placeholderTextColor="#a0a0a0"
-						/>
-						<TextInput
-							style={styles.input}
-							onChangeText={onChangePincode}
-							value={Pincode}
-							placeholder="Pincode"
-							keyboardType="phone-pad"
-							placeholderTextColor="#a0a0a0"
-						/>
+						<TextInput style={styles.input} onChangeText={onChangeEmail} value={Email} placeholder="Email" placeholderTextColor="#a0a0a0" />
+						<TextInput style={styles.input} onChangeText={onChangeAge} value={Age} placeholder="Age" keyboardType="phone-pad" placeholderTextColor="#a0a0a0" />
+						<TextInput style={styles.input} onChangeText={onChangeCity} value={City} placeholder="City" placeholderTextColor="#a0a0a0" />
+						<TextInput style={styles.input} onChangeText={onChangeFullAddress} value={FullAddress} placeholder="Full Address" placeholderTextColor="#a0a0a0" />
+						<TextInput style={styles.input} onChangeText={onChangePincode} value={Pincode} placeholder="Pincode" keyboardType="phone-pad" placeholderTextColor="#a0a0a0" />
 
 						<Text
 							style={{
 								fontSize: 20,
 								margin: 13.5,
-							}}
-						>
+							}}>
 							Do you own any Shop?
 						</Text>
 						<View
@@ -143,11 +78,8 @@ const RegisterSubService7 = ({ route }) => {
 								flexDirection: "row",
 								justifyContent: "space-between",
 								width: "50%",
-							}}
-						>
-							<TouchableWithoutFeedback
-								onPress={() => setShop("Yes")}
-							>
+							}}>
+							<TouchableWithoutFeedback onPress={() => setShop("Yes")}>
 								<View
 									style={{
 										flexDirection: "row",
@@ -157,25 +89,12 @@ const RegisterSubService7 = ({ route }) => {
 										alignItems: "center",
 										padding: 5,
 										paddingLeft: 0,
-									}}
-								>
-									<RadioButton
-										value="Yes"
-										status={
-											Shop === "Yes"
-												? "checked"
-												: "unchecked"
-										}
-										onPress={() => setShop("Yes")}
-									/>
-									<Text style={{ fontSize: 19 }}>
-										Yes
-									</Text>
+									}}>
+									<RadioButton value="Yes" status={Shop === "Yes" ? "checked" : "unchecked"} onPress={() => setShop("Yes")} />
+									<Text style={{ fontSize: 19 }}>Yes</Text>
 								</View>
 							</TouchableWithoutFeedback>
-							<TouchableWithoutFeedback
-								onPress={() => setShop("No")}
-							>
+							<TouchableWithoutFeedback onPress={() => setShop("No")}>
 								<View
 									style={{
 										flexDirection: "row",
@@ -185,43 +104,16 @@ const RegisterSubService7 = ({ route }) => {
 										alignItems: "center",
 										padding: 5,
 										paddingLeft: 0,
-									}}
-								>
-									<RadioButton
-										value="No"
-										status={
-											Shop === "No"
-												? "checked"
-												: "unchecked"
-										}
-										onPress={() => setShop("No")}
-									/>
-									<Text style={{ fontSize: 19 }}>
-										No
-									</Text>
+									}}>
+									<RadioButton value="No" status={Shop === "No" ? "checked" : "unchecked"} onPress={() => setShop("No")} />
+									<Text style={{ fontSize: 19 }}>No</Text>
 								</View>
 							</TouchableWithoutFeedback>
 						</View>
 
-						<TextInput
-							style={styles.input}
-							onChangeText={onChangeLanguages}
-							value={Languages}
-							placeholder="Languages you can speak? Eg.Hindi"
-							placeholderTextColor="#a0a0a0"
-						/>
-						<TextInput
-							style={styles.input}
-							onChangeText={onChangeWebsite}
-							value={Website}
-							placeholder="Website Link: (if any)"
-							placeholderTextColor="#a0a0a0"
-						/>
-						{validity == "true" ? null : (
-							<Text style={{ color: "#bb0000" }}>
-								Please enter {validity} properly
-							</Text>
-						)}
+						<TextInput style={styles.input} onChangeText={onChangeLanguages} value={Languages} placeholder="Languages you can speak? Eg.Hindi" placeholderTextColor="#a0a0a0" />
+						<TextInput style={styles.input} onChangeText={onChangeWebsite} value={Website} placeholder="Website Link: (if any)" placeholderTextColor="#a0a0a0" />
+						{validity == "true" ? null : <Text style={{ color: "#bb0000" }}>Please enter {validity} properly</Text>}
 						<TouchableOpacity
 							style={styles.button}
 							onPress={() => {
@@ -238,25 +130,16 @@ const RegisterSubService7 = ({ route }) => {
 										Languages: Languages,
 										Website: Website,
 									};
-									navigation.navigate(
-										"RegisterSubService8",
-										{
-											prevData,
-											temp,
-										}
-									);
+									navigation.navigate("RegisterSubService8", {
+										prevData,
+										temp,
+									});
 								} else {
-									console.log(
-										"Validation unsuccessful for input " +
-											validationtemp
-									);
+									console.log("Validation unsuccessful for input " + validationtemp);
 								}
 								setValidity(validationtemp);
-							}}
-						>
-							<Text style={styles.buttontext}>
-								Continue
-							</Text>
+							}}>
+							<Text style={styles.buttontext}>Continue</Text>
 						</TouchableOpacity>
 					</View>
 				</ScrollView>

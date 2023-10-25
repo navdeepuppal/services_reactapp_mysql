@@ -1,20 +1,9 @@
 import React, { useState } from "react";
-import {
-	View,
-	StyleSheet,
-	Text,
-	ScrollView,
-	Image,
-	Modal,
-	TouchableOpacity,
-	SafeAreaView,
-	Alert,
-} from "react-native";
+import { View, StyleSheet, Text, ScrollView, Image, Modal, TouchableOpacity, SafeAreaView, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
-import ExitHeader from "../../components/ExitHeader";
-import BackButton from "../../components/BackButton";
+import { BackButton } from "../../components";
 
 const RegisterSubService1 = () => {
 	const navigation = useNavigation();
@@ -52,14 +41,8 @@ const RegisterSubService1 = () => {
 			<BackButton></BackButton>
 			<ScrollView style={{ backgroundColor: "white" }}>
 				<View style={styles.container}>
-					<Image
-						source={require("../../assets/signup.png")}
-						resizeMode="center"
-						style={styles.image}
-					/>
-					<Text style={styles.textTitle}>
-						Ready to be your own boss?
-					</Text>
+					<Image source={require("../../assets/signup.png")} resizeMode="center" style={styles.image} />
+					<Text style={styles.textTitle}>Ready to be your own boss?</Text>
 					<Text style={styles.textBody}>
 						Work your way. {"\n\n"}You bring the skill. {"\n"}
 						We'll make your earning easy.
@@ -68,48 +51,28 @@ const RegisterSubService1 = () => {
 						style={styles.button}
 						onPress={() => {
 							redirect(true);
-						}}
-					>
+						}}>
 						<Text style={styles.buttontext}>Continue</Text>
 					</TouchableOpacity>
 				</View>
 				<View style={styles.centeredView}>
-					<Modal
-						animationType="slide"
-						transparent={true}
-						visible={modalVisible}
-					>
+					<Modal animationType="slide" transparent={true} visible={modalVisible}>
 						<View style={styles.centeredView}>
 							<View style={styles.modalView}>
 								<SafeAreaView style={styles.container}>
-									<Image
-										source={require("../../assets/servicemanLogin.png")}
-										resizeMode="contain"
-										style={styles.image}
-									/>
-									<Text style={styles.textTitle}>
-										Welcome Back!
-									</Text>
-									<Text style={styles.textBody}>
-										Taking you to your Dashboard..
-									</Text>
+									<Image source={require("../../assets/servicemanLogin.png")} resizeMode="contain" style={styles.image} />
+									<Text style={styles.textTitle}>Welcome Back!</Text>
+									<Text style={styles.textBody}>Taking you to your Dashboard..</Text>
 									<TouchableOpacity
 										style={styles.dashboardbutton}
 										onPress={() => {
-											navigation.navigate(
-												"ServiceMan"
-											),
-												setModalVisible(
-													false
-												);
-										}}
-									>
+											navigation.navigate("ServiceMan"), setModalVisible(false);
+										}}>
 										<Text
 											style={{
 												fontSize: 25,
 												color: "white",
-											}}
-										>
+											}}>
 											Open My Dashboard
 										</Text>
 									</TouchableOpacity>
@@ -125,44 +88,26 @@ const RegisterSubService1 = () => {
 						visible={HoldModalVisible}
 						onRequestClose={() => {
 							setHoldModalVisible(!HoldModalVisible);
-						}}
-					>
+						}}>
 						<View style={styles.centeredView}>
 							<View style={styles.holdmodalView}>
 								<SafeAreaView style={styles.container}>
-									<Image
-										source={require("../../assets/holdaccountServiceMan.png")}
-										resizeMode="contain"
-										style={styles.image}
-									/>
-									<Text style={styles.textTitle}>
-										Your account is on HOLD
-									</Text>
+									<Image source={require("../../assets/holdaccountServiceMan.png")} resizeMode="contain" style={styles.image} />
+									<Text style={styles.textTitle}>Your account is on HOLD</Text>
 									<Text style={styles.textBody}>
-										We are reviewing your profile
-										yet.{"\n\n"} We will confirm
-										your application status within
-										a week once the verification
-										process is completed.{"\n\n"}
+										We are reviewing your profile yet.{"\n\n"} We will confirm your application status within a week once the verification process is completed.{"\n\n"}
 										Thank you for being patient
 									</Text>
 									<TouchableOpacity
 										style={styles.dashboardbutton}
 										onPress={() => {
-											setHoldModalVisible(
-												false
-											),
-												setModalVisible(
-													true
-												);
-										}}
-									>
+											setHoldModalVisible(false), setModalVisible(true);
+										}}>
 										<Text
 											style={{
 												fontSize: 25,
 												color: "white",
-											}}
-										>
+											}}>
 											Go Back to Home
 										</Text>
 									</TouchableOpacity>

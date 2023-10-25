@@ -1,22 +1,11 @@
 import React, { useState, useEffect } from "react";
-import {
-	View,
-	SafeAreaView,
-	ActivityIndicator,
-	FlatList,
-	Text,
-	Image,
-	StyleSheet,
-	TouchableOpacity,
-	TextComponent,
-} from "react-native";
+import { View, SafeAreaView, ActivityIndicator, FlatList, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 
-import { NFTCard5, HomeHeader, FocusedStatusBar } from "../../components";
-import { COLORS, SIZES, SHADOWS, config } from "../../constants";
+import { NFTCard5, FocusedStatusBar, ExitHeader } from "../../components";
+import { COLORS, SIZES, config } from "../../constants";
 import { NFTTitle } from "../../components/SubInfo";
 
 import { useNavigation } from "@react-navigation/native";
-import ExitHeader from "../../components/ExitHeader";
 
 const RegisterSubService6 = ({ route }) => {
 	const navigation = useNavigation();
@@ -44,9 +33,7 @@ const RegisterSubService6 = ({ route }) => {
 			setData(data2_backup);
 		}
 
-		const filteredData = data2_backup.filter((item) =>
-			item.S_Name.toLowerCase().includes(value.toLowerCase())
-		);
+		const filteredData = data2_backup.filter((item) => item.S_Name.toLowerCase().includes(value.toLowerCase()));
 
 		if (filteredData.length === 0) {
 			setData(data2_backup);
@@ -55,10 +42,7 @@ const RegisterSubService6 = ({ route }) => {
 		}
 	};
 
-	const querystring =
-		'SELECT *, "false" as isSelected, null as SMan_BasePrice FROM subservice WHERE S_ID = ' +
-		prevData +
-		";";
+	const querystring = 'SELECT *, "false" as isSelected, null as SMan_BasePrice FROM subservice WHERE S_ID = ' + prevData + ";";
 
 	useEffect(() => {
 		fetch(config.domain + "/get/" + querystring, {
@@ -88,21 +72,14 @@ const RegisterSubService6 = ({ route }) => {
 			<FocusedStatusBar backgroundColor={COLORS.black} />
 			{isLoading ? (
 				<View>
-					<Text>
-						Looks like something is wrong! Check after some
-						while
-					</Text>
+					<Text>Looks like something is wrong! Check after some while</Text>
 					<TouchableOpacity
 						style={{
 							backgroundColor: COLORS.primary,
 							width: 30,
 							height: 30,
-						}}
-					>
-						<Text style={{ color: "white" }}>
-							{" "}
-							Go to Home
-						</Text>
+						}}>
+						<Text style={{ color: "white" }}> Go to Home</Text>
 					</TouchableOpacity>
 					<ActivityIndicator />
 				</View>
@@ -119,10 +96,8 @@ const RegisterSubService6 = ({ route }) => {
 
 							textAlign: "center",
 							margin: SIZES.base,
-						}}
-					>
-						Select & Enroll into multiple sub-services in
-						which you can serve:
+						}}>
+						Select & Enroll into multiple sub-services in which you can serve:
 					</Text>
 					<Text
 						style={{
@@ -135,23 +110,13 @@ const RegisterSubService6 = ({ route }) => {
 							textAlign: "center",
 							margin: SIZES.base,
 							marginBottom: SIZES.extraLarge,
-						}}
-					>
-						For Ex: If you are a Carpenter then your sub
-						services will be Furniture Repair, Drilling,
-						Window Repair, Full House Wood Work or any other.
+						}}>
+						For Ex: If you are a Carpenter then your sub services will be Furniture Repair, Drilling, Window Repair, Full House Wood Work or any other.
 					</Text>
 					<FlatList
 						nestedScrollEnabled
 						data={data2}
-						renderItem={({ item, index }) => (
-							<NFTCard5
-								data={item}
-								data2={data2}
-								setData={setData}
-								index={index}
-							/>
-						)}
+						renderItem={({ item, index }) => <NFTCard5 data={item} data2={data2} setData={setData} index={index} />}
 						keyExtractor={(item, index) => index.toString()}
 						numColumns={2}
 						showsVerticalScrollIndicator={false}
@@ -166,8 +131,7 @@ const RegisterSubService6 = ({ route }) => {
 							left: 0,
 							zIndex: -1,
 							flexWrap: "wrap",
-						}}
-					>
+						}}>
 						<View
 							style={{
 								height: 300,
@@ -200,8 +164,7 @@ const RegisterSubService6 = ({ route }) => {
 							navigation.navigate("RegisterSubService7", {
 								data2,
 							})
-						}
-					>
+						}>
 						<Image
 							source={require("../../assets/rightarrow.png")}
 							resizeMode="contain"

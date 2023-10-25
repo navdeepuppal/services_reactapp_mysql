@@ -1,27 +1,11 @@
 import React, { useState } from "react";
-import {
-	View,
-	StyleSheet,
-	Text,
-	Image,
-	ScrollView,
-	TouchableOpacity,
-	Pressable,
-	KeyboardAvoidingView,
-	Modal,
-	TextInput,
-	Alert,
-} from "react-native";
+import { View, StyleSheet, Text, Image, ScrollView, TouchableOpacity, KeyboardAvoidingView, Modal, TextInput, Alert } from "react-native";
 
-import { SafeAreaView } from "react-native-safe-area-context";
-
-import { useNavigation } from "@react-navigation/native";
 
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import TermsCondition from "../components/TermsCondition";
-import BackButton from "../components/BackButton";
+import { TermsCondition, BackButton } from "../components";
 
 const Login = ({ navigation, route }) => {
 	if (route.params !== undefined && route.params.prev === "Cart") {
@@ -61,20 +45,14 @@ const Login = ({ navigation, route }) => {
 				flex: 1,
 				height: "100%",
 				marginTop: "15%",
-			}}
-		>
+			}}>
 			<View>
 				<BackButton />
 			</View>
 			<ScrollView style={{ backgroundColor: "white" }}>
-				<KeyboardAvoidingView
-					behavior="padding"
-					style={styles.container}
-				>
+				<KeyboardAvoidingView behavior="padding" style={styles.container}>
 					<View style={styles.container}>
-						<Text style={{ fontSize: 30 }}>
-							Enter your mobile {"\n"}number
-						</Text>
+						<Text style={{ fontSize: 30 }}>Enter your mobile {"\n"}number</Text>
 
 						<View
 							style={{
@@ -84,27 +62,13 @@ const Login = ({ navigation, route }) => {
 								borderColor: "silver",
 								borderRadius: 13,
 								marginTop: "10%",
-							}}
-						>
+							}}>
 							<Text style={styles.countrycode}>+91</Text>
 
-							<TextInput
-								style={styles.input}
-								onChangeText={onChangePhoneNumber}
-								value={PhoneNumber}
-								placeholder="Enter your number"
-								keyboardType="number-pad"
-								placeholderTextColor="#a0a0a0"
-								maxLength={10}
-								letterSpacing={1.5}
-							/>
+							<TextInput style={styles.input} onChangeText={onChangePhoneNumber} value={PhoneNumber} placeholder="Enter your number" keyboardType="number-pad" placeholderTextColor="#a0a0a0" maxLength={10} letterSpacing={1.5} />
 						</View>
 
-						{validity == "true" ? null : (
-							<Text style={{ color: "#bb0000" }}>
-								{validity} Incorrect!
-							</Text>
-						)}
+						{validity == "true" ? null : <Text style={{ color: "#bb0000" }}>{validity} Incorrect!</Text>}
 
 						<View
 							style={{
@@ -112,16 +76,13 @@ const Login = ({ navigation, route }) => {
 								alignContent: "flex-end",
 								alignItems: "center",
 								marginTop: "70%",
-							}}
-						>
+							}}>
 							<Text
 								style={{
 									color: "#cccccc",
 									margin: "2%",
-								}}
-							>
-								By proceeding, you agree with Sqera's
-								terms and conditions and privacy policy.
+								}}>
+								By proceeding, you agree with Sqera's terms and conditions and privacy policy.
 							</Text>
 
 							<TouchableOpacity
@@ -133,17 +94,11 @@ const Login = ({ navigation, route }) => {
 										setModalVisible(true);
 										setValidity("true");
 									} else {
-										console.log(
-											"Validation unsuccessful for input " +
-												validationtemp
-										);
+										console.log("Validation unsuccessful for input " + validationtemp);
 										setValidity("Phone Number");
 									}
-								}}
-							>
-								<Text style={styles.buttontext}>
-									Get OTP
-								</Text>
+								}}>
+								<Text style={styles.buttontext}>Get OTP</Text>
 							</TouchableOpacity>
 
 							<View
@@ -151,8 +106,7 @@ const Login = ({ navigation, route }) => {
 									flexDirection: "row",
 									height: "20%",
 									alignItems: "center",
-								}}
-							>
+								}}>
 								<Image
 									source={require("../assets/icons/trustshield.png")}
 									style={{
@@ -160,11 +114,7 @@ const Login = ({ navigation, route }) => {
 										width: 30,
 									}}
 								/>
-								<Text style={{ color: "#cccccc" }}>
-									{" "}
-									Trusted by more than 10 lakh+
-									Indians
-								</Text>
+								<Text style={{ color: "#cccccc" }}> Trusted by more than 10 lakh+ Indians</Text>
 							</View>
 						</View>
 
@@ -175,117 +125,72 @@ const Login = ({ navigation, route }) => {
 								visible={modalVisible}
 								onRequestClose={() => {
 									setModalVisible(!modalVisible);
-								}}
-							>
+								}}>
 								<View style={styles.centeredView}>
 									<View style={styles.modalView}>
 										<Text
 											style={{
 												fontWeight: "bold",
 												fontSize: 25,
-												alignSelf:
-													"flex-start",
-											}}
-										>
+												alignSelf: "flex-start",
+											}}>
 											Enter your OTP
 										</Text>
 
 										<Text
 											style={{
 												marginTop: 20,
-												alignSelf:
-													"flex-start",
+												alignSelf: "flex-start",
 												fontSize: 16,
-											}}
-										>
-											Sqera has sent a 4-digit
-											OTP on your phone number
-											+91 {PhoneNumber}
+											}}>
+											Sqera has sent a 4-digit OTP on your phone number +91 {PhoneNumber}
 										</Text>
 
-										<TextInput
-											caretHidden={true}
-											style={styles.otp}
-											onChangeText={
-												onChangeOTP
-											}
-											value={OTP}
-											placeholder="••••"
-											keyboardType="number-pad"
-											placeholderTextColor="#a0a0a0"
-											maxLength={4}
-											letterSpacing={20}
-										/>
+										<TextInput caretHidden={true} style={styles.otp} onChangeText={onChangeOTP} value={OTP} placeholder="••••" keyboardType="number-pad" placeholderTextColor="#a0a0a0" maxLength={4} letterSpacing={20} />
 										<View
 											style={{
-												flexDirection:
-													"row",
-											}}
-										>
+												flexDirection: "row",
+											}}>
 											<Text
 												style={{
 													marginTop: 10,
 
 													fontSize: 16,
-												}}
-											>
+												}}>
 												Didn't receive it?
 											</Text>
 											<TouchableOpacity
 												onPress={() => {
-													setModalVisible(
-														false
-													);
-												}}
-											>
+													setModalVisible(false);
+												}}>
 												<Text
 													style={{
 														marginTop: 10,
 														color: "blue",
 														fontSize: 16,
-													}}
-												>
+													}}>
 													{" "}
 													Resend
 												</Text>
 											</TouchableOpacity>
 										</View>
 										<TouchableOpacity
-											style={
-												styles.verifyButton
-											}
+											style={styles.verifyButton}
 											onPress={() => {
 												if (OTP == 1609) {
-													setModalVisible(
-														false
-													);
+													setModalVisible(false);
 													saveValue();
-													if (route.params !== undefined)
-													{
+													if (route.params !== undefined) {
 														if (route.params.prev === "Profile") navigation.goBack();
 														else navigation.navigate("SelectAddress", { filteredData });
-													}
-													else navigation.goBack();
-													Alert.alert(
-														"You are now logged in!"
-													);
+													} else navigation.goBack();
+													Alert.alert("You are now logged in!");
 												} else {
-													Alert.alert(
-														"Incorrect OTP"
-													);
-													onChangeOTP(
-														""
-													);
+													Alert.alert("Incorrect OTP");
+													onChangeOTP("");
 												}
-											}}
-										>
-											<Text
-												style={
-													styles.buttontext
-												}
-											>
-												VERIFY AND PROCEED
-											</Text>
+											}}>
+											<Text style={styles.buttontext}>VERIFY AND PROCEED</Text>
 										</TouchableOpacity>
 
 										<TermsCondition />

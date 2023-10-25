@@ -1,17 +1,9 @@
 import React from "react";
-import {
-	View,
-	StyleSheet,
-	Text,
-	ScrollView,
-	Image,
-	SafeAreaView,
-	TouchableOpacity,
-} from "react-native";
+import { View, StyleSheet, Text, ScrollView, Image, SafeAreaView, TouchableOpacity } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
-import ExitHeader from "../../components/ExitHeader";
+import { ExitHeader } from "../../components";
 
 const RegisterSubService4 = () => {
 	const navigation = useNavigation();
@@ -20,55 +12,23 @@ const RegisterSubService4 = () => {
 		<SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
 			<ScrollView style={{ backgroundColor: "white" }}>
 				<View style={styles.container}>
-					<Image
-						source={require("../../assets/signup.png")}
-						resizeMode="center"
-						style={styles.image}
-					/>
-					<Text style={styles.textTitle}>
-						Now, let’s talk about the things you want to steer
-						clear of.
-					</Text>
+					<Image source={require("../../assets/signup.png")} resizeMode="center" style={styles.image} />
+					<Text style={styles.textTitle}>Now, let’s talk about the things you want to steer clear of.</Text>
 
-					<Text style={styles.textBody}>
-						Your success on Sqera is important to us.
-					</Text>
-					<Text style={styles.textBody}>
-						Avoid the following to keep in line with our
-						community standards:
-					</Text>
+					<Text style={styles.textBody}>Your success on Sqera is important to us.</Text>
+					<Text style={styles.textBody}>Avoid the following to keep in line with our community standards:</Text>
 
-					<Text style={styles.littleTitle}>
-						1. Providing any misleading or inaccurate
-						information about your identity.
-					</Text>
+					<Text style={styles.littleTitle}>1. Providing any misleading or inaccurate information about your identity.</Text>
 
-					<Text style={styles.littleTitle}>
-						2. Opening duplicate accounts. Remember, you can
-						always create more Gigs.
-					</Text>
+					<Text style={styles.littleTitle}>2. Opening duplicate accounts. Remember, you can always create more Gigs.</Text>
 
-					<Text style={styles.littleTitle}>
-						3. Soliciting other community members for work on
-						Sqera.
-					</Text>
+					<Text style={styles.littleTitle}>3. Soliciting other community members for work on Sqera.</Text>
 
-					<Text style={styles.littleTitle}>
-						4. Requesting to take communication and payment
-						outside of Sqera.
-					</Text>
+					<Text style={styles.littleTitle}>4. Requesting to take communication and payment outside of Sqera.</Text>
 
-					<Text style={styles.littleTitle}>
-						5. To keep our community secure for everyone, we
-						may ask you to verify your ID.
-					</Text>
+					<Text style={styles.littleTitle}>5. To keep our community secure for everyone, we may ask you to verify your ID.</Text>
 
-					<TouchableOpacity
-						style={styles.button}
-						onPress={() =>
-							navigation.navigate("RegisterSubService5")
-						}
-					>
+					<TouchableOpacity style={styles.button} onPress={() => navigation.navigate("RegisterSubService5")}>
 						<Text style={styles.buttontext}>Continue</Text>
 					</TouchableOpacity>
 				</View>

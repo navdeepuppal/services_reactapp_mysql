@@ -1,17 +1,10 @@
-import {
-	View,
-	Text,
-	TouchableOpacity,
-	StyleSheet,
-    Image,
-    Alert
-} from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import React, { useState } from "react";
 import { COLORS, SIZES, assets } from "../constants";
 
-const BackButton = ({}) => {
+export default function BackButton() {
 	const navigation = useNavigation();
 	const [modalVisible, setModalVisible] = useState(false);
 
@@ -21,27 +14,18 @@ const BackButton = ({}) => {
 				flexDirection: "row",
 				justifyContent: "space-between",
 				marginTop: "1%",
-			}}
-		>
+			}}>
 			<View
 				style={{
 					flexDirection: "row",
-				}}
-			>
-				<TouchableOpacity
-					style={{ width: 40, height: 40, marginTop: "15%" }}
-					onPress={() => navigation.goBack()}
-				>
-					<Image
-						source={assets.left}
-						resizeMode="contain"
-						style={{ width: "100%", height: "100%" }}
-					/>
+				}}>
+				<TouchableOpacity style={{ width: 40, height: 40, marginTop: "15%" }} onPress={() => navigation.goBack()}>
+					<Image source={assets.left} resizeMode="contain" style={{ width: "100%", height: "100%" }} />
 				</TouchableOpacity>
 			</View>
 		</View>
 	);
-};
+}
 
 const styles = StyleSheet.create({
 	centeredView: {
@@ -121,5 +105,3 @@ const styles = StyleSheet.create({
 		textAlign: "center",
 	},
 });
-
-export default BackButton;
