@@ -1,17 +1,9 @@
 import React from "react";
-import {
-	View,
-	StyleSheet,
-	Text,
-	ScrollView,
-	Image,
-	SafeAreaView,
-	TouchableOpacity,
-} from "react-native";
+import { View, StyleSheet, Text, ScrollView, Image, SafeAreaView, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { COLORS, SIZES, SHADOWS, assets } from "../../constants";
-import ExitHeader from "../../components/ExitHeader";
+import { ExitHeader } from "../../components";
 
 const RegisterSubService2 = () => {
 	const navigation = useNavigation();
@@ -21,29 +13,14 @@ const RegisterSubService2 = () => {
 			<ExitHeader />
 			<ScrollView style={{ backgroundColor: "white" }}>
 				<View style={styles.container}>
-					<Image
-						source={require("../../assets/signup.png")}
-						resizeMode="center"
-						style={styles.image}
-					/>
-					<Text style={styles.textTitle}>
-						Here's Breakdown of Steps:
-					</Text>
+					<Image source={require("../../assets/signup.png")} resizeMode="center" style={styles.image} />
+					<Text style={styles.textTitle}>Here's Breakdown of Steps:</Text>
 
-					<Text style={styles.textBody}>
-						Learn what makes a successful people
-					</Text>
+					<Text style={styles.textBody}>Learn what makes a successful people</Text>
 
-					<TouchableOpacity
-						style={styles.button}
-						onPress={() =>
-							navigation.navigate("RegisterSubService3")
-						}
-					>
+					<TouchableOpacity style={styles.button} onPress={() => navigation.navigate("RegisterSubService3")}>
 						<View style={{ flexDirection: "column" }}>
-							<Text style={styles.buttontext}>
-								Continue
-							</Text>
+							<Text style={styles.buttontext}>Continue</Text>
 						</View>
 					</TouchableOpacity>
 				</View>

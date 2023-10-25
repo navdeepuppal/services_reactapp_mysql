@@ -1,43 +1,14 @@
-import React, { useState, useEffect, Component } from "react";
-import {
-	View,
-	SafeAreaView,
-	ActivityIndicator,
-	FlatList,
-	Text,
-	Image,
-	StyleSheet,
-	Alert,
-	Modal,
-	TouchableOpacity,
-	ImageBackground,
-	Pressable,
-} from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, SafeAreaView, FlatList, Text, Image, StyleSheet, Modal, TouchableOpacity } from "react-native";
 
-import { useNavigation } from "@react-navigation/native";
-
-import { LinearGradient } from "expo-linear-gradient";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import * as Location from "expo-location";
-import {
-	NFTCard1,
-	HomeHeader,
-	FocusedStatusBar,
-	NFTCard9,
-} from "../components";
-import { COLORS, config, SIZES, assets } from "../constants";
-import SubServicesModal from "../components/SubServicesModal";
-import { ScrollView } from "react-native-gesture-handler";
+import { NFTCard1, HomeHeader, NFTCard9, SubServicesModal } from "../components";
+import { COLORS, config, SIZES } from "../constants";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import { TabActions } from "@react-navigation/core";
-import DeliverablesHeader from "../components/DelieverablesHeader";
-import ModalList from "../components/ModalList";
-import Deliverables from "./Bookings";
 import Bookings from "./Bookings";
 import Search from "./Search";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Profile from "./Profile";
-import { Col } from "react-native-easy-grid";
 
 import { SliderBox } from "react-native-image-slider-box";
 
@@ -49,19 +20,15 @@ function ServicesScreen() {
 	const [data2_backup, setDataBackup] = useState([]);
 	const [subSModalVisible, setSubSModalVisible] = useState(-1);
 	const [location, setLocation] = useState(null);
-	const [errorMsg, setErrorMsg] = useState(null);
-	const [address, setAddress] = useState(null);
+	// const [address, setAddress] = useState(null);
 
-	const [modalVisible, setModalVisible] = useState(false);
-	const navigation = useNavigation();
 	//vahan se utha le
 
 	const getLocation = () => {
 		(async () => {
-			let { status } =
-				await Location.requestForegroundPermissionsAsync();
+			let { status } = await Location.requestForegroundPermissionsAsync();
 			if (status !== "granted") {
-				setErrorMsg("Permission to access location was denied");
+				console.error("Permission to access location was denied");
 			}
 
 			Location.setGoogleApiKey(apiKey);
@@ -81,7 +48,7 @@ function ServicesScreen() {
 					longitude,
 					latitude,
 				});
-				setAddress(regionName[0]);
+				// setAddress(regionName[0]);
 				//console.log(regionName, "nothing");
 			}
 
@@ -96,9 +63,7 @@ function ServicesScreen() {
 			setData(data2_backup);
 		}
 
-		const filteredData = data2_backup.filter((item) =>
-			item.S_Name.toLowerCase().includes(value.toLowerCase())
-		);
+		const filteredData = data2_backup.filter((item) => item.S_Name.toLowerCase().includes(value.toLowerCase()));
 
 		/* if (filteredData.length === 0) {
 			setData(data2_backup);
@@ -114,16 +79,9 @@ function ServicesScreen() {
 
 		//const C_Lat = Location.latitude;
 		//const C_Lon = Location.longitude;
-		fetch(
-			config.domain +
-				"/getLocationBasedServices/" +
-				C_Lat +
-				"/" +
-				C_Lon,
-			{
-				method: "GET",
-			}
-		)
+		fetch(config.domain + "/getLocationBasedServices/" + C_Lat + "/" + C_Lon, {
+			method: "GET",
+		})
 			.then((response) => response.json())
 			.then((responseJson) => {
 				if (responseJson == 404) {
@@ -145,8 +103,7 @@ function ServicesScreen() {
 						height: "100%",
 						alignSelf: "center",
 						justifyContent: "center",
-					}}
-				>
+					}}>
 					<Image
 						source={require("../assets/sqera.png")}
 						style={{
@@ -163,21 +120,16 @@ function ServicesScreen() {
 							fontSize: 18,
 							marginTop: 8,
 							justifyContent: "center",
-						}}
-					>
+						}}>
 						Finding services nearby..
 					</Text>
-					<Image
-						source={require("../assets/images/loader.gif")}
-						style={styles.image}
-					/>
+					<Image source={require("../assets/images/loader.gif")} style={styles.image} />
 				</View>
 			) : (
 				<SafeAreaView
 					style={{
 						backgroundColor: COLORS.white,
-					}}
-				>
+					}}>
 					<View
 						style={{
 							backgroundColor: COLORS.white,
@@ -187,18 +139,15 @@ function ServicesScreen() {
 							flexDirection: "row",
 							paddingHorizontal: SIZES.large,
 							justifyContent: "space-between",
-						}}
-					>
+						}}>
 						<View
 							style={{
 								backgroundColor: COLORS.white,
-							}}
-						>
+							}}>
 							<View
 								style={{
 									flexDirection: "row",
-								}}
-							>
+								}}>
 								<Image
 									source={require("../assets/icons/location.png")}
 									resizeMode="contain"
@@ -212,15 +161,11 @@ function ServicesScreen() {
 									style={{
 										fontWeight: "700",
 										fontSize: 16,
-									}}
-								>
+									}}>
 									Kothi 103
 								</Text>
 							</View>
-							<Text style={{ fontSize: 12, margin: "1%" }}>
-								{" "}
-								Phase 9, Mohali
-							</Text>
+							<Text style={{ fontSize: 12, margin: "1%" }}> Phase 9, Mohali</Text>
 						</View>
 						<View
 							style={{
@@ -228,8 +173,7 @@ function ServicesScreen() {
 								backgroundColor: COLORS.white,
 								flexDirection: "row",
 								height: 35,
-							}}
-						>
+							}}>
 							<Image
 								source={require("../assets/sqera.png")}
 								resizeMode="cover"
@@ -258,37 +202,32 @@ function ServicesScreen() {
 						style={{
 							backgroundColor: COLORS.white,
 							marginBottom: 12,
-						}}
-					>
+						}}>
 						<HomeHeader onSearch={handleSearch} />
 					</View>
 					<View
 						style={{
 							backgroundColor: COLORS.white,
 							height: "100%",
-						}}
-					>
+						}}>
 						<View
 							style={{
 								backgroundColor: COLORS.white,
 
 								marginLeft: 7,
-							}}
-						>
+							}}>
 							<View
 								style={{
 									flexDirection: "row",
 									marginTop: 1,
-								}}
-							>
+								}}>
 								<Text
 									style={{
 										fontSize: 14,
 										marginLeft: 5,
 										fontWeight: "500",
 										alignSelf: "center",
-									}}
-								>
+									}}>
 									{" "}
 									Frequently booked
 								</Text>
@@ -307,16 +246,7 @@ function ServicesScreen() {
 							<FlatList
 								horizontal
 								data={data2}
-								renderItem={({ item, index }) => (
-									<NFTCard1
-										key={index}
-										data={item}
-										index={index}
-										setSubSModalVisible={
-											setSubSModalVisible
-										}
-									/>
-								)}
+								renderItem={({ item, index }) => <NFTCard1 key={index} data={item} index={index} setSubSModalVisible={setSubSModalVisible} />}
 								contentContainerStyle={{
 									width: "100%",
 									backgroundColor: COLORS.white,
@@ -330,8 +260,7 @@ function ServicesScreen() {
 								alignSelf: "center",
 								marginTop: 10,
 								width: "100%",
-							}}
-						>
+							}}>
 							<SliderBox
 								inactiveDotColor="#90A4AE"
 								alignSelf={"center"}
@@ -381,21 +310,18 @@ function ServicesScreen() {
 
 								marginLeft: 7,
 								marginTop: 20,
-							}}
-						>
+							}}>
 							<View
 								style={{
 									flexDirection: "row",
-								}}
-							>
+								}}>
 								<Text
 									style={{
 										fontSize: 17,
 										marginLeft: 5,
 										fontWeight: "500",
 										marginBottom: 5,
-									}}
-								>
+									}}>
 									{" "}
 									Popular services near you
 								</Text>
@@ -404,16 +330,7 @@ function ServicesScreen() {
 								<FlatList
 									numColumns={3}
 									data={data2}
-									renderItem={({ item, index }) => (
-										<NFTCard9
-											key={index}
-											data={item}
-											index={index}
-											setSubSModalVisible={
-												setSubSModalVisible
-											}
-										/>
-									)}
+									renderItem={({ item, index }) => <NFTCard9 key={index} data={item} index={index} setSubSModalVisible={setSubSModalVisible} />}
 									contentContainerStyle={{
 										alignSelf: "center",
 										justifyContent: "center",
@@ -432,40 +349,13 @@ function ServicesScreen() {
 								visible={subSModalVisible > -1}
 								onRequestClose={() => {
 									setSubSModalVisible(-1);
-								}}
-							>
-								<TouchableOpacity
-									style={styles.loweredView}
-									onPressOut={() =>
-										setSubSModalVisible(-1)
-									}
-								>
-									<View
-										style={[
-											styles.modalView,
-											{ width: "100%" },
-										]}
-									>
-										<TouchableOpacity
-											style={styles.button}
-											onPress={() =>
-												setSubSModalVisible(
-													-1
-												)
-											}
-										>
+								}}>
+								<TouchableOpacity style={styles.loweredView} onPressOut={() => setSubSModalVisible(-1)}>
+									<View style={[styles.modalView, { width: "100%" }]}>
+										<TouchableOpacity style={styles.button} onPress={() => setSubSModalVisible(-1)}>
 											<Text> ✖</Text>
 										</TouchableOpacity>
-										<SubServicesModal
-											data={
-												data2[
-													subSModalVisible
-												]
-											}
-											setSubSModalVisible={
-												setSubSModalVisible
-											}
-										/>
+										<SubServicesModal data={data2[subSModalVisible]} setSubSModalVisible={setSubSModalVisible} />
 									</View>
 								</TouchableOpacity>
 							</Modal>
@@ -483,19 +373,13 @@ export default function App() {
 		/* <ServicesScreen /> */
 	}
 	return (
-		<Tab.Navigator
-			initialRouteName="Services"
-			screenOptions={{ headerShown: false }}
-			barStyle={{ backgroundColor: "white", height: 70 }}
-		>
+		<Tab.Navigator initialRouteName="Services" screenOptions={{ headerShown: false }} barStyle={{ backgroundColor: "white", height: 70 }}>
 			<Tab.Screen
 				name="Services"
 				component={ServicesScreen}
 				options={{
 					tabBarLabel: "Home",
-					tabBarIcon: ({ color }) => (
-						<Icon name="home" color={color} size={22} />
-					),
+					tabBarIcon: ({ color }) => <Icon name="home" color={color} size={22} />,
 				}}
 			/>
 			<Tab.Screen
@@ -503,9 +387,7 @@ export default function App() {
 				component={Search}
 				options={{
 					tabBarLabel: "Discover",
-					tabBarIcon: ({ color }) => (
-						<Icon name="search" color={color} size={22} />
-					),
+					tabBarIcon: ({ color }) => <Icon name="search" color={color} size={22} />,
 				}}
 			/>
 			<Tab.Screen
@@ -513,9 +395,7 @@ export default function App() {
 				component={Bookings}
 				options={{
 					tabBarLabel: "Bookings",
-					tabBarIcon: ({ color }) => (
-						<Icon name="book" color={color} size={22} />
-					),
+					tabBarIcon: ({ color }) => <Icon name="book" color={color} size={22} />,
 				}}
 			/>
 			<Tab.Screen
@@ -523,9 +403,7 @@ export default function App() {
 				component={Profile}
 				options={{
 					tabBarLabel: "Profile",
-					tabBarIcon: ({ color }) => (
-						<Icon name="user" color={color} size={22} />
-					),
+					tabBarIcon: ({ color }) => <Icon name="user" color={color} size={22} />,
 				}}
 			/>
 		</Tab.Navigator>

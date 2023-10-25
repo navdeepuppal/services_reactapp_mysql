@@ -1,21 +1,8 @@
-import {
-	StyleSheet,
-	Text,
-	View,
-	ScrollView,
-	TextInput,
-	SafeAreaView,
-	KeyboardAvoidingView,
-	Linking,
-	Image,
-	Alert,
-	TouchableOpacity,
-	TextComponent,
-} from "react-native";
+import { StyleSheet, Text, View, ScrollView, TextInput, Image, TouchableOpacity } from "react-native";
 
-import { COLORS, config, SIZES, assets } from "../constants";
+import { COLORS, SIZES } from "../constants";
 import React, { useState } from "react";
-import BackButton from "../components/BackButton";
+import { BackButton } from "../components";
 
 const Wallet = ({ navigation }) => {
 	const [state, setButtonStatus] = useState("1");
@@ -32,8 +19,7 @@ const Wallet = ({ navigation }) => {
 				marginTop: "12%",
 				flex: 1,
 				backgroundColor: COLORS.white,
-			}}
-		>
+			}}>
 			<View
 				style={{
 					flexDirection: "row",
@@ -42,8 +28,7 @@ const Wallet = ({ navigation }) => {
 					paddingVertical: SIZES.small,
 
 					paddingHorizontal: SIZES.large - 3,
-				}}
-			>
+				}}>
 				<BackButton />
 
 				<Image
@@ -64,15 +49,13 @@ const Wallet = ({ navigation }) => {
 
 						marginTop: 15,
 						justifyContent: "flex-end",
-					}}
-				>
+					}}>
 					<Text
 						style={{
 							color: "green",
 							fontSize: 17,
 							fontWeight: "600",
-						}}
-					>
+						}}>
 						Help
 					</Text>
 				</TouchableOpacity>
@@ -88,20 +71,17 @@ const Wallet = ({ navigation }) => {
 						borderWidth: 0.2,
 						backgroundColor: COLORS.white,
 						borderColor: "gray",
-					}}
-				>
+					}}>
 					<View
 						style={{
 							flexDirection: "row",
 							justifyContent: "space-between",
-						}}
-					>
+						}}>
 						<Text
 							style={{
 								fontWeight: "700",
 								fontSize: 20,
-							}}
-						>
+							}}>
 							Total Wallet Balance
 						</Text>
 
@@ -117,8 +97,7 @@ const Wallet = ({ navigation }) => {
 						style={{
 							fontSize: 30,
 							fontWeight: "500",
-						}}
-					>
+						}}>
 						₹ 0
 					</Text>
 				</View>
@@ -135,20 +114,17 @@ const Wallet = ({ navigation }) => {
 						borderWidth: 0.2,
 						backgroundColor: COLORS.white,
 						borderColor: "gray",
-					}}
-				>
+					}}>
 					<View
 						style={{
 							flexDirection: "row",
 							justifyContent: "space-between",
-						}}
-					>
+						}}>
 						<Text
 							style={{
 								fontWeight: "700",
 								fontSize: 20,
-							}}
-						>
+							}}>
 							Add Money to Sqera Wallet
 						</Text>
 					</View>
@@ -162,15 +138,13 @@ const Wallet = ({ navigation }) => {
 							padding: 10,
 							alignItems: "center",
 							height: 70,
-						}}
-					>
+						}}>
 						<Text
 							style={{
 								marginTop: 10,
 								fontSize: 30,
 								fontWeight: "500",
-							}}
-						>
+							}}>
 							₹
 						</Text>
 						<TextInput
@@ -183,8 +157,7 @@ const Wallet = ({ navigation }) => {
 								fontWeight: "500",
 							}}
 							value={amount}
-							onChangeText={handleChange}
-						></TextInput>
+							onChangeText={handleChange}></TextInput>
 					</View>
 					<TouchableOpacity
 						style={{
@@ -196,32 +169,28 @@ const Wallet = ({ navigation }) => {
 							backgroundColor: "green",
 							borderRadius: 10,
 							padding: 10,
-						}}
-					>
+						}}>
 						<Text
 							style={{
 								fontSize: 20,
 								fontWeight: "600",
 								color: COLORS.white,
 								textAlign: "center",
-							}}
-						>
+							}}>
 							Proceed to add ₹{amount}
 						</Text>
 						<Text
 							style={{
 								fontSize: 19,
 								fontWeight: "500",
-							}}
-						></Text>
+							}}></Text>
 					</TouchableOpacity>
 				</View>
 			</View>
 			<View
 				style={{
 					alignSelf: "center",
-				}}
-			></View>
+				}}></View>
 
 			<View>
 				<Text
@@ -230,8 +199,7 @@ const Wallet = ({ navigation }) => {
 						marginTop: 40,
 						fontSize: 20,
 						fontWeight: "600",
-					}}
-				>
+					}}>
 					Recent Transactions
 				</Text>
 				<View>
@@ -242,15 +210,13 @@ const Wallet = ({ navigation }) => {
 							height: 50,
 							backgroundColor: "#EDF6FD",
 							justifyContent: "center",
-						}}
-					>
+						}}>
 						<Text
 							style={{
 								justifyContent: "center",
 								color: COLORS.gray,
 								fontWeight: "600",
-							}}
-						>
+							}}>
 							{" "}
 							02 Oct 2023
 						</Text>
@@ -263,8 +229,7 @@ const Wallet = ({ navigation }) => {
 							flexDirection: "row",
 							justifyContent: "flex-start",
 							alignSelf: "flex-start",
-						}}
-					>
+						}}>
 						<Image
 							source={require("../assets/sqera.png")}
 							style={{
@@ -278,28 +243,24 @@ const Wallet = ({ navigation }) => {
 								margin: 20,
 								marginLeft: 20,
 								width: "70%",
-							}}
-						>
+							}}>
 							<View
 								style={{
 									flexDirection: "row",
 									justifyContent: "space-between",
-								}}
-							>
+								}}>
 								<Text
 									style={{
 										fontWeight: "500",
 										fontSize: 13,
-									}}
-								>
+									}}>
 									Paid for Home Kitchen Cleaning
 								</Text>
 								<Text
 									style={{
 										fontSize: 18,
 										marginLeft: 55,
-									}}
-								>
+									}}>
 									-₹122.55
 								</Text>
 							</View>
@@ -307,15 +268,13 @@ const Wallet = ({ navigation }) => {
 								style={{
 									flexDirection: "row",
 									justifyContent: "space-between",
-								}}
-							>
+								}}>
 								<Text
 									style={{
 										fontSize: 11,
 										marginTop: 10,
 										color: COLORS.gray,
-									}}
-								>
+									}}>
 									06:28 PM
 								</Text>
 								<Text
@@ -325,8 +284,7 @@ const Wallet = ({ navigation }) => {
 										marginLeft: 80,
 										alignSelf: "flex-end",
 										color: COLORS.gray,
-									}}
-								>
+									}}>
 									Sqera Wallet Closing Balance: ₹4.00
 								</Text>
 							</View>

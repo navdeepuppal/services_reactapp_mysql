@@ -1,19 +1,8 @@
 import { width } from "deprecated-react-native-prop-types/DeprecatedImagePropType";
 import React, { useState, useEffect } from "react";
-import {
-	View,
-	SafeAreaView,
-	ActivityIndicator,
-	FlatList,
-	Text,
-	StyleSheet,
-	Image,
-	Pressable,
-	TouchableOpacity,
-} from "react-native";
+import { View, SafeAreaView, ActivityIndicator, FlatList, Text, StyleSheet, Image, Pressable, TouchableOpacity } from "react-native";
 
-import { NFTCard4, HomeHeader, FocusedStatusBar } from "../../components";
-import ExitHeader from "../../components/ExitHeader";
+import { NFTCard4, HomeHeader, FocusedStatusBar, ExitHeader } from "../../components";
 
 import { COLORS, config, SIZES } from "../../constants";
 
@@ -28,9 +17,7 @@ const RegisterSubService5 = ({ navigation }) => {
 			setData(data2_backup);
 		}
 
-		const filteredData = data2_backup.filter((item) =>
-			item.S_Name.toLowerCase().includes(value.toLowerCase())
-		);
+		const filteredData = data2_backup.filter((item) => item.S_Name.toLowerCase().includes(value.toLowerCase()));
 
 		if (filteredData.length === 0) {
 			setData(data2_backup);
@@ -68,8 +55,7 @@ const RegisterSubService5 = ({ navigation }) => {
 						width: "100%",
 						alignSelf: "center",
 						justifyContent: "center",
-					}}
-				>
+					}}>
 					<Image
 						source={require("../../assets/sqera.png")}
 						resizeMode="center"
@@ -85,8 +71,7 @@ const RegisterSubService5 = ({ navigation }) => {
 							fontSize: 15,
 							marginTop: 8,
 							justifyContent: "center",
-						}}
-					>
+						}}>
 						Looks like something is wrong!
 					</Text>
 					<Text
@@ -95,8 +80,7 @@ const RegisterSubService5 = ({ navigation }) => {
 							fontSize: 15,
 							marginBottom: 20,
 							justifyContent: "center",
-						}}
-					>
+						}}>
 						{" "}
 						Please check again after some while.
 					</Text>
@@ -117,15 +101,13 @@ const RegisterSubService5 = ({ navigation }) => {
 						}}
 						onPress={() => {
 							navigation.navigate("Home");
-						}}
-					>
+						}}>
 						<Text
 							style={{
 								alignSelf: "center",
 								fontSize: 16,
 								color: COLORS.white,
-							}}
-						>
+							}}>
 							{" "}
 							Go to Home{" "}
 						</Text>
@@ -146,30 +128,19 @@ const RegisterSubService5 = ({ navigation }) => {
 
 							textAlign: "center",
 							margin: SIZES.base,
-						}}
-					>
+						}}>
 						Select the service which you can serve:
 					</Text>
 
 					<FlatList
 						nestedScrollEnabled
 						data={data2}
-						renderItem={({ item }) => (
-							<NFTCard4 data={item} />
-						)}
+						renderItem={({ item }) => <NFTCard4 data={item} />}
 						keyExtractor={(item) => item.S_ID}
 						numColumns={2}
 						showsVerticalScrollIndicator={false}
 						ListEmptyComponent={
-							<Text
-								style={{ margin: 20, marginTop: "20%" }}
-							>
-								Sorry for inconvinience, our servers are
-								down for the moment. Our best developers
-								and backend-engineers are working to
-								solve this problem right now as you read
-								this
-							</Text>
+							<Text style={{ margin: 20, marginTop: "20%" }}>Sorry for inconvinience, our servers are down for the moment. Our best developers and backend-engineers are working to solve this problem right now as you read this</Text>
 						}
 					/>
 
@@ -190,15 +161,13 @@ const RegisterSubService5 = ({ navigation }) => {
 					<Pressable
 						onPress={() => {
 							navigation.navigate("RequestNewService");
-						}}
-					>
+						}}>
 						<Text
 							style={{
 								fontWeight: "600",
 								fontSize: 18,
 								alignSelf: "center",
-							}}
-						>
+							}}>
 							Can't find your service?
 						</Text>
 					</Pressable>

@@ -1,21 +1,14 @@
 import React, { useState, useEffect } from "react";
-import {
-	View,
-	Text,
-	ActivityIndicator,
-	StyleSheet,
-	FlatList,
-} from "react-native";
+import { View, ActivityIndicator, StyleSheet, FlatList } from "react-native";
 
-import { COLORS, SIZES, assets, SHADOWS, FONTS, config } from "../constants";
-import { NFTCard2 } from "../components";
+import { config } from "../constants";
+import { NFTCard2 } from "./NFTCard";
 
 const SubServicesModal = ({ data, setSubSModalVisible }) => {
 	const [isLoading, setLoading] = useState(true);
 	const [data2, setData] = useState([]);
 
-	const querystring =
-		"SELECT * FROM subservice WHERE S_ID = " + [data.S_ID] + ";";
+	const querystring = "SELECT * FROM subservice WHERE S_ID = " + [data.S_ID] + ";";
 
 	useEffect(() => {
 		fetch(config.domain + "/get/" + querystring, {
@@ -35,19 +28,7 @@ const SubServicesModal = ({ data, setSubSModalVisible }) => {
 		<ActivityIndicator />
 	) : (
 		<View style={{ width: "100%" }}>
-			<FlatList
-				nestedScrollEnabled
-				data={data2}
-				renderItem={({ item }) => (
-					<NFTCard2
-						data={item}
-						setSubSModalVisible={setSubSModalVisible}
-					/>
-				)}
-				keyExtractor={(item) => item.S_ID}
-				numColumns={2}
-				showsVerticalScrollIndicator={false}
-			/>
+			<FlatList nestedScrollEnabled data={data2} renderItem={({ item }) => <NFTCard2 data={item} setSubSModalVisible={setSubSModalVisible} />} keyExtractor={(item) => item.S_ID} numColumns={2} showsVerticalScrollIndicator={false} />
 		</View>
 	);
 };

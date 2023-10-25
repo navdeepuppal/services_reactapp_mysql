@@ -1,17 +1,8 @@
 import React from "react";
-import {
-	View,
-	StyleSheet,
-	Text,
-	ScrollView,
-	Image,
-	TouchableOpacity,
-  SafeAreaView
-} from "react-native";
-
+import { View, StyleSheet, Text, ScrollView, Image, TouchableOpacity, SafeAreaView } from "react-native";
 
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
-import BackButton from "../components/BackButton";
+import { BackButton } from "../components";
 
 const SelectOnboardProfessional = ({ navigation }) => {
 	return (
@@ -20,50 +11,21 @@ const SelectOnboardProfessional = ({ navigation }) => {
 			<Text style={styles.textTitle}>How do you want to start ?</Text>
 
 			<View style={{ justifyContent: "center", alignItems: "center" }}>
-				<Text style={styles.subTitle}>
-					Broadcast your skill/service to the world and earn
-					money{" "}
-				</Text>
+				<Text style={styles.subTitle}>Broadcast your skill/service to the world and earn money </Text>
 
-				<TouchableOpacity
-					style={styles.button}
-					onPress={() =>
-						navigation.navigate("RegisterSubService1")
-					}
-				>
+				<TouchableOpacity style={styles.button} onPress={() => navigation.navigate("RegisterSubService1")}>
 					<View style={{ flexDirection: "column" }}>
-						<Text style={styles.textBody}>
-							Register for a Service
-						</Text>
-						<Text style={styles.littleTitle}>
-							I'm a Electrician, Building Constructor,
-							Appliance Repairer, Seller, Barber,
-							Carpenter, Cleaner and many more related to
-							same..
-						</Text>
+						<Text style={styles.textBody}>Register for a Service</Text>
+						<Text style={styles.littleTitle}>I'm a Electrician, Building Constructor, Appliance Repairer, Seller, Barber, Carpenter, Cleaner and many more related to same..</Text>
 					</View>
 				</TouchableOpacity>
 
-				<Text style={styles.subTitle}>
-					Join our growing freelance community and get paid for
-					your work{" "}
-				</Text>
+				<Text style={styles.subTitle}>Join our growing freelance community and get paid for your work </Text>
 
-				<TouchableOpacity
-					style={styles.button}
-					onPress={() =>
-						navigation.navigate("RegisterSubService1")
-					}
-				>
+				<TouchableOpacity style={styles.button} onPress={() => navigation.navigate("RegisterSubService1")}>
 					<View style={{ flexDirection: "column" }}>
-						<Text style={styles.textBody}>
-							Start as a Freelancer
-						</Text>
-						<Text style={styles.littleTitle}>
-							I'm a Coder/ Software Engineer/ Consultant/
-							Social Media Manager/ Marketing Specialist /
-							any other..
-						</Text>
+						<Text style={styles.textBody}>Start as a Freelancer</Text>
+						<Text style={styles.littleTitle}>I'm a Coder/ Software Engineer/ Consultant/ Social Media Manager/ Marketing Specialist / any other..</Text>
 					</View>
 				</TouchableOpacity>
 			</View>

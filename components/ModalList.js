@@ -1,20 +1,10 @@
-import {
-	View,
-	Text,
-	TouchableOpacity,
-	StyleSheet,
-	SafeAreaView,
-	ScrollView,
-	Image,
-	Alert,
-} from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import React, { useState } from "react";
-import { COLORS, FONTS, SIZES, assets } from "../constants";
+import { COLORS, SIZES } from "../constants";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Col } from "react-native-easy-grid";
 
 const ModalList = ({ setVisible }) => {
 	const navigation = useNavigation();
@@ -33,8 +23,7 @@ const ModalList = ({ setVisible }) => {
 				width: 210,
 				backgroundColor: "white",
 				padding: 15,
-			}}
-		>
+			}}>
 			{user ? (
 				<View>
 					<TouchableOpacity
@@ -49,38 +38,30 @@ const ModalList = ({ setVisible }) => {
 							alignSelf: "center",
 							alignItems: "center",
 							width: "100%",
-						}}
-					>
+						}}>
 						<View
 							style={{
 								flexDirection: "row",
 								alignItems: "center",
-							}}
-						>
-							<Image
-								style={{ width: 50, height: 50 }}
-								source={require("../assets/images/user.png")}
-							/>
+							}}>
+							<Image style={{ width: 50, height: 50 }} source={require("../assets/images/user.png")} />
 
 							<View
 								style={{
 									flexDirection: "column",
 									margin: 10,
-								}}
-							>
+								}}>
 								<Text
 									style={{
 										fontSize: 20,
-									}}
-								>
+									}}>
 									{user}
 								</Text>
 
 								<Text
 									style={{
 										fontSize: 15,
-									}}
-								>
+									}}>
 									5 ★
 								</Text>
 							</View>
@@ -94,14 +75,11 @@ const ModalList = ({ setVisible }) => {
 							padding: 7,
 							margin: 20,
 							alignSelf: "center",
-						}}
-					>
+						}}>
 						<TouchableOpacity
 							onPress={() => {
-								navigation.navigate("RecentOrders"),
-									setVisible(false);
-							}}
-						>
+								navigation.navigate("RecentOrders"), setVisible(false);
+							}}>
 							<Text
 								style={{
 									color: COLORS.white,
@@ -109,8 +87,7 @@ const ModalList = ({ setVisible }) => {
 									alignSelf: "center",
 									justifyContent: "center",
 									fontWeight: "700",
-								}}
-							>
+								}}>
 								Rs 10
 							</Text>
 							<Text
@@ -119,8 +96,7 @@ const ModalList = ({ setVisible }) => {
 									fontSize: 14,
 									alignSelf: "center",
 									justifyContent: "center",
-								}}
-							>
+								}}>
 								Wallet Balance
 							</Text>
 						</TouchableOpacity>
@@ -132,19 +108,14 @@ const ModalList = ({ setVisible }) => {
 					onPress={() => {
 						setVisible(false);
 						navigation.navigate("Login");
-					}}
-				>
+					}}>
 					<View
 						style={{
 							flexDirection: "row",
 							justifyContent: "space-between",
 							alignItems: "center",
-						}}
-					>
-						<Image
-							source={require("../assets/icons/in.png")}
-							style={styles.image}
-						/>
+						}}>
+						<Image source={require("../assets/icons/in.png")} style={styles.image} />
 						<Text style={styles.loginText}> Log In</Text>
 					</View>
 				</TouchableOpacity>
@@ -163,18 +134,15 @@ const ModalList = ({ setVisible }) => {
 				<TouchableOpacity
 					onPress={() => {
 						setVisible(false), navigation.navigate("Contact");
-					}}
-				>
+					}}>
 					<Text style={styles.textBody}>Support</Text>
 				</TouchableOpacity>
 
 				<TouchableOpacity
 					style={styles.button}
 					onPress={() => {
-						navigation.navigate("RequestNewService"),
-							setVisible(false);
-					}}
-				>
+						navigation.navigate("RequestNewService"), setVisible(false);
+					}}>
 					<Text style={styles.textBody}>Privacy Policy</Text>
 				</TouchableOpacity>
 
@@ -194,8 +162,7 @@ const ModalList = ({ setVisible }) => {
 						alignSelf: "center",
 						color: "silver",
 						fontSize: 13,
-					}}
-				>
+					}}>
 					{" "}
 					Version 1.0.1{" "}
 				</Text>
@@ -212,14 +179,10 @@ const ModalList = ({ setVisible }) => {
 			<TouchableOpacity
 				style={[styles.modeButton1]}
 				onPress={() => {
-					setVisible(false),
-						navigation.navigate("RegisterSubService1");
-				}}
-			>
+					setVisible(false), navigation.navigate("RegisterSubService1");
+				}}>
 				<Text style={styles.textStyle}>Professional Mode</Text>
-				<Text style={styles.textStyle1}>
-					Broadcast your skills!
-				</Text>
+				<Text style={styles.textStyle1}>Broadcast your skills!</Text>
 			</TouchableOpacity>
 
 			{/* <TouchableOpacity

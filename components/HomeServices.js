@@ -1,25 +1,8 @@
 import React, { useState, useEffect } from "react";
-import {
-	View,
-	SafeAreaView,
-	ActivityIndicator,
-	FlatList,
-	Text,
-	Image,
-	StyleSheet,
-	Alert,
-	Modal,
-	TouchableOpacity,
-} from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 import * as Location from "expo-location";
-import { NFTCard1, HomeHeader, FocusedStatusBar } from "../components";
-import { COLORS, config, SIZES } from "../constants";
-import SubServicesModal from "../components/SubServicesModal";
-import { ScrollView } from "react-native-gesture-handler";
-
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { TabActions } from "@react-navigation/core";
-import DeliverablesHeader from "../components/DelieverablesHeader";
+import { HomeHeader } from "../components";
+import { config } from "../constants";
 
 let apiKey = "YOUR_API_KEY";
 
@@ -27,7 +10,6 @@ const HomeServices = ({}) => {
 	const [isLoading, setLoading] = useState(true);
 	const [data2, setData] = useState([]);
 	const [data2_backup, setDataBackup] = useState([]);
-	const [subSModalVisible, setSubSModalVisible] = useState(-1);
 	const [location, setLocation] = useState(null);
 	const [errorMsg, setErrorMsg] = useState(null);
 	const [address, setAddress] = useState(null);
@@ -35,8 +17,7 @@ const HomeServices = ({}) => {
 
 	const getLocation = () => {
 		(async () => {
-			let { status } =
-				await Location.requestForegroundPermissionsAsync();
+			let { status } = await Location.requestForegroundPermissionsAsync();
 			if (status !== "granted") {
 				setErrorMsg("Permission to access location was denied");
 			}
@@ -73,9 +54,7 @@ const HomeServices = ({}) => {
 			setData(data2_backup);
 		}
 
-		const filteredData = data2_backup.filter((item) =>
-			item.S_Name.toLowerCase().includes(value.toLowerCase())
-		);
+		const filteredData = data2_backup.filter((item) => item.S_Name.toLowerCase().includes(value.toLowerCase()));
 
 		/* if (filteredData.length === 0) {
 			setData(data2_backup);
@@ -91,16 +70,9 @@ const HomeServices = ({}) => {
 
 		//const C_Lat = Location.latitude;
 		//const C_Lon = Location.longitude;
-		fetch(
-			config.domain +
-				"/getLocationBasedServices/" +
-				C_Lat +
-				"/" +
-				C_Lon,
-			{
-				method: "GET",
-			}
-		)
+		fetch(config.domain + "/getLocationBasedServices/" + C_Lat + "/" + C_Lon, {
+			method: "GET",
+		})
 			.then((response) => response.json())
 			.then((responseJson) => {
 				if (responseJson == 404) {

@@ -1,18 +1,7 @@
-import {
-	StyleSheet,
-	Text,
-	View,
-	ScrollView,
-	TextInput,
-	TouchableOpacity,
-	SafeAreaView,
-	KeyboardAvoidingView,
-	Linking,
-	Alert,
-} from "react-native";
+import { StyleSheet, Text, View, ScrollView, TextInput, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Linking, Alert } from "react-native";
 import React, { useState } from "react";
 import { COLORS } from "../constants";
-import BackButton from "../components/BackButton";
+import { BackButton } from "../components";
 
 const Contact = ({ navigation }) => {
 	const [name, setName] = useState("");
@@ -34,34 +23,14 @@ const Contact = ({ navigation }) => {
 		<SafeAreaView style={{ backgroundColor: COLORS.white, flex: 1 }}>
 			<BackButton />
 			<ScrollView style={styles.mainContainer}>
-				<KeyboardAvoidingView
-					behavior="padding"
-					style={styles.container}
-				>
-					<Text style={styles.mainHeader}>
-						How can we help you ?{" "}
-					</Text>
+				<KeyboardAvoidingView behavior="padding" style={styles.container}>
+					<Text style={styles.mainHeader}>How can we help you ? </Text>
 
-					<Text style={styles.description}>
-						You can reach us anytime via {"\n"}sqera@gmail.com
-					</Text>
+					<Text style={styles.description}>You can reach us anytime via {"\n"}sqera@gmail.com</Text>
 
 					<View style={styles.inputContainer}>
-						<Text style={styles.labels}>
-							{" "}
-							Please explain your concern here{" "}
-						</Text>
-						<TextInput
-							style={[
-								styles.inputStyle,
-								styles.multilineStyle,
-							]}
-							placeholder={""}
-							value={message}
-							onChangeText={(msg) => setMessage(msg)}
-							numberOfLines={10}
-							multiline={true}
-						/>
+						<Text style={styles.labels}> Please explain your concern here </Text>
+						<TextInput style={[styles.inputStyle, styles.multilineStyle]} placeholder={""} value={message} onChangeText={(msg) => setMessage(msg)} numberOfLines={10} multiline={true} />
 					</View>
 
 					<TouchableOpacity
@@ -74,23 +43,13 @@ const Contact = ({ navigation }) => {
 						disabled={!message}
 						onPress={() => {
 							try {
-								Linking.openURL(
-									"whatsapp://send?text=" +
-										message +
-										"&phone=+919041504403"
-								);
+								Linking.openURL("whatsapp://send?text=" + message + "&phone=+919041504403");
 								Alert.alert("Opening Whatspp..");
 							} catch (error) {
-								Alert.alert(
-									"Make sure you have whatsapp installed on your phone. If non then you can send the details on 9041504403 via SMS or WhatsApp"
-								);
+								Alert.alert("Make sure you have whatsapp installed on your phone. If non then you can send the details on 9041504403 via SMS or WhatsApp");
 							}
-						}}
-					>
-						<Text style={styles.buttonText}>
-							{" "}
-							Contact Us{" "}
-						</Text>
+						}}>
+						<Text style={styles.buttonText}> Contact Us </Text>
 					</TouchableOpacity>
 				</KeyboardAvoidingView>
 
@@ -102,15 +61,13 @@ const Contact = ({ navigation }) => {
 					}}
 					onPress={() => {
 						navigation.navigate("RequestNewService");
-					}}
-				>
+					}}>
 					<Text
 						style={{
 							fontSize: 18,
 							fontWeight: "600",
 							marginBottom: 10,
-						}}
-					>
+						}}>
 						Request for a new service ?
 					</Text>
 				</TouchableOpacity>

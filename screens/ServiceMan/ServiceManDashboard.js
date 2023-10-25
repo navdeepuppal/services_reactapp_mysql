@@ -1,22 +1,12 @@
-import { NavigationContainer, useNavigation } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import {
-	SafeAreaView,
-	Image,
-	StyleSheet,
-	Modal,
-	View,
-	Text,
-	ScrollView,
-	TouchableOpacity,
-} from "react-native";
+import { useNavigation } from "@react-navigation/native";
+// import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { SafeAreaView, Image, StyleSheet, Modal, View, Text, ScrollView, TouchableOpacity } from "react-native";
 
-import { Ionicons } from "@expo/vector-icons";
 import React, { useState, useEffect } from "react";
 import { COLORS, assets, SIZES, SHADOWS } from "../../constants";
-import { Colors, Snackbar } from "react-native-paper";
+import { Snackbar } from "react-native-paper";
 
-function HomeScreen() {
+export default function HomeScreen() {
 	const navigation = useNavigation();
 
 	return (
@@ -27,15 +17,9 @@ function HomeScreen() {
 						margin: "3%",
 						flexDirection: "row",
 						justifyContent: "space-between",
-					}}
-				>
-					<Text style={{ fontWeight: "700", fontSize: 24 }}>
-						Hi, Genus
-					</Text>
-					<Image
-						source={assets.menuIcon}
-						style={{ width: 38, height: 38 }}
-					/>
+					}}>
+					<Text style={{ fontWeight: "700", fontSize: 24 }}>Hi, Genus</Text>
+					<Image source={assets.menuIcon} style={{ width: 38, height: 38 }} />
 				</View>
 				<View
 					style={{
@@ -43,8 +27,7 @@ function HomeScreen() {
 						flexDirection: "row",
 						margin: "2%",
 						justifyContent: "space-evenly",
-					}}
-				>
+					}}>
 					<View
 						style={{
 							borderRadius: 7,
@@ -56,29 +39,24 @@ function HomeScreen() {
 							height: 70,
 							backgroundColor: COLORS.primary,
 						}}
-						onPress={() => navigation.navigate("Orders")}
-					>
+						onPress={() => navigation.navigate("Orders")}>
 						<View
 							style={{
 								alignItems: "center",
-							}}
-						>
+							}}>
 							<Text
 								style={{
 									fontSize: 24,
 									color: COLORS.white,
-								}}
-							>
+								}}>
 								₹120
 							</Text>
 							<Text
 								style={{
-									fontSize: "14%",
 									textAlign: "center",
 									fontWeight: "bold",
 									color: "gray",
-								}}
-							>
+								}}>
 								TODAYS EARNING
 							</Text>
 						</View>
@@ -94,20 +72,17 @@ function HomeScreen() {
 							height: 70,
 							backgroundColor: COLORS.primary,
 						}}
-						onPress={() => navigation.navigate("Orders")}
-					>
+						onPress={() => navigation.navigate("Orders")}>
 						<View
 							style={{
 								alignItems: "center",
-							}}
-						>
+							}}>
 							<Text
 								style={{
 									fontSize: 25,
 									fontWeight: "900",
 									color: "green",
-								}}
-							>
+								}}>
 								ON
 							</Text>
 							<Text
@@ -115,8 +90,7 @@ function HomeScreen() {
 									textAlign: "center",
 									fontWeight: "bold",
 									color: "gray",
-								}}
-							>
+								}}>
 								BROADCAST MODE
 							</Text>
 						</View>
@@ -133,20 +107,17 @@ function HomeScreen() {
 							height: 70,
 							backgroundColor: COLORS.primary,
 						}}
-						onPress={() => navigation.navigate("Orders")}
-					>
+						onPress={() => navigation.navigate("Orders")}>
 						<View
 							style={{
 								alignItems: "center",
-							}}
-						>
+							}}>
 							<Text
 								style={{
 									fontSize: 25,
 									fontWeight: "900",
 									color: "green",
-								}}
-							>
+								}}>
 								90
 							</Text>
 							<Text
@@ -154,8 +125,7 @@ function HomeScreen() {
 									textAlign: "center",
 									fontWeight: "bold",
 									color: "gray",
-								}}
-							>
+								}}>
 								Orders Completed
 							</Text>
 						</View>
@@ -172,20 +142,17 @@ function HomeScreen() {
 							height: 70,
 							backgroundColor: COLORS.primary,
 						}}
-						onPress={() => navigation.navigate("Orders")}
-					>
+						onPress={() => navigation.navigate("Orders")}>
 						<View
 							style={{
 								alignItems: "center",
-							}}
-						>
+							}}>
 							<Text
 								style={{
 									fontSize: 25,
 									fontWeight: "900",
 									color: "green",
-								}}
-							>
+								}}>
 								Rs 4000
 							</Text>
 							<Text
@@ -193,8 +160,7 @@ function HomeScreen() {
 									textAlign: "center",
 									fontWeight: "bold",
 									color: "gray",
-								}}
-							>
+								}}>
 								TOTAL EARNINGS
 							</Text>
 						</View>
@@ -210,20 +176,17 @@ function HomeScreen() {
 							height: 70,
 							backgroundColor: COLORS.primary,
 						}}
-						onPress={() => navigation.navigate("Orders")}
-					>
+						onPress={() => navigation.navigate("Orders")}>
 						<View
 							style={{
 								alignItems: "center",
-							}}
-						>
+							}}>
 							<Text
 								style={{
 									fontSize: 25,
 									fontWeight: "900",
 									color: "green",
-								}}
-							>
+								}}>
 								5 ⭐
 							</Text>
 							<Text
@@ -231,8 +194,7 @@ function HomeScreen() {
 									textAlign: "center",
 									fontWeight: "bold",
 									color: "gray",
-								}}
-							>
+								}}>
 								AVERAGE RATING
 							</Text>
 						</View>
@@ -248,20 +210,17 @@ function HomeScreen() {
 							height: 70,
 							backgroundColor: COLORS.white,
 						}}
-						onPress={() => navigation.navigate("Orders")}
-					>
+						onPress={() => navigation.navigate("Orders")}>
 						<View
 							style={{
 								alignItems: "center",
-							}}
-						>
+							}}>
 							<Text
 								style={{
 									fontSize: 25,
 									fontWeight: "900",
 									color: "green",
-								}}
-							>
+								}}>
 								Rs 200
 							</Text>
 							<Text
@@ -269,25 +228,20 @@ function HomeScreen() {
 									textAlign: "center",
 									fontWeight: "bold",
 									color: "gray",
-								}}
-							>
+								}}>
 								WALLET
 							</Text>
 						</View>
 					</View>
 
-					<TouchableOpacity
-						style={styles.button3}
-						onPress={() => navigation.navigate("Contact Us")}
-					>
+					<TouchableOpacity style={styles.button3} onPress={() => navigation.navigate("Contact Us")}>
 						<Text
 							style={{
 								fontWeight: "bold",
 								fontSize: 20,
 								textAlign: "center",
 								color: "black",
-							}}
-						>
+							}}>
 							Contact Us
 						</Text>
 					</TouchableOpacity>
@@ -301,19 +255,13 @@ function HomeScreen() {
 						}}
 					/>
 				</View>
-				<Text
-					style={{ fontSize: 20, fontWeight: "400", margin: 5 }}
-				>
-					{" "}
-					Orders{" "}
-				</Text>
+				<Text style={{ fontSize: 20, fontWeight: "400", margin: 5 }}> Orders </Text>
 				<ScrollView
 					style={{
 						width: "100%",
 						margin: 10,
 						flexDirection: "row",
-					}}
-				>
+					}}>
 					<TouchableOpacity
 						style={{
 							backgroundColor: COLORS.white,
@@ -324,14 +272,12 @@ function HomeScreen() {
 							alignItems: "center",
 							alignContent: "center",
 							justifyContent: "center",
-						}}
-					>
+						}}>
 						<Text
 							style={{
 								margin: "1%",
 								fontSize: 18,
-							}}
-						>
+							}}>
 							Pending (1)
 						</Text>
 					</TouchableOpacity>
@@ -345,14 +291,12 @@ function HomeScreen() {
 							alignItems: "center",
 							alignContent: "center",
 							justifyContent: "center",
-						}}
-					>
+						}}>
 						<Text
 							style={{
 								margin: "1%",
 								fontSize: 18,
-							}}
-						>
+							}}>
 							Completed (6)
 						</Text>
 					</TouchableOpacity>
@@ -364,14 +308,12 @@ function HomeScreen() {
 							style={{
 								flexDirection: "row",
 								justifyContent: "space-between",
-							}}
-						>
+							}}>
 							<Text
 								style={{
 									fontSize: 16,
 									fontWeight: "600",
-								}}
-							>
+								}}>
 								{" "}
 								AC Cleaning
 							</Text>
@@ -379,8 +321,7 @@ function HomeScreen() {
 								style={{
 									fontSize: 16,
 									fontWeight: "500",
-								}}
-							>
+								}}>
 								Rs. 800
 							</Text>
 						</View>
@@ -389,17 +330,14 @@ function HomeScreen() {
 								marginTop: "2%",
 								flexDirection: "row",
 								justifyContent: "space-between",
-							}}
-						>
+							}}>
 							<Text
 								style={{
 									fontSize: 14,
 									fontWeight: "400",
-								}}
-							>
+								}}>
 								{" "}
-								Details: Navdeep | Kothi 103, Phase 9,
-								Mohali
+								Details: Navdeep | Kothi 103, Phase 9, Mohali
 							</Text>
 						</View>
 						<View
@@ -407,14 +345,12 @@ function HomeScreen() {
 								marginTop: "3%",
 								flexDirection: "row",
 								justifyContent: "space-between",
-							}}
-						>
+							}}>
 							<Text
 								style={{
 									fontSize: 14,
 									color: COLORS.gray,
-								}}
-							>
+								}}>
 								{" "}
 								09/08/2023 | 10:26 AM
 							</Text>
@@ -423,8 +359,7 @@ function HomeScreen() {
 									fontSize: 16,
 									fontWeight: "500",
 									color: "red",
-								}}
-							>
+								}}>
 								Pending
 							</Text>
 						</View>
@@ -452,14 +387,12 @@ function OrdersScreen() {
 						style={{
 							flexDirection: "row",
 							justifyContent: "space-between",
-						}}
-					>
+						}}>
 						<Text
 							style={{
 								fontSize: 16,
 								fontWeight: "600",
-							}}
-						>
+							}}>
 							{" "}
 							AC Cleaning
 						</Text>
@@ -467,8 +400,7 @@ function OrdersScreen() {
 							style={{
 								fontSize: 16,
 								fontWeight: "500",
-							}}
-						>
+							}}>
 							Rs. 800
 						</Text>
 					</View>
@@ -477,14 +409,12 @@ function OrdersScreen() {
 							marginTop: "2%",
 							flexDirection: "row",
 							justifyContent: "space-between",
-						}}
-					>
+						}}>
 						<Text
 							style={{
 								fontSize: 14,
 								fontWeight: "400",
-							}}
-						>
+							}}>
 							{" "}
 							Details: Navdeep | Kothi 103, Phase 9, Mohali
 						</Text>
@@ -494,14 +424,12 @@ function OrdersScreen() {
 							marginTop: "3%",
 							flexDirection: "row",
 							justifyContent: "space-between",
-						}}
-					>
+						}}>
 						<Text
 							style={{
 								fontSize: 14,
 								color: COLORS.gray,
-							}}
-						>
+							}}>
 							{" "}
 							09/08/2023 | 10:26 AM
 						</Text>
@@ -510,8 +438,7 @@ function OrdersScreen() {
 								fontSize: 16,
 								fontWeight: "500",
 								color: "red",
-							}}
-						>
+							}}>
 							Pending
 						</Text>
 					</View>
@@ -532,14 +459,12 @@ function OrdersScreen() {
 						style={{
 							flexDirection: "row",
 							justifyContent: "space-between",
-						}}
-					>
+						}}>
 						<Text
 							style={{
 								fontSize: 16,
 								fontWeight: "600",
-							}}
-						>
+							}}>
 							{" "}
 							Bathroom Cleaning
 						</Text>
@@ -547,8 +472,7 @@ function OrdersScreen() {
 							style={{
 								fontSize: 16,
 								fontWeight: "500",
-							}}
-						>
+							}}>
 							Rs. 250
 						</Text>
 					</View>
@@ -557,14 +481,12 @@ function OrdersScreen() {
 							marginTop: "2%",
 							flexDirection: "row",
 							justifyContent: "space-between",
-						}}
-					>
+						}}>
 						<Text
 							style={{
 								fontSize: 14,
 								fontWeight: "400",
-							}}
-						>
+							}}>
 							{" "}
 							Details: Navdeep | Kothi 103, Phase 9, Mohali
 						</Text>
@@ -574,14 +496,12 @@ function OrdersScreen() {
 							marginTop: "3%",
 							flexDirection: "row",
 							justifyContent: "space-between",
-						}}
-					>
+						}}>
 						<Text
 							style={{
 								fontSize: 14,
 								color: COLORS.gray,
-							}}
-						>
+							}}>
 							{" "}
 							09/08/2023 | 10:26 AM
 						</Text>
@@ -590,8 +510,7 @@ function OrdersScreen() {
 								fontSize: 16,
 								fontWeight: "500",
 								color: "green",
-							}}
-						>
+							}}>
 							Completed
 						</Text>
 					</View>
@@ -627,15 +546,9 @@ function ProfileScreen() {
 							backgroundColor: "black",
 							flexDirection: "row",
 							padding: 5,
-						}}
-					>
-						<TouchableOpacity
-							onPress={() => navigation.navigate("Home")}
-						>
-							<Image
-								source={assets.icon}
-								style={{ width: 48, height: 48 }}
-							/>
+						}}>
+						<TouchableOpacity onPress={() => navigation.navigate("Home")}>
+							<Image source={assets.icon} style={{ width: 48, height: 48 }} />
 						</TouchableOpacity>
 						<Text
 							style={{
@@ -646,8 +559,7 @@ function ProfileScreen() {
 								color: COLORS.white,
 								width: "100%",
 								textAlign: "center",
-							}}
-						>
+							}}>
 							Professional Management Page
 						</Text>
 					</View>
@@ -734,8 +646,7 @@ function ProfileScreen() {
 						visible={modalVisible}
 						onRequestClose={() => {
 							setModalVisible(!modalVisible);
-						}}
-					>
+						}}>
 						<View style={styles.centeredView}>
 							<View style={styles.modalView}>
 								<Text
@@ -744,36 +655,20 @@ function ProfileScreen() {
 										marginTop: 10,
 										margin: 7,
 										color: "green",
-									}}
-								>
-									Note: {"\n\n"}● You will get your
-									orders at anytime of the above
-									selected days.
-									{"\n\n"}● Order must be completed
-									in between the slot selected by
-									customer {"\n\n"}● If by any chance
-									the order can't be completed for
-									any reason, then a penalty fee may
-									be charged from your next
-									order/wallet.
-									{"\n\n"}● You need to confirm your
-									schedule at every end of the week.
+									}}>
+									Note: {"\n\n"}● You will get your orders at anytime of the above selected days.
+									{"\n\n"}● Order must be completed in between the slot selected by customer {"\n\n"}● If by any chance the order can't be completed for any reason, then a penalty fee may be charged from your next order/wallet.
+									{"\n\n"}● You need to confirm your schedule at every end of the week.
 								</Text>
 
-								<TouchableOpacity
-									style={styles.button5}
-									onPress={() =>
-										setModalVisible(false)
-									}
-								>
+								<TouchableOpacity style={styles.button5} onPress={() => setModalVisible(false)}>
 									<Text
 										style={{
 											fontWeight: "bold",
 											fontSize: 25,
 											textAlign: "center",
 											color: "white",
-										}}
-									>
+										}}>
 										OKAY
 									</Text>
 								</TouchableOpacity>
@@ -833,32 +728,28 @@ function ProfileScreen() {
 				</View>
 			</ScrollView>
 			<View>
-				<Snackbar
-					bodyStyle={{ backgroundColor: COLORS.white }}
-					visible={visible}
-					onDismiss={onDismissSnackBar}
-				>
+				<Snackbar bodyStyle={{ backgroundColor: COLORS.white }} visible={visible} onDismiss={onDismissSnackBar}>
 					Schedule has been confirmed for this week.
 				</Snackbar>
 			</View>
 		</SafeAreaView>
 	);
 }
-const Tab = createBottomTabNavigator();
-export default function App() {
-	return (
-		<NavigationContainer independent={true}>
-			<Tab.Navigator
-				screenOptions={{
-					headerShown: false,
-				}}
-				initialRouteName="Dashboard"
-			>
-				<Tab.Screen name="Dashboard" component={HomeScreen} />
-			</Tab.Navigator>
-		</NavigationContainer>
-	);
-}
+// const Tab = createBottomTabNavigator();
+// export default function App() {
+// 	return (
+// 		<NavigationContainer independent={true}>
+// 			<Tab.Navigator
+// 				screenOptions={{
+// 					headerShown: false,
+// 				}}
+// 				initialRouteName="Dashboard"
+// 			>
+// 				<Tab.Screen name="Dashboard" component={HomeScreen} />
+// 			</Tab.Navigator>
+// 		</NavigationContainer>
+// 	);
+// }
 
 const styles = StyleSheet.create({
 	upcomingOrderText: {

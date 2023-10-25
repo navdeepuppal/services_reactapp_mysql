@@ -1,17 +1,11 @@
 import React, { useState } from "react";
-import {
-	StyleSheet,
-	TouchableOpacity,
-	Text,
-	View,
-	TouchableWithoutFeedback,
-} from "react-native";
+import { StyleSheet, TouchableOpacity, Text, View, TouchableWithoutFeedback } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as Haptics from "expo-haptics";
 
-import { COLORS, SIZES, SHADOWS, assets } from "../constants";
+import { SIZES, SHADOWS } from "../constants";
 import { RadioButton } from "react-native-paper";
-import BackButton from "../components/BackButton";
+import { BackButton } from "../components";
 
 const PaymentApi = ({ navigation, route }) => {
 	const cartData = route.params.cartData;
@@ -20,9 +14,7 @@ const PaymentApi = ({ navigation, route }) => {
 	const [Wallet, setWallet] = useState("Wallet");
 
 	return (
-		<SafeAreaView
-			style={{ backgroundColor: "white", flex: 1, margin: 10 }}
-		>
+		<SafeAreaView style={{ backgroundColor: "white", flex: 1, margin: 10 }}>
 			<BackButton />
 
 			<Text
@@ -30,8 +22,7 @@ const PaymentApi = ({ navigation, route }) => {
 					fontSize: 30,
 					marginTop: "15%",
 					fontWeight: "500",
-				}}
-			>
+				}}>
 				{" "}
 				PAYMENT PAGE{" "}
 			</Text>
@@ -48,22 +39,14 @@ const PaymentApi = ({ navigation, route }) => {
 						padding: 20,
 						width: 270,
 						margin: 25,
-					}}
-				>
-					<RadioButton
-						value="Payment"
-						status={
-							Payment === "COD" ? "checked" : "unchecked"
-						}
-						onPress={() => setPayment("Payment")}
-					/>
+					}}>
+					<RadioButton value="Payment" status={Payment === "COD" ? "checked" : "unchecked"} onPress={() => setPayment("Payment")} />
 					<Text
 						style={{
 							fontSize: 22,
 							fontWeight: "600",
 							alignSelf: "center",
-						}}
-					>
+						}}>
 						Cash On Delivery
 					</Text>
 				</View>
@@ -80,47 +63,28 @@ const PaymentApi = ({ navigation, route }) => {
 						padding: 20,
 						width: 270,
 						marginBottom: "20%",
-					}}
-				>
-					<RadioButton
-						value="Wallet"
-						status={
-							Payment === "Wallet"
-								? "checked"
-								: "unchecked"
-						}
-						onPress={() => setPayment("Payment")}
-					/>
+					}}>
+					<RadioButton value="Wallet" status={Payment === "Wallet" ? "checked" : "unchecked"} onPress={() => setPayment("Payment")} />
 					<Text
 						style={{
 							fontSize: 22,
 							fontWeight: "600",
 							alignSelf: "center",
-						}}
-					>
+						}}>
 						Wallet
 					</Text>
 				</View>
 			</TouchableWithoutFeedback>
 
-			<Text style={style.textInfo}>
-				Other payment method options will be available soon.
-			</Text>
-			<Text style={style.textInfo}>
-				Upon the completion of your service, you have the option to
-				make payment to the service provider using UPI, Gpay, or
-				Paytm.
-			</Text>
+			<Text style={style.textInfo}>Other payment method options will be available soon.</Text>
+			<Text style={style.textInfo}>Upon the completion of your service, you have the option to make payment to the service provider using UPI, Gpay, or Paytm.</Text>
 
 			<TouchableOpacity
 				style={style.verifyButton}
 				onPress={() => {
 					navigation.navigate("Thankyou", { cartData });
-					Haptics.notificationAsync(
-						Haptics.NotificationFeedbackType.Success
-					);
-				}}
-			>
+					Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+				}}>
 				<Text style={style.buttontext}>PLACE ORDER</Text>
 			</TouchableOpacity>
 		</SafeAreaView>

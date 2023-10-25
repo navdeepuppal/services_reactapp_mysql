@@ -321,19 +321,16 @@ const SelectOnboard = (props) => {
 				<TouchableOpacity
 					style={styles.button}
 					onPress={() => {
-						navigation.navigate("Home");
-
 						setValue = async (value) => {
 							try {
-								await AsyncStorage.setItem(
-									"firstTime",
-									value
-								);
+								await AsyncStorage.setItem("firstTime", value);
 							} catch (e) {
+								console.error(e);
 								// save error
 							}
 						};
 						setValue("false");
+						navigation.navigate("Home");
 					}}
 				>
 					<Text style={styles.textBody}>Find a Service</Text>
