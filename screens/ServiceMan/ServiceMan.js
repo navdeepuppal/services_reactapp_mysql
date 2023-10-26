@@ -16,7 +16,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import React, { useState } from "react";
 
 import { COLORS, assets, SIZES, SHADOWS } from "../../constants";
-import { height } from "deprecated-react-native-prop-types/DeprecatedImagePropType";
+
 const ServiceMan = ({ navigation }) => {
 	const [ratingModal, setratingModalVisible] = useState(false);
 	const [todayEarnings, settodayEarningsVisible] = useState(false);

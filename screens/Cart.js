@@ -5,6 +5,7 @@ import {
 	Text,
 	Image,
 	TouchableOpacity,
+	Modal,
 	FlatList,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -24,11 +25,16 @@ const Cart = ({ route, navigation }) => {
 
 	const [isLoggedIn, setLoggedIn] = useState("");
 
+	const [couponModal, setcouponModalVisible] = useState(false);
+
 	AsyncStorage.getItem("isLoggedIn").then((isLoggedIn) => {
 		setLoggedIn(isLoggedIn);
 	});
 
-	const querystring = "SELECT service.S_MinCartPrice, service.S_Discount, service.S_MinCharges, service.S_PlatformFee FROM service WHERE service.S_ID = " + subSubServices[0].S_ID + ";";
+	const querystring =
+		"SELECT service.S_MinCartPrice, service.S_Discount, service.S_MinCharges, service.S_PlatformFee FROM service WHERE service.S_ID = " +
+		subSubServices[0].S_ID +
+		";";
 
 	useEffect(() => {
 		fetch(config.domain + "/get/" + querystring, {
@@ -125,37 +131,59 @@ const Cart = ({ route, navigation }) => {
 						borderRadius: SIZES.font,
 						padding: SIZES.medium,
 						flex: 1,
-					}}>
+					}}
+				>
 					<View
 						style={{
 							width: "100%",
 							flexDirection: "row",
 							justifyContent: "space-between",
-						}}>
+						}}
+					>
 						<View
 							style={{
 								flex: 0,
 								height: "95%",
 								justifyContent: "space-evenly",
 								alignItems: "flex-start",
-							}}>
-							<NFTTitle title={data.SubSubS_Name} titleSize={SIZES.large} fontColor={COLORS.primary} />
+							}}
+						>
+							<NFTTitle
+								title={data.SubSubS_Name}
+								titleSize={SIZES.large}
+								fontColor={COLORS.primary}
+							/>
 							<Text
 								style={{
 									marginBottom: "3%",
 									color: COLORS.gray,
-								}}>
-								{"•".repeat(data.SubSubS_Description.length)}
+								}}
+							>
+								{"•".repeat(
+									data.SubSubS_Description.length
+								)}
 							</Text>
-							<NFTTitle title={data.SubSubS_Description} titleSize={SIZES.font + 1} titleFont={FONTS.regular} fontColor={COLORS.primary} />
+							<NFTTitle
+								title={data.SubSubS_Description}
+								titleSize={SIZES.font + 1}
+								titleFont={FONTS.regular}
+								fontColor={COLORS.primary}
+							/>
 							<View
 								style={{
 									marginBottom: "5%",
 									flexDirection: "row",
 									alignItems: "center",
 									justifyContent: "space-between",
-								}}>
-								<NFTTitle title={"₹" + data.SubSubS_Price * 1} titleSize={SIZES.medium} fontColor={COLORS.primary} />
+								}}
+							>
+								<NFTTitle
+									title={
+										"₹" + data.SubSubS_Price * 1
+									}
+									titleSize={SIZES.medium}
+									fontColor={COLORS.primary}
+								/>
 								<View style={{ width: "3%" }} />
 								{/* <NFTTitle
 									title={
@@ -167,7 +195,13 @@ const Cart = ({ route, navigation }) => {
 									titleFont={FONTS.regular}
 								/>
 								<View style={{ width: "7%" }} /> */}
-								<NFTTitle title={"  •  " + data.SubSubS_Duration} titleSize={SIZES.font + 1} />
+								<NFTTitle
+									title={
+										"  •  " +
+										data.SubSubS_Duration
+									}
+									titleSize={SIZES.font + 1}
+								/>
 							</View>
 						</View>
 
@@ -177,7 +211,8 @@ const Cart = ({ route, navigation }) => {
 								flexDirection: "column",
 								justifyContent: "space-evenly",
 								alignItems: "flex-end",
-							}}>
+							}}
+						>
 							{/* <Image
               source={14}
               style={{ height: "30%", width: "100%", alignSelf: "center" }}
@@ -191,7 +226,8 @@ const Cart = ({ route, navigation }) => {
 									borderRadius: SIZES.font,
 									borderWidth: 1,
 									alignItems: "center",
-								}}>
+								}}
+							>
 								<TouchableOpacity
 									style={{
 										borderRadius: SIZES.font,
@@ -203,13 +239,24 @@ const Cart = ({ route, navigation }) => {
 									onPress={() => {
 										//setItemCount(Math.max(itemCount - 1, 0));
 										//data.itemCount = itemCount;
-										data3[index].itemCount = Math.max(data2[index].itemCount - 1, 0);
+										data3[index].itemCount =
+											Math.max(
+												data2[index]
+													.itemCount - 1,
+												0
+											);
 										setData(data3);
-									}}>
-									<Text style={{ fontSize: 25 }}> - </Text>
+									}}
+								>
+									<Text style={{ fontSize: 25 }}>
+										{" "}
+										-{" "}
+									</Text>
 								</TouchableOpacity>
 
-								<Text style={{ fontSize: 25 }}>{data2[index].itemCount}</Text>
+								<Text style={{ fontSize: 25 }}>
+									{data2[index].itemCount}
+								</Text>
 
 								<TouchableOpacity
 									style={{
@@ -222,10 +269,16 @@ const Cart = ({ route, navigation }) => {
 									onPress={() => {
 										//setItemCount(itemCount + 1);
 										//data.itemCount = itemCount;
-										data3[index].itemCount = data2[index].itemCount + 1;
+										data3[index].itemCount =
+											data2[index].itemCount +
+											1;
 										setData(data3);
-									}}>
-									<Text style={{ fontSize: 25 }}> + </Text>
+									}}
+								>
+									<Text style={{ fontSize: 25 }}>
+										{" "}
+										+{" "}
+									</Text>
 								</TouchableOpacity>
 							</View>
 						</View>
@@ -255,32 +308,62 @@ const Cart = ({ route, navigation }) => {
 		let discount = +extraData.S_Discount;
 		let priceCut = +extraData.S_PlatformFee;
 		let minCartValue = +extraData.S_MinCartPrice;
-		let minCharges = itemTotal - discount >= minCartValue ? 0 : +extraData.S_MinCharges;
-		let platformFee = Math.round(100 * (itemTotal - discount >= minCartValue ? (itemTotal * priceCut) / 100 : (minCartValue * priceCut) / 100)) / 100;
+		let minCharges =
+			itemTotal - discount >= minCartValue
+				? 0
+				: +extraData.S_MinCharges;
+		let platformFee =
+			Math.round(
+				100 *
+					(itemTotal - discount >= minCartValue
+						? (itemTotal * priceCut) / 100
+						: (minCartValue * priceCut) / 100)
+			) / 100;
 		let totalPrice = itemTotal - discount + platformFee + minCharges;
-		const filteredData = subSubServices.filter((item) => item.itemCount > 0);
+		const filteredData = subSubServices.filter(
+			(item) => item.itemCount > 0
+		);
 		if (filteredData.length === 0) {
 			return (
-				<SafeAreaView style={{ backgroundColor: COLORS.white, flex: 1 }}>
+				<SafeAreaView
+					style={{ backgroundColor: COLORS.white, flex: 1 }}
+				>
 					<View
 						style={{
 							alignItems: "center",
 							flex: 1,
 							justifyContent: "center",
-						}}>
-						<Image source={require("../assets/cart.png")} resizeMode="center" style={style.image} />
+						}}
+					>
+						<Image
+							source={require("../assets/cart.png")}
+							resizeMode="center"
+							style={style.image}
+						/>
 						<Text style={style.bag}>Your Cart is Empty</Text>
-						<TouchableOpacity style={style.back} onPress={() => navigation.goBack()}>
-							<Text style={{ color: "white", fontSize: 23 }}>Go Back</Text>
+						<TouchableOpacity
+							style={style.back}
+							onPress={() => navigation.goBack()}
+						>
+							<Text
+								style={{ color: "white", fontSize: 23 }}
+							>
+								Go Back
+							</Text>
 						</TouchableOpacity>
 					</View>
 				</SafeAreaView>
 			);
 		} else {
 			return (
-				<SafeAreaView style={{ backgroundColor: COLORS.white, flex: 1 }}>
+				<SafeAreaView
+					style={{ backgroundColor: COLORS.white, flex: 1 }}
+				>
 					<View style={style.header}>
-						<TouchableOpacity style={{ width: 30, height: 30 }} onPress={() => navigation.goBack()}>
+						<TouchableOpacity
+							style={{ width: 30, height: 30 }}
+							onPress={() => navigation.goBack()}
+						>
 							<Image
 								source={assets.left}
 								resizeMode="contain"
@@ -295,7 +378,8 @@ const Cart = ({ route, navigation }) => {
 								marginLeft: 5,
 								fontSize: 20,
 								fontWeight: "bold",
-							}}>
+							}}
+						>
 							Checkout Bag
 						</Text>
 					</View>
@@ -303,30 +387,101 @@ const Cart = ({ route, navigation }) => {
 						style={{
 							backgroundColor: "#F8F8F8",
 							height: "80%",
-						}}>
+						}}
+					>
 						<FlatList
 							nestedScrollEnabled
 							showsVerticalScrollIndicator={false}
 							contentContainerStyle={{ paddingBottom: 70 }}
 							data={subSubServices}
-							renderItem={({ item, index }) => <CartCard data={item} data2={subSubServices} setData={setData} index={index} />}
-							keyExtractor={(item, index) => index.toString()}
+							renderItem={({ item, index }) => (
+								<CartCard
+									data={item}
+									data2={subSubServices}
+									setData={setData}
+									index={index}
+								/>
+							)}
+							keyExtractor={(item, index) =>
+								index.toString()
+							}
 							ListFooterComponentStyle={{
 								paddingHorizontal: 20,
 								marginTop: 20,
 							}}
 							ListFooterComponent={() => (
 								<View>
+									<View>
+										<TouchableOpacity
+											style={{
+												width: "100%",
+												height: 60,
+												backgroundColor:
+													COLORS.white,
+												borderRadius: 10,
+												padding: 10,
+												elevation: 30,
+												justifyContent:
+													"center",
+											}}
+											onPress={() => {
+												setcouponModalVisible(
+													true
+												);
+											}}
+										>
+											<View
+												style={{
+													flexDirection:
+														"row",
+													justifyContent:
+														"space-between",
+												}}
+											>
+												<Text
+													style={{
+														margin: 10,
+														fontSize: 14,
+														fontWeight:
+															"700",
+													}}
+												>
+													Apply Coupon
+												</Text>
+												<Text
+													style={{
+														marginVertical: 5,
+														fontSize: 20,
+													}}
+												>
+													》{" "}
+												</Text>
+											</View>
+										</TouchableOpacity>
+										<View
+											style={{
+												marginTop: "5%",
+												height: 1,
+												width: "95%",
+												alignSelf: "center",
+												backgroundColor:
+													"#cccccc",
+											}}
+										/>
+									</View>
 									<View
 										style={{
-											justifyContent: "space-between",
+											justifyContent:
+												"space-between",
 											marginVertical: 8,
-										}}>
+										}}
+									>
 										<Text
 											style={{
 												fontSize: 18,
 												fontWeight: "bold",
-											}}>
+											}}
+										>
 											Payment Summary
 										</Text>
 									</View>
@@ -334,32 +489,47 @@ const Cart = ({ route, navigation }) => {
 									<View
 										style={{
 											flexDirection: "row",
-											justifyContent: "space-between",
+											justifyContent:
+												"space-between",
 											marginVertical: 8,
-										}}>
-										<Text style={{ fontSize: 18 }}>Item Total</Text>
-										<Text style={{ fontSize: 18 }}>₹{itemTotal}</Text>
+										}}
+									>
+										<Text
+											style={{ fontSize: 18 }}
+										>
+											Item Total
+										</Text>
+										<Text
+											style={{ fontSize: 18 }}
+										>
+											₹{itemTotal}
+										</Text>
 									</View>
 
 									{discount > 0 ? (
 										<View
 											style={{
-												flexDirection: "row",
-												justifyContent: "space-between",
+												flexDirection:
+													"row",
+												justifyContent:
+													"space-between",
 												marginVertical: 10,
-											}}>
+											}}
+										>
 											<Text
 												style={{
 													fontSize: 18,
 													color: "green",
-												}}>
+												}}
+											>
 												Discount
 											</Text>
 											<Text
 												style={{
 													fontSize: 18,
 													color: "green",
-												}}>
+												}}
+											>
 												- ₹{discount}
 											</Text>
 										</View>
@@ -367,30 +537,46 @@ const Cart = ({ route, navigation }) => {
 									<View
 										style={{
 											flexDirection: "row",
-											justifyContent: "space-between",
+											justifyContent:
+												"space-between",
 											marginVertical: 8,
-										}}>
-										<Text style={{ fontSize: 18 }}>Platform Fee</Text>
-										<Text style={{ fontSize: 18 }}>₹{platformFee}</Text>
+										}}
+									>
+										<Text
+											style={{ fontSize: 18 }}
+										>
+											Platform Fee
+										</Text>
+										<Text
+											style={{ fontSize: 18 }}
+										>
+											₹{platformFee}
+										</Text>
 									</View>
 
-									{itemTotal - discount < minCartValue ? (
+									{itemTotal - discount <
+									minCartValue ? (
 										<View
 											style={{
-												flexDirection: "row",
-												justifyContent: "space-between",
+												flexDirection:
+													"row",
+												justifyContent:
+													"space-between",
 												marginVertical: 8,
-											}}>
+											}}
+										>
 											<Text
 												style={{
 													fontSize: 18,
-												}}>
+												}}
+											>
 												Minimum Charges
 											</Text>
 											<Text
 												style={{
 													fontSize: 18,
-												}}>
+												}}
+											>
 												₹{minCharges}
 											</Text>
 										</View>
@@ -402,27 +588,32 @@ const Cart = ({ route, navigation }) => {
 											height: 1,
 											width: "95%",
 											alignSelf: "center",
-											backgroundColor: "#cccccc",
+											backgroundColor:
+												"#cccccc",
 										}}
 									/>
 									<View
 										style={{
 											flexDirection: "row",
-											justifyContent: "space-between",
+											justifyContent:
+												"space-between",
 											marginVertical: 15,
-										}}>
+										}}
+									>
 										<Text
 											style={{
 												fontSize: 18,
 												fontWeight: "bold",
-											}}>
+											}}
+										>
 											Total
 										</Text>
 										<Text
 											style={{
 												fontSize: 18,
 												fontWeight: "bold",
-											}}>
+											}}
+										>
 											₹{totalPrice}
 										</Text>
 									</View>
@@ -430,35 +621,37 @@ const Cart = ({ route, navigation }) => {
 									<View
 										style={{
 											marginHorizontal: 30,
-										}}></View>
+										}}
+									></View>
 								</View>
 							)}
 						/>
 					</View>
-					<View>
-						<Snackbar visible={visible} onDismiss={onDismissSnackBar}>
-							We assure you that we will only apply the modest prices that are currently being requested for this service in the market.
-						</Snackbar>
-					</View>
+
 					<View
 						style={{
 							marginTop: 23,
 							flexDirection: "row",
 							justifyContent: "space-between",
 							alignItems: "center",
-						}}>
+						}}
+					>
 						<Text
 							style={{
 								marginLeft: 25,
 								marginVertical: 10,
 								color: COLORS.primary,
 								fontSize: 20,
-							}}>
+							}}
+						>
 							Total: ₹ {Math.round(totalPrice)}
 						</Text>
 						<TouchableOpacity
 							style={{
-								backgroundColor: totalPrice > 50 ? "black" : "#cccccc",
+								backgroundColor:
+									totalPrice > 50
+										? "black"
+										: "#cccccc",
 								borderRadius: 10,
 								alignItems: "center",
 								padding: "2%",
@@ -469,23 +662,97 @@ const Cart = ({ route, navigation }) => {
 							}}
 							onPress={() => {
 								totalPrice > 50
-									? navigation.navigate(isLoggedIn == "true" ? "SelectAddress" : "Login", {
-											prev: "Cart",
-											filteredData,
-									  })
-									: alert("Order Value is below ₹50");
-							}}>
+									? navigation.navigate(
+											isLoggedIn == "true"
+												? "SelectAddress"
+												: "Login",
+											{
+												prev: "Cart",
+												filteredData,
+											}
+									  )
+									: alert(
+											"Order Value is below ₹50"
+									  );
+							}}
+						>
 							<Text
 								style={{
 									color: COLORS.white,
 									fontSize: 22,
 									fontWeight: "600",
 									alignSelf: "center",
-								}}>
+								}}
+							>
 								Proceed
 							</Text>
 						</TouchableOpacity>
 					</View>
+
+					<Modal
+						animationType="slide"
+						transparent={true}
+						visible={couponModal}
+						onRequestClose={() => {
+							setcouponModalVisible(!couponModal);
+						}}
+					>
+						<View style={style.modalView}>
+							<View
+								style={{
+									flexDirection: "row",
+									justifyContent: "space-between",
+									marginTop: "5%",
+								}}
+							>
+								<View
+									style={{
+										flexDirection: "row",
+									}}
+								>
+									<TouchableOpacity
+										style={{
+											width: 40,
+											height: 40,
+											marginTop: "15%",
+										}}
+										onPress={() =>
+											setcouponModalVisible(
+												false
+											)
+										}
+									>
+										<Image
+											source={assets.left}
+											resizeMode="contain"
+											style={{
+												width: "100%",
+												height: "100%",
+											}}
+										/>
+									</TouchableOpacity>
+								</View>
+							</View>
+							<View
+								style={{
+									marginTop: 30,
+									margin: 10,
+									borderRadius: 20,
+									backgroundColor: COLORS.white,
+									alignItems: "center",
+									paddingVertical: 30,
+								}}
+							>
+								<Text
+									style={{
+										fontSize: 18,
+									}}
+								>
+									No Coupons Found
+								</Text>
+							</View>
+						</View>
+					</Modal>
 				</SafeAreaView>
 			);
 		}
@@ -499,23 +766,7 @@ const style = StyleSheet.create({
 		justifyContent: "flex-end",
 		alignItems: "center",
 	},
-	modalView: {
-		margin: 20,
-		backgroundColor: "white",
-		borderRadius: 20,
-		padding: 35,
-		alignItems: "center",
-		shadowColor: "#000",
-		shadowOffset: {
-			width: 0,
-			height: 2,
-		},
-		shadowOpacity: 0.25,
-		shadowRadius: 4,
-		elevation: 5,
-		width: "100%",
-		height: "43%",
-	},
+
 	header: {
 		paddingVertical: "5%",
 		flexDirection: "row",
@@ -589,6 +840,20 @@ const style = StyleSheet.create({
 		fontSize: 19,
 		textAlign: "center",
 		color: COLORS.white,
+	},
+	modalView: {
+		backgroundColor: "#f2f2f2",
+		marginTop: "20%",
+		padding: 25,
+		borderTopStartRadius: 20,
+		borderTopEndRadius: 20,
+		shadowColor: "#000",
+		shadowOpacity: 0.25,
+		shadowRadius: 4,
+		elevation: 5,
+		width: "100%",
+		alignSelf: "flex-end",
+		height: "100%",
 	},
 	actionBtn: {
 		width: 80,

@@ -593,6 +593,45 @@ const Profile = ({ navigation, route }) => {
 						</View>
 					</TouchableOpacity>
 
+					<View
+						style={{
+							height: 1,
+							width: "95%",
+							alignSelf: "center",
+							backgroundColor: "#cccccc",
+						}}
+					/>
+					<TouchableOpacity
+						onPress={() => {
+							navigation.navigate("RegisterSubService1");
+						}}
+					>
+						<View
+							style={{
+								margin: "1%",
+								borderColor: "gray",
+							}}
+						>
+							<View
+								style={{
+									flexDirection: "row",
+									justifyContent: "space-between",
+								}}
+							>
+								<Text
+									style={{
+										fontSize: 18,
+										fontWeight: "500",
+										margin: 15,
+										marginLeft: 30,
+									}}
+								>
+									{" "}
+									Register as a Professional
+								</Text>
+							</View>
+						</View>
+					</TouchableOpacity>
 					{user ? (
 						<View>
 							<View
@@ -969,7 +1008,6 @@ const Profile = ({ navigation, route }) => {
 				style={{
 					width: "100%",
 					alignSelf: "flex-end",
-					height: "20%",
 				}}
 			>
 				<TouchableOpacity

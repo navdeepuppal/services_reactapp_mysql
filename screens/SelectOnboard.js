@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
 	View,
 	StyleSheet,
@@ -58,7 +58,7 @@ const SelectOnboard = (props) => {
 								style={{
 									marginTop: 5,
 									alignSelf: "center",
-									fontSize: 16,
+									fontSize: 13,
 									fontWeight: "300",
 								}}
 							>
@@ -87,7 +87,7 @@ const SelectOnboard = (props) => {
 								style={{
 									marginTop: 5,
 									alignSelf: "center",
-									fontSize: 16,
+									fontSize: 13,
 									fontWeight: "300",
 								}}
 							>
@@ -116,7 +116,7 @@ const SelectOnboard = (props) => {
 								style={{
 									marginTop: 5,
 									alignSelf: "center",
-									fontSize: 16,
+									fontSize: 13,
 									fontWeight: "300",
 								}}
 							>
@@ -145,7 +145,7 @@ const SelectOnboard = (props) => {
 								style={{
 									marginTop: 5,
 									alignSelf: "center",
-									fontSize: 16,
+									fontSize: 13,
 									fontWeight: "300",
 								}}
 							>
@@ -174,7 +174,7 @@ const SelectOnboard = (props) => {
 								style={{
 									marginTop: 5,
 									alignSelf: "center",
-									fontSize: 16,
+									fontSize: 13,
 									fontWeight: "300",
 								}}
 							>
@@ -203,7 +203,7 @@ const SelectOnboard = (props) => {
 								style={{
 									marginTop: 5,
 									alignSelf: "center",
-									fontSize: 16,
+									fontSize: 13,
 									fontWeight: "300",
 								}}
 							>
@@ -241,7 +241,7 @@ const SelectOnboard = (props) => {
 								style={{
 									marginTop: 5,
 									alignSelf: "center",
-									fontSize: 16,
+									fontSize: 13,
 									fontWeight: "300",
 								}}
 							>
@@ -271,7 +271,7 @@ const SelectOnboard = (props) => {
 								style={{
 									marginTop: 5,
 									alignSelf: "center",
-									fontSize: 16,
+									fontSize: 13,
 									fontWeight: "300",
 								}}
 							>
@@ -300,7 +300,7 @@ const SelectOnboard = (props) => {
 								style={{
 									marginTop: 5,
 									alignSelf: "center",
-									fontSize: 16,
+									fontSize: 13,
 									fontWeight: "300",
 								}}
 							>
@@ -323,7 +323,10 @@ const SelectOnboard = (props) => {
 					onPress={() => {
 						setValue = async (value) => {
 							try {
-								await AsyncStorage.setItem("firstTime", value);
+								await AsyncStorage.setItem(
+									"firstTime",
+									value
+								);
 							} catch (e) {
 								console.error(e);
 								// save error

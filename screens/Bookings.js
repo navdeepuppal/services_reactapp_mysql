@@ -95,7 +95,7 @@ const Bookings = ({ navigation }) => {
 			>
 				<Text
 					style={{
-						fontSize: 22,
+						fontSize: 20,
 						fontWeight: "700",
 						marginLeft: 20,
 						marginTop: 3,
@@ -107,13 +107,13 @@ const Bookings = ({ navigation }) => {
 				</Text>
 			</View>
 			<FlatList
+				scrollEnabled
 				data={data2}
 				renderItem={({ item, index }) => (
 					<BookingCard key={item.index} data={item} />
 				)}
 				contentContainerStyle={{
 					height: "100%",
-					backgroundColor: "#f2f2f2",
 				}}
 				ListEmptyComponent={
 					<View style={{ paddingHorizontal: 10 }}>
@@ -130,7 +130,7 @@ const Bookings = ({ navigation }) => {
 						</Text>
 						<TouchableOpacity
 							onPress={() => {
-								navigation.navigate("Home");
+								navigation.navigate("Services");
 							}}
 							style={{
 								backgroundColor: COLORS.primary,
