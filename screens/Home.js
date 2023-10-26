@@ -20,10 +20,12 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import Profile from "./Profile";
 
 import { SliderBox } from "react-native-image-slider-box";
+import { useIsFocused } from "@react-navigation/core";
 
 let apiKey = "YOUR_API_KEY";
 
 function ServicesScreen() {
+	const isFocused = useIsFocused();
 	const [isLoading, setLoading] = useState(true);
 	const [data2, setData] = useState([]);
 	const [data2_backup, setDataBackup] = useState([]);
@@ -51,14 +53,16 @@ function ServicesScreen() {
 			//console.log(coords);
 
 			if (coords) {
-				let { longitude, latitude } = coords;
+				// let { longitude, latitude } = coords;
+				let latitude = 30.697;
+				let longitude = 76.7389;
 
 				let regionName = await Location.reverseGeocodeAsync({
 					longitude,
 					latitude,
 				});
 				// setAddress(regionName[0]);
-				//console.log(regionName, "nothing");
+				console.log(regionName, "nothing");
 			}
 
 			// console.log();
@@ -101,7 +105,7 @@ function ServicesScreen() {
 			})
 			.catch((error) => alert(error))
 			.finally(() => setLoading(false));
-	}, []);
+	}, [ isFocused ]);
 
 	return (
 		<View style={{ backgroundColor: COLORS.white }}>
@@ -389,6 +393,7 @@ export default function App() {
 				options={{
 					tabBarLabel: "Home",
 					tabBarIcon: ({ color }) => <Icon name="home" color={color} size={22} />,
+					unmountOnBlur: true,
 				}}
 			/>
 			<Tab.Screen
@@ -405,6 +410,7 @@ export default function App() {
 				options={{
 					tabBarLabel: "Bookings",
 					tabBarIcon: ({ color }) => <Icon name="book" color={color} size={22} />,
+					unmountOnBlur: true,
 				}}
 			/>
 			<Tab.Screen

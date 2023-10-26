@@ -16,14 +16,17 @@ import React, { useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { COLORS, config, SIZES, assets } from "../constants";
+import { useIsFocused } from "@react-navigation/core";
 
 const Bookings = ({ navigation }) => {
+	const isFocused = useIsFocused();
 	const [isLoading, setLoading] = useState(true);
 	const [data2, setData] = useState([]);
 
 	useEffect(() => {
 		AsyncStorage.getItem("PhoneNumber").then((PhoneNumber) => {
 			if (PhoneNumber === null) {
+				setData([]);
 				setLoading(false);
 				return;
 			}
@@ -44,7 +47,7 @@ const Bookings = ({ navigation }) => {
 				.catch((error) => alert(error))
 				.finally(() => setLoading(false));
 		});
-	}, []);
+	}, [ isFocused ]);
 
 	return isLoading ? (
 		<View

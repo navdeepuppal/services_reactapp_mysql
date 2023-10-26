@@ -8,9 +8,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { TermsCondition, BackButton } from "../components";
 
 const Login = ({ navigation, route }) => {
-	if (route.params !== undefined && route.params.prev === "Cart") {
-		const filteredData = route.params.filteredData;
-	}
+	const filteredData = route.params !== undefined && route.params.prev === "Cart" ? route.params.filteredData : [];
 
 	const [validity, setValidity] = useState("true");
 
