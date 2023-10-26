@@ -137,7 +137,7 @@ function ServicesScreen() {
 					<Text
 						style={{
 							alignSelf: "center",
-							fontSize: 18,
+							fontSize: 15,
 							marginTop: 8,
 							justifyContent: "center",
 						}}

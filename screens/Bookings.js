@@ -58,8 +58,8 @@ const Bookings = ({ navigation }) => {
 			<Image
 				source={require("../assets/sqera.png")}
 				style={{
-					width: 60,
-					height: 20,
+					width: 63,
+					height: 24,
 					marginBottom: 10,
 					alignSelf: "center",
 				}}
@@ -67,7 +67,7 @@ const Bookings = ({ navigation }) => {
 			<Text
 				style={{
 					alignSelf: "center",
-					fontSize: 18,
+					fontSize: 15,
 					marginTop: 8,
 					justifyContent: "center",
 				}}

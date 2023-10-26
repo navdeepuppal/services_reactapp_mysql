@@ -1157,27 +1157,6 @@ const ServiceMan = ({ navigation }) => {
 											height: 50,
 											justifyContent: "center",
 										}}
-									>
-										<Text
-											style={{
-												textAlign: "center",
-												fontSize: 20,
-												fontWeight: "600",
-												color: COLORS.gray,
-											}}
-										>
-											Workshops
-										</Text>
-									</TouchableOpacity>
-									<TouchableOpacity
-										style={{
-											backgroundColor:
-												COLORS.white,
-											width: "100%",
-											marginTop: 15,
-											height: 50,
-											justifyContent: "center",
-										}}
 										onPress={() => {
 											setnavigationDrawerVisible(
 												false
