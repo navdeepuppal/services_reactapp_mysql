@@ -154,10 +154,7 @@ const Profile = ({ navigation, route }) => {
 								{user}
 							</Text>
 
-							<TouchableOpacity
-								onPress={() => {
-								}}
-							>
+							<TouchableOpacity onPress={() => {}}>
 								<View
 									style={{
 										margin: "1%",
@@ -228,12 +225,6 @@ const Profile = ({ navigation, route }) => {
 											{" "}
 											Discover Talent
 										</Text>
-										<Text
-											style={{
-												fontSize: 19,
-												fontWeight: "500",
-											}}
-										></Text>
 									</View>
 								</View>
 							</TouchableOpacity>
@@ -325,10 +316,24 @@ const Profile = ({ navigation, route }) => {
 											}}
 											source={require("../assets/images/wallet.png")}
 										/>
+
 										<Text
 											style={{
 												color: COLORS.primary,
 												fontSize: 17,
+												alignSelf: "center",
+												justifyContent:
+													"center",
+												fontWeight: "700",
+												letterSpacing: 0.3,
+											}}
+										>
+											Wallet
+										</Text>
+										<Text
+											style={{
+												color: COLORS.gray,
+												fontSize: 15,
 												alignSelf: "center",
 												justifyContent:
 													"center",
@@ -340,14 +345,6 @@ const Profile = ({ navigation, route }) => {
 											₹109
 										</Text>
 									</View>
-									<Text
-										style={{
-											color: "gray",
-											fontSize: 20,
-											alignSelf: "center",
-											justifyContent: "center",
-										}}
-									></Text>
 								</TouchableOpacity>
 							</View>
 
@@ -385,7 +382,6 @@ const Profile = ({ navigation, route }) => {
 													fontSize: 18,
 													fontWeight:
 														"500",
-													marginTop: 7,
 												}}
 											>
 												{" "}
@@ -393,11 +389,20 @@ const Profile = ({ navigation, route }) => {
 											</Text>
 											<Text
 												style={{
-													fontSize: 18,
+													color: COLORS.gray,
+													fontSize: 15,
+													alignSelf:
+														"center",
+													justifyContent:
+														"center",
 													fontWeight:
-														"500",
+														"700",
+													letterSpacing: 0.3,
+													marginTop: 7,
 												}}
-											></Text>
+											>
+												Chat
+											</Text>
 										</View>
 									</View>
 								</TouchableOpacity>

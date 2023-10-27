@@ -168,6 +168,7 @@ const Wallet = ({ navigation }) => {
 								marginLeft: 10,
 								marginTop: 10,
 								fontSize: 30,
+								width: "90%",
 								fontWeight: "500",
 							}}
 							value={amount}

@@ -1,9 +1,16 @@
 import React, { useState } from "react";
-import { StyleSheet, TouchableOpacity, Text, View, TouchableWithoutFeedback } from "react-native";
+import {
+	StyleSheet,
+	TouchableOpacity,
+	Image,
+	Text,
+	View,
+	TouchableWithoutFeedback,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as Haptics from "expo-haptics";
 
-import { SIZES, SHADOWS } from "../constants";
+import { SIZES, SHADOWS, COLORS } from "../constants";
 import { RadioButton } from "react-native-paper";
 import { BackButton } from "../components";
 
@@ -17,12 +24,76 @@ const PaymentApi = ({ navigation, route }) => {
 		<SafeAreaView
 			style={{ backgroundColor: "white", flex: 1, margin: 10 }}
 		>
-			<BackButton />
-
+			<View
+				style={{
+					flexDirection: "row",
+					justifyContent: "space-between",
+				}}
+			>
+				<BackButton />
+				<TouchableOpacity
+					style={{
+						borderRadius: 15,
+						alignItems: "center",
+						justifyContent: "center",
+						alignSelf: "center",
+						width: 120,
+						height: 80,
+						padding: 10,
+						backgroundColor: "#f2f2f2",
+					}}
+					onPress={() => {
+						navigation.navigate("Wallet");
+					}}
+				>
+					<View
+						onPress={() => navigation.navigate("Wallet")}
+						style={{
+							alignItems: "center",
+						}}
+					>
+						<View
+							style={{
+								flexDirection: "row",
+								alignItems: "center",
+							}}
+						>
+							<Image
+								source={require("../assets/images/wallet.png")}
+								style={{
+									width: 25,
+									height: 25,
+									alignSelf: "center",
+									margin: 5,
+									marginRight: 10,
+								}}
+							/>
+							<Text
+								style={{
+									fontSize: 15,
+									fontWeight: "700",
+									color: COLORS.primary,
+								}}
+							>
+								₹200
+							</Text>
+						</View>
+						<Text
+							style={{
+								fontSize: 12,
+								fontWeight: "300",
+								color: COLORS.silver,
+							}}
+						>
+							Recharge Wallet
+						</Text>
+					</View>
+				</TouchableOpacity>
+			</View>
 			<Text
 				style={{
 					fontSize: 30,
-					marginTop: "15%",
+					marginTop: 20,
 					fontWeight: "500",
 				}}
 			>
@@ -90,7 +161,6 @@ const PaymentApi = ({ navigation, route }) => {
 							style={{
 								fontSize: 22,
 								fontWeight: "600",
-								alignSelf: "center",
 							}}
 						>
 							Wallet
@@ -98,9 +168,10 @@ const PaymentApi = ({ navigation, route }) => {
 						<Text
 							style={{
 								fontSize: 13,
+								color: COLORS.gray,
 							}}
 						>
-							Available Balance:
+							Available Balance: Rs.200
 						</Text>
 					</View>
 				</View>

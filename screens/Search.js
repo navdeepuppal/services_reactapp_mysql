@@ -15,9 +15,7 @@ const Search = ({ navigation, onSearch }) => {
 		>
 			<View
 				style={{
-					flexDirection: "row",
-					justifyContent: "space-between",
-					height: 52,
+					height: 50,
 					width: "95%",
 				}}
 			>
@@ -26,10 +24,18 @@ const Search = ({ navigation, onSearch }) => {
 						fontSize: 20,
 						fontWeight: "600",
 						marginLeft: 20,
-						marginTop: 10,
 					}}
 				>
 					Discover Talent
+				</Text>
+				<Text
+					style={{
+						fontSize: 11,
+						marginLeft: 20,
+						fontWeight: "300",
+					}}
+				>
+					Find skilled people nearby
 				</Text>
 			</View>
 			<View
@@ -41,8 +47,10 @@ const Search = ({ navigation, onSearch }) => {
 			>
 				<View
 					style={{
+						marginTop: 5,
+						borderRadius: 10,
 						width: "24%",
-						padding: 9,
+						padding: 10,
 						alignItems: "center",
 						justifyContent: "center",
 						backgroundColor: COLORS.white,
@@ -52,7 +60,6 @@ const Search = ({ navigation, onSearch }) => {
 						style={{
 							backgroundColor: COLORS.white,
 							borderTopRightRadius: 10,
-							height: "100%",
 						}}
 					>
 						<TouchableOpacity
@@ -65,7 +72,7 @@ const Search = ({ navigation, onSearch }) => {
 
 									borderRadius: 15,
 									height: 70,
-									width: 70,
+									width: 78,
 									paddingTop: 15,
 									justifyContent: "flex-start",
 								}}

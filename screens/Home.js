@@ -20,6 +20,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import Profile from "./Profile";
 
 import { SliderBox } from "react-native-image-slider-box";
+import { ScrollView } from "react-native-gesture-handler";
 
 let apiKey = "YOUR_API_KEY";
 
@@ -114,9 +115,11 @@ function ServicesScreen() {
 	}, []);
 
 	return (
-		<View style={{ backgroundColor: COLORS.white }}>
+		<ScrollView
+			style={{ backgroundColor: COLORS.white, marginTop: "5%" }}
+		>
 			{isLoading ? (
-				<View
+				<SafeAreaView
 					style={{
 						backgroundColor: "white",
 						height: "100%",
@@ -148,10 +151,11 @@ function ServicesScreen() {
 						source={require("../assets/images/loader.gif")}
 						style={styles.image}
 					/>
-				</View>
+				</SafeAreaView>
 			) : (
-				<SafeAreaView
+				<View
 					style={{
+						marginTop: 35,
 						backgroundColor: COLORS.white,
 					}}
 				>
@@ -243,7 +247,7 @@ function ServicesScreen() {
 					</View>
 					<View
 						style={{
-							backgroundColor: COLORS.white,
+							backgroundColor: "#f2f2f2",
 							height: "100%",
 						}}
 					>
@@ -302,13 +306,52 @@ function ServicesScreen() {
 								}}
 							/>
 						</View> */}
-
 						<View
 							style={{
 								backgroundColor: COLORS.white,
-								marginBottom: 10,
+								padding: 5,
+							}}
+						>
+							<Text
+								style={{
+									fontSize: 17,
+									marginLeft: 5,
+									fontWeight: "500",
+									marginBottom: 10,
+								}}
+							>
+								{" "}
+								Popular services near you
+							</Text>
+
+							<FlatList
+								scrollEnabled
+								numColumns={2}
+								data={data2}
+								renderItem={({ item, index }) => (
+									<NFTCard9
+										key={index}
+										data={item}
+										index={index}
+										setSubSModalVisible={
+											setSubSModalVisible
+										}
+									/>
+								)}
+								contentContainerStyle={{
+									alignSelf: "center",
+									justifyContent: "center",
+
+									width: "100%",
+									backgroundColor: COLORS.white,
+								}}
+							/>
+						</View>
+						<View
+							style={{
+								marginBottom: 20,
 								alignSelf: "center",
-								marginTop: 10,
+								marginTop: 20,
 								width: "100%",
 							}}
 						>
@@ -358,51 +401,243 @@ function ServicesScreen() {
 						<View
 							style={{
 								backgroundColor: COLORS.white,
-
-								marginLeft: 7,
-								marginTop: 20,
+								paddingVertical: 20,
+								padding: 5,
 							}}
 						>
-							<View
+							<Text
 								style={{
-									flexDirection: "row",
+									fontSize: 17,
+									marginLeft: 5,
+									fontWeight: "500",
+									marginBottom: 10,
 								}}
 							>
-								<Text
-									style={{
-										fontSize: 17,
-										marginLeft: 5,
-										fontWeight: "500",
-										marginBottom: 5,
-									}}
-								>
-									{" "}
-									Popular services near you
-								</Text>
-							</View>
-							<View style={{ alignSelf: "center" }}>
-								<FlatList
-									numColumns={3}
-									data={data2}
-									renderItem={({ item, index }) => (
-										<NFTCard9
-											key={index}
-											data={item}
-											index={index}
-											setSubSModalVisible={
-												setSubSModalVisible
-											}
-										/>
-									)}
-									contentContainerStyle={{
-										alignSelf: "center",
-										justifyContent: "center",
+								{" "}
+								Most booked home services
+							</Text>
 
-										width: "100%",
-										backgroundColor: COLORS.white,
-									}}
-								/>
-							</View>
+							<FlatList
+								numColumns={2}
+								data={data2}
+								renderItem={({ item, index }) => (
+									<NFTCard9
+										key={index}
+										data={item}
+										index={index}
+										setSubSModalVisible={
+											setSubSModalVisible
+										}
+									/>
+								)}
+								contentContainerStyle={{
+									alignSelf: "center",
+									justifyContent: "center",
+
+									width: "100%",
+									backgroundColor: COLORS.white,
+								}}
+							/>
+						</View>
+
+						<View
+							style={{
+								backgroundColor: COLORS.white,
+								marginTop: 20,
+								padding: 10,
+								paddingVertical: 20,
+							}}
+						>
+							<Text
+								style={{
+									fontSize: 17,
+									marginLeft: 5,
+									fontWeight: "500",
+									marginBottom: 5,
+								}}
+							>
+								{" "}
+								Quick home repairs
+							</Text>
+							<Text
+								style={{
+									fontSize: 14,
+									marginLeft: 5,
+									color: COLORS.gray,
+									fontWeight: "300",
+									marginBottom: 5,
+								}}
+							>
+								{" "}
+								Instant, Trustworthy
+							</Text>
+
+							<FlatList
+								numColumns={2}
+								data={data2}
+								renderItem={({ item, index }) => (
+									<NFTCard9
+										key={index}
+										data={item}
+										index={index}
+										setSubSModalVisible={
+											setSubSModalVisible
+										}
+									/>
+								)}
+								contentContainerStyle={{
+									alignSelf: "center",
+									justifyContent: "center",
+
+									width: "100%",
+									backgroundColor: COLORS.white,
+								}}
+							/>
+						</View>
+						<View
+							style={{
+								alignSelf: "center",
+								marginTop: 20,
+								width: "100%",
+							}}
+						>
+							<SliderBox
+								inactiveDotColor="#90A4AE"
+								alignSelf={"center"}
+								borderRadius={20}
+								autoplay
+								imageLoadingColor="#2196F3"
+								circleLoop
+								parentWidth={410}
+								autoplayInterval={5000}
+								ImageComponentStyle={{
+									borderRadius: 15,
+									marginRight: 20,
+								}}
+								paginationBoxStyle={{
+									position: "absolute",
+									bottom: 0,
+									padding: 70,
+									alignItems: "center",
+									alignSelf: "center",
+									justifyContent: "center",
+									paddingVertical: 10,
+								}}
+								height={170}
+								width={430}
+								opacity={1}
+								images={[
+									"https://img.freepik.com/free-photo/rear-view-programmer-working-all-night-long_1098-18697.jpg?w=2000&t=st=1672688375~exp=1672688975~hmac=8416e203ce399ec68facdf58c3080d1db24be40cc787610e70880e32166d1d9f",
+									"https://img.freepik.com/free-photo/housewife-woking-home-lady-blue-shirt-woman-bathroom_1157-45526.jpg?w=2000&t=st=1672688038~exp=1672688638~hmac=d24482e0caf4b75f753a2435569d1c59b940371a9adf3ba4382d8c0d445c8d91",
+									"https://img.freepik.com/free-photo/hvac-technician-working-capacitor-part-condensing-unit-male-worker-repairman-uniform-repairing-adjusting-conditioning-system-diagnosing-looking-technical-issues_155003-18256.jpg?w=2000&t=st=1672688457~exp=1672689057~hmac=8d5efa29abacc4dc73fef70cf4fbd600751fbb48465853c6b1170639fb45c73b", // Network image
+								]}
+								/* onCurrentImagePressed={(index) =>
+									console.log(
+										`image ${index} pressed`
+									)
+								}
+								currentImageEmitter={(index) =>
+									console.log(
+										`current pos is: ${index}`
+									)
+								} */
+							/>
+						</View>
+						<View
+							style={{
+								backgroundColor: COLORS.white,
+								marginTop: 20,
+								padding: 10,
+							}}
+						>
+							<Text
+								style={{
+									fontSize: 17,
+									marginLeft: 5,
+									marginTop: 10,
+									fontWeight: "500",
+									marginBottom: 5,
+								}}
+							>
+								{" "}
+								Spa for women
+							</Text>
+							<Text
+								style={{
+									fontSize: 14,
+									marginLeft: 5,
+									color: COLORS.gray,
+									fontWeight: "300",
+									marginBottom: 5,
+								}}
+							>
+								{" "}
+								Refresh, Rewind, Rejuvenate
+							</Text>
+
+							<FlatList
+								numColumns={2}
+								data={data2}
+								renderItem={({ item, index }) => (
+									<NFTCard9
+										key={index}
+										data={item}
+										index={index}
+										setSubSModalVisible={
+											setSubSModalVisible
+										}
+									/>
+								)}
+								contentContainerStyle={{
+									alignSelf: "center",
+									justifyContent: "center",
+
+									width: "100%",
+									backgroundColor: COLORS.white,
+								}}
+							/>
+						</View>
+						<View
+							style={{
+								backgroundColor: COLORS.white,
+								marginTop: 20,
+								padding: 10,
+							}}
+						>
+							<Text
+								style={{
+									fontSize: 17,
+									marginLeft: 5,
+									fontWeight: "500",
+									marginTop: 10,
+									marginBottom: 10,
+								}}
+							>
+								{" "}
+								Other popular services
+							</Text>
+
+							<FlatList
+								numColumns={2}
+								data={data2}
+								renderItem={({ item, index }) => (
+									<NFTCard9
+										key={index}
+										data={item}
+										index={index}
+										setSubSModalVisible={
+											setSubSModalVisible
+										}
+									/>
+								)}
+								contentContainerStyle={{
+									alignSelf: "center",
+									justifyContent: "center",
+
+									width: "100%",
+									backgroundColor: COLORS.white,
+								}}
+							/>
 						</View>
 
 						<View style={styles.loweredView}>
@@ -451,9 +686,9 @@ function ServicesScreen() {
 							</Modal>
 						</View>
 					</View>
-				</SafeAreaView>
+				</View>
 			)}
-		</View>
+		</ScrollView>
 	);
 }
 
@@ -466,7 +701,10 @@ export default function App() {
 		<Tab.Navigator
 			initialRouteName="Services"
 			screenOptions={{ headerShown: false }}
-			barStyle={{ backgroundColor: "white", height: 90 }}
+			barStyle={{
+				backgroundColor: "white",
+				height: 85,
+			}}
 		>
 			<Tab.Screen
 				name="Services"

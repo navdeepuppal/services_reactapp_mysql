@@ -115,7 +115,9 @@ const ChooseServiceMan = ({ navigation, route }) => {
 					<View
 						style={{
 							margin: 10,
-							backgroundColor: COLORS.white,
+							elevation: 10,
+							borderWidth: 0.2,
+							borderColor: "silver",
 							width: 120,
 							padding: 5,
 							alignSelf: "center",
