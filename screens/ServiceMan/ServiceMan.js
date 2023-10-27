@@ -993,6 +993,89 @@ const ServiceMan = ({ navigation }) => {
 										</Text>
 									</View>
 								</View>
+								<View
+									style={{
+										borderRadius: 7,
+										margin: 5,
+									}}
+								>
+									<View
+										style={{
+											alignItems: "center",
+											flexDirection: "row",
+										}}
+									>
+										<Text
+											style={{
+												fontWeight: "bold",
+												color: "gray",
+											}}
+										>
+											Penalties Charged:
+										</Text>
+										<Text
+											style={{
+												fontSize: 15,
+												fontWeight: "900",
+												color: "red",
+												margin: 3,
+											}}
+										>
+											5
+										</Text>
+									</View>
+								</View>
+
+								<Text
+									style={{
+										marginTop: 50,
+										margin: 10,
+										fontWeight: "600",
+										fontSize: 20,
+									}}
+								>
+									Find More Customers, Earn More
+								</Text>
+								<View
+									style={{
+										height: 1,
+										width: "80%",
+										backgroundColor: "#cccccc",
+									}}
+								/>
+								<TouchableOpacity
+									style={{
+										backgroundColor: "lightblue",
+										margin: 10,
+										elevation: 10,
+										fontSize: 16,
+										borderRadius: 10,
+										height: 40,
+										padding: 10,
+										textAlign: "center",
+									}}
+									onPress={() => {
+										navigation.navigate(
+											"Onboarding"
+										),
+											setstatisticsModalVisible(
+												false
+											);
+									}}
+								>
+									<Text
+										style={{
+											fontSize: 15,
+											color: COLORS.primary,
+											fontWeight: "500",
+											borderRadius: 10,
+											textAlign: "center",
+										}}
+									>
+										Instructions: How to use sqera
+										efficiently
+									</Text>
+								</TouchableOpacity>
 							</View>
 						</Modal>
 
@@ -1011,7 +1094,7 @@ const ServiceMan = ({ navigation }) => {
 									backgroundColor: COLORS.white,
 									borderTopStartRadius: 10,
 									borderBottomLeftRadius: 10,
-									shadowColor: "#000",
+
 									shadowOpacity: 0.25,
 									shadowRadius: 4,
 									elevation: 5,
@@ -1152,8 +1235,11 @@ const ServiceMan = ({ navigation }) => {
 										style={{
 											backgroundColor:
 												COLORS.white,
+											borderBottomWidth: 0.8,
+											borderColor: "#cccccc",
+											margin: 5,
 											width: "100%",
-											marginTop: 15,
+
 											height: 50,
 											justifyContent: "center",
 										}}
@@ -1169,7 +1255,37 @@ const ServiceMan = ({ navigation }) => {
 										<Text
 											style={{
 												textAlign: "center",
-												fontSize: 20,
+												fontSize: 16,
+												fontWeight: "600",
+												color: COLORS.gray,
+											}}
+										>
+											Grow on Sqera
+										</Text>
+									</TouchableOpacity>
+
+									<TouchableOpacity
+										style={{
+											backgroundColor:
+												COLORS.white,
+											width: "100%",
+											margin: 5,
+											height: 50,
+											justifyContent: "center",
+										}}
+										onPress={() => {
+											setnavigationDrawerVisible(
+												false
+											),
+												navigation.navigate(
+													"Contact"
+												);
+										}}
+									>
+										<Text
+											style={{
+												textAlign: "center",
+												fontSize: 16,
 												fontWeight: "600",
 												color: COLORS.gray,
 											}}
@@ -1199,11 +1315,30 @@ const ServiceMan = ({ navigation }) => {
 											justifyContent: "center",
 										}}
 										onPress={() => {
-											navigation.navigate(
-												"Home"
-											),
-												setnavigationDrawerVisible(
-													false
+											  Alert.alert(
+													"Switch to Customer Mode?",
+													"",
+													[
+														{
+															text: "Cancel",
+															onPress: () =>
+																console.log(
+																	"Cancel Pressed"
+																),
+															style: "cancel",
+														},
+														{
+															text: "Yes",
+															onPress: () => {
+																setnavigationDrawerVisible(
+																	false
+																),
+																	navigation.navigate(
+																		"Home"
+																	);
+															},
+														},
+													]
 												);
 										}}
 									>

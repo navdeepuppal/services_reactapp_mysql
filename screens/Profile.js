@@ -156,7 +156,6 @@ const Profile = ({ navigation, route }) => {
 
 							<TouchableOpacity
 								onPress={() => {
-									setChangeAddressVisible(true);
 								}}
 							>
 								<View

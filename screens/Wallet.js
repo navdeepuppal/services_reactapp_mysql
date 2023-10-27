@@ -163,6 +163,7 @@ const Wallet = ({ navigation }) => {
 						<TextInput
 							defaultValue="1000"
 							keyboardType="numeric"
+							numberOfLines={1}
 							style={{
 								marginLeft: 10,
 								marginTop: 10,
@@ -204,11 +205,6 @@ const Wallet = ({ navigation }) => {
 					</TouchableOpacity>
 				</View>
 			</View>
-			<View
-				style={{
-					alignSelf: "center",
-				}}
-			></View>
 
 			<View>
 				<Text
@@ -224,7 +220,6 @@ const Wallet = ({ navigation }) => {
 				<View>
 					<View
 						style={{
-							width: "100%",
 							padding: 10,
 							height: 50,
 							backgroundColor: "#EDF6FD",
@@ -245,10 +240,8 @@ const Wallet = ({ navigation }) => {
 					<View
 						style={{
 							marginTop: 10,
-							width: "100%",
 							flexDirection: "row",
-							justifyContent: "flex-start",
-							alignSelf: "flex-start",
+							paddingHorizontal: 10,
 						}}
 					>
 						<Image
@@ -262,8 +255,6 @@ const Wallet = ({ navigation }) => {
 						<View
 							style={{
 								margin: 20,
-								marginLeft: 20,
-								width: "70%",
 							}}
 						>
 							<View
@@ -282,8 +273,9 @@ const Wallet = ({ navigation }) => {
 								</Text>
 								<Text
 									style={{
-										fontSize: 18,
-										marginLeft: 55,
+										alignSelf: "flex-end",
+										fontSize: 14,
+										marginLeft: 50,
 									}}
 								>
 									-₹122.55
@@ -308,7 +300,6 @@ const Wallet = ({ navigation }) => {
 									style={{
 										fontSize: 11,
 										marginTop: 10,
-										marginLeft: 80,
 										alignSelf: "flex-end",
 										color: COLORS.gray,
 									}}

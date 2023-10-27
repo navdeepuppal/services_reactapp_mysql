@@ -95,9 +95,10 @@ const SelectAddress = ({ navigation, route }) => {
 
 								<Text
 									style={{
-										fontSize: 22,
+										fontSize: 20,
 										margin: 14,
 										fontWeight: "bold",
+										color: COLORS.primary,
 									}}
 								>
 									{AddressHouse}, {AddressArea}, Near{" "}
@@ -182,6 +183,7 @@ const SelectAddress = ({ navigation, route }) => {
 											style={{
 												fontSize: 12,
 												marginLeft: 13,
+												color: COLORS.secondary,
 											}}
 										>
 											Enter the address of your
@@ -351,6 +353,7 @@ const styles = StyleSheet.create({
 		fontSize: 25,
 		margin: 13,
 		marginTop: 30,
+		color: COLORS.gray,
 	},
 	pincodeinput: {
 		fontSize: 38,
@@ -359,17 +362,17 @@ const styles = StyleSheet.create({
 		borderColor: "silver",
 		borderRadius: 9,
 		borderWidth: 1,
-		width: "50%",
+		width: 250,
 	},
 	input: {
-		fontSize: 20,
+		fontSize: 17,
 		margin: 10,
 		padding: 5,
 		borderColor: "silver",
 		borderRadius: 9,
 		borderWidth: 1,
-		width: "90%",
-		height: "5%",
+		width: 350,
+		height: 55,
 	},
 	editAddressButton: {
 		marginTop: 2,
@@ -428,7 +431,7 @@ const styles = StyleSheet.create({
 	},
 
 	buttontext: {
-		fontSize: 19,
+		fontSize: 16,
 		textAlign: "center",
 		color: COLORS.white,
 		fontWeight: "700",

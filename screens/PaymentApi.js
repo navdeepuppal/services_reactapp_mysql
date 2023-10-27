@@ -14,7 +14,9 @@ const PaymentApi = ({ navigation, route }) => {
 	const [Wallet, setWallet] = useState("Wallet");
 
 	return (
-		<SafeAreaView style={{ backgroundColor: "white", flex: 1, margin: 10 }}>
+		<SafeAreaView
+			style={{ backgroundColor: "white", flex: 1, margin: 10 }}
+		>
 			<BackButton />
 
 			<Text
@@ -22,7 +24,8 @@ const PaymentApi = ({ navigation, route }) => {
 					fontSize: 30,
 					marginTop: "15%",
 					fontWeight: "500",
-				}}>
+				}}
+			>
 				{" "}
 				PAYMENT PAGE{" "}
 			</Text>
@@ -39,14 +42,22 @@ const PaymentApi = ({ navigation, route }) => {
 						padding: 20,
 						width: 270,
 						margin: 25,
-					}}>
-					<RadioButton value="Payment" status={Payment === "COD" ? "checked" : "unchecked"} onPress={() => setPayment("Payment")} />
+					}}
+				>
+					<RadioButton
+						value="Payment"
+						status={
+							Payment === "COD" ? "checked" : "unchecked"
+						}
+						onPress={() => setPayment("Payment")}
+					/>
 					<Text
 						style={{
 							fontSize: 22,
 							fontWeight: "600",
 							alignSelf: "center",
-						}}>
+						}}
+					>
 						Cash On Delivery
 					</Text>
 				</View>
@@ -63,28 +74,56 @@ const PaymentApi = ({ navigation, route }) => {
 						padding: 20,
 						width: 270,
 						marginBottom: "20%",
-					}}>
-					<RadioButton value="Wallet" status={Payment === "Wallet" ? "checked" : "unchecked"} onPress={() => setPayment("Payment")} />
-					<Text
-						style={{
-							fontSize: 22,
-							fontWeight: "600",
-							alignSelf: "center",
-						}}>
-						Wallet
-					</Text>
+					}}
+				>
+					<RadioButton
+						value="Wallet"
+						status={
+							Payment === "Wallet"
+								? "checked"
+								: "unchecked"
+						}
+						onPress={() => setPayment("Payment")}
+					/>
+					<View>
+						<Text
+							style={{
+								fontSize: 22,
+								fontWeight: "600",
+								alignSelf: "center",
+							}}
+						>
+							Wallet
+						</Text>
+						<Text
+							style={{
+								fontSize: 13,
+							}}
+						>
+							Available Balance:
+						</Text>
+					</View>
 				</View>
 			</TouchableWithoutFeedback>
 
-			<Text style={style.textInfo}>Other payment method options will be available soon.</Text>
-			<Text style={style.textInfo}>Upon the completion of your service, you have the option to make payment to the service provider using UPI, Gpay, or Paytm.</Text>
+			<Text style={style.textInfo}>
+				Other payment method options will be available soon.
+			</Text>
+			<Text style={style.textInfo}>
+				Upon the completion of your service, you have the option to
+				make payment to the service provider using UPI, Gpay, or
+				Paytm.
+			</Text>
 
 			<TouchableOpacity
 				style={style.verifyButton}
 				onPress={() => {
 					navigation.navigate("Thankyou", { cartData });
-					Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
-				}}>
+					Haptics.notificationAsync(
+						Haptics.NotificationFeedbackType.Success
+					);
+				}}
+			>
 				<Text style={style.buttontext}>PLACE ORDER</Text>
 			</TouchableOpacity>
 		</SafeAreaView>
@@ -93,8 +132,10 @@ const PaymentApi = ({ navigation, route }) => {
 
 const style = StyleSheet.create({
 	textInfo: {
-		fontSize: 16,
-		margin: 7,
+		padding: 10,
+		fontSize: 13,
+		margin: 2,
+		textAlign: "center",
 		color: "gray",
 	},
 	verifyButton: {

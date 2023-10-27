@@ -57,7 +57,7 @@ const SelectTime = ({ navigation, route }) => {
 								margin: 10,
 								borderRadius: 15,
 								height: 60,
-								width: 90,
+								width: 100,
 
 								justifyContent: "center",
 							}}
@@ -81,7 +81,7 @@ const SelectTime = ({ navigation, route }) => {
 								margin: 10,
 								borderRadius: 15,
 								height: 60,
-								width: 90,
+								width: 120,
 
 								justifyContent: "center",
 							}}
@@ -181,16 +181,19 @@ const SelectTime = ({ navigation, route }) => {
 				</TouchableWithoutFeedback>
 			</View>
 			<Text style={styles.extraText}>
-				Service Man will contact you before visiting your place.
+				Service man will contact you before visiting your location
+				to confirm the exact timing of the visit.
 			</Text>
 			<TouchableOpacity
 				style={styles.verifyButton}
 				onPress={() => {
 					AsyncStorage.setItem("timeSlot", timeSlot);
-					navigation.navigate("PaymentApi", { cartData });
+					navigation.navigate("ChooseServiceMan", { cartData });
 				}}
 			>
-				<Text style={styles.buttontext}>PROCEED</Text>
+				<Text style={styles.buttontext}>
+					Find Available Professionals
+				</Text>
 			</TouchableOpacity>
 		</SafeAreaView>
 	);
@@ -198,7 +201,8 @@ const SelectTime = ({ navigation, route }) => {
 
 const styles = StyleSheet.create({
 	extraText: {
-		marginTop: "20%",
+		paddingHorizontal: 3,
+		marginTop: "15%",
 		alignSelf: "center",
 		fontSize: 15,
 		margin: 12,

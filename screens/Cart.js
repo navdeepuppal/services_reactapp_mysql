@@ -644,7 +644,7 @@ const Cart = ({ route, navigation }) => {
 								fontSize: 20,
 							}}
 						>
-							Total: ₹ {Math.round(totalPrice)}
+							Total: ₹ {totalPrice}
 						</Text>
 						<TouchableOpacity
 							style={{
