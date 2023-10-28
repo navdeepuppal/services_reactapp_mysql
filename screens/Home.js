@@ -7,7 +7,6 @@ import {
 	StyleSheet,
 	Share,
 	Modal,
-	Alert,
 	TouchableOpacity,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -57,7 +56,7 @@ function ServicesScreen() {
 				// dismissed
 			}
 		} catch (error) {
-			Alert.alert(error.message);
+			alert(error.message);
 		}
 	};
 	const getLocation = () => {

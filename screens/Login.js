@@ -8,7 +8,6 @@ import {
     KeyboardAvoidingView,
     Modal,
     TextInput,
-    Alert,
 } from "react-native";
 
 import { COLORS, SIZES, SHADOWS } from "../constants";
@@ -222,9 +221,9 @@ const Login = ({ navigation, route }) => {
                                                                 filteredData,
                                                             });
                                                     } else navigation.goBack();
-                                                    Alert.alert("You are now logged in!");
+                                                    alert("You are now logged in!");
                                                 } else {
-                                                    Alert.alert("Incorrect OTP");
+                                                    alert("Incorrect OTP");
                                                     onChangeOTP("");
                                                 }
                                             }}>
