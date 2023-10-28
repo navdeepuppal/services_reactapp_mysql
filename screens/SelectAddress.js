@@ -5,7 +5,6 @@ import {
 	View,
 	Modal,
 	Image,
-	Alert,
 	TextInput,
 	KeyboardAvoidingView,
 } from "react-native";
@@ -281,7 +280,7 @@ const SelectAddress = ({ navigation, route }) => {
 														false
 													);
 												} else {
-													Alert.alert(
+													alert(
 														"Look's address not correct. Please check your address"
 													);
 												}

@@ -46,7 +46,7 @@ const Profile = ({ navigation }) => {
                 // dismissed
             }
         } catch (error) {
-            Alert.alert(error.message);
+            alert(error.message);
         }
     };
 
@@ -717,7 +717,7 @@ const Profile = ({ navigation }) => {
                                         onPress={() => {
                                             setAccountModalVisible(false);
                                             AsyncStorage.clear();
-                                            Alert.alert("Logged out");
+                                            alert("Logged out");
                                             navigation.navigate("SelectOnboard");
                                         }}>
                                         <View

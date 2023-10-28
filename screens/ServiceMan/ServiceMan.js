@@ -35,26 +35,26 @@ const ServiceMan = ({ navigation }) => {
 				/* TODO: Handle Not Logged In */
                 return;
             }
-        fetch(
-            config.domain +
-                `/get/Select b.*, ss.SubS_Name, s.S_Name from booking as b, subservice as ss, service as s
+            fetch(
+                config.domain +
+                    `/get/Select b.*, ss.SubS_Name, s.S_Name from booking as b, subservice as ss, service as s
 				 where (b.SMan_PhNo = ${PhoneNumber} and b.SubS_ID = ss.SubS_ID and ss.S_ID = s.S_ID)
 				 order by b.B_Appointment ASC`,
-            {
-                method: "GET",
-            }
-        )
-            .then((response) => response.json())
-            .then((responseJson) => {
-                if (responseJson == 404) {
-                    responseJson = [];
+                {
+                    method: "GET",
                 }
-                setPendingList(responseJson.filter((item) => item.B_Status !== 3));
-                setCompletedList(responseJson.filter((item) => item.B_Status === 3));
-                // console.log(responseJson);
-            })
-            .catch((error) => alert(error))
-            .finally(() => setLoading(false));
+            )
+                .then((response) => response.json())
+                .then((responseJson) => {
+                    if (responseJson == 404) {
+                        responseJson = [];
+                    }
+                    setPendingList(responseJson.filter((item) => item.B_Status !== 3));
+                    setCompletedList(responseJson.filter((item) => item.B_Status === 3));
+                    // console.log(responseJson);
+                })
+                .catch((error) => alert(error))
+                .finally(() => setLoading(false));
         });
     }, []);
 
