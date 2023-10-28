@@ -7,12 +7,14 @@ import {
     TouchableOpacity,
     Modal,
     FlatList,
+	Alert,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React, { useEffect, useState } from "react";
 
 import { COLORS, assets, SIZES, SHADOWS, config } from "../../constants";
 import { SMan_BookingCard, SMan_BookingDetailsModal } from "../../components/SMan_BookingCard";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const ServiceMan = ({ navigation }) => {
     const [ratingModal, setratingModalVisible] = useState(false);
@@ -28,10 +30,15 @@ const ServiceMan = ({ navigation }) => {
     const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
+        AsyncStorage.getItem("PhoneNumber").then((PhoneNumber) => {
+            if (PhoneNumber === null) {
+				/* TODO: Handle Not Logged In */
+                return;
+            }
         fetch(
             config.domain +
                 `/get/Select b.*, ss.SubS_Name, s.S_Name from booking as b, subservice as ss, service as s
-				 where (b.SMan_PhNo = 1234567890 and b.SubS_ID = ss.SubS_ID and ss.S_ID = s.S_ID)
+				 where (b.SMan_PhNo = ${PhoneNumber} and b.SubS_ID = ss.SubS_ID and ss.S_ID = s.S_ID)
 				 order by b.B_Appointment ASC`,
             {
                 method: "GET",
@@ -48,6 +55,7 @@ const ServiceMan = ({ navigation }) => {
             })
             .catch((error) => alert(error))
             .finally(() => setLoading(false));
+        });
     }, []);
 
 	return (
