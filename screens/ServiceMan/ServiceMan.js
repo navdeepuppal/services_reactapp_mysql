@@ -60,7 +60,7 @@ const ServiceMan = ({ navigation }) => {
 					}}
 				>
 					<Text style={{ fontWeight: "700", fontSize: 20 }}>
-						Hi, Genus
+						Hi, Navdeep
 					</Text>
 
 					<View style={{ flexDirection: "row" }}>
@@ -125,7 +125,8 @@ const ServiceMan = ({ navigation }) => {
 								style={{
 									textAlign: "center",
 									fontWeight: "bold",
-									color: "gray",
+									fontSize: 12,
+									color: COLORS.gray,
 								}}
 							>
 								TODAYS EARNING
@@ -566,11 +567,11 @@ const ServiceMan = ({ navigation }) => {
 								settodayEarningsVisible(!todayEarnings);
 							}}
 						>
-							<View
+							<ScrollView
 								style={{
 									backgroundColor: "#f2f2f2",
 									marginTop: "20%",
-									padding: 25,
+
 									borderTopStartRadius: 20,
 									borderTopEndRadius: 20,
 									shadowColor: "#000",
@@ -618,15 +619,142 @@ const ServiceMan = ({ navigation }) => {
 										</TouchableOpacity>
 									</View>
 								</View>
-								<View
-									style={{
-										marginTop: 30,
-										margin: 10,
-										borderRadius: 20,
-										backgroundColor: COLORS.white,
-									}}
-								></View>
-							</View>
+								<View>
+									<Text
+										style={{
+											marginTop: 40,
+											margin: 10,
+											fontSize: 20,
+											fontWeight: "600",
+										}}
+									>
+										Today's Earnings
+									</Text>
+									<View>
+										<View
+											style={{
+												height: 50,
+												backgroundColor:
+													"#EDF6FD",
+												justifyContent:
+													"center",
+											}}
+										>
+											<Text
+												style={{
+													justifyContent:
+														"center",
+													color: COLORS.gray,
+													fontWeight:
+														"600",
+													margin: 10,
+												}}
+											>
+												{" "}
+												02 Oct 2023
+											</Text>
+										</View>
+										<View
+											style={{
+												marginTop: 10,
+												flexDirection:
+													"row",
+												paddingHorizontal: 10,
+											}}
+										>
+											<Image
+												source={require("../../assets/sqera.png")}
+												style={{
+													alignSelf:
+														"center",
+													width: 50,
+													height: 20,
+												}}
+											/>
+											<View
+												style={{
+													margin: 20,
+												}}
+											>
+												<View
+													style={{
+														flexDirection:
+															"row",
+														justifyContent:
+															"space-between",
+													}}
+												>
+													<Text
+														style={{
+															fontWeight:
+																"500",
+															fontSize: 13,
+														}}
+													>
+														Paid for
+														Home
+														Kitchen
+														Cleaning
+													</Text>
+													<Text
+														style={{
+															alignSelf:
+																"flex-end",
+															fontSize: 14,
+															marginLeft: 50,
+														}}
+													>
+														-₹122.55
+													</Text>
+												</View>
+												<View
+													style={{
+														flexDirection:
+															"row",
+														justifyContent:
+															"space-between",
+													}}
+												>
+													<Text
+														style={{
+															fontSize: 11,
+															marginTop: 10,
+															color: COLORS.gray,
+														}}
+													>
+														06:28 PM
+													</Text>
+													<Text
+														style={{
+															fontSize: 11,
+															marginTop: 10,
+															alignSelf:
+																"flex-end",
+															color: COLORS.gray,
+														}}
+													>
+														Sqera
+														Wallet
+														Closing
+														Balance:
+														₹4.00
+													</Text>
+												</View>
+											</View>
+										</View>
+										<View
+											style={{
+												height: 1,
+												width: "95%",
+												marginTop: 10,
+												alignSelf: "center",
+												backgroundColor:
+													"#cccccc",
+											}}
+										/>
+									</View>
+								</View>
+							</ScrollView>
 						</Modal>
 						<Modal
 							animationType="slide"
@@ -763,59 +891,6 @@ const ServiceMan = ({ navigation }) => {
 											padding: 10,
 										}}
 									>
-										Customers can find you when
-										your BROADCAST MODE IS ON
-									</Text>
-								</View>
-								<View
-									style={{
-										marginTop: 30,
-										margin: 10,
-										alignSelf: "center",
-										width: "100%",
-										borderRadius: 20,
-										borderWidth: 0.2,
-										borderColor: COLORS.gray,
-									}}
-								>
-									<Text
-										style={{
-											textAlign: "center",
-											alignSelf: "center",
-											fontWeight: "500",
-											fontSize: 18,
-											lineHeight: 30,
-											padding: 10,
-										}}
-									>
-										Your service/skill is
-										currently getting broadcasted
-										to your customers from your
-										below current location.
-									</Text>
-								</View>
-
-								<View
-									style={{
-										marginTop: 30,
-										margin: 10,
-										alignSelf: "center",
-										width: "100%",
-										borderRadius: 20,
-										borderWidth: 0.2,
-										borderColor: COLORS.gray,
-									}}
-								>
-									<Text
-										style={{
-											textAlign: "center",
-											alignSelf: "center",
-											fontWeight: "500",
-											fontSize: 18,
-											lineHeight: 30,
-											padding: 10,
-										}}
-									>
 										Current Location:
 									</Text>
 									<Text
@@ -830,6 +905,35 @@ const ServiceMan = ({ navigation }) => {
 										}}
 									>
 										Kothi 103 Phase 9 Mohali
+									</Text>
+								</View>
+								<View
+									style={{
+										marginTop: 30,
+										margin: 10,
+										alignSelf: "center",
+										width: "100%",
+										borderRadius: 20,
+										borderWidth: 0.2,
+										borderColor: COLORS.gray,
+									}}
+								>
+									<Text
+										style={{
+											alignSelf: "center",
+											fontWeight: "300",
+											fontSize: 15,
+											lineHeight: 20,
+											padding: 10,
+										}}
+									>
+										• Customers can find you when
+										your BROADCAST MODE IS ON.
+										{" \n"}
+										{"\n"}• Your service/skill is
+										currently getting broadcasted
+										to your customers from your
+										below current location.
 									</Text>
 								</View>
 							</View>
@@ -1315,31 +1419,31 @@ const ServiceMan = ({ navigation }) => {
 											justifyContent: "center",
 										}}
 										onPress={() => {
-											  Alert.alert(
-													"Switch to Customer Mode?",
-													"",
-													[
-														{
-															text: "Cancel",
-															onPress: () =>
-																console.log(
-																	"Cancel Pressed"
-																),
-															style: "cancel",
+											Alert.alert(
+												"Switch to Customer Mode?",
+												"",
+												[
+													{
+														text: "Cancel",
+														onPress: () =>
+															console.log(
+																"Cancel Pressed"
+															),
+														style: "cancel",
+													},
+													{
+														text: "Yes",
+														onPress: () => {
+															setnavigationDrawerVisible(
+																false
+															),
+																navigation.navigate(
+																	"Home"
+																);
 														},
-														{
-															text: "Yes",
-															onPress: () => {
-																setnavigationDrawerVisible(
-																	false
-																),
-																	navigation.navigate(
-																		"Home"
-																	);
-															},
-														},
-													]
-												);
+													},
+												]
+											);
 										}}
 									>
 										<Text
