@@ -1252,6 +1252,7 @@ const ServiceMan = ({ navigation }) => {
 												COLORS.white,
 											width: "100%",
 											marginTop: 15,
+											marginBottom: 20,
 											height: 50,
 											justifyContent: "center",
 										}}
@@ -1282,64 +1283,38 @@ const ServiceMan = ({ navigation }) => {
 											+91 9041504403
 										</Text>
 									</TouchableOpacity>
-
 									<TouchableOpacity
 										style={{
-											margin: 5,
-											marginTop: 30,
-											borderRadius: 15,
-											alignItems: "center",
-											justifyContent: "center",
-											alignSelf: "center",
-											width: 160,
-											height: 70,
-											marginBottom: 100,
 											backgroundColor:
-												"#f2f2f2",
+												COLORS.white,
+											borderBottomWidth: 0.8,
+											borderColor: "#cccccc",
+											margin: 5,
+											width: "100%",
+
+											height: 50,
+											justifyContent: "center",
 										}}
 										onPress={() => {
-											navigation.navigate(
-												"Wallet"
+											setnavigationDrawerVisible(
+												false
 											),
-												setnavigationDrawerVisible(
-													false
+												navigation.navigate(
+													"Contact"
 												);
 										}}
 									>
-										<View
-											onPress={() =>
-												navigation.navigate(
-													"Wallet"
-												)
-											}
+										<Text
 											style={{
-												alignItems:
-													"center",
+												textAlign: "center",
+												fontSize: 16,
+												fontWeight: "600",
+												color: COLORS.gray,
 											}}
 										>
-											<Image
-												source={require("../../assets/images/wallet.png")}
-												style={{
-													width: 30,
-													height: 25,
-													alignSelf:
-														"center",
-													margin: 5,
-												}}
-											/>
-											<Text
-												style={{
-													fontSize: 16,
-													fontWeight:
-														"900",
-													color: COLORS.primary,
-												}}
-											>
-												Rs 200
-											</Text>
-										</View>
+											Profile
+										</Text>
 									</TouchableOpacity>
-
 									<TouchableOpacity
 										style={{
 											backgroundColor:
@@ -1412,6 +1387,84 @@ const ServiceMan = ({ navigation }) => {
 										left: 5,
 									}}
 								>
+									<TouchableOpacity
+										style={{
+											margin: 5,
+											marginTop: 30,
+											borderRadius: 15,
+											alignItems: "center",
+											justifyContent: "center",
+											alignSelf: "center",
+											width: 130,
+											height: 70,
+											marginBottom: 200,
+											backgroundColor:
+												"#f2f2f2",
+										}}
+										onPress={() => {
+											navigation.navigate(
+												"Wallet"
+											),
+												setnavigationDrawerVisible(
+													false
+												);
+										}}
+									>
+										<View
+											onPress={() =>
+												navigation.navigate(
+													"Wallet"
+												)
+											}
+											style={{
+												alignItems:
+													"center",
+											}}
+										>
+											<View
+												style={{
+													flexDirection:
+														"row",
+													alignItems:
+														"center",
+												}}
+											>
+												<Image
+													source={require("../../assets/images/wallet.png")}
+													style={{
+														width: 30,
+														height: 25,
+													}}
+												/>
+												<View
+													style={{
+														marginLeft: 10,
+													}}
+												>
+													<Text
+														style={{
+															fontSize: 16,
+															fontWeight:
+																"500",
+															color: COLORS.primary,
+														}}
+													>
+														Wallet
+													</Text>
+													<Text
+														style={{
+															fontSize: 14,
+															fontWeight:
+																"900",
+															color: COLORS.gray,
+														}}
+													>
+														Rs 200
+													</Text>
+												</View>
+											</View>
+										</View>
+									</TouchableOpacity>
 									<TouchableOpacity
 										style={{
 											width: 180,
