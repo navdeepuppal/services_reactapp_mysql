@@ -5,13 +5,20 @@ import {
 	Text,
 	Image,
 	StyleSheet,
+	Share,
 	Modal,
+	Alert,
 	TouchableOpacity,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import * as Location from "expo-location";
-import { NFTCard1, HomeHeader, NFTCard9, SubServicesModal } from "../components";
+import {
+	NFTCard1,
+	HomeHeader,
+	NFTCard9,
+	SubServicesModal,
+} from "../components";
 import { COLORS, config, SIZES } from "../constants";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import Bookings from "./Bookings";
@@ -33,7 +40,24 @@ function ServicesScreen() {
 	const [address, setAddress] = useState("");
 
 	console.log(address);
-
+	const onShare = async () => {
+		try {
+			const result = await Share.share({
+				message: "https://www.sqera.com",
+			});
+			if (result.action === Share.sharedAction) {
+				if (result.activityType) {
+					// shared with activity type of result.activityType
+				} else {
+					// shared
+				}
+			} else if (result.action === Share.dismissedAction) {
+				// dismissed
+			}
+		} catch (error) {
+			Alert.alert(error.message);
+		}
+	};
 	const getLocation = () => {
 		(async () => {
 			let { status } =
@@ -694,12 +718,13 @@ function ServicesScreen() {
 								}}
 							/>
 						</View>
-						<View
+						<TouchableOpacity
 							style={{
 								backgroundColor: "#EDF6FD",
 								marginTop: 20,
 								padding: 10,
 							}}
+							onPress={onShare}
 						>
 							<Text
 								style={{
@@ -723,7 +748,7 @@ function ServicesScreen() {
 							>
 								Refer to your friends
 							</Text>
-						</View>
+						</TouchableOpacity>
 
 						<View style={styles.loweredView}>
 							<Modal
