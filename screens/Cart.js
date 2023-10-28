@@ -1,22 +1,35 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity, Modal, FlatList } from "react-native";
+import {
+	StyleSheet,
+	View,
+	Text,
+	Image,
+	TextInput,
+	TouchableOpacity,
+	Modal,
+	FlatList,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { COLORS, SIZES, SHADOWS, assets, FONTS, config } from "../constants";
 import { NFTTitle } from "../components/SubInfo";
 
 const Cart = ({ route, navigation }) => {
-    const [subSubServices, setData] = useState(route.params.data2_backup);
-    const [extraData, setExtraData] = useState([]);
-    const [isLoading, setLoading] = useState(true);
-    const [visible, setVisible] = useState(true);
-    const onDismissSnackBar = () => setVisible(false);
-    const [isLoggedIn, setLoggedIn] = useState("");
-    const [couponModal, setcouponModalVisible] = useState(false);
+	const [subSubServices, setData] = useState(route.params.data2_backup);
+	const [extraData, setExtraData] = useState([]);
+	const [isLoading, setLoading] = useState(true);
 
-    AsyncStorage.getItem("isLoggedIn").then((isLoggedIn) => {
-        setLoggedIn(isLoggedIn);
-    });
+	const [visible, setVisible] = useState(true);
+
+	const onDismissSnackBar = () => setVisible(false);
+
+	const [isLoggedIn, setLoggedIn] = useState("");
+
+	const [couponModal, setcouponModalVisible] = useState(false);
+	const [amount, setAmount] = useState(1000);
+	AsyncStorage.getItem("isLoggedIn").then((isLoggedIn) => {
+		setLoggedIn(isLoggedIn);
+	});
 
     const querystring =
         "SELECT service.S_MinCartPrice, service.S_Discount, service.S_MinCharges, service.S_PlatformFee FROM service WHERE service.S_ID = " +
@@ -513,30 +526,35 @@ const Cart = ({ route, navigation }) => {
                         />
                     </View>
 
-                    <View
-                        style={{
-                            marginTop: 23,
-                            flexDirection: "row",
-                            justifyContent: "space-between",
-                            alignItems: "center",
-                        }}>
-                        <Text
-                            style={{
-                                marginLeft: 25,
-                                marginVertical: 10,
-                                color: COLORS.primary,
-                                fontSize: 20,
-                            }}>
-                            Total: ₹ {Math.round(totalPrice)}
-                        </Text>
-                        <TouchableOpacity
-                            style={{
-                                backgroundColor: totalPrice > 50 ? "black" : "#cccccc",
-                                borderRadius: 10,
-                                alignItems: "center",
-                                padding: "2%",
-                                marginRight: "5%",
-                                width: "40%",
+					<View
+						style={{
+							marginTop: 23,
+							flexDirection: "row",
+							justifyContent: "space-between",
+							alignItems: "center",
+						}}
+					>
+						<Text
+							style={{
+								marginLeft: 25,
+								marginVertical: 10,
+								color: COLORS.primary,
+								fontSize: 20,
+							}}
+						>
+							Total: ₹ {totalPrice}
+						</Text>
+						<TouchableOpacity
+							style={{
+								backgroundColor:
+									totalPrice > 50
+										? "black"
+										: "#cccccc",
+								borderRadius: 10,
+								alignItems: "center",
+								padding: "2%",
+								marginRight: "5%",
+								width: "40%",
 
                                 height: "100%",
                             }}
@@ -563,66 +581,105 @@ const Cart = ({ route, navigation }) => {
                         </TouchableOpacity>
                     </View>
 
-                    <Modal
-                        animationType="slide"
-                        transparent={true}
-                        visible={couponModal}
-                        onRequestClose={() => {
-                            setcouponModalVisible(!couponModal);
-                        }}>
-                        <View style={style.modalView}>
-                            <View
-                                style={{
-                                    flexDirection: "row",
-                                    justifyContent: "space-between",
-                                    marginTop: "5%",
-                                }}>
-                                <View
-                                    style={{
-                                        flexDirection: "row",
-                                    }}>
-                                    <TouchableOpacity
-                                        style={{
-                                            width: 40,
-                                            height: 40,
-                                            marginTop: "15%",
-                                        }}
-                                        onPress={() => setcouponModalVisible(false)}>
-                                        <Image
-                                            source={assets.left}
-                                            resizeMode="contain"
-                                            style={{
-                                                width: "100%",
-                                                height: "100%",
-                                            }}
-                                        />
-                                    </TouchableOpacity>
-                                </View>
-                            </View>
-                            <View
-                                style={{
-                                    marginTop: 30,
-                                    margin: 10,
-                                    borderRadius: 20,
-                                    backgroundColor: COLORS.white,
-                                    alignItems: "center",
-                                    paddingVertical: 30,
-                                }}>
-                                <Text
-                                    style={{
-                                        fontSize: 18,
-                                    }}>
-                                    No Coupons Found
-                                </Text>
-                            </View>
-                        </View>
-                    </Modal>
-                </SafeAreaView>
-            );
-        }
-    } else {
-        return null;
-    }
+					<Modal
+						animationType="slide"
+						transparent={true}
+						visible={couponModal}
+						onRequestClose={() => {
+							setcouponModalVisible(!couponModal);
+						}}
+					>
+						<View style={style.modalView}>
+							<View
+								style={{
+									flexDirection: "row",
+									justifyContent: "space-between",
+									marginTop: "5%",
+								}}
+							>
+								<View
+									style={{
+										flexDirection: "row",
+									}}
+								>
+									<TouchableOpacity
+										style={{
+											width: 40,
+											height: 40,
+											marginTop: "15%",
+										}}
+										onPress={() =>
+											setcouponModalVisible(
+												false
+											)
+										}
+									>
+										<Image
+											source={assets.left}
+											resizeMode="contain"
+											style={{
+												width: "100%",
+												height: "100%",
+											}}
+										/>
+									</TouchableOpacity>
+								</View>
+							</View>
+							<View
+								style={{
+									borderColor: COLORS.white,
+									borderWidth: 1,
+									backgroundColor: COLORS.white,
+									flexDirection: "row",
+									marginTop: 20,
+									borderRadius: 10,
+									padding: 10,
+									alignItems: "center",
+									height: 70,
+								}}
+							>
+								<TextInput
+									placeholder="Enter Coupon Code Here"
+									numberOfLines={1}
+									style={{
+										marginLeft: 10,
+
+										fontSize: 20,
+										width: "90%",
+										fontWeight: "500",
+									}}
+									value={amount}
+								></TextInput>
+							</View>
+							<TouchableOpacity
+								style={{
+									marginTop: 30,
+									margin: 10,
+									paddin: 5,
+									borderRadius: 10,
+									backgroundColor: "blue",
+								}}
+							>
+								<Text
+									style={{
+										padding: 10,
+										color: COLORS.white,
+										textAlign: "center",
+										fontSize: 18,
+										fontWeight: "500",
+									}}
+								>
+									Apply Coupon
+								</Text>
+							</TouchableOpacity>
+						</View>
+					</Modal>
+				</SafeAreaView>
+			);
+		}
+	} else {
+		return null;
+	}
 };
 const style = StyleSheet.create({
     centeredView: {

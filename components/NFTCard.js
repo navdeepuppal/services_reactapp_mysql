@@ -564,31 +564,36 @@ const NFTCard9 = ({ data, index, setSubSModalVisible }) => {
 				borderRadius: SIZES.font,
 
 				width: "44%",
-				height: 125,
+				height: 110,
 				margin: "2%",
 				padding: 10,
 			}}
 			onPress={() => {
 				setSubSModalVisible(index);
 				//navigation.navigate("SubServices" /* data.S_NextPage */, { data })
-			}}>
+			}}
+		>
 			<View
 				style={{
 					alignSelf: "center",
 					height: 85,
 					width: 85,
 					marginBottom: 2,
-				}}>
+				}}
+			>
 				<ImageBackground
 					resizeMode="cover"
 					source={{ uri: ImageURL }}
 					style={{
-						height: 80,
+						height: 65,
 						alignSelf: "center",
-						width: 80,
-					}}></ImageBackground>
+						width: 65,
+						marginBottom: 7,
+					}}
+				></ImageBackground>
+
+				<NFTTitle title={data.S_Name} titleSize={SIZES.large - 2} />
 			</View>
-			<NFTTitle title={data.S_Name} titleSize={SIZES.large} />
 		</TouchableOpacity>
 	);
 };

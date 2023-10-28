@@ -68,15 +68,24 @@ const SubSubService = ({ route, navigation }) => {
 				<FlatList
 					nestedScrollEnabled
 					data={data2}
-					renderItem={({ item, index }) => <NFTCard6 data={item} data2={data2_backup} setData={setDataBackup} index={index} />}
+					renderItem={({ item, index }) => (
+						<NFTCard6
+							data={item}
+							data2={data2_backup}
+							setData={setDataBackup}
+							index={index}
+						/>
+					)}
 					keyExtractor={(item, index) => index.toString()}
 					numColumns={1}
 					showsVerticalScrollIndicator={false}
-					ListHeaderComponent={<SubSubServicesHeader onSearch={handleSearch} SubS_Name={prevData.SubS_Name} />}
+					ListHeaderComponent={
+						<SubSubServicesHeader
+							onSearch={handleSearch}
+							SubS_Name={prevData.SubS_Name}
+						/>
+					}
 				/>
-				<Snackbar visible={visible} onDismiss={onDismissSnackBar}>
-					The prices for each service here are calculated based on the average ask/demand price in your local area.
-				</Snackbar>
 			</View>
 			{totalPrice ? (
 				<View
@@ -87,13 +96,15 @@ const SubSubService = ({ route, navigation }) => {
 						backgroundColor: "white",
 						alignContent: "center",
 						alignItems: "center",
-					}}>
+					}}
+				>
 					<Text
 						style={{
 							marginLeft: 25,
 							color: COLORS.primary,
 							fontSize: 22,
-						}}>
+						}}
+					>
 						₹ {totalPrice}
 					</Text>
 					<TouchableOpacity
@@ -110,14 +121,16 @@ const SubSubService = ({ route, navigation }) => {
 							navigation.navigate("Cart", {
 								data2_backup,
 							})
-						}>
+						}
+					>
 						<Text
 							style={{
 								color: COLORS.white,
-								fontSize: 22,
+								fontSize: 20,
 								fontWeight: "600",
 								alignSelf: "center",
-							}}>
+							}}
+						>
 							View Cart
 						</Text>
 					</TouchableOpacity>

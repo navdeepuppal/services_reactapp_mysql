@@ -11,108 +11,61 @@ const Search = ({ navigation, onSearch }) => {
 		<SafeAreaView
 			style={{
 				flex: 1,
-			}}>
+			}}
+		>
 			<View
 				style={{
-					flexDirection: "row",
-					justifyContent: "space-between",
-					height: 52,
+					height: 50,
 					width: "95%",
-				}}>
+				}}
+			>
 				<Text
 					style={{
 						fontSize: 20,
 						fontWeight: "600",
 						marginLeft: 20,
-						marginTop: 10,
-					}}>
-					Discover
+					}}
+				>
+					Discover Talent
 				</Text>
-
-				<View
+				<Text
 					style={{
-						borderRadius: 10,
-						marginTop: 5,
-						backgroundColor: "#f2f2f2",
-						padding: 12,
-						height: 40,
-						width: 250,
-						borderColor: COLORS.gray,
-						flexDirection: "row",
-					}}>
-					<Image
-						source={assets.search}
-						style={{
-							alignSelf: "center",
-							width: 16,
-							height: 16,
-						}}
-					/>
-					<TextInput
-						placeholder="Search"
-						placeholderTextColor="#A0A0A0"
-						style={{
-							alignSelf: "center",
-							margin: "2%",
-							marginLeft: 9,
-							fontSize: SIZES.large - 2,
-							color: COLORS.primary,
-
-							height: 65,
-						}}
-						onChangeText={onSearch}
-					/>
-				</View>
+						fontSize: 11,
+						marginLeft: 20,
+						fontWeight: "300",
+					}}
+				>
+					Find skilled people nearby
+				</Text>
 			</View>
 			<View
 				style={{
 					flexDirection: "row",
 					flex: 1,
 					backgroundColor: "rgba(245,245,245,255)",
-				}}>
+				}}
+			>
 				<View
 					style={{
+						marginTop: 5,
+						borderRadius: 10,
 						width: "24%",
-						padding: 9,
+						padding: 10,
 						alignItems: "center",
 						justifyContent: "center",
 						backgroundColor: COLORS.white,
-					}}>
+					}}
+				>
 					<ScrollView
 						style={{
 							backgroundColor: COLORS.white,
 							borderTopRightRadius: 10,
-							height: "100%",
-						}}>
-						<TouchableOpacity style={{ marginBottom: 80 }} onPress={() => setButtonStatus("2")}>
-							<View
-								style={{
-									backgroundColor: "#f2f2f2",
-
-									borderRadius: 15,
-									height: 70,
-									width: 70,
-									paddingTop: 15,
-									justifyContent: "flex-start",
-								}}>
-								<Image source={require("../assets/images/homeservices.png")} resizeMode="center" style={styles.inventoryImage} />
-								<Text
-									style={{
-										fontSize: 14,
-										marginTop: 10,
-										alignContent: "flex-end",
-										justifyContent: "center",
-										alignSelf: "center",
-										textAlign: "center",
-										fontWeight: "400",
-										color: COLORS.primary,
-									}}>
-									Home Services
-								</Text>
-							</View>
-						</TouchableOpacity>
-
-						<TouchableOpacity style={{ marginBottom: 80 }} onPress={() => setButtonStatus("1")}>
+						}}
+					>
+						<TouchableOpacity
+							style={{ marginBottom: 80 }}
+							onPress={() => setButtonStatus("2")}
+						>
 							<View
 								style={{
 									backgroundColor: "#f2f2f2",
@@ -122,11 +75,16 @@ const Search = ({ navigation, onSearch }) => {
 									width: 78,
 									paddingTop: 15,
 									justifyContent: "flex-start",
-								}}>
-								<Image source={require("../assets/images/freelancers.png")} resizeMode="center" style={styles.inventoryImage} />
+								}}
+							>
+								<Image
+									source={require("../assets/images/homeservices.png")}
+									resizeMode="center"
+									style={styles.inventoryImage}
+								/>
 								<Text
 									style={{
-										fontSize: 14,
+										fontSize: 12,
 										marginTop: 10,
 										alignContent: "flex-end",
 										justifyContent: "center",
@@ -134,7 +92,45 @@ const Search = ({ navigation, onSearch }) => {
 										textAlign: "center",
 										fontWeight: "400",
 										color: COLORS.primary,
-									}}>
+									}}
+								>
+									Home Services
+								</Text>
+							</View>
+						</TouchableOpacity>
+
+						<TouchableOpacity
+							style={{ marginBottom: 80 }}
+							onPress={() => setButtonStatus("1")}
+						>
+							<View
+								style={{
+									backgroundColor: "#f2f2f2",
+
+									borderRadius: 15,
+									height: 70,
+									width: 78,
+									paddingTop: 15,
+									justifyContent: "flex-start",
+								}}
+							>
+								<Image
+									source={require("../assets/images/freelancers.png")}
+									resizeMode="center"
+									style={styles.inventoryImage}
+								/>
+								<Text
+									style={{
+										fontSize: 12,
+										marginTop: 10,
+										alignContent: "flex-end",
+										justifyContent: "center",
+										alignSelf: "center",
+										textAlign: "center",
+										fontWeight: "400",
+										color: COLORS.primary,
+									}}
+								>
 									Freelancers
 								</Text>
 							</View>
@@ -153,7 +149,8 @@ const Search = ({ navigation, onSearch }) => {
 								marginTop: 5,
 								borderTopLeftRadius: 10,
 								height: "100%",
-							}}>
+							}}
+						>
 							<View
 								style={{
 									width: "90%",
@@ -162,10 +159,10 @@ const Search = ({ navigation, onSearch }) => {
 									flexDirection: "row",
 									borderColor: "white",
 
-									borderBottomWidth: 0.2,
-									borderColor: COLORS.gray,
-									alignContent: "center",
-								}}>
+									borderBottomWidth: 0.3,
+									borderColor: "silver",
+								}}
+							>
 								<Image
 									source={require("../assets/images/graphicsdesign.png")}
 									resizeMode="contain"
@@ -175,21 +172,27 @@ const Search = ({ navigation, onSearch }) => {
 										alignSelf: "center",
 									}}
 								/>
-								<View style={{ margin: 10 }}>
+								<View
+									style={{
+										margin: 10,
+										paddingHorizontal: 5,
+									}}
+								>
 									<Text
 										style={{
-											fontSize: 18,
+											fontSize: 15,
 											color: "black",
 											fontWeight: "600",
-										}}>
+										}}
+									>
 										Graphics & Design
 									</Text>
 									<Text
 										style={{
-											fontSize: 14,
+											fontSize: 12,
 											color: "black",
-											width: "60%",
-										}}>
+										}}
+									>
 										Logo & Brand Identity, Gaming
 									</Text>
 								</View>
@@ -202,10 +205,10 @@ const Search = ({ navigation, onSearch }) => {
 									flexDirection: "row",
 									borderColor: "white",
 
-									borderBottomWidth: 0.2,
-									borderColor: COLORS.gray,
-									alignContent: "center",
-								}}>
+									borderBottomWidth: 0.3,
+									borderColor: "silver",
+								}}
+							>
 								<Image
 									source={require("../assets/images/digitalmarketing.png")}
 									resizeMode="contain"
@@ -215,22 +218,29 @@ const Search = ({ navigation, onSearch }) => {
 										alignSelf: "center",
 									}}
 								/>
-								<View style={{ margin: 10 }}>
+								<View
+									style={{
+										margin: 10,
+										paddingHorizontal: 5,
+									}}
+								>
 									<Text
 										style={{
-											fontSize: 18,
+											fontSize: 15,
 											color: "black",
 											fontWeight: "600",
-										}}>
+										}}
+									>
 										Digital Marketing
 									</Text>
 									<Text
 										style={{
-											fontSize: 14,
+											fontSize: 12,
 											color: "black",
-											width: "60%",
-										}}>
-										Social Media Marketing, Search Engine Optimization( SEO)
+										}}
+									>
+										Social Media Marketing, Search
+										Engine Optimization( SEO),
 									</Text>
 								</View>
 							</View>
@@ -245,7 +255,8 @@ const Search = ({ navigation, onSearch }) => {
 								marginTop: 5,
 								borderTopLeftRadius: 10,
 								height: "100%",
-							}}>
+							}}
+						>
 							<View
 								style={{
 									width: "90%",
@@ -254,10 +265,10 @@ const Search = ({ navigation, onSearch }) => {
 									flexDirection: "row",
 									borderColor: "white",
 
-									borderBottomWidth: 0.2,
-									borderColor: COLORS.gray,
-									alignContent: "center",
-								}}>
+									borderBottomWidth: 0.3,
+									borderColor: "silver",
+								}}
+							>
 								<Image
 									source={require("../assets/images/carpenter.png")}
 									resizeMode="contain"
@@ -267,22 +278,29 @@ const Search = ({ navigation, onSearch }) => {
 										alignSelf: "center",
 									}}
 								/>
-								<View style={{ margin: 10 }}>
+								<View
+									style={{
+										margin: 10,
+										paddingHorizontal: 5,
+									}}
+								>
 									<Text
 										style={{
-											fontSize: 18,
+											fontSize: 14,
 											color: "black",
 											fontWeight: "600",
-										}}>
+										}}
+									>
 										Carpenter
 									</Text>
 									<Text
 										style={{
-											fontSize: 14,
-											width: "60%",
+											fontSize: 12,
 											color: "black",
-										}}>
-										Fix Furniture, Build Cupboards, Polishing Doors
+										}}
+									>
+										Fix Furniture, Build
+										Cupboards, Polishing Doors
 									</Text>
 								</View>
 							</View>
@@ -294,10 +312,10 @@ const Search = ({ navigation, onSearch }) => {
 									flexDirection: "row",
 									borderColor: "white",
 
-									borderBottomWidth: 0.2,
-									borderColor: COLORS.gray,
-									alignContent: "center",
-								}}>
+									borderBottomWidth: 0.3,
+									borderColor: "silver",
+								}}
+							>
 								<Image
 									source={require("../assets/images/cleaning.png")}
 									resizeMode="contain"
@@ -307,22 +325,29 @@ const Search = ({ navigation, onSearch }) => {
 										alignSelf: "center",
 									}}
 								/>
-								<View style={{ margin: 10 }}>
+								<View
+									style={{
+										margin: 10,
+										paddingHorizontal: 5,
+									}}
+								>
 									<Text
 										style={{
-											fontSize: 18,
+											fontSize: 14,
 											color: "black",
 											fontWeight: "600",
-										}}>
+										}}
+									>
 										Cleaning
 									</Text>
 									<Text
 										style={{
-											fontSize: 14,
-											width: "60%",
+											fontSize: 12,
 											color: "black",
-										}}>
-										AC, Kitchen, Bathroom, Home Cleaning, Maid
+										}}
+									>
+										AC, Kitchen, Bathroom, Home
+										Cleaning, Maid
 									</Text>
 								</View>
 							</View>

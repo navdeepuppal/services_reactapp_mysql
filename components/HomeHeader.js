@@ -37,10 +37,11 @@ const HomeHeader = ({ onSearch }) => {
 				}}
 			/>
 			<TextInput
-				placeholder="Search for Laundry, Gardener, Cook, Taxi"
+				placeholder="Search for Laundry, Gardener, Cook, Driver"
 				placeholderTextColor="#A0A0A0"
 				style={{
-					fontSize: SIZES.font + 1,
+					paddingVertical: 10,
+					fontSize: SIZES.font,
 					backgroundColor: "#f2f2f2",
 					color: COLORS.primary,
 				}}

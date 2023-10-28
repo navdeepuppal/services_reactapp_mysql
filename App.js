@@ -39,6 +39,7 @@ import Search from "./screens/Search";
 import Profile from "./screens/Profile";
 
 import ServiceMan from "./screens/ServiceMan/ServiceMan";
+import ChooseServiceMan from "./screens/ChooseServiceMan";
 
 const theme = {
 	...DefaultTheme,
@@ -108,44 +109,142 @@ const App = () => {
 					screenOptions={{
 						headerShown: false,
 					}}
-					initialRouteName={firstTime ? "Onboarding" : isLoggedIn ? (isServiceMan == "2" ? "ServiceMan" : "ServiceMan") : "Onboarding"}>
-					<Stack.Screen options={{ gestureEnabled: false }} name="Home" component={Home} />
+					initialRouteName={
+						firstTime
+							? "Onboarding"
+							: isLoggedIn
+							? isServiceMan == "2"
+								? "ServiceMan"
+								: "ServiceMan"
+							: "Onboarding"
+					}
+				>
+					<Stack.Screen
+						options={{ gestureEnabled: false }}
+						name="Home"
+						component={Home}
+					/>
 
-					<Stack.Screen options={{ gestureEnabled: false }} name="Wallet" component={Wallet} />
-					<Stack.Screen name="SelectAddress" component={SelectAddress} />
-					<Stack.Screen name="SelectTime" component={SelectTime} />
-					<Stack.Screen name="PaymentApi" component={PaymentApi} />
-					<Stack.Screen options={{ gestureEnabled: false }} name="ServiceManDashboard" component={ServiceManDashboard} />
-					<Stack.Screen name="Onboarding" component={Onboarding} />
-					<Stack.Screen options={{ gestureEnabled: false }} name="Login" component={Login} />
+					<Stack.Screen
+						options={{ gestureEnabled: false }}
+						name="Wallet"
+						component={Wallet}
+					/>
+					<Stack.Screen
+						name="SelectAddress"
+						component={SelectAddress}
+					/>
+					<Stack.Screen
+						name="SelectTime"
+						component={SelectTime}
+					/>
+					<Stack.Screen
+						name="PaymentApi"
+						component={PaymentApi}
+					/>
+					<Stack.Screen
+						options={{ gestureEnabled: false }}
+						name="ServiceManDashboard"
+						component={ServiceManDashboard}
+					/>
+					<Stack.Screen
+						name="Onboarding"
+						component={Onboarding}
+					/>
+					<Stack.Screen
+						options={{ gestureEnabled: false }}
+						name="Login"
+						component={Login}
+					/>
 					<Stack.Screen name="Contact" component={Contact} />
-					<Stack.Screen name="SubServices" component={SubServices} />
-					<Stack.Screen name="SelectOnboard" component={SelectOnboard} />
-					<Stack.Screen name="SelectOnboardProfessional" component={SelectOnboardProfessional} />
+					<Stack.Screen
+						name="SubServices"
+						component={SubServices}
+					/>
+					<Stack.Screen
+						name="SelectOnboard"
+						component={SelectOnboard}
+					/>
+					<Stack.Screen
+						name="SelectOnboardProfessional"
+						component={SelectOnboardProfessional}
+					/>
 
-					<Stack.Screen options={{ gestureEnabled: false }} name="Thankyou" component={Thankyou} />
+					<Stack.Screen
+						options={{ gestureEnabled: false }}
+						name="Thankyou"
+						component={Thankyou}
+					/>
 
-					<Stack.Screen name="SubSubService" component={SubSubService} />
+					<Stack.Screen
+						name="SubSubService"
+						component={SubSubService}
+					/>
 					<Stack.Screen name="Cart" component={Cart} />
 
-					<Stack.Screen name="RequestNewService" component={RequestNewService} />
+					<Stack.Screen
+						name="RequestNewService"
+						component={RequestNewService}
+					/>
 
-					<Stack.Screen options={{ gestureEnabled: false }} name="RegisterSubService1" component={RegisterSubService1} />
-					<Stack.Screen name="RegisterSubService2" component={RegisterSubService2} />
-					<Stack.Screen name="RegisterSubService3" component={RegisterSubService3} />
-					<Stack.Screen name="RegisterSubService4" component={RegisterSubService4} />
-					<Stack.Screen name="RegisterSubService5" component={RegisterSubService5} />
-					<Stack.Screen name="RegisterSubService6" component={RegisterSubService6} />
-					<Stack.Screen name="RegisterSubService7" component={RegisterSubService7} />
-					<Stack.Screen name="RegisterSubService8" component={RegisterSubService8} />
-					<Stack.Screen name="RegisterSubService9" component={RegisterSubService9} />
-					<Stack.Screen name="RegisterSubService10" component={RegisterSubService10} />
-					<Stack.Screen name="RegisterSubService11" component={RegisterSubService11} />
+					<Stack.Screen
+						options={{ gestureEnabled: false }}
+						name="RegisterSubService1"
+						component={RegisterSubService1}
+					/>
+					<Stack.Screen
+						name="RegisterSubService2"
+						component={RegisterSubService2}
+					/>
+					<Stack.Screen
+						name="RegisterSubService3"
+						component={RegisterSubService3}
+					/>
+					<Stack.Screen
+						name="RegisterSubService4"
+						component={RegisterSubService4}
+					/>
+					<Stack.Screen
+						name="RegisterSubService5"
+						component={RegisterSubService5}
+					/>
+					<Stack.Screen
+						name="RegisterSubService6"
+						component={RegisterSubService6}
+					/>
+					<Stack.Screen
+						name="RegisterSubService7"
+						component={RegisterSubService7}
+					/>
+					<Stack.Screen
+						name="RegisterSubService8"
+						component={RegisterSubService8}
+					/>
+					<Stack.Screen
+						name="RegisterSubService9"
+						component={RegisterSubService9}
+					/>
+					<Stack.Screen
+						name="RegisterSubService10"
+						component={RegisterSubService10}
+					/>
+					<Stack.Screen
+						name="RegisterSubService11"
+						component={RegisterSubService11}
+					/>
 					<Stack.Screen name="Bookings" component={Bookings} />
 					<Stack.Screen name="Search" component={Search} />
 					<Stack.Screen name="Profile" component={Profile} />
 
-					<Stack.Screen name="ServiceMan" component={ServiceMan} />
+					<Stack.Screen
+						name="ServiceMan"
+						component={ServiceMan}
+					/>
+
+					<Stack.Screen
+						name="ChooseServiceMan"
+						component={ChooseServiceMan}
+					/>
 				</Stack.Navigator>
 			)}
 		</NavigationContainer>

@@ -52,7 +52,7 @@ const RequestNewService = ({ navigation }) => {
 					</Text>
 					<Text style={styles.mainHeader1}>
 						Tell us the skill you have, {"\n"}we will create a
-						new category for you, And broadcast to your
+						new category for you, {"\n"}And broadcast to your
 						customers 😉 {"\n\n"}
 					</Text>
 
@@ -111,7 +111,10 @@ const RequestNewService = ({ navigation }) => {
 							}
 						}}
 					>
-						<Text style={styles.buttonText}> Submit </Text>
+						<Text style={styles.buttonText}>
+							{" "}
+							Submit Request{" "}
+						</Text>
 					</TouchableOpacity>
 					<Text style={styles.description}>
 						You can reach us anytime via {"\n"}sqera@gmail.com
@@ -128,7 +131,7 @@ const styles = StyleSheet.create({
 		backgroundColor: "#fff",
 	},
 	mainHeader: {
-		fontSize: 29,
+		fontSize: 23,
 		color: "#344055",
 		fontWeight: "500",
 		paddingTop: 20,
@@ -136,7 +139,7 @@ const styles = StyleSheet.create({
 		textTransform: "capitalize",
 	},
 	mainHeader1: {
-		fontSize: 20,
+		fontSize: 18,
 		color: "#344055",
 		fontWeight: "500",
 		paddingTop: 20,
@@ -196,6 +199,7 @@ const styles = StyleSheet.create({
 		marginTop: 20,
 	},
 	wrapperText: {
+		width: 350,
 		marginLeft: 10,
 		color: "#7d7d7d",
 	},
