@@ -1,115 +1,115 @@
-import { StyleSheet, Text, View, ScrollView, TextInput, Image, TouchableOpacity } from "react-native";
+import {
+    StyleSheet,
+    Text,
+    View,
+    ScrollView,
+    TextInput,
+    Image,
+    TouchableOpacity,
+} from "react-native";
 
 import { COLORS, SIZES } from "../constants";
 import React, { useState } from "react";
 import { BackButton } from "../components";
 
 const Wallet = ({ navigation }) => {
-	const [state, setButtonStatus] = useState("1");
-	const [amount, setAmount] = useState(1000);
+    // const [state, setButtonStatus] = useState("1");
+    const [amount, setAmount] = useState(1000);
 
-	const handleChange = (e) => {
-		setAmount(e);
-		/* TODO : Verify as a number */
-	};
+    const handleChange = (e) => {
+        setAmount(e);
+        /* TODO : Verify as a number */
+    };
 
-	return (
-		<ScrollView
-			style={{
-				marginTop: "12%",
-				flex: 1,
-				backgroundColor: COLORS.white,
-			}}
-		>
-			<View
-				style={{
-					flexDirection: "row",
-					justifyContent: "space-between",
+    return (
+        <ScrollView
+            style={{
+                marginTop: "12%",
+                flex: 1,
+                backgroundColor: COLORS.white,
+            }}>
+            <View
+                style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
 
-					paddingVertical: SIZES.small,
+                    paddingVertical: SIZES.small,
 
-					paddingHorizontal: SIZES.large - 3,
-				}}
-			>
-				<BackButton />
+                    paddingHorizontal: SIZES.large - 3,
+                }}>
+                <BackButton />
 
-				<Image
-					source={require("../assets/sqera.png")}
-					style={{
-						width: 70,
-						height: 25,
-						marginTop: 18,
-						marginRight: 230,
-					}}
-				/>
-				<TouchableOpacity
-					onPress={() => {
-						navigation.navigate("Contact");
-					}}
-					style={{
-						margin: 10,
+                <Image
+                    source={require("../assets/sqera.png")}
+                    style={{
+                        width: 70,
+                        height: 25,
+                        marginTop: 18,
+                        marginRight: 230,
+                    }}
+                />
+                <TouchableOpacity
+                    onPress={() => {
+                        navigation.navigate("Contact");
+                    }}
+                    style={{
+                        margin: 10,
 
-						marginTop: 15,
-						justifyContent: "flex-end",
-					}}
-				>
-					<Text
-						style={{
-							color: "green",
-							fontSize: 17,
-							fontWeight: "600",
-						}}
-					>
-						Help
-					</Text>
-				</TouchableOpacity>
-			</View>
-			<View style={{ marginTop: 20 }}>
-				<View
-					style={{
-						padding: 20,
-						width: 400,
-						height: 130,
-						alignSelf: "center",
-						borderRadius: 10,
-						borderWidth: 0.2,
-						backgroundColor: COLORS.white,
-						borderColor: "gray",
-					}}
-				>
-					<View
-						style={{
-							flexDirection: "row",
-							justifyContent: "space-between",
-						}}
-					>
-						<Text
-							style={{
-								fontWeight: "700",
-								fontSize: 20,
-							}}
-						>
-							Total Wallet Balance
-						</Text>
+                        marginTop: 15,
+                        justifyContent: "flex-end",
+                    }}>
+                    <Text
+                        style={{
+                            color: "green",
+                            fontSize: 17,
+                            fontWeight: "600",
+                        }}>
+                        Help
+                    </Text>
+                </TouchableOpacity>
+            </View>
+            <View style={{ marginTop: 20 }}>
+                <View
+                    style={{
+                        padding: 20,
+                        width: 400,
+                        height: 130,
+                        alignSelf: "center",
+                        borderRadius: 10,
+                        borderWidth: 0.2,
+                        backgroundColor: COLORS.white,
+                        borderColor: "gray",
+                    }}>
+                    <View
+                        style={{
+                            flexDirection: "row",
+                            justifyContent: "space-between",
+                        }}>
+                        <Text
+                            style={{
+                                fontWeight: "700",
+                                fontSize: 20,
+                            }}>
+                            Total Wallet Balance
+                        </Text>
 
-						<Image
-							source={require("../assets/images/wallet.png")}
-							style={{
-								width: 43,
-								height: 43,
-							}}
-						/>
-					</View>
-					<Text
-						style={{
-							fontSize: 30,
-							fontWeight: "500",
-						}}
-					>
-						₹ 0
-					</Text>
-				</View>
-			</View>
+                        <Image
+                            source={require("../assets/images/wallet.png")}
+                            style={{
+                                width: 43,
+                                height: 43,
+                            }}
+                        />
+                    </View>
+                    <Text
+                        style={{
+                            fontSize: 30,
+                            fontWeight: "500",
+                        }}>
+                        ₹ 0
+                    </Text>
+                </View>
+            </View>
 
 			<View style={{ marginTop: 20 }}>
 				<View
@@ -161,7 +161,7 @@ const Wallet = ({ navigation }) => {
 							₹
 						</Text>
 						<TextInput
-							defaultValue={"1000"}
+							defaultValue={1000}
 							keyboardType="numeric"
 							numberOfLines={1}
 							style={{
@@ -316,16 +316,16 @@ const Wallet = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-	image: {
-		alignSelf: "center",
-		height: 70,
-		width: 70,
-	},
-	image2: {
-		alignSelf: "center",
-		height: 100,
-		width: 100,
-	},
+    image: {
+        alignSelf: "center",
+        height: 70,
+        width: 70,
+    },
+    image2: {
+        alignSelf: "center",
+        height: 100,
+        width: 100,
+    },
 });
 
 export default Wallet;

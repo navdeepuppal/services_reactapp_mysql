@@ -28,16 +28,18 @@ import Profile from "./Profile";
 
 import { SliderBox } from "react-native-image-slider-box";
 import { ScrollView } from "react-native-gesture-handler";
+import { useIsFocused } from "@react-navigation/core";
 
 let apiKey = "YOUR_API_KEY";
 
 function ServicesScreen() {
-	const [isLoading, setLoading] = useState(true);
-	const [data2, setData] = useState([]);
-	const [data2_backup, setDataBackup] = useState([]);
-	const [subSModalVisible, setSubSModalVisible] = useState(-1);
-	const [location, setLocation] = useState(null);
-	const [address, setAddress] = useState("");
+    const isFocused = useIsFocused();
+    const [isLoading, setLoading] = useState(true);
+    const [data2, setData] = useState([]);
+    const [data2_backup, setDataBackup] = useState([]);
+    const [subSModalVisible, setSubSModalVisible] = useState(-1);
+    const [location, setLocation] = useState(null);
+    const [address, setAddress] = useState("");
 
 	console.log(address);
 	const onShare = async () => {
@@ -66,77 +68,72 @@ function ServicesScreen() {
 				console.error("Permission to access location was denied");
 			}
 
-			Location.setGoogleApiKey(apiKey);
+            Location.setGoogleApiKey(apiKey);
 
-			console.log(status);
+            console.log(status);
 
-			let { coords } = await Location.getCurrentPositionAsync();
+            let { coords } = await Location.getCurrentPositionAsync();
 
-			setLocation(coords);
+            setLocation(coords);
 
-			//console.log(coords);
+            //console.log(coords);
 
-			if (coords) {
-				let { longitude, latitude } = coords;
+            if (coords) {
+                // let { longitude, latitude } = coords;
+                let latitude = 30.697;
+                let longitude = 76.7389;
 
-				let regionName = await Location.reverseGeocodeAsync({
-					longitude,
-					latitude,
-				});
-				setAddress(regionName[0]);
-				// console.log(regionName, "nothing");
-			}
+                let regionName = await Location.reverseGeocodeAsync({
+                    longitude,
+                    latitude,
+                });
+                setAddress(regionName[0]);
+                console.log(regionName, "nothing");
+            }
 
-			// console.log();
-		})();
-	};
+            // console.log();
+        })();
+    };
 
-	if (!location) getLocation();
+    if (!location) getLocation();
 
-	const handleSearch = (value) => {
-		if (value.length === 0) {
-			setData(data2_backup);
-		}
+    const handleSearch = (value) => {
+        if (value.length === 0) {
+            setData(data2_backup);
+        }
 
-		const filteredData = data2_backup.filter((item) =>
-			item.S_Name.toLowerCase().includes(value.toLowerCase())
-		);
+        const filteredData = data2_backup.filter((item) =>
+            item.S_Name.toLowerCase().includes(value.toLowerCase())
+        );
 
-		/* if (filteredData.length === 0) {
+        /* if (filteredData.length === 0) {
 			setData(data2_backup);
 		} else {
 			setData(filteredData);
 		} */
-		setData(filteredData);
-	};
+        setData(filteredData);
+    };
 
-	useEffect(() => {
-		const C_Lat = 30.6951;
-		const C_Lon = 76.7355;
+    useEffect(() => {
+        const C_Lat = 30.6951;
+        const C_Lon = 76.7355;
 
-		//const C_Lat = Location.latitude;
-		//const C_Lon = Location.longitude;
-		fetch(
-			config.domain +
-				"/getLocationBasedServices/" +
-				C_Lat +
-				"/" +
-				C_Lon,
-			{
-				method: "GET",
-			}
-		)
-			.then((response) => response.json())
-			.then((responseJson) => {
-				if (responseJson == 404) {
-					responseJson = [];
-				}
-				setData(responseJson);
-				setDataBackup(responseJson);
-			})
-			.catch((error) => alert(error))
-			.finally(() => setLoading(false));
-	}, []);
+        //const C_Lat = Location.latitude;
+        //const C_Lon = Location.longitude;
+        fetch(config.domain + "/getLocationBasedServices/" + C_Lat + "/" + C_Lon, {
+            method: "GET",
+        })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                if (responseJson == 404) {
+                    responseJson = [];
+                }
+                setData(responseJson);
+                setDataBackup(responseJson);
+            })
+            .catch((error) => alert(error))
+            .finally(() => setLoading(false));
+    }, [isFocused]);
 
 	return (
 		<ScrollView
@@ -419,8 +416,8 @@ function ServicesScreen() {
 										`current pos is: ${index}`
 									)
 								} */
-							/>
-						</View>
+                            />
+                        </View>
 
 						<View
 							style={{
@@ -861,85 +858,85 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-	centeredView: {
-		flex: 1,
-		justifyContent: "center",
-		alignItems: "center",
-		marginTop: 15,
-	},
-	column: { margin: 3, height: "24%" },
-	loweredView: {
-		flex: 1,
-		justifyContent: "flex-end",
-		alignItems: "flex-end",
-		backgroundColor: "rgba(0, 0, 0, 0.4)",
-	},
-	modalView: {
-		backgroundColor: "white",
-		borderRadius: 15,
-		padding: 1,
-		alignItems: "center",
-		shadowColor: "#000",
-		shadowOffset: {
-			width: 0,
-			height: 2,
-		},
-		shadowOpacity: 0.25,
-		shadowRadius: 4,
-		elevation: 5,
-		width: "70%",
-		minHeight: "50%",
-	},
-	ratingbutton: {
-		flexDirection: "row",
-	},
-	button: {
-		borderRadius: 20,
-		padding: 10,
-		elevation: 2,
-	},
-	buttonOpen: {},
-	textStyle: {
-		color: "white",
-		fontWeight: "bold",
-		textAlign: "center",
-	},
-	modalText: {
-		fontSize: 23,
-		marginBottom: 15,
-		textAlign: "center",
-	},
-	image: {
-		width: 150,
-		height: 100,
-		backgroundColor: "white",
-		alignSelf: "center",
-		justifyContent: "center",
-	},
-	image2: {
-		opacity: 0.8,
-		width: 500,
-		height: 400,
-		backgroundColor: "white",
-	},
-	inventoryImage: {
-		alignSelf: "center",
-		height: 70,
-		width: 70,
-	},
-	container: {
-		flex: 1,
-	},
+    centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 15,
+    },
+    column: { margin: 3, height: "24%" },
+    loweredView: {
+        flex: 1,
+        justifyContent: "flex-end",
+        alignItems: "flex-end",
+        backgroundColor: "rgba(0, 0, 0, 0.4)",
+    },
+    modalView: {
+        backgroundColor: "white",
+        borderRadius: 15,
+        padding: 1,
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+        width: "70%",
+        minHeight: "50%",
+    },
+    ratingbutton: {
+        flexDirection: "row",
+    },
+    button: {
+        borderRadius: 20,
+        padding: 10,
+        elevation: 2,
+    },
+    buttonOpen: {},
+    textStyle: {
+        color: "white",
+        fontWeight: "bold",
+        textAlign: "center",
+    },
+    modalText: {
+        fontSize: 23,
+        marginBottom: 15,
+        textAlign: "center",
+    },
+    image: {
+        width: 150,
+        height: 100,
+        backgroundColor: "white",
+        alignSelf: "center",
+        justifyContent: "center",
+    },
+    image2: {
+        opacity: 0.8,
+        width: 500,
+        height: 400,
+        backgroundColor: "white",
+    },
+    inventoryImage: {
+        alignSelf: "center",
+        height: 70,
+        width: 70,
+    },
+    container: {
+        flex: 1,
+    },
 
-	image2: {
-		alignSelf: "center",
-		height: 100,
-		width: 100,
-	},
-	heading: {
-		marginTop: 10,
-		margin: 20,
-		fontSize: 25,
-		fontWeight: "600",
-	},
+    image2: {
+        alignSelf: "center",
+        height: 100,
+        width: 100,
+    },
+    heading: {
+        marginTop: 10,
+        margin: 20,
+        fontSize: 25,
+        fontWeight: "600",
+    },
 });

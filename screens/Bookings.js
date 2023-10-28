@@ -1,50 +1,53 @@
 import {
-	StyleSheet,
-	Text,
-	Image,
-	View,
-	ScrollView,
-	TextInput,
-	TouchableOpacity,
-	KeyboardAvoidingView,
-	Linking,
-	Alert,
-	FlatList,
+    StyleSheet,
+    Text,
+    Image,
+    View,
+    ScrollView,
+    TextInput,
+    TouchableOpacity,
+    KeyboardAvoidingView,
+    Linking,
+    Alert,
+    FlatList,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React, { useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { COLORS, config, SIZES, assets } from "../constants";
+import { useIsFocused } from "@react-navigation/core";
 
 const Bookings = ({ navigation }) => {
-	const [isLoading, setLoading] = useState(true);
-	const [data2, setData] = useState([]);
+    const isFocused = useIsFocused();
+    const [isLoading, setLoading] = useState(true);
+    const [data2, setData] = useState([]);
 
-	useEffect(() => {
-		AsyncStorage.getItem("PhoneNumber").then((PhoneNumber) => {
-			if (PhoneNumber === null) {
-				setLoading(false);
-				return;
-			}
-			const querystring =
-				"SELECT b.*, ss.SubS_Name, c.C_Name FROM booking as b, subservice as ss, customer as c WHERE b.C_PhNo = " +
-				[PhoneNumber] +
-				" AND b.SubS_ID = ss.SubS_ID AND b.C_PhNo = c.C_PhNo;";
-			fetch(config.domain + "/get/" + querystring, {
-				method: "GET",
-			})
-				.then((response) => response.json())
-				.then((responseJson) => {
-					if (responseJson == 404) {
-						responseJson = [];
-					}
-					setData(responseJson);
-				})
-				.catch((error) => alert(error))
-				.finally(() => setLoading(false));
-		});
-	}, []);
+    useEffect(() => {
+        AsyncStorage.getItem("PhoneNumber").then((PhoneNumber) => {
+            if (PhoneNumber === null) {
+                setData([]);
+                setLoading(false);
+                return;
+            }
+            const querystring =
+                "SELECT b.*, ss.SubS_Name, c.C_Name FROM booking as b, subservice as ss, customer as c WHERE b.C_PhNo = " +
+                [PhoneNumber] +
+                " AND b.SubS_ID = ss.SubS_ID AND b.C_PhNo = c.C_PhNo;";
+            fetch(config.domain + "/get/" + querystring, {
+                method: "GET",
+            })
+                .then((response) => response.json())
+                .then((responseJson) => {
+                    if (responseJson == 404) {
+                        responseJson = [];
+                    }
+                    setData(responseJson);
+                })
+                .catch((error) => alert(error))
+                .finally(() => setLoading(false));
+        });
+    }, [isFocused]);
 
 	return isLoading ? (
 		<SafeAreaView
@@ -160,126 +163,116 @@ const Bookings = ({ navigation }) => {
 };
 
 function BookingCard({ data }) {
-	const date = data.B_DateTime.substring(8, 10);
-	const month = data.B_DateTime.substring(5, 7);
-	const year = data.B_DateTime.substring(0, 4);
-	var hour = Number.parseInt(data.B_DateTime.substring(11, 13));
-	const minute = data.B_DateTime.substring(14, 16);
-	const day_half = hour > 12 ? "PM" : "AM";
-	if (hour > 12) {
-		hour = hour - 12;
-	}
+    const date = data.B_DateTime.substring(8, 10);
+    const month = data.B_DateTime.substring(5, 7);
+    const year = data.B_DateTime.substring(0, 4);
+    var hour = Number.parseInt(data.B_DateTime.substring(11, 13));
+    const minute = data.B_DateTime.substring(14, 16);
+    const day_half = hour > 12 ? "PM" : "AM";
+    if (hour > 12) {
+        hour = hour - 12;
+    }
 
-	return (
-		<TouchableOpacity>
-			<View
-				style={{
-					margin: "2%",
-					backgroundColor: COLORS.white,
-					borderRadius: 10,
-					padding: 10,
-					elevation: 20,
-				}}
-			>
-				<Text
-					style={{
-						fontSize: 14,
-						marginBottom: 10,
+    return (
+        <TouchableOpacity>
+            <View
+                style={{
+                    margin: "2%",
+                    backgroundColor: COLORS.white,
+                    borderRadius: 10,
+                    padding: 10,
+                    elevation: 20,
+                }}>
+                <Text
+                    style={{
+                        fontSize: 14,
+                        marginBottom: 10,
 
-						fontWeight: "400",
-						color: "gray",
-					}}
-				>
-					{" "}
-					ID : #{data.B_ID}
-				</Text>
-				<View
-					style={{
-						flexDirection: "row",
-						justifyContent: "space-between",
-					}}
-				>
-					<Text
-						style={{
-							fontSize: 16,
-							fontWeight: "600",
-						}}
-					>
-						{" " + data.SubS_Name}
-					</Text>
-					<Text
-						style={{
-							fontSize: 16,
-							fontWeight: "500",
-						}}
-					>
-						{"Rs. " + data.B_Price}
-					</Text>
-				</View>
-				<View
-					style={{
-						marginTop: "2%",
-						flexDirection: "row",
-						justifyContent: "space-between",
-					}}
-				>
-					<Text
-						style={{
-							fontSize: 14,
-							fontWeight: "400",
-						}}
-					>
-						{" Details: " +
-							data.C_Name +
-							" | " +
-							data.B_Address.AddressHouse +
-							", " +
-							data.B_Address.AddressArea +
-							", " +
-							data.B_Address.AddressCity +
-							", " +
-							data.B_Address.Pincode}
-					</Text>
-				</View>
-				<View
-					style={{
-						marginTop: "3%",
-						flexDirection: "row",
-						justifyContent: "space-between",
-					}}
-				>
-					<Text
-						style={{
-							fontSize: 14,
-							color: COLORS.gray,
-						}}
-					>
-						{" " +
-							date +
-							"/" +
-							month +
-							"/" +
-							year +
-							" | " +
-							hour +
-							":" +
-							minute +
-							" " +
-							day_half}
-					</Text>
-					<Text
-						style={{
-							fontSize: 16,
-							fontWeight: "500",
-							color: data.B_Status !== 2 ? "red" : "green",
-						}}
-					>
-						{data.B_Status !== 2 ? "Pending" : "Completed"}
-					</Text>
-				</View>
-			</View>
-		</TouchableOpacity>
-	);
+                        fontWeight: "400",
+                        color: "gray",
+                    }}>
+                    {" "}
+                    ID : #{data.B_ID}
+                </Text>
+                <View
+                    style={{
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                    }}>
+                    <Text
+                        style={{
+                            fontSize: 16,
+                            fontWeight: "600",
+                        }}>
+                        {" " + data.SubS_Name}
+                    </Text>
+                    <Text
+                        style={{
+                            fontSize: 16,
+                            fontWeight: "500",
+                        }}>
+                        {"Rs. " + data.B_Price}
+                    </Text>
+                </View>
+                <View
+                    style={{
+                        marginTop: "2%",
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                    }}>
+                    <Text
+                        style={{
+                            fontSize: 14,
+                            fontWeight: "400",
+                        }}>
+                        {" Details: " +
+                            data.C_Name +
+                            " | " +
+                            data.B_Address.AddressHouse +
+                            ", " +
+                            data.B_Address.AddressArea +
+                            ", " +
+                            data.B_Address.AddressCity +
+                            ", " +
+                            data.B_Address.Pincode}
+                    </Text>
+                </View>
+                <View
+                    style={{
+                        marginTop: "3%",
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                    }}>
+                    <Text
+                        style={{
+                            fontSize: 14,
+                            color: COLORS.gray,
+                        }}>
+                        {" " +
+                            date +
+                            "/" +
+                            month +
+                            "/" +
+                            year +
+                            " | " +
+                            hour +
+                            ":" +
+                            minute +
+                            " " +
+                            day_half}
+                    </Text>
+                    <Text
+                        style={{
+                            fontSize: 16,
+                            fontWeight: "500",
+                            color: data.B_Status !== 2 ? "red" : "green",
+                        }}>
+                        {data.B_Status !== 2 ? "Pending" : "Completed"}
+                    </Text>
+                </View>
+            </View>
+        </TouchableOpacity>
+    );
 }
 
 export default Bookings;
