@@ -27,8 +27,20 @@ const SubServicesModal = ({ data, setSubSModalVisible }) => {
 	return isLoading ? (
 		<ActivityIndicator />
 	) : (
-		<View style={{ width: "100%" }}>
-			<FlatList nestedScrollEnabled data={data2} renderItem={({ item }) => <NFTCard2 data={item} setSubSModalVisible={setSubSModalVisible} />} keyExtractor={(item) => item.S_ID} numColumns={2} showsVerticalScrollIndicator={false} />
+		<View style={{ width: "100%", height: "55%" }}>
+			<FlatList
+				nestedScrollEnabled
+				data={data2}
+				renderItem={({ item }) => (
+					<NFTCard2
+						data={item}
+						setSubSModalVisible={setSubSModalVisible}
+					/>
+				)}
+				keyExtractor={(item) => item.S_ID}
+				numColumns={2}
+				showsVerticalScrollIndicator={false}
+			/>
 		</View>
 	);
 };

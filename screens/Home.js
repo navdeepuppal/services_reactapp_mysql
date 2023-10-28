@@ -597,6 +597,61 @@ function ServicesScreen() {
 								}}
 							/>
 						</View>
+
+						<View
+							style={{
+								backgroundColor: COLORS.white,
+								marginTop: 20,
+								padding: 10,
+							}}
+						>
+							<Text
+								style={{
+									fontSize: 17,
+									marginLeft: 5,
+									fontWeight: "500",
+									marginTop: 10,
+									marginBottom: 10,
+								}}
+							>
+								{" "}
+								Freelancers
+							</Text>
+							<Text
+								style={{
+									fontSize: 14,
+									marginLeft: 5,
+									color: COLORS.gray,
+									fontWeight: "300",
+									marginBottom: 5,
+								}}
+							>
+								{" "}
+								Hire a freelancer for any task
+							</Text>
+
+							<FlatList
+								numColumns={2}
+								data={data2}
+								renderItem={({ item, index }) => (
+									<NFTCard9
+										key={index}
+										data={item}
+										index={index}
+										setSubSModalVisible={
+											setSubSModalVisible
+										}
+									/>
+								)}
+								contentContainerStyle={{
+									alignSelf: "center",
+									justifyContent: "center",
+
+									width: "100%",
+									backgroundColor: COLORS.white,
+								}}
+							/>
+						</View>
 						<View
 							style={{
 								backgroundColor: COLORS.white,
@@ -638,6 +693,36 @@ function ServicesScreen() {
 									backgroundColor: COLORS.white,
 								}}
 							/>
+						</View>
+						<View
+							style={{
+								backgroundColor: "#EDF6FD",
+								marginTop: 20,
+								padding: 10,
+							}}
+						>
+							<Text
+								style={{
+									fontSize: 17,
+									marginLeft: 5,
+									fontWeight: "500",
+									marginTop: 10,
+									marginBottom: 10,
+								}}
+							>
+								Sqera is people driven :)
+							</Text>
+							<Text
+								style={{
+									fontSize: 14,
+									marginLeft: 5,
+									color: COLORS.gray,
+									fontWeight: "300",
+									marginBottom: 5,
+								}}
+							>
+								Refer to your friends
+							</Text>
 						</View>
 
 						<View style={styles.loweredView}>

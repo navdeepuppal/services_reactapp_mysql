@@ -234,7 +234,6 @@ const Wallet = ({ navigation }) => {
 								fontWeight: "600",
 							}}
 						>
-							{" "}
 							02 Oct 2023
 						</Text>
 					</View>

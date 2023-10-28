@@ -929,11 +929,16 @@ const ServiceMan = ({ navigation }) => {
 									>
 										• Customers can find you when
 										your BROADCAST MODE IS ON.
-										{" \n"}
+										{"\n"}
 										{"\n"}• Your service/skill is
 										currently getting broadcasted
 										to your customers from your
 										below current location.
+										{"\n\n"}• Minimum Balance of
+										Rs 400 required in wallet to
+										switch on the BROADCAST MODE.
+										For more details please check
+										Sqera pricing.
 									</Text>
 								</View>
 							</View>
@@ -1364,7 +1369,7 @@ const ServiceMan = ({ navigation }) => {
 												color: COLORS.gray,
 											}}
 										>
-											Grow on Sqera
+											Sqera Pricing
 										</Text>
 									</TouchableOpacity>
 

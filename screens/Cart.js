@@ -738,6 +738,7 @@ const Cart = ({ route, navigation }) => {
 								style={{
 									borderColor: COLORS.white,
 									borderWidth: 1,
+									backgroundColor: COLORS.white,
 									flexDirection: "row",
 									marginTop: 20,
 									borderRadius: 10,

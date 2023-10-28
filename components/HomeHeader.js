@@ -40,7 +40,7 @@ const HomeHeader = ({ onSearch }) => {
 				placeholder="Search for Laundry, Gardener, Cook, Driver"
 				placeholderTextColor="#A0A0A0"
 				style={{
-					paddingVertical: 20,
+					paddingVertical: 10,
 					fontSize: SIZES.font,
 					backgroundColor: "#f2f2f2",
 					color: COLORS.primary,

@@ -95,14 +95,15 @@ const SelectAddress = ({ navigation, route }) => {
 
 								<Text
 									style={{
-										fontSize: 20,
+										fontSize: 18,
 										margin: 14,
 										fontWeight: "bold",
 										color: COLORS.primary,
 									}}
 								>
-									{AddressHouse}, {AddressArea}, Near{" "}
-									{AddressLandmark}, {AddressCity}.
+									{AddressHouse}, {AddressArea},{" "}
+									{"\n"}Near {AddressLandmark},{" "}
+									{AddressCity}. {"\n"}
 									Pincode: {Pincode}
 								</Text>
 							</View>
