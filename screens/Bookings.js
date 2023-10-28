@@ -47,12 +47,11 @@ const Bookings = ({ navigation }) => {
 	}, []);
 
 	return isLoading ? (
-		<View
+		<SafeAreaView
 			style={{
 				backgroundColor: "white",
 				height: "100%",
-				alignSelf: "center",
-				justifyContent: "center",
+				marginTop: "5%",
 			}}
 		>
 			<Image
@@ -78,7 +77,7 @@ const Bookings = ({ navigation }) => {
 				source={require("../assets/images/loader.gif")}
 				style={{ width: 100, height: 100, alignSelf: "center" }}
 			/>
-		</View>
+		</SafeAreaView>
 	) : (
 		<SafeAreaView
 			style={{

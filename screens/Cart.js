@@ -4,6 +4,7 @@ import {
 	View,
 	Text,
 	Image,
+	TextInput,
 	TouchableOpacity,
 	Modal,
 	FlatList,
@@ -26,7 +27,7 @@ const Cart = ({ route, navigation }) => {
 	const [isLoggedIn, setLoggedIn] = useState("");
 
 	const [couponModal, setcouponModalVisible] = useState(false);
-
+	const [amount, setAmount] = useState(1000);
 	AsyncStorage.getItem("isLoggedIn").then((isLoggedIn) => {
 		setLoggedIn(isLoggedIn);
 	});
@@ -735,22 +736,50 @@ const Cart = ({ route, navigation }) => {
 							</View>
 							<View
 								style={{
+									borderColor: COLORS.white,
+									borderWidth: 1,
+									flexDirection: "row",
+									marginTop: 20,
+									borderRadius: 10,
+									padding: 10,
+									alignItems: "center",
+									height: 70,
+								}}
+							>
+								<TextInput
+									placeholder="Enter Coupon Code Here"
+									numberOfLines={1}
+									style={{
+										marginLeft: 10,
+
+										fontSize: 20,
+										width: "90%",
+										fontWeight: "500",
+									}}
+									value={amount}
+								></TextInput>
+							</View>
+							<TouchableOpacity
+								style={{
 									marginTop: 30,
 									margin: 10,
-									borderRadius: 20,
-									backgroundColor: COLORS.white,
-									alignItems: "center",
-									paddingVertical: 30,
+									paddin: 5,
+									borderRadius: 10,
+									backgroundColor: "blue",
 								}}
 							>
 								<Text
 									style={{
+										padding: 10,
+										color: COLORS.white,
+										textAlign: "center",
 										fontSize: 18,
+										fontWeight: "500",
 									}}
 								>
-									No Coupons Found
+									Apply Coupon
 								</Text>
-							</View>
+							</TouchableOpacity>
 						</View>
 					</Modal>
 				</SafeAreaView>

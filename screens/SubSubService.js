@@ -126,7 +126,7 @@ const SubSubService = ({ route, navigation }) => {
 						<Text
 							style={{
 								color: COLORS.white,
-								fontSize: 22,
+								fontSize: 20,
 								fontWeight: "600",
 								alignSelf: "center",
 							}}

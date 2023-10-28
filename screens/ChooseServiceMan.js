@@ -90,8 +90,8 @@ const ChooseServiceMan = ({ navigation, route }) => {
 					</View>
 					<Image
 						style={{
-							width: 50,
-							height: 50,
+							width: 60,
+							height: 60,
 							alignSelf: "center",
 						}}
 						source={require("../assets/images/user.png")}

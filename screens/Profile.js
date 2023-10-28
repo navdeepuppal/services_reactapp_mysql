@@ -1017,7 +1017,20 @@ const Profile = ({ navigation, route }) => {
 				<TouchableOpacity
 					style={[styles.modeButton1]}
 					onPress={() => {
-						navigation.navigate("RegisterSubService1");
+						Alert.alert("Switch to Professional Mode?", "", [
+							{
+								text: "Cancel",
+								onPress: () =>
+									console.log("Cancel Pressed"),
+								style: "cancel",
+							},
+							{
+								text: "Yes",
+								onPress: () => {
+									navigation.navigate("ServiceMan");
+								},
+							},
+						]);
 					}}
 				>
 					<Text style={styles.textStyle}>Professional Mode</Text>

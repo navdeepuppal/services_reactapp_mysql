@@ -161,7 +161,7 @@ const Wallet = ({ navigation }) => {
 							₹
 						</Text>
 						<TextInput
-							defaultValue="1000"
+							defaultValue={"1000"}
 							keyboardType="numeric"
 							numberOfLines={1}
 							style={{
