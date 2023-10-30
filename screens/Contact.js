@@ -7,7 +7,6 @@ import {
 	TouchableOpacity,
 	KeyboardAvoidingView,
 	Linking,
-	Alert,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React, { useState } from "react";
@@ -23,9 +22,9 @@ const Contact = ({ navigation }) => {
 
 	const submit = () => {
 		if (!name && !email && !phone && !message) {
-			Alert.alert("Plzz fill all the fields");
+			alert("Plzz fill all the fields");
 		} else {
-			Alert.alert(`Thank You ${name}`);
+			alert(`Thank You ${name}`);
 			navigation.navigate("Home");
 		}
 	};
@@ -79,9 +78,9 @@ const Contact = ({ navigation }) => {
 										message +
 										"&phone=+919041504403"
 								);
-								Alert.alert("Opening Whatspp..");
+								alert("Opening Whatspp..");
 							} catch (error) {
-								Alert.alert(
+								alert(
 									"Make sure you have whatsapp installed on your phone. If non then you can send the details on 9041504403 via SMS or WhatsApp"
 								);
 							}
