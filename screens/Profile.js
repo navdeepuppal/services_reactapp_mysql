@@ -138,314 +138,271 @@ const Profile = ({ navigation }) => {
                                 {user}
                             </Text>
 
-							<TouchableOpacity onPress={() => {
-								// setChangeAddressVisible(true);
-							}}>
-								<View
-									style={{
-										margin: "1%",
-										borderColor: "gray",
-									}}
-								>
-									<View
-										style={{
-											flexDirection: "row",
-											justifyContent:
-												"space-between",
-										}}
-									>
-										<Text
-											style={{
-												fontSize: 18,
-												fontWeight: "500",
-												margin: 15,
-												marginLeft: 30,
-											}}
-										>
-											{" "}
-											Change Address
-										</Text>
-										<Text
-											style={{
-												fontSize: 19,
-												fontWeight: "500",
-											}}
-										></Text>
-									</View>
-								</View>
-							</TouchableOpacity>
-							<View
-								style={{
-									height: 1,
-									width: "95%",
-									alignSelf: "center",
-									backgroundColor: "#cccccc",
-								}}
-							/>
-							<TouchableOpacity
-								onPress={() => {
-									navigation.navigate("Search");
-								}}
-							>
-								<View
-									style={{
-										margin: "1%",
-										borderColor: "gray",
-									}}
-								>
-									<View
-										style={{
-											flexDirection: "row",
-											justifyContent:
-												"space-between",
-										}}
-									>
-										<Text
-											style={{
-												fontSize: 18,
-												fontWeight: "500",
-												margin: 15,
-												marginLeft: 30,
-											}}
-										>
-											{" "}
-											Discover Talent
-										</Text>
-									</View>
-								</View>
-							</TouchableOpacity>
-							<View
-								style={{
-									height: 1,
-									width: "95%",
-									alignSelf: "center",
-									backgroundColor: "#cccccc",
-								}}
-							/>
-							<TouchableOpacity
-								onPress={() => {
-									navigation.navigate("Bookings");
-								}}
-							>
-								<View
-									style={{
-										margin: "1%",
-										borderColor: "gray",
-									}}
-								>
-									<View
-										style={{
-											flexDirection: "row",
-											justifyContent:
-												"space-between",
-										}}
-									>
-										<Text
-											style={{
-												fontSize: 18,
-												fontWeight: "500",
-												margin: 15,
-												marginLeft: 30,
-											}}
-										>
-											{" "}
-											Bookings
-										</Text>
-										<Text
-											style={{
-												fontSize: 19,
-												fontWeight: "500",
-											}}
-										></Text>
-									</View>
-								</View>
-							</TouchableOpacity>
-						</View>
-						<View
-							style={{
-								padding: 10,
-								margin: 10,
-								borderRadius: 20,
-								backgroundColor: COLORS.white,
-								flexDirection: "row",
-							}}
-						>
-							<View
-								style={{
-									backgroundColor: COLORS.white,
-									width: 200,
-									margin: 10,
-									borderRadius: 10,
+                            <TouchableOpacity
+                                onPress={() => {
+                                    // setChangeAddressVisible(true);
+                                }}>
+                                <View
+                                    style={{
+                                        margin: "1%",
+                                        borderColor: "gray",
+                                    }}>
+                                    <View
+                                        style={{
+                                            flexDirection: "row",
+                                            justifyContent: "space-between",
+                                        }}>
+                                        <Text
+                                            style={{
+                                                fontSize: 18,
+                                                fontWeight: "500",
+                                                margin: 15,
+                                                marginLeft: 30,
+                                            }}>
+                                            {" "}
+                                            Change Address
+                                        </Text>
+                                        <Text
+                                            style={{
+                                                fontSize: 19,
+                                                fontWeight: "500",
+                                            }}></Text>
+                                    </View>
+                                </View>
+                            </TouchableOpacity>
+                            <View
+                                style={{
+                                    height: 1,
+                                    width: "95%",
+                                    alignSelf: "center",
+                                    backgroundColor: "#cccccc",
+                                }}
+                            />
+                            <TouchableOpacity
+                                onPress={() => {
+                                    navigation.navigate("Search");
+                                }}>
+                                <View
+                                    style={{
+                                        margin: "1%",
+                                        borderColor: "gray",
+                                    }}>
+                                    <View
+                                        style={{
+                                            flexDirection: "row",
+                                            justifyContent: "space-between",
+                                        }}>
+                                        <Text
+                                            style={{
+                                                fontSize: 18,
+                                                fontWeight: "500",
+                                                margin: 15,
+                                                marginLeft: 30,
+                                            }}>
+                                            {" "}
+                                            Discover Talent
+                                        </Text>
+                                    </View>
+                                </View>
+                            </TouchableOpacity>
+                            <View
+                                style={{
+                                    height: 1,
+                                    width: "95%",
+                                    alignSelf: "center",
+                                    backgroundColor: "#cccccc",
+                                }}
+                            />
+                            <TouchableOpacity
+                                onPress={() => {
+                                    navigation.navigate("Bookings");
+                                }}>
+                                <View
+                                    style={{
+                                        margin: "1%",
+                                        borderColor: "gray",
+                                    }}>
+                                    <View
+                                        style={{
+                                            flexDirection: "row",
+                                            justifyContent: "space-between",
+                                        }}>
+                                        <Text
+                                            style={{
+                                                fontSize: 18,
+                                                fontWeight: "500",
+                                                margin: 15,
+                                                marginLeft: 30,
+                                            }}>
+                                            {" "}
+                                            Bookings
+                                        </Text>
+                                        <Text
+                                            style={{
+                                                fontSize: 19,
+                                                fontWeight: "500",
+                                            }}></Text>
+                                    </View>
+                                </View>
+                            </TouchableOpacity>
+                        </View>
+                        <View
+                            style={{
+                                padding: 10,
+                                margin: 10,
+                                borderRadius: 20,
+                                backgroundColor: COLORS.white,
+                                flexDirection: "row",
+                            }}>
+                            <View
+                                style={{
+                                    backgroundColor: COLORS.white,
+                                    width: 200,
+                                    margin: 10,
+                                    borderRadius: 10,
 
                                     padding: 7,
 
-									alignSelf: "center",
-								}}
-							>
-								<TouchableOpacity
-									onPress={() => {
-										navigation.navigate("Wallet"),
-											setVisible(false);
-									}}
-								>
-									<View
-										style={{
-											alignSelf: "center",
-											padding: 3,
-										}}
-									>
-										<Image
-											style={{
-												width: 50,
-												height: 50,
-												alignSelf: "center",
-											}}
-											source={require("../assets/images/wallet.png")}
-										/>
+                                    alignSelf: "center",
+                                }}>
+                                <TouchableOpacity
+                                    onPress={() => {
+                                        navigation.navigate("Wallet"), setVisible(false);
+                                    }}>
+                                    <View
+                                        style={{
+                                            alignSelf: "center",
+                                            padding: 3,
+                                        }}>
+                                        <Image
+                                            style={{
+                                                width: 50,
+                                                height: 50,
+                                                alignSelf: "center",
+                                            }}
+                                            source={require("../assets/images/wallet.png")}
+                                        />
 
-										<Text
-											style={{
-												color: COLORS.primary,
-												fontSize: 17,
-												alignSelf: "center",
-												justifyContent:
-													"center",
-												fontWeight: "700",
-												letterSpacing: 0.3,
-											}}
-										>
-											Wallet
-										</Text>
-										<Text
-											style={{
-												color: COLORS.gray,
-												fontSize: 15,
-												alignSelf: "center",
-												justifyContent:
-													"center",
-												fontWeight: "700",
-												letterSpacing: 0.3,
-												marginTop: 7,
-											}}
-										>
-											₹109
-										</Text>
-									</View>
-								</TouchableOpacity>
-							</View>
+                                        <Text
+                                            style={{
+                                                color: COLORS.primary,
+                                                fontSize: 17,
+                                                alignSelf: "center",
+                                                justifyContent: "center",
+                                                fontWeight: "700",
+                                                letterSpacing: 0.3,
+                                            }}>
+                                            Wallet
+                                        </Text>
+                                        <Text
+                                            style={{
+                                                color: COLORS.gray,
+                                                fontSize: 15,
+                                                alignSelf: "center",
+                                                justifyContent: "center",
+                                                fontWeight: "700",
+                                                letterSpacing: 0.3,
+                                                marginTop: 7,
+                                            }}>
+                                            ₹109
+                                        </Text>
+                                    </View>
+                                </TouchableOpacity>
+                            </View>
 
-							<View style={{ alignSelf: "center" }}>
-								<TouchableOpacity
-									onPress={() => {
-										navigation.navigate(
-											"Contact"
-										);
-									}}
-								>
-									<View
-										style={{
-											margin: "1%",
-											borderColor: "gray",
-										}}
-									>
-										<View
-											style={{
-												justifyContent:
-													"space-between",
-											}}
-										>
-											<Image
-												style={{
-													width: 50,
-													height: 50,
-													alignSelf:
-														"center",
-												}}
-												source={require("../assets/images/support.png")}
-											/>
-											<Text
-												style={{
-													fontSize: 18,
-													fontWeight:
-														"500",
-												}}
-											>
-												{" "}
-												Support
-											</Text>
-											<Text
-												style={{
-													color: COLORS.gray,
-													fontSize: 15,
-													alignSelf:
-														"center",
-													justifyContent:
-														"center",
-													fontWeight:
-														"700",
-													letterSpacing: 0.3,
-													marginTop: 7,
-												}}
-											>
-												Chat
-											</Text>
-										</View>
-									</View>
-								</TouchableOpacity>
-							</View>
-						</View>
-					</View>
-				) : (
-					<Text
-						style={{
-							marginBottom: 20,
-							fontSize: 16,
-							margin: 4,
-						}}
-					>
-						Hi Guest! {"\n"}Please login to continue
-					</Text>
-				)}
-				<View
-					style={{
-						margin: 10,
-						borderRadius: 20,
-						backgroundColor: COLORS.white,
-					}}
-				>
-					<TouchableOpacity onPress={onShare}>
-						<View
-							style={{
-								margin: "1%",
-								borderColor: "gray",
-							}}
-						>
-							<View
-								style={{
-									flexDirection: "row",
-									justifyContent: "space-between",
-								}}
-							>
-								<Text
-									style={{
-										fontSize: 18,
-										fontWeight: "500",
-										margin: 15,
-										marginLeft: 30,
-									}}
-								>
-									{" "}
-									Share App
-								</Text>
-								<Text
-									style={{
-										fontSize: 19,
-										fontWeight: "500",
-									}}
-								></Text>
-							</View>
-						</View>
-					</TouchableOpacity>
+                            <View style={{ alignSelf: "center" }}>
+                                <TouchableOpacity
+                                    onPress={() => {
+                                        navigation.navigate("Contact");
+                                    }}>
+                                    <View
+                                        style={{
+                                            margin: "1%",
+                                            borderColor: "gray",
+                                        }}>
+                                        <View
+                                            style={{
+                                                justifyContent: "space-between",
+                                            }}>
+                                            <Image
+                                                style={{
+                                                    width: 50,
+                                                    height: 50,
+                                                    alignSelf: "center",
+                                                }}
+                                                source={require("../assets/images/support.png")}
+                                            />
+                                            <Text
+                                                style={{
+                                                    fontSize: 18,
+                                                    fontWeight: "500",
+                                                }}>
+                                                {" "}
+                                                Support
+                                            </Text>
+                                            <Text
+                                                style={{
+                                                    color: COLORS.gray,
+                                                    fontSize: 15,
+                                                    alignSelf: "center",
+                                                    justifyContent: "center",
+                                                    fontWeight: "700",
+                                                    letterSpacing: 0.3,
+                                                    marginTop: 7,
+                                                }}>
+                                                Chat
+                                            </Text>
+                                        </View>
+                                    </View>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </View>
+                ) : (
+                    <Text
+                        style={{
+                            marginBottom: 20,
+                            fontSize: 16,
+                            margin: 4,
+                        }}>
+                        Hi Guest! {"\n"}Please login to continue
+                    </Text>
+                )}
+                <View
+                    style={{
+                        margin: 10,
+                        borderRadius: 20,
+                        backgroundColor: COLORS.white,
+                    }}>
+                    <TouchableOpacity onPress={onShare}>
+                        <View
+                            style={{
+                                margin: "1%",
+                                borderColor: "gray",
+                            }}>
+                            <View
+                                style={{
+                                    flexDirection: "row",
+                                    justifyContent: "space-between",
+                                }}>
+                                <Text
+                                    style={{
+                                        fontSize: 18,
+                                        fontWeight: "500",
+                                        margin: 15,
+                                        marginLeft: 30,
+                                    }}>
+                                    {" "}
+                                    Share App
+                                </Text>
+                                <Text
+                                    style={{
+                                        fontSize: 19,
+                                        fontWeight: "500",
+                                    }}></Text>
+                            </View>
+                        </View>
+                    </TouchableOpacity>
 
                     <View
                         style={{
@@ -793,6 +750,60 @@ const Profile = ({ navigation }) => {
                                         marginTop: 30,
                                         margin: 10,
                                         borderRadius: 20,
+                                    }}>
+                                    <Text
+                                        style={{
+                                            fontSize: 16,
+                                            fontWeight: "500",
+                                        }}>
+                                        Terms & Conditions{" \n \n"}
+                                        Open Sqera T&C Website Page here
+                                    </Text>
+                                </View>
+                            </View>
+                        </Modal>
+
+                        <Modal
+                            animationType="slide"
+                            transparent={true}
+                            visible={PrivacyPolicy}
+                            onRequestClose={() => {
+                                setPrivacyPolicyVisible(!PrivacyPolicy);
+                            }}>
+                            <View style={styles.modalView}>
+                                <View
+                                    style={{
+                                        flexDirection: "row",
+                                        justifyContent: "space-between",
+                                        marginTop: "5%",
+                                    }}>
+                                    <View
+                                        style={{
+                                            flexDirection: "row",
+                                        }}>
+                                        <TouchableOpacity
+                                            style={{
+                                                width: 40,
+                                                height: 40,
+                                                marginTop: "15%",
+                                            }}
+                                            onPress={() => setPrivacyPolicyVisible(false)}>
+                                            <Image
+                                                source={assets.left}
+                                                resizeMode="contain"
+                                                style={{
+                                                    width: "100%",
+                                                    height: "100%",
+                                                }}
+                                            />
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                                <View
+                                    style={{
+                                        marginTop: 30,
+                                        margin: 10,
+                                        borderRadius: 20,
                                         backgroundColor: COLORS.white,
                                     }}>
                                     <Text
@@ -801,171 +812,88 @@ const Profile = ({ navigation }) => {
                                             fontWeight: "500",
                                         }}>
                                         {" "}
-                                        Terms & Conditions{" \n \n"}
-                                        Open Sqera T&C Website Page here
+                                        Privacy Policy{" \n \n"}
+                                        Open Sqera Privacy Policy Website Page here
                                     </Text>
                                 </View>
                             </View>
                         </Modal>
-
-						<Modal
-							animationType="slide"
-							transparent={true}
-							visible={PrivacyPolicy}
-							onRequestClose={() => {
-								setPrivacyPolicyVisible(!PrivacyPolicy);
-							}}
-						>
-							<View style={styles.modalView}>
-								<View
-									style={{
-										flexDirection: "row",
-										justifyContent:
-											"space-between",
-										marginTop: "5%",
-									}}
-								>
-									<View
-										style={{
-											flexDirection: "row",
-										}}
-									>
-										<TouchableOpacity
-											style={{
-												width: 40,
-												height: 40,
-												marginTop: "15%",
-											}}
-											onPress={() =>
-												setPrivacyPolicyVisible(
-													false
-												)
-											}
-										>
-											<Image
-												source={assets.left}
-												resizeMode="contain"
-												style={{
-													width: "100%",
-													height: "100%",
-												}}
-											/>
-										</TouchableOpacity>
-									</View>
-								</View>
-								<View
-									style={{
-										marginTop: 30,
-										margin: 10,
-										borderRadius: 20,
-										backgroundColor: COLORS.white,
-									}}
-								>
-									<Text
-										style={{
-											fontSize: 23,
-											fontWeight: "500",
-										}}
-									>
-										{" "}
-										Privacy Policy{" \n \n"}
-										Open Sqera Privacy Policy
-										Website Page here
-									</Text>
-								</View>
-							</View>
-						</Modal>
-						<Modal
-							animationType="slide"
-							transparent={true}
-							visible={ChangeAddress}
-							onRequestClose={() => {
-								setChangeAddressVisible(!ChangeAddress);
-							}}
-						>
-							<View style={styles.modalView}>
-								<View
-									style={{
-										flexDirection: "row",
-										justifyContent:
-											"space-between",
-										marginTop: "5%",
-									}}
-								>
-									<View
-										style={{
-											flexDirection: "row",
-										}}
-									>
-										<TouchableOpacity
-											style={{
-												width: 40,
-												height: 40,
-												marginTop: "15%",
-											}}
-											onPress={() =>
-												setChangeAddressVisible(
-													false
-												)
-											}
-										>
-											<Image
-												source={assets.left}
-												resizeMode="contain"
-												style={{
-													width: "100%",
-													height: "100%",
-												}}
-											/>
-										</TouchableOpacity>
-									</View>
-								</View>
-								<View
-									style={{
-										marginTop: 30,
-										margin: 10,
-										borderRadius: 20,
-										backgroundColor: COLORS.white,
-									}}
-								></View>
-							</View>
-						</Modal>
-					</SafeAreaView>
-				</View>
-			</ScrollView>
-			<View
-				style={{
-					width: "100%",
-					alignSelf: "flex-end",
-				}}
-			>
-				<TouchableOpacity
-					style={[styles.modeButton1]}
-					onPress={() => {
-						Alert.alert("Switch to Professional Mode?", "", [
-							{
-								text: "Cancel",
-								onPress: () =>
-									console.log("Cancel Pressed"),
-								style: "cancel",
-							},
-							{
-								text: "Yes",
-								onPress: () => {
-									navigation.navigate("ServiceMan");
-								},
-							},
-						]);
-					}}
-				>
-					<Text style={styles.textStyle}>Professional Mode</Text>
-					<Text style={styles.textStyle1}>
-						Broadcast your skills or service!
-					</Text>
-				</TouchableOpacity>
-			</View>
-		</SafeAreaView>
-	);
+                        <Modal
+                            animationType="slide"
+                            transparent={true}
+                            visible={ChangeAddress}
+                            onRequestClose={() => {
+                                setChangeAddressVisible(!ChangeAddress);
+                            }}>
+                            <View style={styles.modalView}>
+                                <View
+                                    style={{
+                                        flexDirection: "row",
+                                        justifyContent: "space-between",
+                                        marginTop: "5%",
+                                    }}>
+                                    <View
+                                        style={{
+                                            flexDirection: "row",
+                                        }}>
+                                        <TouchableOpacity
+                                            style={{
+                                                width: 40,
+                                                height: 40,
+                                                marginTop: "15%",
+                                            }}
+                                            onPress={() => setChangeAddressVisible(false)}>
+                                            <Image
+                                                source={assets.left}
+                                                resizeMode="contain"
+                                                style={{
+                                                    width: "100%",
+                                                    height: "100%",
+                                                }}
+                                            />
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                                <View
+                                    style={{
+                                        marginTop: 30,
+                                        margin: 10,
+                                        borderRadius: 20,
+                                        backgroundColor: COLORS.white,
+                                    }}></View>
+                            </View>
+                        </Modal>
+                    </SafeAreaView>
+                </View>
+            </ScrollView>
+            <View
+                style={{
+                    width: "100%",
+                    alignSelf: "flex-end",
+                }}>
+                <TouchableOpacity
+                    style={[styles.modeButton1]}
+                    onPress={() => {
+                        Alert.alert("Switch to Professional Mode?", "", [
+                            {
+                                text: "Cancel",
+                                onPress: () => console.log("Cancel Pressed"),
+                                style: "cancel",
+                            },
+                            {
+                                text: "Yes",
+                                onPress: () => {
+                                    navigation.navigate("ServiceMan");
+                                },
+                            },
+                        ]);
+                    }}>
+                    <Text style={styles.textStyle}>Professional Mode</Text>
+                    <Text style={styles.textStyle1}>Broadcast your skills or service!</Text>
+                </TouchableOpacity>
+            </View>
+        </SafeAreaView>
+    );
 };
 const styles = StyleSheet.create({
     image: {
