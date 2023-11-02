@@ -15,7 +15,7 @@ import { BackButton } from "../components";
 
 const Wallet = ({ navigation }) => {
     // const [state, setButtonStatus] = useState("1");
-    const [amount, setAmount] = useState(1000);
+    const [amount, setAmount] = useState("1000");
 
     const handleChange = (e) => {
         setAmount(e);
