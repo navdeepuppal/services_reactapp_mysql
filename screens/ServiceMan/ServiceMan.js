@@ -307,10 +307,12 @@ const ServiceMan = ({ navigation }) => {
                                 <Text
                                     style={{
                                         textAlign: "center",
-                                        marginTop: 20,
-                                        fontWeight: "400",
+                                        marginTop: 90,
+                                        fontWeight: "600",
+                                        fontSize: 18,
+                                        lineHeight: 40,
                                     }}>
-                                    No orders yet, please keep your broadcast mode ON.
+                                    No orders yet. {"\n"} Please keep your Broadcast Mode ON.
                                 </Text>
                             }
                         />
@@ -423,7 +425,7 @@ const ServiceMan = ({ navigation }) => {
                                     </TouchableOpacity>
                                     <TouchableOpacity
                                         style={{
-                                            margin: 5,
+                                            margin: 10,
                                             marginTop: 30,
                                             borderRadius: 15,
                                             padding: 10,
@@ -437,7 +439,6 @@ const ServiceMan = ({ navigation }) => {
                                                 settodayEarningsVisible(false);
                                         }}>
                                         <View
-                                            onPress={() => navigation.navigate("Wallet")}
                                             style={{
                                                 alignItems: "center",
                                             }}>

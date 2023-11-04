@@ -59,41 +59,43 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
 	const navigation = useNavigation();
 	const ImageURL = [data.S_Image][0];
 	return (
-		<TouchableOpacity
-			style={{
-				backgroundColor: data.isSelected != "false" ? "rgba(245,245,245,255)" : "#F8F8F8",
-				borderRadius: SIZES.small,
+        <View>
+            <TouchableOpacity
+                style={{
+                    backgroundColor:
+                        data.isSelected != "false" ? "rgba(245,245,245,255)" : "#F8F8F8",
+                    borderRadius: SIZES.small,
 
-				width: 85,
-				height: 90,
-				margin: 5,
+                    width: 140,
+                    height: 80,
+                    margin: 5,
 
-				marginRight: 6,
-				padding: 7,
-			}}
-			onPress={() => {
-				setSubSModalVisible(index);
-				//navigation.navigate("SubServices" /* data.S_NextPage */, { data })
-			}}>
-			<View
-				style={{
-					alignSelf: "center",
-					height: 63,
-					width: 63,
-				}}>
-				<ImageBackground
-					resizeMode="cover"
-					source={{ uri: ImageURL }}
-					style={{
-						height: 52,
-						alignSelf: "center",
+                    padding: 7,
+                }}
+                onPress={() => {
+                    setSubSModalVisible(index);
+                    //navigation.navigate("SubServices" /* data.S_NextPage */, { data })
+                }}>
+                <View
+                    style={{
+                        alignSelf: "center",
+                        height: 63,
+                        width: 63,
+                    }}>
+                    <ImageBackground
+                        resizeMode="cover"
+                        source={{ uri: ImageURL }}
+                        style={{
+                            height: 65,
+                            alignSelf: "center",
 
-						width: 52,
-					}}></ImageBackground>
-			</View>
-			<NFTTitle title={data.S_Name} titleSize={SIZES.font - 2} />
-		</TouchableOpacity>
-	);
+                            width: 65,
+                        }}></ImageBackground>
+                </View>
+            </TouchableOpacity>
+            <NFTTitle title={data.S_Name} titleSize={SIZES.font} />
+        </View>
+    );
 };
 
 const NFTCard2 = ({ data, setSubSModalVisible }) => {

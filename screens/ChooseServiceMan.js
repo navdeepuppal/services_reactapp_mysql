@@ -90,17 +90,6 @@ const ChooseServiceMan = ({ navigation, route }) => {
                                             textAlign: "right",
                                             alignSelf: "center",
                                         }}>
-                                        Verified: No
-                                    </Text>
-                                    <Text
-                                        style={{
-                                            fontSize: 15,
-                                            marginLeft: 90,
-                                            fontWeight: "800",
-                                            color: COLORS.primary,
-                                            textAlign: "right",
-                                            alignSelf: "center",
-                                        }}>
                                         ⭐ 4.5 (35k)
                                     </Text>
                                     <TouchableOpacity
@@ -163,54 +152,54 @@ const ChooseServiceMan = ({ navigation, route }) => {
 };
 
 const styles = StyleSheet.create({
-	extraText: {
-		textAlign: "center",
-		paddingHorizontal: 10,
+    extraText: {
+        textAlign: "center",
+        paddingHorizontal: 10,
 
-		alignSelf: "center",
-		fontSize: 12,
+        alignSelf: "center",
+        fontSize: 12,
 
-		color: "gray",
-	},
-	disclaimer: {
-		alignSelf: "center",
+        color: "gray",
+    },
+    disclaimer: {
+        alignSelf: "center",
 
-		fontSize: 12,
-		color: "blue",
-	},
-	inputText: {
-		fontSize: 28,
-		margin: 16,
-		marginTop: "5%",
-		fontWeight: "600",
-	},
+        fontSize: 12,
+        color: "blue",
+    },
+    inputText: {
+        fontSize: 28,
+        margin: 16,
+        marginTop: "5%",
+        fontWeight: "600",
+    },
 
-	verifyButton: {
-		alignSelf: "center",
-		marginTop: 20,
-		shadowColor: "rgba(0,0,0, .4)", // IOS
-		shadowOffset: { height: 1, width: 1 }, // IOS
-		shadowOpacity: 1, // IOS
-		shadowRadius: 1, //IOS
-		backgroundColor: "black",
-		borderRadius: SIZES.font,
-		marginBottom: SIZES.extraLarge,
-		margin: SIZES.base,
-		...SHADOWS.dark,
-		elevation: 2, // Android
-		height: 50,
-		width: "80%",
-		justifyContent: "center",
-		alignItems: "center",
-		borderRadius: 10,
-	},
+    verifyButton: {
+        alignSelf: "center",
+        marginTop: 20,
+        shadowColor: "rgba(0,0,0, 0.4)", // IOS
+        shadowOffset: { height: 1, width: 1 }, // IOS
+        shadowOpacity: 1, // IOS
+        shadowRadius: 1, //IOS
+        backgroundColor: "black",
+        borderRadius: SIZES.font,
+        marginBottom: SIZES.extraLarge,
+        margin: SIZES.base,
+        ...SHADOWS.dark,
+        elevation: 2, // Android
+        height: 50,
+        width: "80%",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 10,
+    },
 
-	buttontext: {
-		fontWeight: "bold",
-		fontSize: 19,
-		textAlign: "center",
-		color: COLORS.white,
-	},
+    buttontext: {
+        fontWeight: "bold",
+        fontSize: 19,
+        textAlign: "center",
+        color: COLORS.white,
+    },
 });
 
 export default ChooseServiceMan;

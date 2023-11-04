@@ -11,19 +11,18 @@ export const NFTTitle = ({
 	textAlign = "center",
 }) => {
 	return (
-		<View>
-			<Text
-				style={{
-					fontFamily: titleFont,
-					fontSize: titleSize,
-					color: fontColor,
-					textAlign: textAlign,
-				}}
-			>
-				{title}
-			</Text>
-		</View>
-	);
+        <View>
+            <Text
+                style={{
+                    fontFamily: titleFont,
+                    fontSize: titleSize,
+                    color: fontColor,
+                    textAlign: textAlign,
+                }}>
+                {title}
+            </Text>
+        </View>
+    );
 };
 
 export const EthPrice = ({ price }) => {

@@ -1,23 +1,19 @@
 import React, { useState, useEffect } from "react";
 import {
-	View,
-	FlatList,
-	Text,
-	Image,
-	StyleSheet,
-	Share,
-	Modal,
-	TouchableOpacity,
+    View,
+    FlatList,
+    Text,
+    Image,
+    StyleSheet,
+    Share,
+    Modal,
+    TouchableOpacity,
+    ImageBackground,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import * as Location from "expo-location";
-import {
-	NFTCard1,
-	HomeHeader,
-	NFTCard9,
-	SubServicesModal,
-} from "../components";
+import { NFTCard1, HomeHeader, NFTCard9, SubServicesModal } from "../components";
 import { COLORS, config, SIZES } from "../constants";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import Bookings from "./Bookings";
@@ -40,32 +36,31 @@ function ServicesScreen() {
     const [location, setLocation] = useState(null);
     const [address, setAddress] = useState("");
 
-	console.log(address);
-	const onShare = async () => {
-		try {
-			const result = await Share.share({
-				message: "https://www.sqera.com",
-			});
-			if (result.action === Share.sharedAction) {
-				if (result.activityType) {
-					// shared with activity type of result.activityType
-				} else {
-					// shared
-				}
-			} else if (result.action === Share.dismissedAction) {
-				// dismissed
-			}
-		} catch (error) {
-			alert(error.message);
-		}
-	};
-	const getLocation = () => {
-		(async () => {
-			let { status } =
-				await Location.requestForegroundPermissionsAsync();
-			if (status !== "granted") {
-				console.error("Permission to access location was denied");
-			}
+    console.log(address);
+    const onShare = async () => {
+        try {
+            const result = await Share.share({
+                message: "https://www.sqera.com",
+            });
+            if (result.action === Share.sharedAction) {
+                if (result.activityType) {
+                    // shared with activity type of result.activityType
+                } else {
+                    // shared
+                }
+            } else if (result.action === Share.dismissedAction) {
+                // dismissed
+            }
+        } catch (error) {
+            alert(error.message);
+        }
+    };
+    const getLocation = () => {
+        (async () => {
+            let { status } = await Location.requestForegroundPermissionsAsync();
+            if (status !== "granted") {
+                console.error("Permission to access location was denied");
+            }
 
             Location.setGoogleApiKey(apiKey);
 
@@ -134,8 +129,8 @@ function ServicesScreen() {
             .finally(() => setLoading(false));
     }, [isFocused]);
 
-	return (
-        <ScrollView style={{ backgroundColor: COLORS.white, marginTop: "5%" }}>
+    return (
+        <ScrollView style={{ backgroundColor: COLORS.white }}>
             {isLoading ? (
                 <SafeAreaView
                     style={{
@@ -166,10 +161,10 @@ function ServicesScreen() {
                     <Image source={require("../assets/images/loader.gif")} style={styles.image} />
                 </SafeAreaView>
             ) : (
-                <View
+                <SafeAreaView
                     style={{
-                        marginTop: 35,
-                        backgroundColor: COLORS.white,
+                        backgroundColor: "white",
+                        height: "100%",
                     }}>
                     <View
                         style={{
@@ -230,17 +225,6 @@ function ServicesScreen() {
                                     marginBottom: 5,
                                 }}
                             />
-                            <Image
-                                source={require("../assets/sqera.png")}
-                                resizeMode="cover"
-                                style={{
-                                    alignContent: "center",
-                                    alignSelf: "center",
-                                    width: 45,
-                                    height: 18,
-                                    marginRight: 4,
-                                }}
-                            />
                         </View>
                     </View>
                     <View
@@ -255,64 +239,38 @@ function ServicesScreen() {
                             backgroundColor: "#f2f2f2",
                             height: "100%",
                         }}>
-                        {/* <View
-							style={{
-								backgroundColor: COLORS.white,
-
-								marginLeft: 7,
-							}}
-						>
-							<View
-								style={{
-									flexDirection: "row",
-									marginTop: 1,
-								}}
-							>
-								<Text
-									style={{
-										fontSize: 14,
-										marginLeft: 5,
-										fontWeight: "500",
-										alignSelf: "center",
-									}}
-								>
-									{" "}
-									Frequently booked
-								</Text>
-								<Image
-									source={require("../assets/icons/frequent.png")}
-									style={{
-										marginLeft: 5,
-
-										width: 14,
-										height: 14,
-										alignSelf: "center",
-									}}
-								/>
-							</View>
-
-							<FlatList
-								horizontal
-								data={data2}
-								renderItem={({ item, index }) => (
-									<NFTCard1
-										key={index}
-										data={item}
-										index={index}
-										setSubSModalVisible={
-											setSubSModalVisible
-										}
-									/>
-								)}
-								contentContainerStyle={{
-									width: "100%",
-									backgroundColor: COLORS.white,
-								}}
-							/>
-						</View> */}
                         <View
                             style={{
                                 backgroundColor: COLORS.white,
+
+                                padding: 20,
+                                marginBottom: 25,
+                                backgroundColor: COLORS.white,
+                            }}>
+                            <FlatList
+                                horizontal
+                                data={data2}
+                                renderItem={({ item, index }) => (
+                                    <NFTCard1
+                                        key={index}
+                                        data={item}
+                                        index={index}
+                                        setSubSModalVisible={setSubSModalVisible}
+                                    />
+                                )}
+                                contentContainerStyle={{
+                                    alignSelf: "center",
+                                    justifyContent: "center",
+
+                                    width: "100%",
+                                    backgroundColor: COLORS.white,
+                                }}
+                            />
+                        </View>
+                        <View
+                            style={{
+                                backgroundColor: COLORS.white,
+                                paddingVertical: 20,
                                 padding: 5,
                             }}>
                             <Text
@@ -484,54 +442,31 @@ function ServicesScreen() {
                                 }}
                             />
                         </View>
-                        <View
-                            style={{
-                                alignSelf: "center",
-                                marginTop: 20,
-                                width: "100%",
-                            }}>
-                            <SliderBox
-                                inactiveDotColor="#90A4AE"
-                                alignSelf={"center"}
-                                borderRadius={20}
-                                autoplay
-                                imageLoadingColor="#2196F3"
-                                circleLoop
-                                parentWidth={410}
-                                autoplayInterval={5000}
-                                ImageComponentStyle={{
-                                    borderRadius: 15,
-                                    marginRight: 20,
-                                }}
-                                paginationBoxStyle={{
-                                    position: "absolute",
-                                    bottom: 0,
-                                    padding: 70,
-                                    alignItems: "center",
-                                    alignSelf: "center",
-                                    justifyContent: "center",
-                                    paddingVertical: 10,
-                                }}
-                                height={170}
-                                width={430}
-                                opacity={1}
-                                images={[
-                                    "https://img.freepik.com/free-photo/rear-view-programmer-working-all-night-long_1098-18697.jpg?w=2000&t=st=1672688375~exp=1672688975~hmac=8416e203ce399ec68facdf58c3080d1db24be40cc787610e70880e32166d1d9f",
-                                    "https://img.freepik.com/free-photo/housewife-woking-home-lady-blue-shirt-woman-bathroom_1157-45526.jpg?w=2000&t=st=1672688038~exp=1672688638~hmac=d24482e0caf4b75f753a2435569d1c59b940371a9adf3ba4382d8c0d445c8d91",
-                                    "https://img.freepik.com/free-photo/hvac-technician-working-capacitor-part-condensing-unit-male-worker-repairman-uniform-repairing-adjusting-conditioning-system-diagnosing-looking-technical-issues_155003-18256.jpg?w=2000&t=st=1672688457~exp=1672689057~hmac=8d5efa29abacc4dc73fef70cf4fbd600751fbb48465853c6b1170639fb45c73b", // Network image
-                                ]}
-                                /* onCurrentImagePressed={(index) =>
-									console.log(
-										`image ${index} pressed`
-									)
-								}
-								currentImageEmitter={(index) =>
-									console.log(
-										`current pos is: ${index}`
-									)
-								} */
-                            />
-                        </View>
+
+                        <FlatList
+                            data={[1, 2, 3, 4, 5]}
+                            horizontal
+                            renderItem={() => (
+                                <View
+                                    style={{
+                                        alignSelf: "center",
+                                        backgroundColor: COLORS.primary,
+                                        margin: 5,
+                                        height: 200,
+                                        borderRadius: 20,
+                                    }}>
+                                    <Image
+                                        style={{
+                                            width: 150,
+                                            height: 150,
+                                            alignSelf: "center",
+                                        }}
+                                        //  source={require("../assets/images/user.png")}
+                                    />
+                                </View>
+                            )}
+                        />
+
                         <View
                             style={{
                                 backgroundColor: COLORS.white,
@@ -673,6 +608,7 @@ function ServicesScreen() {
                             style={{
                                 backgroundColor: "#EDF6FD",
                                 marginTop: 20,
+                                marginBottom: 20,
                                 padding: 10,
                             }}
                             onPress={onShare}>
@@ -724,7 +660,7 @@ function ServicesScreen() {
                             </Modal>
                         </View>
                     </View>
-                </View>
+                </SafeAreaView>
             )}
         </ScrollView>
     );
