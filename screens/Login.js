@@ -163,6 +163,7 @@ const Login = ({ navigation, route }) => {
                                             style={{
                                                 marginTop: 20,
                                                 alignSelf: "flex-start",
+                                                lineHeight: 30,
                                                 fontSize: 16,
                                             }}>
                                             Sqera has sent a 4-digit OTP on your phone number +91{" "}
@@ -188,7 +189,7 @@ const Login = ({ navigation, route }) => {
                                                 style={{
                                                     marginTop: 10,
 
-                                                    fontSize: 16,
+                                                    fontSize: 15,
                                                 }}>
                                                 Not received ?
                                             </Text>
@@ -200,7 +201,8 @@ const Login = ({ navigation, route }) => {
                                                     style={{
                                                         marginTop: 10,
                                                         color: "blue",
-                                                        fontSize: 16,
+                                                        fontWeight: "600",
+                                                        fontSize: 15,
                                                     }}>
                                                     {" "}
                                                     Resend
@@ -260,7 +262,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         elevation: 5,
         width: "100%",
-        height: "65%",
+        height: "85%",
     },
 
     countrycode: {
@@ -327,7 +329,7 @@ const styles = StyleSheet.create({
         borderRadius: 9,
         borderWidth: 0.7,
 
-        width: "70%",
+        width: "100%",
     },
     button2: {
         marginTop: 50,

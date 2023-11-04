@@ -10,11 +10,16 @@ const TermsCondition = ({ onSearch }) => {
 	const [isLoggedIn, setLoggedIn] = useState("");
 
 	return (
-		<Text style={{ fontSize: 12, marginTop: -10 }}>
-			{" "}
-			By clicking you accept the Terms & Conditions
-		</Text>
-	);
+        <View style={{ flexDirection: "row" }}>
+            <Text style={{ fontSize: 12 }}> By clicking you accept the</Text>
+            <TouchableOpacity style={{ fontSize: 12 }}>
+                <Text style={{ fontSize: 12, color: "blue", fontWeight: "600" }}>
+                    {" "}
+                    Terms & Conditions
+                </Text>
+            </TouchableOpacity>
+        </View>
+    );
 };
 
 export default TermsCondition;

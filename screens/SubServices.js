@@ -22,6 +22,7 @@ const SubServices = ({ route, navigation }) => {
 	const [isLoading, setLoading] = useState(true);
 	const [data2, setData] = useState([]);
 	const { data } = route.params;
+	console.log(data2);
 
 	const querystring =
 		"SELECT * FROM subservice WHERE S_ID = " + [data.S_ID] + ";";

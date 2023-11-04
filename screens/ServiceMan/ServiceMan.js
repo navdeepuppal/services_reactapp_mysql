@@ -304,7 +304,14 @@ const ServiceMan = ({ navigation }) => {
                             )}
                             // TODO: Add Some Senseful Component Here
                             ListEmptyComponent={
-                                <Text>🤕 Don't Worry, You'll have more orders soon.</Text>
+                                <Text
+                                    style={{
+                                        textAlign: "center",
+                                        marginTop: 20,
+                                        fontWeight: "400",
+                                    }}>
+                                    No orders yet, please keep your broadcast mode ON.
+                                </Text>
                             }
                         />
                     </View>
@@ -397,30 +404,81 @@ const ServiceMan = ({ navigation }) => {
                                     style={{
                                         flexDirection: "row",
                                         justifyContent: "space-between",
-                                        marginTop: "5%",
                                     }}>
-                                    <View
+                                    <TouchableOpacity
                                         style={{
-                                            flexDirection: "row",
-                                        }}>
-                                        <TouchableOpacity
+                                            width: 40,
+                                            height: 40,
+                                            marginTop: "7%",
+                                        }}
+                                        onPress={() => settodayEarningsVisible(false)}>
+                                        <Image
+                                            source={assets.left}
+                                            resizeMode="contain"
                                             style={{
-                                                width: 40,
-                                                height: 40,
-                                                marginTop: "15%",
+                                                width: "100%",
+                                                height: "100%",
                                             }}
-                                            onPress={() => settodayEarningsVisible(false)}>
-                                            <Image
-                                                source={assets.left}
-                                                resizeMode="contain"
+                                        />
+                                    </TouchableOpacity>
+                                    <TouchableOpacity
+                                        style={{
+                                            margin: 5,
+                                            marginTop: 30,
+                                            borderRadius: 15,
+                                            padding: 10,
+                                            justifyContent: "center",
+
+                                            height: 60,
+                                            backgroundColor: COLORS.white,
+                                        }}
+                                        onPress={() => {
+                                            navigation.navigate("Wallet"),
+                                                settodayEarningsVisible(false);
+                                        }}>
+                                        <View
+                                            onPress={() => navigation.navigate("Wallet")}
+                                            style={{
+                                                alignItems: "center",
+                                            }}>
+                                            <View
                                                 style={{
-                                                    width: "100%",
-                                                    height: "100%",
-                                                }}
-                                            />
-                                        </TouchableOpacity>
-                                    </View>
+                                                    flexDirection: "row",
+                                                    alignItems: "center",
+                                                }}>
+                                                <Image
+                                                    source={require("../../assets/images/wallet.png")}
+                                                    style={{
+                                                        width: 30,
+                                                        height: 25,
+                                                    }}
+                                                />
+                                                <View
+                                                    style={{
+                                                        marginLeft: 10,
+                                                    }}>
+                                                    <Text
+                                                        style={{
+                                                            fontSize: 16,
+                                                            fontWeight: "500",
+                                                            color: COLORS.primary,
+                                                        }}>
+                                                        Wallet
+                                                    </Text>
+                                                    <Text
+                                                        style={{
+                                                            fontSize: 12,
+                                                            fontWeight: "700",
+                                                            color: COLORS.gray,
+                                                        }}>
+                                                        Rs 400
+                                                    </Text>
+                                                </View>
+                                            </View>
+                                        </View>
+                                    </TouchableOpacity>
                                 </View>
+
                                 <View>
                                     <Text
                                         style={{
@@ -676,7 +734,7 @@ const ServiceMan = ({ navigation }) => {
                                         • Customers can find you when your BROADCAST MODE IS ON.
                                         {"\n"}
                                         {"\n"}• Your service/skill is currently getting broadcasted
-                                        to your customers from your below current location.
+                                        to your customers from your above current location.
                                         {"\n\n"}• Minimum Balance of Rs 400 required in wallet to
                                         switch on the BROADCAST MODE. For more details please check
                                         Sqera pricing.
@@ -692,9 +750,9 @@ const ServiceMan = ({ navigation }) => {
                             onRequestClose={() => {
                                 setstatisticsModalVisible(!statisticsModal);
                             }}>
-                            <View
+                            <ScrollView
                                 style={{
-                                    backgroundColor: COLORS.white,
+                                    backgroundColor: "#f2f2f2",
                                     marginTop: "20%",
                                     padding: 25,
                                     borderTopStartRadius: 20,
@@ -724,19 +782,15 @@ const ServiceMan = ({ navigation }) => {
 
                                 <Text
                                     style={{
-                                        margin: 10,
+                                        marginTop: 20,
+
                                         fontWeight: "600",
                                         fontSize: 20,
+                                        marginBottom: 10,
                                     }}>
                                     Service Man Statistics
                                 </Text>
-                                <View
-                                    style={{
-                                        height: 1,
-                                        width: "80%",
-                                        backgroundColor: "#cccccc",
-                                    }}
-                                />
+
                                 <View
                                     style={{
                                         borderRadius: 7,
@@ -751,6 +805,7 @@ const ServiceMan = ({ navigation }) => {
                                             style={{
                                                 fontWeight: "bold",
                                                 color: "gray",
+                                                marginLeft: 10,
                                             }}>
                                             Orders Completed:
                                         </Text>
@@ -779,6 +834,7 @@ const ServiceMan = ({ navigation }) => {
                                             style={{
                                                 fontWeight: "bold",
                                                 color: "gray",
+                                                marginLeft: 10,
                                             }}>
                                             Total Earnings:
                                         </Text>
@@ -807,6 +863,7 @@ const ServiceMan = ({ navigation }) => {
                                             style={{
                                                 fontWeight: "bold",
                                                 color: "gray",
+                                                marginLeft: 10,
                                             }}>
                                             Average Rating:
                                         </Text>
@@ -835,6 +892,7 @@ const ServiceMan = ({ navigation }) => {
                                             style={{
                                                 fontWeight: "bold",
                                                 color: "gray",
+                                                marginLeft: 10,
                                             }}>
                                             Penalties Charged:
                                         </Text>
@@ -853,19 +911,12 @@ const ServiceMan = ({ navigation }) => {
                                 <Text
                                     style={{
                                         marginTop: 50,
-                                        margin: 10,
                                         fontWeight: "600",
                                         fontSize: 20,
                                     }}>
                                     Find More Customers, Earn More
                                 </Text>
-                                <View
-                                    style={{
-                                        height: 1,
-                                        width: "80%",
-                                        backgroundColor: "#cccccc",
-                                    }}
-                                />
+
                                 <TouchableOpacity
                                     style={{
                                         backgroundColor: "lightblue",
@@ -892,7 +943,83 @@ const ServiceMan = ({ navigation }) => {
                                         Instructions: How to use sqera efficiently
                                     </Text>
                                 </TouchableOpacity>
-                            </View>
+
+                                <Text
+                                    style={{
+                                        marginTop: 50,
+                                        marginBottom: 10,
+                                        fontWeight: "600",
+                                        fontSize: 20,
+                                    }}>
+                                    Settings
+                                </Text>
+                                <TouchableOpacity
+                                    style={{
+                                        backgroundColor: COLORS.white,
+                                        margin: 10,
+
+                                        elevation: 10,
+                                        fontSize: 16,
+                                        borderRadius: 10,
+                                        height: 45,
+                                        padding: 10,
+                                    }}
+                                    onPress={() => {
+                                        {
+                                            setstatisticsModalVisible(false),
+                                                Alert.alert("Switch to Customer Mode?", "", [
+                                                    {
+                                                        text: "Cancel",
+                                                        onPress: () =>
+                                                            console.log("Cancel Pressed"),
+                                                        style: "cancel",
+                                                    },
+                                                    {
+                                                        text: "Yes",
+                                                        onPress: () => {
+                                                            setnavigationDrawerVisible(false),
+                                                                navigation.navigate("Home");
+                                                        },
+                                                    },
+                                                ]);
+                                        }
+                                    }}>
+                                    <Text
+                                        style={{
+                                            fontSize: 17,
+                                            color: COLORS.primary,
+                                            fontWeight: "500",
+                                            borderRadius: 10,
+                                        }}>
+                                        Switch to Customer Mode
+                                    </Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity
+                                    style={{
+                                        backgroundColor: COLORS.white,
+                                        margin: 10,
+
+                                        elevation: 10,
+                                        fontSize: 16,
+                                        borderRadius: 10,
+                                        height: 45,
+                                        padding: 10,
+                                    }}
+                                    x
+                                    onPress={() => {
+                                        setstatisticsModalVisible(false);
+                                    }}>
+                                    <Text
+                                        style={{
+                                            fontSize: 17,
+                                            color: COLORS.primary,
+                                            fontWeight: "500",
+                                            borderRadius: 10,
+                                        }}>
+                                        Account
+                                    </Text>
+                                </TouchableOpacity>
+                            </ScrollView>
                         </Modal>
 
                         <Modal
@@ -946,7 +1073,7 @@ const ServiceMan = ({ navigation }) => {
                                             backgroundColor: COLORS.white,
                                             width: "100%",
                                             marginTop: 15,
-                                            marginBottom: 20,
+                                            marginBottom: 40,
                                             height: 50,
                                             justifyContent: "center",
                                         }}
@@ -985,7 +1112,32 @@ const ServiceMan = ({ navigation }) => {
                                         }}
                                         onPress={() => {
                                             setnavigationDrawerVisible(false),
-                                                navigation.navigate("Contact");
+                                                navigation.navigate("Wallet");
+                                        }}>
+                                        <Text
+                                            style={{
+                                                textAlign: "center",
+                                                fontSize: 16,
+                                                fontWeight: "600",
+                                                color: COLORS.gray,
+                                            }}>
+                                            Wallet
+                                        </Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity
+                                        style={{
+                                            backgroundColor: COLORS.white,
+                                            borderBottomWidth: 0.8,
+                                            borderColor: "#cccccc",
+                                            margin: 5,
+                                            width: "100%",
+
+                                            height: 50,
+                                            justifyContent: "center",
+                                        }}
+                                        onPress={() => {
+                                            setnavigationDrawerVisible(false),
+                                                setstatisticsModalVisible(true);
                                         }}>
                                         <Text
                                             style={{
@@ -1054,7 +1206,7 @@ const ServiceMan = ({ navigation }) => {
                                         alignSelf: "center",
                                         left: 5,
                                     }}>
-                                    <TouchableOpacity
+                                    {/*   <TouchableOpacity
                                         style={{
                                             margin: 5,
                                             marginTop: 30,
@@ -1111,7 +1263,7 @@ const ServiceMan = ({ navigation }) => {
                                                 </View>
                                             </View>
                                         </View>
-                                    </TouchableOpacity>
+                                    </TouchableOpacity> */}
                                     <TouchableOpacity
                                         style={{
                                             width: 180,
@@ -1141,7 +1293,7 @@ const ServiceMan = ({ navigation }) => {
                                         <Text
                                             style={{
                                                 fontWeight: "bold",
-                                                fontSize: 17,
+                                                fontSize: 16,
                                                 textAlign: "center",
                                                 color: "white",
                                             }}>

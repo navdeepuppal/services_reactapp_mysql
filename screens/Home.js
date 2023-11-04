@@ -208,7 +208,7 @@ function ServicesScreen() {
                             </View>
                             <Text style={{ fontSize: 9, margin: "1%" }}>
                                 {" "}
-                                {address.district}, {address.city}, {address.postalCode}
+                                {address.subregion}, {address.city}, {address.postalCode}
                             </Text>
                         </View>
                         <View
@@ -678,9 +678,9 @@ function ServicesScreen() {
                             onPress={onShare}>
                             <Text
                                 style={{
-                                    fontSize: 17,
+                                    fontSize: 15,
                                     marginLeft: 5,
-                                    fontWeight: "500",
+                                    fontWeight: "400",
                                     marginTop: 10,
                                     marginBottom: 10,
                                 }}>
@@ -694,7 +694,7 @@ function ServicesScreen() {
                                     fontWeight: "300",
                                     marginBottom: 5,
                                 }}>
-                                Sqera is driven by people. Refer to your friends.
+                                Refer to your friends.
                             </Text>
                         </TouchableOpacity>
 

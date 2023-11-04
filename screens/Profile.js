@@ -92,13 +92,12 @@ const Profile = ({ navigation }) => {
                         }}>
                         <Text
                             style={{
-                                fontSize: 20,
-                                fontWeight: "900",
+                                fontSize: 18,
+                                fontWeight: "800",
                                 alignSelf: "center",
                                 color: COLORS.white,
                             }}>
-                            {" "}
-                            Login{" "}
+                            Login
                         </Text>
                     </TouchableOpacity>
                 )}
