@@ -133,80 +133,35 @@ const SMan_BookingCard = ({ data, setOrdersDetailsVisible, setCurrentBooking }) 
                             {" "}
                             {/* TODO: Date Format 09th October 2023 (Monday) */}
                             {data.B_Appointment.substring(0, 10)}
+                            {"   at  "}
+                            {data.B_Appointment.substring(12, 19)}
                         </Text>
                     </View>
                 </View>
-
                 <View
                     style={{
-                        marginTop: 10,
+                        justifyContent: "flex-end",
                         flexDirection: "row",
-                        justifyContent: "space-between",
+                        marginTop: 10,
                     }}>
-                    <View
+                    <Text
                         style={{
-                            flexDirection: "row",
+                            fontSize: 14,
+                            fontWeight: "500",
+                            color: "gray",
                         }}>
-                        <View
-                            style={{
-                                backgroundColor: "yellow",
-                                height: 35,
-                                borderTopLeftRadius: 10,
-                                borderBottomLeftRadius: 10,
-                            }}>
-                            <Text
-                                style={{
-                                    padding: 3,
-                                    margin: 3,
-                                    color: COLORS.gray,
-                                }}>
-                                Scheduled Time :
-                            </Text>
-                        </View>
-                        <View
-                            style={{
-                                backgroundColor: "#EDF6FD",
-                                height: 35,
-                                borderTopRightRadius: 10,
-                                borderBottomEndRadius: 10,
-                            }}>
-                            <Text
-                                style={{
-                                    padding: 3,
-                                    margin: 3,
-                                    color: COLORS.gray,
-                                }}>
-                                {" "}
-                                {/* TODO: Time Format 10:26 AM */}
-                                {data.B_Appointment.substring(12, 19)}
-                            </Text>
-                        </View>
-                    </View>
-
-                    <View
+                        Status:{" "}
+                    </Text>
+                    <Text
                         style={{
-                            flexDirection: "row",
-                            marginTop: 10,
+                            fontSize: 14,
+                            fontWeight: "500",
+                            color: "red",
                         }}>
-                        <Text
-                            style={{
-                                fontSize: 16,
-                                fontWeight: "500",
-                                color: "gray",
-                            }}>
-                            Status:{" "}
-                        </Text>
-                        <Text
-                            style={{
-                                fontSize: 16,
-                                fontWeight: "500",
-                                color: "red",
-                            }}>
-                            {data.B_Status == 1 && "Pending"}
-                            {data.B_Status == 2 && "In Progress"}
-                            {data.B_Status == 3 && "Completed"}
-                        </Text>
-                    </View>
+                        {data.B_Status == 1 && "Pending"}
+                        {data.B_Status == 2 && "In Progress"}
+                        {data.B_Status == 3 && "Completed"}
+                    </Text>
                 </View>
             </View>
         </TouchableOpacity>

@@ -188,10 +188,11 @@ const Login = ({ navigation, route }) => {
                                             <Text
                                                 style={{
                                                     marginTop: 10,
-
+                                                    fontWeight: "600",
+                                                    color: COLORS.gray,
                                                     fontSize: 15,
                                                 }}>
-                                                Not received ?
+                                                OTP Not received ?
                                             </Text>
                                             <TouchableOpacity
                                                 onPress={() => {
@@ -200,7 +201,7 @@ const Login = ({ navigation, route }) => {
                                                 <Text
                                                     style={{
                                                         marginTop: 10,
-                                                        color: "blue",
+
                                                         fontWeight: "600",
                                                         fontSize: 15,
                                                     }}>

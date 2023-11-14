@@ -175,7 +175,7 @@ const Cart = ({ route, navigation }) => {
                                     titleSize={SIZES.medium}
                                     fontColor={COLORS.primary}
                                 />
-                                <View style={{ width: "3%" }} />
+
                                 {/* <NFTTitle
 									title={
 										"₹" +

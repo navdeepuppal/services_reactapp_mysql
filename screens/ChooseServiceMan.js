@@ -25,7 +25,32 @@ const ChooseServiceMan = ({ navigation, route }) => {
 
     return (
         <SafeAreaView style={{ backgroundColor: COLORS.white, flex: 1 }}>
-            <BackButton />
+            <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+                <BackButton />
+
+                <View>
+                    <Text
+                        style={{
+                            justifyContent: "flex-end",
+                            paddingHorizontal: 10,
+                            marginTop: 15,
+                            fontWeight: "300",
+                            fontSize: 12,
+                        }}>
+                        Delievering service at
+                    </Text>
+                    <Text
+                        style={{
+                            justifyContent: "flex-end",
+                            paddingHorizontal: 10,
+                            fontWeight: "500",
+                            fontSize: 12,
+                            width: 180,
+                        }}>
+                        Kothi 103 Phase 9 Mohali
+                    </Text>
+                </View>
+            </View>
 
             <Text style={styles.inputText}>Select Professional</Text>
             <Text
@@ -33,7 +58,7 @@ const ChooseServiceMan = ({ navigation, route }) => {
                     color: "gray",
                     marginLeft: 15,
                     fontSize: 15,
-                    marginBottom: "10%",
+                    marginBottom: 18,
                 }}>
                 Showing top-rated professionals near you based on their booking history and customer
                 ratings
@@ -80,7 +105,12 @@ const ChooseServiceMan = ({ navigation, route }) => {
                                         Serving Locality: Mohali
                                     </Text>
                                 </View>
-                                <View style={{ alignSelf: "flex-end", justifyContent: "flex-end" }}>
+                                <View
+                                    style={{
+                                        alignSelf: "flex-end",
+                                        justifyContent: "space-between",
+                                        marginLeft: 35,
+                                    }}>
                                     <Text
                                         style={{
                                             fontSize: 15,
@@ -102,7 +132,7 @@ const ChooseServiceMan = ({ navigation, route }) => {
                                             color: COLORS.white,
                                             borderRadius: 10,
                                             height: 40,
-                                            width: 200,
+                                            width: 170,
                                             padding: 10,
                                             textAlign: "center",
                                         }}
@@ -137,14 +167,11 @@ const ChooseServiceMan = ({ navigation, route }) => {
                     paddingHorizontal: 10,
                     width: 400,
                     alignSelf: "center",
-                    padding: 10,
+                    padding: 2,
+                    height: 40,
                 }}>
-                <Text style={styles.extraText}>
-                    Sqera will not be taking any responsibility of the service man during the
-                    duration of booking.
-                </Text>
                 <TouchableOpacity style={styles.disclaimer}>
-                    <Text style={{ margin: 10 }}>Read Disclaimer </Text>
+                    <Text style={{ margin: 10, fontWeight: "500" }}>Read Disclaimer </Text>
                 </TouchableOpacity>
             </View>
         </SafeAreaView>

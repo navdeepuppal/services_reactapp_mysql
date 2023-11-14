@@ -11,6 +11,7 @@ import {
     FlatList,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { SMan_BookingCard, SMan_BookingDetailsModal } from "../components/SMan_BookingCard";
 import React, { useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -21,6 +22,8 @@ const Bookings = ({ navigation }) => {
     const isFocused = useIsFocused();
     const [isLoading, setLoading] = useState(true);
     const [data2, setData] = useState([]);
+    const [ordersDetailsModal, setOrdersDetailsVisible] = useState(false);
+    const [currentBookingOpen, setCurrentBooking] = useState(null);
 
     useEffect(() => {
         AsyncStorage.getItem("PhoneNumber").then((PhoneNumber) => {
@@ -48,117 +51,158 @@ const Bookings = ({ navigation }) => {
         });
     }, [isFocused]);
 
-	return isLoading ? (
-		<SafeAreaView
-			style={{
-				backgroundColor: "white",
-				height: "100%",
-				marginTop: "5%",
-			}}
-		>
-			<Image
-				source={require("../assets/sqera.png")}
-				style={{
-					width: 63,
-					height: 24,
-					marginBottom: 10,
-					alignSelf: "center",
-				}}
-			/>
-			<Text
-				style={{
-					alignSelf: "center",
-					fontSize: 15,
-					marginTop: 8,
-					justifyContent: "center",
-				}}
-			>
-				Connecting to server..
-			</Text>
-			<Image
-				source={require("../assets/images/loader.gif")}
-				style={{ width: 100, height: 100, alignSelf: "center" }}
-			/>
-		</SafeAreaView>
-	) : (
-		<SafeAreaView
-			style={{
-				backgroundColor: "#f2f2f2",
-			}}
-		>
-			<View
-				style={{
-					height: "7%",
-					paddingVertical: SIZES.font,
-					borderColor: COLORS.gray,
-					backgroundColor: "#f2f2f2",
-				}}
-			>
-				<Text
-					style={{
-						fontSize: 20,
-						fontWeight: "700",
-						marginLeft: 20,
-						marginTop: 3,
-						justifyContent: "center",
-						alignContent: "center",
-					}}
-				>
-					Bookings
-				</Text>
-			</View>
-			<FlatList
-				scrollEnabled
-				data={data2}
-				renderItem={({ item, index }) => (
-					<BookingCard key={item.index} data={item} />
-				)}
-				contentContainerStyle={{
-					height: "100%",
-				}}
-				ListEmptyComponent={
-					<View style={{ paddingHorizontal: 10 }}>
-						<Text
-							style={{
-								alignSelf: "center",
-								justifyContent: "center",
-								fontWeight: "500",
-								fontSize: 19,
-								marginTop: 300,
-							}}
-						>
-							No Recent Bookings Found
-						</Text>
-						<TouchableOpacity
-							onPress={() => {
-								navigation.navigate("Services");
-							}}
-							style={{
-								backgroundColor: COLORS.primary,
-								width: 300,
-								justifyContent: "center",
-								alignSelf: "center",
-								margin: 40,
-								borderRadius: 10,
-								height: 40,
-							}}
-						>
-							<Text
-								style={{
-									fontSize: 17,
-									fontWeight: "600",
-									alignSelf: "center",
-									color: COLORS.white,
-								}}
-							>
-								Find Services Nearby
-							</Text>
-						</TouchableOpacity>
-					</View>
-				}
-			/>
-		</SafeAreaView>
-	);
+    return isLoading ? (
+        <SafeAreaView
+            style={{
+                backgroundColor: "white",
+
+                marginTop: "5%",
+            }}>
+            <Image
+                source={require("../assets/sqera.png")}
+                style={{
+                    width: 63,
+                    height: 24,
+                    marginTop: "3%",
+                    marginBottom: 10,
+                    alignSelf: "center",
+                }}
+            />
+            <Text
+                style={{
+                    alignSelf: "center",
+                    fontSize: 15,
+                    marginTop: 8,
+                    justifyContent: "center",
+                }}>
+                Connecting to server..
+            </Text>
+            <Image
+                source={require("../assets/images/loader.gif")}
+                style={{ width: 100, height: 100, alignSelf: "center" }}
+            />
+        </SafeAreaView>
+    ) : (
+        <SafeAreaView
+            style={{
+                backgroundColor: "#f2f2f2",
+            }}>
+            <View
+                style={{
+                    paddingVertical: SIZES.font,
+                    borderColor: COLORS.gray,
+                    backgroundColor: "#f2f2f2",
+                }}>
+                <Text
+                    style={{
+                        fontSize: 20,
+                        fontWeight: "700",
+                        marginLeft: 20,
+                        marginTop: 3,
+                        justifyContent: "center",
+                        alignContent: "center",
+                    }}>
+                    Bookings
+                </Text>
+            </View>
+            {/* <FlatList
+                scrollEnabled
+                data={data2}
+                renderItem={({ item, index }) => <BookingCard key={item.index} data={item} />}
+                contentContainerStyle={{
+                    height: "100%",
+                }}
+                ListEmptyComponent={
+                    <View style={{ paddingHorizontal: 10 }}>
+                        <Text
+                            style={{
+                                alignSelf: "center",
+                                justifyContent: "center",
+                                fontWeight: "500",
+                                fontSize: 19,
+                                marginTop: 300,
+                            }}>
+                            No Recent Bookings Found
+                        </Text>
+                        <TouchableOpacity
+                            onPress={() => {
+                                navigation.navigate("Services");
+                            }}
+                            style={{
+                                backgroundColor: COLORS.primary,
+                                width: 300,
+                                justifyContent: "center",
+                                alignSelf: "center",
+                                margin: 40,
+                                borderRadius: 10,
+                                height: 40,
+                            }}>
+                            <Text
+                                style={{
+                                    fontSize: 17,
+                                    fontWeight: "600",
+                                    alignSelf: "center",
+                                    color: COLORS.white,
+                                }}>
+                                Find Services Nearby
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                }
+            /> */}
+
+            <FlatList
+                data={data2}
+                renderItem={({ item, index }) => (
+                    <SMan_BookingCard
+                        data={item}
+                        key={index}
+                        setOrdersDetailsVisible={setOrdersDetailsVisible}
+                        setCurrentBooking={setCurrentBooking}
+                    />
+                )}
+                // TODO: Add Some Senseful Component Here
+
+                ListEmptyComponent={
+                    <View style={{ paddingHorizontal: 10 }}>
+                        <Text
+                            style={{
+                                alignSelf: "center",
+                                justifyContent: "center",
+                                fontWeight: "500",
+                                fontSize: 19,
+                                marginTop: 300,
+                            }}>
+                            No Recent Bookings Found
+                        </Text>
+                        <TouchableOpacity
+                            onPress={() => {
+                                navigation.navigate("Services");
+                            }}
+                            style={{
+                                backgroundColor: COLORS.primary,
+                                width: 300,
+                                justifyContent: "center",
+                                alignSelf: "center",
+                                margin: 40,
+                                borderRadius: 10,
+                                height: 40,
+                            }}>
+                            <Text
+                                style={{
+                                    fontSize: 17,
+                                    fontWeight: "600",
+                                    alignSelf: "center",
+                                    color: COLORS.white,
+                                }}>
+                                Find Services Nearby
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                }
+            />
+        </SafeAreaView>
+    );
 };
 
 function BookingCard({ data }) {

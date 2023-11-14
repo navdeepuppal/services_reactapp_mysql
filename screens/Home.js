@@ -13,7 +13,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import * as Location from "expo-location";
-import { NFTCard1, HomeHeader, NFTCard9, SubServicesModal } from "../components";
+import { NFTCard1, HomeHeader, NFTCard9, NFTCard10, SubServicesModal } from "../components";
 import { COLORS, config, SIZES } from "../constants";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import Bookings from "./Bookings";
@@ -136,29 +136,21 @@ function ServicesScreen() {
                     style={{
                         backgroundColor: "white",
                         height: "100%",
+                        marginTop: "40%",
                         alignSelf: "center",
                         justifyContent: "center",
                     }}>
-                    <Image
-                        source={require("../assets/sqera.png")}
-                        style={{
-                            width: 63,
-                            height: 24,
-                            marginBottom: 10,
-                            alignSelf: "center",
-                        }}
-                    />
-
+                    <Image source={require("../assets/images/loader.gif")} style={styles.image} />
                     <Text
                         style={{
                             alignSelf: "center",
                             fontSize: 15,
                             marginTop: 8,
+                            marginBottom: 10,
                             justifyContent: "center",
                         }}>
-                        Finding services nearby..
+                        Getting your location..
                     </Text>
-                    <Image source={require("../assets/images/loader.gif")} style={styles.image} />
                 </SafeAreaView>
             ) : (
                 <SafeAreaView
@@ -252,6 +244,34 @@ function ServicesScreen() {
                                 data={data2}
                                 renderItem={({ item, index }) => (
                                     <NFTCard1
+                                        key={index}
+                                        data={item}
+                                        index={index}
+                                        setSubSModalVisible={setSubSModalVisible}
+                                    />
+                                )}
+                                contentContainerStyle={{
+                                    alignSelf: "center",
+                                    justifyContent: "center",
+
+                                    width: "100%",
+                                    backgroundColor: COLORS.white,
+                                }}
+                            />
+                        </View>
+                        <View
+                            style={{
+                                backgroundColor: COLORS.white,
+
+                                padding: 20,
+                                marginBottom: 25,
+                                backgroundColor: COLORS.white,
+                            }}>
+                            <FlatList
+                                horizontal
+                                data={data2}
+                                renderItem={({ item, index }) => (
+                                    <NFTCard10
                                         key={index}
                                         data={item}
                                         index={index}
@@ -446,6 +466,7 @@ function ServicesScreen() {
                         <FlatList
                             data={[1, 2, 3, 4, 5]}
                             horizontal
+                            circleLoop
                             renderItem={() => (
                                 <View
                                     style={{
