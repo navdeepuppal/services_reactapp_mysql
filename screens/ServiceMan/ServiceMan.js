@@ -594,7 +594,7 @@ const ServiceMan = ({ navigation }) => {
                             }}>
                             <View
                                 style={{
-                                    backgroundColor: "#f2f2f2",
+                                    backgroundColor: COLORS.white,
                                     marginTop: "20%",
                                     padding: 25,
                                     borderTopStartRadius: 20,
