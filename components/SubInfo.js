@@ -4,13 +4,13 @@ import { View, Image, Text } from "react-native";
 import { SIZES, FONTS, COLORS, SHADOWS, assets } from "../constants";
 
 export const NFTTitle = ({
-	title,
-	titleSize,
-	titleFont = FONTS.font,
-	fontColor = COLORS.primary,
-	textAlign = "center",
+    title,
+    titleSize,
+    titleFont = FONTS.font,
+    fontColor = COLORS.primary,
+    textAlign = "center",
 }) => {
-	return (
+    return (
         <View>
             <Text
                 style={{

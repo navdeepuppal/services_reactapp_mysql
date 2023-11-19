@@ -80,6 +80,26 @@ const SubSubService = ({ route, navigation }) => {
 
                         width: "100%",
                     }}>
+                    <TouchableOpacity
+                        style={{
+                            width: 35,
+                            height: 35,
+                            position: "absolute",
+                            backgroundColor: COLORS.white,
+                            alignItems: "center",
+                            padding: 3,
+                            borderRadius: 20,
+                            zIndex: 3,
+                            top: 60,
+                            left: 20,
+                        }}
+                        onPress={() => navigation.goBack()}>
+                        <Image
+                            source={assets.left}
+                            resizeMode="contain"
+                            style={{ width: "100%", height: "100%", marginRight: 3 }}
+                        />
+                    </TouchableOpacity>
                     <SliderBox
                         inactiveDotColor="#90A4AE"
                         alignSelf={"center"}
@@ -110,31 +130,11 @@ const SubSubService = ({ route, navigation }) => {
 								} */
                     />
                 </View>
-                <SubSubServicesHeader onSearch={handleSearch} SubS_Name={prevData.SubS_Name} />
-
-                <View
-                    style={{
-                        padding: 20,
-                        alignItems: "center",
-
-                        backgroundColor: COLORS.white,
-                    }}>
-                    <FlatList
-                        horizontal
-                        data={data2}
-                        renderItem={({ item, index }) => (
-                            <NFTCard10
-                                data={item}
-                                data2={data2_backup}
-                                setData={setDataBackup}
-                                index={index}
-                            />
-                        )}
-                        contentContainerStyle={{ alignSelf: "center", justifyContent: "center" }}
-                        keyExtractor={(item, index) => index.toString()}
-                        showsVerticalScrollIndicator={false}
-                    />
-                </View>
+                <SubSubServicesHeader
+                    onSearch={handleSearch}
+                    SubS_Name={prevData.SubS_Name}
+                    S_Name={prevData.S_Name}
+                />
 
                 <View
                     style={{
@@ -166,10 +166,9 @@ const SubSubService = ({ route, navigation }) => {
                     style={{
                         flexDirection: "row",
                         justifyContent: "space-between",
-                        height: "10%",
+                        height: 90,
                         backgroundColor: "white",
-                        alignContent: "center",
-                        alignItems: "center",
+                        paddingVertical: 10,
                     }}>
                     <Text
                         style={{
@@ -185,8 +184,8 @@ const SubSubService = ({ route, navigation }) => {
                             borderRadius: 10,
                             marginRight: "5%",
                             padding: "1%",
-                            width: "35%",
-                            height: 55,
+                            width: 140,
+                            height: 45,
                             justifyContent: "center",
                         }}
                         onPress={() =>

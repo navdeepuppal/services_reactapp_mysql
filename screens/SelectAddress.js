@@ -374,7 +374,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         textAlign: "center",
         color: COLORS.primary,
-        fontWeight: "700",
+        fontWeight: "500",
     },
     confirmbuttontext: {
         fontWeight: "bold",

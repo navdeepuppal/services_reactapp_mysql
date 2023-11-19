@@ -161,6 +161,7 @@ const Bookings = ({ navigation }) => {
                         setCurrentBooking={setCurrentBooking}
                     />
                 )}
+                ListFooterComponent={<View style={{ marginBottom: 40 }}></View>}
                 // TODO: Add Some Senseful Component Here
 
                 ListEmptyComponent={

@@ -81,18 +81,20 @@ const ServiceMan = ({ navigation }) => {
             <ScrollView style={{ backgroundColor: "#f2f2f2" }}>
                 <View
                     style={{
-                        margin: "3%",
+                        padding: 10,
                         flexDirection: "row",
                         justifyContent: "space-between",
                     }}>
-                    <Text style={{ fontWeight: "700", fontSize: 20 }}>Hi, Navdeep</Text>
+                    <Text style={{ fontWeight: "700", fontSize: 18, paddingVertical: 5 }}>
+                        Hi, Navdeep
+                    </Text>
 
                     <View style={{ flexDirection: "row" }}>
                         <Image
                             source={require("../../assets/sqera.png")}
                             style={{
-                                width: 50,
-                                height: 20,
+                                width: 47,
+                                height: 18,
                                 marginRight: 10,
                                 alignSelf: "center",
                             }}
@@ -308,9 +310,9 @@ const ServiceMan = ({ navigation }) => {
                                     style={{
                                         textAlign: "center",
                                         marginTop: 90,
-                                        fontWeight: "600",
+                                        fontWeight: "300",
                                         fontSize: 18,
-                                        lineHeight: 40,
+                                        lineHeight: 30,
                                     }}>
                                     No orders yet. {"\n"} Please keep your Broadcast Mode ON.
                                 </Text>
@@ -647,7 +649,14 @@ const ServiceMan = ({ navigation }) => {
                                         backgroundColor: "green",
                                     }}
                                     onPress={() => {
-                                        setbroadcastModalVisible(true);
+                                        Alert.alert("Broadcast Mode Turned Off", "", [
+                                            {
+                                                text: "Ok",
+                                                onPress: () => {
+                                                    setbroadcastModalVisible(false);
+                                                },
+                                            },
+                                        ]);
                                     }}>
                                     <View
                                         style={{
@@ -1120,7 +1129,6 @@ const ServiceMan = ({ navigation }) => {
                                                 textAlign: "center",
                                                 fontSize: 16,
                                                 fontWeight: "600",
-                                                color: COLORS.gray,
                                             }}>
                                             Wallet
                                         </Text>
@@ -1145,7 +1153,6 @@ const ServiceMan = ({ navigation }) => {
                                                 textAlign: "center",
                                                 fontSize: 16,
                                                 fontWeight: "600",
-                                                color: COLORS.gray,
                                             }}>
                                             Profile
                                         </Text>
@@ -1170,7 +1177,6 @@ const ServiceMan = ({ navigation }) => {
                                                 textAlign: "center",
                                                 fontSize: 16,
                                                 fontWeight: "600",
-                                                color: COLORS.gray,
                                             }}>
                                             Sqera Pricing
                                         </Text>
@@ -1193,7 +1199,6 @@ const ServiceMan = ({ navigation }) => {
                                                 textAlign: "center",
                                                 fontSize: 16,
                                                 fontWeight: "600",
-                                                color: COLORS.gray,
                                             }}>
                                             Support
                                         </Text>

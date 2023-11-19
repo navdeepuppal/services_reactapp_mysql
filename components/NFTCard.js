@@ -99,149 +99,152 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
 };
 
 const NFTCard2 = ({ data, setSubSModalVisible }) => {
-	const navigation = useNavigation();
-	return (
-		<TouchableOpacity
-			style={{
-				backgroundColor: data.isSelected != "false" ? "#F2F2F2" : "#F8F8F8",
-				borderRadius: SIZES.font,
-				marginBottom: SIZES.extraLarge,
-				margin: SIZES.base,
-				width: "45%",
-				flex: 1,
-				height: 100,
-				borderColor: COLORS.primary,
-			}}
-			onPress={() => {
-				setSubSModalVisible(-1);
-				navigation.navigate("SubSubService", { data });
-			}}>
-			<View style={{ width: "100%", height: "100%", marginBottom: 5 }}>
-				<Image
-					source={{ uri: data.SubS_Image }}
-					resizeMode="contain"
-					style={{
-						width: "100%",
-						height: "100%",
+    const navigation = useNavigation();
+    return (
+        <View style={{ marginBottom: SIZES.extraLarge }}>
+            <TouchableOpacity
+                style={{
+                    backgroundColor: data.isSelected != "false" ? "#F2F2F2" : "#F8F8F8",
+                    borderRadius: SIZES.small - 6,
+                    marginBottom: 8,
+                    margin: SIZES.base + 6,
+                    width: 110,
 
-						borderTopLeftRadius: SIZES.font,
-						borderTopRightRadius: SIZES.font,
-					}}
-				/>
-			</View>
+                    height: 80,
 
-			<NFTTitle title={data.SubS_Name} titleSize={SIZES.medium} titleFont={FONTS.medium} fontColor={COLORS.primary} />
-		</TouchableOpacity>
-	);
+                    borderColor: COLORS.primary,
+                }}
+                onPress={() => {
+                    setSubSModalVisible(-1);
+                    navigation.navigate("SubSubService", { data });
+                }}>
+                <Image
+                    source={{ uri: data.SubS_Image }}
+                    resizeMode="contain"
+                    style={{
+                        alignSelf: "center",
+                        width: "98%",
+                        height: "98%",
+                    }}
+                />
+            </TouchableOpacity>
+            <NFTTitle
+                title={data.SubS_Name}
+                titleSize={SIZES.medium - 3.5}
+                titleFont={FONTS.medium}
+                fontColor={COLORS.primary}
+            />
+        </View>
+    );
 };
 
 const NFTCard3 = ({ data }) => {
-	const navigation = useNavigation();
+    const navigation = useNavigation();
 
-	return (
-		<TouchableOpacity
-			style={{
-				backgroundColor: data.isSelected != "false" ? COLORS.white : "#F8F8F8",
-				borderRadius: SIZES.font,
-				marginBottom: SIZES.extraLarge,
-				margin: SIZES.base,
-				...SHADOWS.dark,
-				flex: 1,
-			}}
-			onPress={() => {}}>
-			<View style={{ width: "100%", padding: SIZES.font }}>
-				<NFTTitle title={data.SubSubS_Name} titleSize={SIZES.large} />
-				<NFTTitle title={data.SubSubS_Description} titleSize={SIZES.small} />
+    return (
+        <TouchableOpacity
+            style={{
+                backgroundColor: data.isSelected != "false" ? COLORS.white : "#F8F8F8",
+                borderRadius: SIZES.font,
+                marginBottom: SIZES.extraLarge,
+                margin: SIZES.base,
+                ...SHADOWS.dark,
+                flex: 1,
+            }}
+            onPress={() => {}}>
+            <View style={{ width: "100%", padding: SIZES.font }}>
+                <NFTTitle title={data.SubSubS_Name} titleSize={SIZES.large} />
+                <NFTTitle title={data.SubSubS_Description} titleSize={SIZES.small} />
 
-				<View
-					style={{
-						marginTop: SIZES.font,
-						flexDirection: "row",
-						justifyContent: "space-between",
-						alignItems: "center",
-					}}></View>
-			</View>
-		</TouchableOpacity>
-	);
+                <View
+                    style={{
+                        marginTop: SIZES.font,
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                    }}></View>
+            </View>
+        </TouchableOpacity>
+    );
 };
 
 const NFTCard4 = ({ data }) => {
-	const navigation = useNavigation();
-	const ImageURL = [data.S_Image][0];
-	return (
-		<TouchableOpacity
-			style={{
-				backgroundColor: COLORS.white,
-				borderRadius: SIZES.font,
-				marginBottom: SIZES.extraLarge,
-				margin: SIZES.base,
-				...SHADOWS.dark,
+    const navigation = useNavigation();
+    const ImageURL = [data.S_Image][0];
+    return (
+        <TouchableOpacity
+            style={{
+                backgroundColor: COLORS.white,
+                borderRadius: SIZES.font,
+                marginBottom: SIZES.extraLarge,
+                margin: SIZES.base,
+                ...SHADOWS.dark,
 
-				width: 195,
-				height: 170,
-			}}
-			onPress={() => {
-				const temp = data.S_ID;
-				navigation.navigate("RegisterSubService6", { temp });
-			}}>
-			<View
-				style={{
-					alignItems: "center",
-					width: 200,
-					height: 140,
-				}}>
-				<Image
-					source={{ uri: ImageURL }}
-					resizeMode="cover"
-					style={{
-						marginTop: 10,
-						width: 120,
-						height: 120,
-						borderTopLeftRadius: SIZES.font,
-						borderTopRightRadius: SIZES.font,
-					}}
-				/>
-			</View>
+                width: 195,
+                height: 170,
+            }}
+            onPress={() => {
+                const temp = data.S_ID;
+                navigation.navigate("RegisterSubService6", { temp });
+            }}>
+            <View
+                style={{
+                    alignItems: "center",
+                    width: 200,
+                    height: 140,
+                }}>
+                <Image
+                    source={{ uri: ImageURL }}
+                    resizeMode="cover"
+                    style={{
+                        marginTop: 10,
+                        width: 120,
+                        height: 120,
+                        borderTopLeftRadius: SIZES.font,
+                        borderTopRightRadius: SIZES.font,
+                    }}
+                />
+            </View>
 
-			<View style={{ width: "100%" }}>
-				<NFTTitle title={data.S_Name} titleSize={SIZES.large} />
-			</View>
-		</TouchableOpacity>
-	);
+            <View style={{ width: "100%" }}>
+                <NFTTitle title={data.S_Name} titleSize={SIZES.large} />
+            </View>
+        </TouchableOpacity>
+    );
 };
 
 const NFTCard5 = ({ data, data2, setData, index }) => {
-	var data3 = JSON.parse(JSON.stringify(data2));
-	return (
-		<TouchableOpacity
-			style={{
-				backgroundColor: data.isSelected != "false" ? "#cccccc" : "#F8F8F8",
-				borderRadius: SIZES.font,
-				marginBottom: SIZES.extraLarge,
-				margin: SIZES.base,
-				...SHADOWS.dark,
-				width: "45.5%",
-				height: "100%",
-				flex: 1,
-			}}
-			onPress={() => {
-				data.isSelected = JSON.stringify(!(data.isSelected != "false"));
-				data3[index].isSelected = data.isSelected;
-				setData(data3);
-			}}>
-			<View style={{ width: "100%", padding: SIZES.font }}>
-				<NFTTitle title={data.SubS_Name} titleSize={SIZES.large} />
+    var data3 = JSON.parse(JSON.stringify(data2));
+    return (
+        <TouchableOpacity
+            style={{
+                backgroundColor: data.isSelected != "false" ? "#cccccc" : "#F8F8F8",
+                borderRadius: SIZES.font,
+                marginBottom: SIZES.extraLarge,
+                margin: SIZES.base,
+                ...SHADOWS.dark,
+                width: "45.5%",
+                height: "100%",
+                flex: 1,
+            }}
+            onPress={() => {
+                data.isSelected = JSON.stringify(!(data.isSelected != "false"));
+                data3[index].isSelected = data.isSelected;
+                setData(data3);
+            }}>
+            <View style={{ width: "100%", padding: SIZES.font }}>
+                <NFTTitle title={data.SubS_Name} titleSize={SIZES.large} />
 
-				<View
-					style={{
-						marginTop: SIZES.font,
-						flexDirection: "row",
-						justifyContent: "space-between",
-						alignItems: "center",
-					}}></View>
-			</View>
-		</TouchableOpacity>
-	);
+                <View
+                    style={{
+                        marginTop: SIZES.font,
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                    }}></View>
+            </View>
+        </TouchableOpacity>
+    );
 };
 
 const NFTCard6 = ({ data, data2, setData, index }) => {
@@ -253,7 +256,7 @@ const NFTCard6 = ({ data, data2, setData, index }) => {
     return (
         <View
             style={{
-                marginBottom: SIZES.extraLarge + 20,
+                marginBottom: SIZES.large,
                 padding: SIZES.medium,
                 width: "100%",
                 flex: 1,
@@ -585,11 +588,11 @@ const NFTCard9 = ({ data, index, setSubSModalVisible }) => {
                 backgroundColor: COLORS.white,
                 borderWidth: 0.17,
                 elevation: 300,
-                borderColor: "gray",
+                borderColor: "silver",
                 borderRadius: SIZES.font,
 
-                width: "44%",
-                height: 110,
+                width: 120,
+                height: 90,
                 margin: "2%",
                 padding: 10,
             }}
@@ -608,13 +611,13 @@ const NFTCard9 = ({ data, index, setSubSModalVisible }) => {
                     resizeMode="cover"
                     source={{ uri: ImageURL }}
                     style={{
-                        height: 65,
+                        height: 55,
                         alignSelf: "center",
-                        width: 65,
-                        marginBottom: 7,
+                        width: 55,
+                        marginBottom: 3,
                     }}></ImageBackground>
 
-                <NFTTitle title={data.S_Name} titleSize={SIZES.large - 2} />
+                <NFTTitle title={data.S_Name} titleSize={SIZES.large - 5} />
             </View>
         </TouchableOpacity>
     );

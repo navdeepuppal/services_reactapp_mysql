@@ -58,9 +58,10 @@ const ChooseServiceMan = ({ navigation, route }) => {
                     color: "gray",
                     marginLeft: 15,
                     fontSize: 15,
+                    width: "95%",
                     marginBottom: 18,
                 }}>
-                Showing top-rated professionals near you based on their booking history and customer
+                Showing top count(*) carpenters near you based on their booking history and customer
                 ratings
             </Text>
 
@@ -73,91 +74,221 @@ const ChooseServiceMan = ({ navigation, route }) => {
                     renderItem={() => (
                         <View
                             style={{
+                                flexDirection: "row",
+                                width: 420,
+
+                                backfaceVisibility: "visible",
                                 backgroundColor: "#f2f2f2",
-                                margin: 10,
-                                alignSelf: "center",
-                                borderRadius: 15,
-                                borderColor: "gray",
-                                width: "90%",
-                                padding: 15,
+                                marginBottom: 15,
+                                borderColor: "silver",
+                                borderRadius: 20,
+                                margin: 5,
                             }}>
-                            <View style={{ flexDirection: "row" }}>
-                                <View>
-                                    <Image
-                                        style={{
-                                            width: 60,
-                                            height: 60,
-                                            alignSelf: "center",
-                                        }}
-                                        source={require("../assets/images/user.png")}
-                                    />
-                                    <Text style={{ textAlign: "center", fontWeight: "600" }}>
-                                        {" "}
-                                        Navdeep Singh{" "}
-                                    </Text>
-                                    <Text
-                                        style={{
-                                            textAlign: "center",
-                                            fontSize: 10,
-                                            color: COLORS.gray,
-                                        }}>
-                                        {" "}
-                                        Serving Locality: Mohali
-                                    </Text>
+                            <View
+                                style={{
+                                    position: "absolute",
+                                    top: -1,
+                                    left: -1,
+                                    width: 26,
+                                    height: 25,
+                                    zIndex: 3,
+                                    alignSelf: "center",
+                                    backgroundColor: COLORS.secondary,
+                                    borderRadius: 200,
+                                    justifyContent: "center",
+                                }}>
+                                <Text
+                                    style={{
+                                        textAlign: "center",
+                                        fontWeight: "700",
+                                        fontSize: 15,
+                                        color: COLORS.white,
+                                    }}>
+                                    1
+                                </Text>
+                            </View>
+                            <View
+                                style={{
+                                    backgroundColor: COLORS.white,
+                                    margin: 6,
+
+                                    borderRadius: 15,
+                                    borderColor: "gray",
+                                    width: 180,
+                                    height: 240,
+                                    padding: 9,
+                                }}>
+                                <View style={{}}>
+                                    <View>
+                                        <Text
+                                            style={{
+                                                fontSize: 12,
+                                                alignSelf: "flex-end",
+                                                fontWeight: "700",
+                                                marginBottom: 13,
+                                                color: COLORS.primary,
+                                            }}>
+                                            ⭐ 4.5 (35k)
+                                        </Text>
+
+                                        <View style={{ width: 70, alignSelf: "center" }}>
+                                            <Image
+                                                style={{
+                                                    position: "absolute",
+                                                    top: 2,
+                                                    left: -6,
+                                                    width: 23,
+                                                    zIndex: 3,
+                                                    height: 23,
+                                                    alignSelf: "center",
+                                                }}
+                                                source={require("../assets/images/verified.png")}
+                                            />
+                                            <Image
+                                                style={{
+                                                    marginTop: 3,
+                                                    width: 80,
+                                                    height: 80,
+                                                    alignSelf: "center",
+                                                }}
+                                                source={require("../assets/images/user.png")}
+                                            />
+                                        </View>
+
+                                        <Text
+                                            style={{
+                                                textAlign: "center",
+                                                fontWeight: "600",
+                                                marginTop: 5,
+                                            }}>
+                                            Navdeep Singh
+                                        </Text>
+                                        <Text
+                                            style={{
+                                                textAlign: "center",
+                                                fontSize: 10,
+                                                color: COLORS.gray,
+                                            }}>
+                                            Serving Locality: Mohali
+                                        </Text>
+
+                                        <Text
+                                            style={{
+                                                marginTop: 10,
+                                                textAlign: "center",
+                                                fontSize: 12,
+                                            }}>
+                                            Total Bookings: 43
+                                        </Text>
+
+                                        <Text
+                                            style={{
+                                                textAlign: "center",
+                                                fontSize: 12,
+                                                margin: 5,
+                                            }}>
+                                            Sqera AI Review: Good
+                                        </Text>
+                                        <Text
+                                            style={{
+                                                textAlign: "center",
+                                                fontSize: 12,
+                                            }}>
+                                            Skill: Intermediate
+                                        </Text>
+                                    </View>
                                 </View>
+                            </View>
+                            <View
+                                style={{
+                                    backgroundColor: COLORS.white,
+                                    marginVertical: 6,
+
+                                    borderRadius: 15,
+
+                                    width: 220,
+                                    height: 240,
+                                    padding: 9,
+                                }}>
                                 <View
                                     style={{
-                                        alignSelf: "flex-end",
-                                        justifyContent: "space-between",
-                                        marginLeft: 35,
+                                        borderWidth: 0.2,
+                                        borderColor: "silver",
+                                        borderRadius: 10,
+                                        padding: 9,
+                                        height: 130,
                                     }}>
                                     <Text
                                         style={{
-                                            fontSize: 15,
-                                            marginLeft: 90,
-                                            fontWeight: "800",
-                                            color: COLORS.primary,
-                                            textAlign: "right",
-                                            alignSelf: "center",
+                                            fontSize: 13,
+                                            fontWeight: "600",
+                                            marginBottom: 10,
                                         }}>
-                                        ⭐ 4.5 (35k)
+                                        Customer Reviews
                                     </Text>
-                                    <TouchableOpacity
+
+                                    <Text
                                         style={{
-                                            backgroundColor: "black",
-
-                                            marginTop: 20,
-                                            marginLeft: 30,
-                                            fontSize: 16,
-                                            color: COLORS.white,
-                                            borderRadius: 10,
-                                            height: 40,
-                                            width: 170,
-                                            padding: 10,
-                                            textAlign: "center",
-                                        }}
-                                        onPress={() => {
-                                            AsyncStorage.setItem("timeSlot", timeSlot);
-                                            navigation.navigate("PaymentApi", {
-                                                cartData,
-                                            });
+                                            margin: 5,
+                                            fontSize: 12,
+                                            color: COLORS.primary,
+                                            fontWeight: "400",
                                         }}>
-                                        <Text
-                                            style={{
-                                                fontSize: 16,
-
-                                                color: COLORS.white,
-                                                borderRadius: 10,
-                                                textAlign: "center",
-                                                fontWeight: "700",
-                                            }}>
-                                            Select
-                                        </Text>
-                                    </TouchableOpacity>
+                                        • Excellent Communication {"\n"}• Time Punctual
+                                    </Text>
                                 </View>
+                                <TouchableOpacity
+                                    onPress={() => {}}
+                                    style={{
+                                        marginTop: 10,
+                                        alignSelf: "center",
+                                        backgroundColor: "silver",
+                                        width: 200,
+                                        justifyContent: "center",
+                                        borderRadius: 10,
+                                        height: 35,
+                                    }}>
+                                    <Text
+                                        style={{
+                                            fontSize: 14,
+                                            fontWeight: "600",
+                                            alignSelf: "center",
+                                            color: COLORS.secondary,
+                                        }}>
+                                        View Profile
+                                    </Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity
+                                    style={{
+                                        position: "absolute",
+                                        bottom: 5,
+                                        alignSelf: "center",
+                                        backgroundColor: COLORS.primary,
+                                        width: 200,
+                                        justifyContent: "center",
+                                        borderRadius: 10,
+                                        height: 35,
+                                    }}
+                                    onPress={() => {
+                                        AsyncStorage.setItem("timeSlot", timeSlot);
+                                        navigation.navigate("PaymentApi", {
+                                            cartData,
+                                        });
+                                    }}>
+                                    <Text
+                                        style={{
+                                            fontSize: 14,
+                                            fontWeight: "600",
+                                            alignSelf: "center",
+                                            color: COLORS.white,
+                                        }}>
+                                        Select
+                                    </Text>
+                                </TouchableOpacity>
                             </View>
                         </View>
                     )}
+                    contentContainerStyle={{ alignItems: "center" }}
                 />
             </ScrollView>
             <View
@@ -195,7 +326,7 @@ const styles = StyleSheet.create({
         color: "blue",
     },
     inputText: {
-        fontSize: 28,
+        fontSize: 26,
         margin: 16,
         marginTop: "5%",
         fontWeight: "600",

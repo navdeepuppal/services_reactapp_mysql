@@ -153,7 +153,7 @@ const Profile = ({ navigation }) => {
                                         }}>
                                         <Text
                                             style={{
-                                                fontSize: 18,
+                                                fontSize: 15,
                                                 fontWeight: "500",
                                                 margin: 15,
                                                 marginLeft: 30,
@@ -161,11 +161,6 @@ const Profile = ({ navigation }) => {
                                             {" "}
                                             Change Address
                                         </Text>
-                                        <Text
-                                            style={{
-                                                fontSize: 19,
-                                                fontWeight: "500",
-                                            }}></Text>
                                     </View>
                                 </View>
                             </TouchableOpacity>
@@ -193,7 +188,7 @@ const Profile = ({ navigation }) => {
                                         }}>
                                         <Text
                                             style={{
-                                                fontSize: 18,
+                                                fontSize: 15,
                                                 fontWeight: "500",
                                                 margin: 15,
                                                 marginLeft: 30,
@@ -228,7 +223,7 @@ const Profile = ({ navigation }) => {
                                         }}>
                                         <Text
                                             style={{
-                                                fontSize: 18,
+                                                fontSize: 15,
                                                 fontWeight: "500",
                                                 margin: 15,
                                                 marginLeft: 30,
@@ -285,7 +280,7 @@ const Profile = ({ navigation }) => {
                                         <Text
                                             style={{
                                                 color: COLORS.primary,
-                                                fontSize: 17,
+                                                fontSize: 15,
                                                 alignSelf: "center",
                                                 justifyContent: "center",
                                                 fontWeight: "700",
@@ -333,7 +328,7 @@ const Profile = ({ navigation }) => {
                                             />
                                             <Text
                                                 style={{
-                                                    fontSize: 18,
+                                                    fontSize: 15,
                                                     fontWeight: "500",
                                                 }}>
                                                 {" "}
@@ -386,7 +381,7 @@ const Profile = ({ navigation }) => {
                                 }}>
                                 <Text
                                     style={{
-                                        fontSize: 18,
+                                        fontSize: 15,
                                         fontWeight: "500",
                                         margin: 15,
                                         marginLeft: 30,
@@ -430,7 +425,7 @@ const Profile = ({ navigation }) => {
                                 }}>
                                 <Text
                                     style={{
-                                        fontSize: 18,
+                                        fontSize: 15,
                                         fontWeight: "500",
                                         margin: 15,
                                         marginLeft: 30,
@@ -472,7 +467,7 @@ const Profile = ({ navigation }) => {
                                 }}>
                                 <Text
                                     style={{
-                                        fontSize: 18,
+                                        fontSize: 15,
                                         fontWeight: "500",
                                         margin: 15,
                                         marginLeft: 30,
@@ -513,7 +508,7 @@ const Profile = ({ navigation }) => {
                                 }}>
                                 <Text
                                     style={{
-                                        fontSize: 18,
+                                        fontSize: 15,
                                         fontWeight: "500",
                                         margin: 15,
                                         marginLeft: 30,
@@ -549,7 +544,7 @@ const Profile = ({ navigation }) => {
                                 }}>
                                 <Text
                                     style={{
-                                        fontSize: 18,
+                                        fontSize: 15,
                                         fontWeight: "500",
                                         margin: 15,
                                         marginLeft: 30,
@@ -586,7 +581,7 @@ const Profile = ({ navigation }) => {
                                         }}>
                                         <Text
                                             style={{
-                                                fontSize: 18,
+                                                fontSize: 15,
                                                 fontWeight: "500",
                                                 margin: 15,
                                                 marginLeft: 30,

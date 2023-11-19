@@ -7,14 +7,16 @@ import {
     StyleSheet,
     Share,
     Modal,
+    TextInput,
     TouchableOpacity,
     ImageBackground,
+    TextComponent,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import * as Location from "expo-location";
 import { NFTCard1, HomeHeader, NFTCard9, NFTCard10, SubServicesModal } from "../components";
-import { COLORS, config, SIZES } from "../constants";
+import { COLORS, config, SIZES, assets } from "../constants";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import Bookings from "./Bookings";
 import Search from "./Search";
@@ -35,6 +37,8 @@ function ServicesScreen() {
     const [subSModalVisible, setSubSModalVisible] = useState(-1);
     const [location, setLocation] = useState(null);
     const [address, setAddress] = useState("");
+
+    const [ratingModal, setratingModalVisible] = useState(false);
 
     console.log(address);
     const onShare = async () => {
@@ -135,27 +139,37 @@ function ServicesScreen() {
                 <SafeAreaView
                     style={{
                         backgroundColor: "white",
-                        height: "100%",
-                        marginTop: "40%",
-                        alignSelf: "center",
-                        justifyContent: "center",
+
+                        marginTop: "5%",
                     }}>
-                    <Image source={require("../assets/images/loader.gif")} style={styles.image} />
+                    <Image
+                        source={require("../assets/sqera.png")}
+                        style={{
+                            width: 63,
+                            height: 24,
+                            marginTop: "3%",
+                            marginBottom: 10,
+                            alignSelf: "center",
+                        }}
+                    />
                     <Text
                         style={{
                             alignSelf: "center",
                             fontSize: 15,
                             marginTop: 8,
-                            marginBottom: 10,
                             justifyContent: "center",
                         }}>
-                        Getting your location..
+                        Finding professionals nearby..
                     </Text>
+                    <Image
+                        source={require("../assets/images/loader.gif")}
+                        style={{ width: 100, height: 100, alignSelf: "center" }}
+                    />
                 </SafeAreaView>
             ) : (
                 <SafeAreaView
                     style={{
-                        backgroundColor: "white",
+                        backgroundColor: COLORS.white,
                         height: "100%",
                     }}>
                     <View
@@ -198,12 +212,15 @@ function ServicesScreen() {
                                 {address.subregion}, {address.city}, {address.postalCode}
                             </Text>
                         </View>
-                        <View
+                        <TouchableOpacity
                             style={{
                                 justifyContent: "flex-end",
                                 backgroundColor: COLORS.white,
                                 flexDirection: "row",
                                 height: 35,
+                            }}
+                            onPress={() => {
+                                setratingModalVisible(true);
                             }}>
                             <Image
                                 source={require("../assets/icons/notifications.png")}
@@ -217,7 +234,7 @@ function ServicesScreen() {
                                     marginBottom: 5,
                                 }}
                             />
-                        </View>
+                        </TouchableOpacity>
                     </View>
                     <View
                         style={{
@@ -229,7 +246,6 @@ function ServicesScreen() {
                     <View
                         style={{
                             backgroundColor: "#f2f2f2",
-                            height: "100%",
                         }}>
                         <View
                             style={{
@@ -259,164 +275,11 @@ function ServicesScreen() {
                                 }}
                             />
                         </View>
-                        <View
-                            style={{
-                                backgroundColor: COLORS.white,
-
-                                padding: 20,
-                                marginBottom: 25,
-                                backgroundColor: COLORS.white,
-                            }}>
-                            <FlatList
-                                horizontal
-                                data={data2}
-                                renderItem={({ item, index }) => (
-                                    <NFTCard10
-                                        key={index}
-                                        data={item}
-                                        index={index}
-                                        setSubSModalVisible={setSubSModalVisible}
-                                    />
-                                )}
-                                contentContainerStyle={{
-                                    alignSelf: "center",
-                                    justifyContent: "center",
-
-                                    width: "100%",
-                                    backgroundColor: COLORS.white,
-                                }}
-                            />
-                        </View>
-                        <View
-                            style={{
-                                backgroundColor: COLORS.white,
-                                paddingVertical: 20,
-                                padding: 5,
-                            }}>
-                            <Text
-                                style={{
-                                    fontSize: 17,
-                                    marginLeft: 5,
-                                    fontWeight: "500",
-                                    marginBottom: 10,
-                                }}>
-                                {" "}
-                                Popular services near you
-                            </Text>
-
-                            <FlatList
-                                scrollEnabled
-                                numColumns={2}
-                                data={data2}
-                                renderItem={({ item, index }) => (
-                                    <NFTCard9
-                                        key={index}
-                                        data={item}
-                                        index={index}
-                                        setSubSModalVisible={setSubSModalVisible}
-                                    />
-                                )}
-                                contentContainerStyle={{
-                                    alignSelf: "center",
-                                    justifyContent: "center",
-
-                                    width: "100%",
-                                    backgroundColor: COLORS.white,
-                                }}
-                            />
-                        </View>
-                        <View
-                            style={{
-                                marginBottom: 20,
-                                alignSelf: "center",
-                                marginTop: 20,
-                                width: "100%",
-                            }}>
-                            <SliderBox
-                                inactiveDotColor="#90A4AE"
-                                alignSelf={"center"}
-                                borderRadius={20}
-                                autoplay
-                                imageLoadingColor="#2196F3"
-                                circleLoop
-                                parentWidth={410}
-                                autoplayInterval={5000}
-                                ImageComponentStyle={{
-                                    borderRadius: 15,
-                                    marginRight: 20,
-                                }}
-                                paginationBoxStyle={{
-                                    position: "absolute",
-                                    bottom: 0,
-                                    padding: 70,
-                                    alignItems: "center",
-                                    alignSelf: "center",
-                                    justifyContent: "center",
-                                    paddingVertical: 10,
-                                }}
-                                height={170}
-                                width={430}
-                                opacity={1}
-                                images={[
-                                    "https://img.freepik.com/free-photo/rear-view-programmer-working-all-night-long_1098-18697.jpg?w=2000&t=st=1672688375~exp=1672688975~hmac=8416e203ce399ec68facdf58c3080d1db24be40cc787610e70880e32166d1d9f",
-                                    "https://img.freepik.com/free-photo/housewife-woking-home-lady-blue-shirt-woman-bathroom_1157-45526.jpg?w=2000&t=st=1672688038~exp=1672688638~hmac=d24482e0caf4b75f753a2435569d1c59b940371a9adf3ba4382d8c0d445c8d91",
-                                    "https://img.freepik.com/free-photo/hvac-technician-working-capacitor-part-condensing-unit-male-worker-repairman-uniform-repairing-adjusting-conditioning-system-diagnosing-looking-technical-issues_155003-18256.jpg?w=2000&t=st=1672688457~exp=1672689057~hmac=8d5efa29abacc4dc73fef70cf4fbd600751fbb48465853c6b1170639fb45c73b", // Network image
-                                ]}
-                                /* onCurrentImagePressed={(index) =>
-									console.log(
-										`image ${index} pressed`
-									)
-								}
-								currentImageEmitter={(index) =>
-									console.log(
-										`current pos is: ${index}`
-									)
-								} */
-                            />
-                        </View>
 
                         <View
                             style={{
                                 backgroundColor: COLORS.white,
-                                paddingVertical: 20,
-                                padding: 5,
-                            }}>
-                            <Text
-                                style={{
-                                    fontSize: 17,
-                                    marginLeft: 5,
-                                    fontWeight: "500",
-                                    marginBottom: 10,
-                                }}>
-                                {" "}
-                                Most booked home services
-                            </Text>
 
-                            <FlatList
-                                numColumns={2}
-                                data={data2}
-                                renderItem={({ item, index }) => (
-                                    <NFTCard9
-                                        key={index}
-                                        data={item}
-                                        index={index}
-                                        setSubSModalVisible={setSubSModalVisible}
-                                    />
-                                )}
-                                contentContainerStyle={{
-                                    alignSelf: "center",
-                                    justifyContent: "center",
-
-                                    width: "100%",
-                                    backgroundColor: COLORS.white,
-                                }}
-                            />
-                        </View>
-
-                        <View
-                            style={{
-                                backgroundColor: COLORS.white,
-                                marginTop: 20,
                                 padding: 10,
                                 paddingVertical: 20,
                             }}>
@@ -462,31 +325,6 @@ function ServicesScreen() {
                                 }}
                             />
                         </View>
-
-                        <FlatList
-                            data={[1, 2, 3, 4, 5]}
-                            horizontal
-                            circleLoop
-                            renderItem={() => (
-                                <View
-                                    style={{
-                                        alignSelf: "center",
-                                        backgroundColor: COLORS.primary,
-                                        margin: 5,
-                                        height: 200,
-                                        borderRadius: 20,
-                                    }}>
-                                    <Image
-                                        style={{
-                                            width: 150,
-                                            height: 150,
-                                            alignSelf: "center",
-                                        }}
-                                        //  source={require("../assets/images/user.png")}
-                                    />
-                                </View>
-                            )}
-                        />
 
                         <View
                             style={{
@@ -550,7 +388,7 @@ function ServicesScreen() {
                                     marginLeft: 5,
                                     fontWeight: "500",
                                     marginTop: 10,
-                                    marginBottom: 10,
+                                    marginBottom: 5,
                                 }}>
                                 {" "}
                                 Freelancers
@@ -587,6 +425,7 @@ function ServicesScreen() {
                                 }}
                             />
                         </View>
+
                         <View
                             style={{
                                 backgroundColor: COLORS.white,
@@ -599,11 +438,32 @@ function ServicesScreen() {
                                     marginLeft: 5,
                                     fontWeight: "500",
                                     marginTop: 10,
-                                    marginBottom: 10,
+                                    marginBottom: 5,
                                 }}>
                                 {" "}
-                                Other popular services
+                                Cleaning
                             </Text>
+                            <Text
+                                style={{
+                                    fontSize: 14,
+                                    marginLeft: 5,
+                                    color: COLORS.gray,
+                                    fontWeight: "300",
+                                    marginBottom: 5,
+                                }}>
+                                {" "}
+                                Trustworthy cleaning at your place
+                            </Text>
+
+                            <View
+                                style={{
+                                    height: 0.5,
+                                    width: "95%",
+                                    margin: 5,
+                                    alignSelf: "center",
+                                    backgroundColor: "#cccccc",
+                                }}
+                            />
 
                             <FlatList
                                 numColumns={2}
@@ -625,6 +485,7 @@ function ServicesScreen() {
                                 }}
                             />
                         </View>
+
                         <TouchableOpacity
                             style={{
                                 backgroundColor: "#EDF6FD",
@@ -639,7 +500,6 @@ function ServicesScreen() {
                                     marginLeft: 5,
                                     fontWeight: "400",
                                     marginTop: 10,
-                                    marginBottom: 10,
                                 }}>
                                 More professionals, more life gets easier :)
                             </Text>
@@ -668,9 +528,25 @@ function ServicesScreen() {
                                     onPressOut={() => setSubSModalVisible(-1)}>
                                     <View style={[styles.modalView, { width: "100%" }]}>
                                         <TouchableOpacity
-                                            style={styles.button}
+                                            style={{
+                                                position: "absolute",
+                                                top: -50,
+                                                right: 10,
+                                                backgroundColor: COLORS.white,
+                                                borderRadius: 110,
+                                                width: 35,
+                                                height: 35,
+                                                justifyContent: "center",
+                                            }}
                                             onPress={() => setSubSModalVisible(-1)}>
-                                            <Text> ✖</Text>
+                                            <Text
+                                                style={{
+                                                    fontSize: 18,
+                                                    alignSelf: "center",
+                                                    color: "gray",
+                                                }}>
+                                                X
+                                            </Text>
                                         </TouchableOpacity>
                                         <SubServicesModal
                                             data={data2[subSModalVisible]}
@@ -680,6 +556,178 @@ function ServicesScreen() {
                                 </TouchableOpacity>
                             </Modal>
                         </View>
+
+                        <Modal
+                            animationType="slide"
+                            transparent={true}
+                            visible={ratingModal}
+                            onRequestClose={() => {
+                                setratingModalVisible(!ratingModal);
+                            }}>
+                            <View
+                                style={{
+                                    backgroundColor: COLORS.white,
+                                    marginTop: "20%",
+                                    padding: 25,
+                                    borderTopStartRadius: 20,
+                                    borderTopEndRadius: 20,
+                                    shadowColor: "#000",
+                                    shadowOpacity: 0.25,
+                                    shadowRadius: 4,
+                                    elevation: 5,
+                                    width: "100%",
+                                    alignSelf: "flex-end",
+                                    height: "100%",
+                                }}>
+                                <View
+                                    style={{
+                                        flexDirection: "row",
+                                        justifyContent: "space-between",
+                                        marginTop: "5%",
+                                    }}>
+                                    <View
+                                        style={{
+                                            flexDirection: "row",
+                                        }}>
+                                        <TouchableOpacity
+                                            style={{
+                                                width: 40,
+                                                height: 40,
+                                                marginTop: "15%",
+                                            }}
+                                            onPress={() => setratingModalVisible(false)}>
+                                            <Image
+                                                source={assets.left}
+                                                resizeMode="contain"
+                                                style={{
+                                                    width: "100%",
+                                                    height: "100%",
+                                                }}
+                                            />
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                                <View
+                                    style={{
+                                        marginTop: 30,
+                                        margin: 10,
+                                        borderRadius: 20,
+                                    }}>
+                                    <Text
+                                        style={{
+                                            fontSize: 19,
+                                            color: COLORS.gray,
+                                            fontWeight: "400",
+                                            textAlign: "center",
+                                        }}>
+                                        How was the service you recieved?
+                                    </Text>
+                                    <Text
+                                        style={{
+                                            fontSize: 13,
+
+                                            marginTop: 20,
+
+                                            fontWeight: "600",
+                                            textAlign: "center",
+                                        }}>
+                                        Deep Cleaning, Kitchen Cleaning
+                                    </Text>
+                                </View>
+                                <View
+                                    style={{
+                                        borderWidth: 0.2,
+                                        width: 350,
+                                        borderColor: "silver",
+                                        height: 440,
+                                        margin: 20,
+                                        borderRadius: 10,
+                                        marginTop: 60,
+                                        alignSelf: "center",
+                                    }}>
+                                    <Image
+                                        style={{
+                                            top: -20,
+                                            position: "absolute",
+                                            width: 80,
+                                            height: 80,
+                                            alignSelf: "center",
+                                        }}
+                                        source={require("../assets/images/user.png")}
+                                    />
+                                    <Text
+                                        style={{
+                                            margin: 20,
+                                            marginTop: 70,
+                                            alignSelf: "center",
+                                            textAlign: "center",
+                                            color: "gray",
+                                        }}>
+                                        Please rate Navdeep
+                                    </Text>
+                                    <Text
+                                        style={{
+                                            margin: 20,
+                                            fontSize: 40,
+                                            alignSelf: "center",
+                                            textAlign: "center",
+                                            color: "gray",
+                                        }}>
+                                        ⭐⭐⭐⭐⭐
+                                    </Text>
+
+                                    <Text
+                                        style={{
+                                            marginTop: 30,
+                                            marginLeft: 20,
+                                            fontWeight: "600",
+                                            fontSize: 13,
+                                        }}>
+                                        Comments (optional)
+                                    </Text>
+
+                                    <TextInput
+                                        placeholder="Enter your message"
+                                        placeholderTextColor="#A0A0A0"
+                                        style={{
+                                            marginTop: 10,
+                                            borderWidth: 2,
+                                            padding: 10,
+                                            marginLeft: 20,
+                                            borderRadius: 7,
+
+                                            fontSize: SIZES.font + 1,
+                                            color: COLORS.primary,
+                                            width: 300,
+                                            height: 65,
+                                        }}
+                                        // onChangeText={}
+                                    />
+
+                                    <TouchableOpacity
+                                        style={{
+                                            backgroundColor: "black",
+                                            borderRadius: 10,
+
+                                            marginTop: 20,
+                                            alignSelf: "center",
+                                            width: 280,
+                                            height: 40,
+                                            justifyContent: "center",
+                                        }}>
+                                        <Text
+                                            style={{
+                                                color: COLORS.white,
+                                                fontSize: 14,
+                                                fontWeight: "600",
+                                                alignSelf: "center",
+                                            }}>
+                                            Send
+                                        </Text>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </Modal>
                     </View>
                 </SafeAreaView>
             )}
@@ -689,10 +737,10 @@ function ServicesScreen() {
 
 const Tab = createMaterialBottomTabNavigator();
 export default function App() {
-	{
-		/* <ServicesScreen /> */
-	}
-	return (
+    {
+        /* <ServicesScreen /> */
+    }
+    return (
         <Tab.Navigator
             initialRouteName="Services"
             screenOptions={{ headerShown: false }}
@@ -745,7 +793,7 @@ const styles = StyleSheet.create({
     },
     column: { margin: 3, height: "24%" },
     loweredView: {
-        flex: 1,
+        flex:1,
         justifyContent: "flex-end",
         alignItems: "flex-end",
         backgroundColor: "rgba(0, 0, 0, 0.4)",

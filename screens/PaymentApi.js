@@ -21,184 +21,106 @@ const PaymentApi = ({ navigation, route }) => {
 	const [Wallet, setWallet] = useState("Wallet");
 
 	return (
-		<SafeAreaView
-			style={{ backgroundColor: "white", flex: 1, margin: 10 }}
-		>
-			<View
-				style={{
-					flexDirection: "row",
-					justifyContent: "space-between",
-				}}
-			>
-				<BackButton />
-				<TouchableOpacity
-					style={{
-						borderRadius: 15,
-						alignItems: "center",
-						justifyContent: "center",
-						alignSelf: "center",
-						width: 120,
-						height: 80,
-						padding: 10,
-						backgroundColor: "#f2f2f2",
-					}}
-					onPress={() => {
-						navigation.navigate("Wallet");
-					}}
-				>
-					<View
-						onPress={() => navigation.navigate("Wallet")}
-						style={{
-							alignItems: "center",
-						}}
-					>
-						<View
-							style={{
-								flexDirection: "row",
-								alignItems: "center",
-							}}
-						>
-							<Image
-								source={require("../assets/images/wallet.png")}
-								style={{
-									width: 25,
-									height: 25,
-									alignSelf: "center",
-									margin: 5,
-									marginRight: 10,
-								}}
-							/>
-							<Text
-								style={{
-									fontSize: 15,
-									fontWeight: "700",
-									color: COLORS.primary,
-								}}
-							>
-								₹200
-							</Text>
-						</View>
-						<Text
-							style={{
-								fontSize: 12,
-								fontWeight: "300",
-								color: COLORS.silver,
-							}}
-						>
-							Recharge Wallet
-						</Text>
-					</View>
-				</TouchableOpacity>
-			</View>
-			<Text
-				style={{
-					fontSize: 30,
-					marginTop: 20,
-					fontWeight: "500",
-				}}
-			>
-				{" "}
-				PAYMENT PAGE{" "}
-			</Text>
+        <SafeAreaView style={{ backgroundColor: "white", flex: 1, margin: 10 }}>
+            <View
+                style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    marginBottom: 20,
+                }}>
+                <BackButton />
+            </View>
+            <Text
+                style={{
+                    fontSize: 30,
+                    marginTop: 20,
+                    fontWeight: "500",
+                }}>
+                {" "}
+                PAYMENT PAGE{" "}
+            </Text>
 
-			<TouchableWithoutFeedback onPress={() => setPayment("COD")}>
-				<View
-					style={{
-						alignSelf: "center",
-						marginTop: "20%",
-						flexDirection: "row",
-						borderColor: "gray",
-						borderWidth: 1,
-						borderRadius: 15,
-						padding: 20,
-						width: 270,
-						margin: 25,
-					}}
-				>
-					<RadioButton
-						value="Payment"
-						status={
-							Payment === "COD" ? "checked" : "unchecked"
-						}
-						onPress={() => setPayment("Payment")}
-					/>
-					<Text
-						style={{
-							fontSize: 22,
-							fontWeight: "600",
-							alignSelf: "center",
-						}}
-					>
-						Cash On Delivery
-					</Text>
-				</View>
-			</TouchableWithoutFeedback>
-			<TouchableWithoutFeedback onPress={() => setPayment("Wallet")}>
-				<View
-					style={{
-						alignSelf: "center",
+            <TouchableWithoutFeedback onPress={() => setPayment("COD")}>
+                <View
+                    style={{
+                        alignSelf: "center",
+                        marginTop: "20%",
+                        flexDirection: "row",
+                        borderColor: "gray",
+                        borderWidth: 1,
+                        borderRadius: 15,
+                        padding: 20,
+                        width: 270,
+                        margin: 25,
+                    }}>
+                    <RadioButton
+                        value="Payment"
+                        status={Payment === "COD" ? "checked" : "unchecked"}
+                        onPress={() => setPayment("Payment")}
+                    />
+                    <Text
+                        style={{
+                            fontSize: 22,
+                            fontWeight: "600",
+                            alignSelf: "center",
+                        }}>
+                        Cash On Delivery
+                    </Text>
+                </View>
+            </TouchableWithoutFeedback>
+            <TouchableWithoutFeedback onPress={() => setPayment("Wallet")}>
+                <View
+                    style={{
+                        alignSelf: "center",
 
-						flexDirection: "row",
-						borderColor: "gray",
-						borderWidth: 1,
-						borderRadius: 15,
-						padding: 20,
-						width: 270,
-						marginBottom: "20%",
-					}}
-				>
-					<RadioButton
-						value="Wallet"
-						status={
-							Payment === "Wallet"
-								? "checked"
-								: "unchecked"
-						}
-						onPress={() => setPayment("Payment")}
-					/>
-					<View>
-						<Text
-							style={{
-								fontSize: 22,
-								fontWeight: "600",
-							}}
-						>
-							Wallet
-						</Text>
-						<Text
-							style={{
-								fontSize: 13,
-								color: COLORS.gray,
-							}}
-						>
-							Available Balance: Rs.200
-						</Text>
-					</View>
-				</View>
-			</TouchableWithoutFeedback>
+                        flexDirection: "row",
+                        borderColor: "gray",
+                        borderWidth: 1,
+                        borderRadius: 15,
+                        padding: 20,
+                        width: 270,
+                        marginBottom: "20%",
+                    }}>
+                    <RadioButton
+                        value="Wallet"
+                        status={Payment === "Wallet" ? "checked" : "unchecked"}
+                        onPress={() => setPayment("Payment")}
+                    />
+                    <View>
+                        <Text
+                            style={{
+                                fontSize: 22,
+                                fontWeight: "600",
+                            }}>
+                            Wallet
+                        </Text>
+                        <Text
+                            style={{
+                                fontSize: 13,
+                                color: COLORS.gray,
+                            }}>
+                            Available Balance: Rs.200
+                        </Text>
+                    </View>
+                </View>
+            </TouchableWithoutFeedback>
 
-			<Text style={style.textInfo}>
-				Other payment method options will be available soon.
-			</Text>
-			<Text style={style.textInfo}>
-				Upon the completion of your service, you have the option to
-				make payment to the service provider using UPI, Gpay, or
-				Paytm.
-			</Text>
+            <Text style={style.textInfo}>Other payment method options will be available soon.</Text>
+            <Text style={style.textInfo}>
+                Upon the completion of your service, you have the option to make payment to the
+                service provider using UPI, Gpay, or Paytm.
+            </Text>
 
-			<TouchableOpacity
-				style={style.verifyButton}
-				onPress={() => {
-					navigation.navigate("Thankyou", { cartData });
-					Haptics.notificationAsync(
-						Haptics.NotificationFeedbackType.Success
-					);
-				}}
-			>
-				<Text style={style.buttontext}>PLACE ORDER</Text>
-			</TouchableOpacity>
-		</SafeAreaView>
-	);
+            <TouchableOpacity
+                style={style.verifyButton}
+                onPress={() => {
+                    navigation.navigate("Thankyou", { cartData });
+                    Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+                }}>
+                <Text style={style.buttontext}>PLACE ORDER</Text>
+            </TouchableOpacity>
+        </SafeAreaView>
+    );
 };
 
 const style = StyleSheet.create({

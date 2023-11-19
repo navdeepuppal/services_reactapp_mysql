@@ -15,7 +15,7 @@ const SMan_BookingCard = ({ data, setOrdersDetailsVisible, setCurrentBooking }) 
                     marginTop: 14,
                     borderRadius: 20,
                     alignSelf: "center",
-                    width: "97%",
+                    width: "96%",
                     padding: 16,
                     backgroundColor: COLORS.white,
                 }}>
@@ -27,7 +27,7 @@ const SMan_BookingCard = ({ data, setOrdersDetailsVisible, setCurrentBooking }) 
                     }}>
                     <Text
                         style={{
-                            fontSize: 16,
+                            fontSize: 14,
                             fontWeight: "600",
                         }}>
                         {data.SubS_Name}
@@ -49,7 +49,7 @@ const SMan_BookingCard = ({ data, setOrdersDetailsVisible, setCurrentBooking }) 
                         />
                         <Text
                             style={{
-                                fontSize: 16,
+                                fontSize: 14,
                                 fontWeight: "500",
                             }}>
                             Rs. {data.B_Price}
@@ -61,16 +61,18 @@ const SMan_BookingCard = ({ data, setOrdersDetailsVisible, setCurrentBooking }) 
                     style={{
                         flexDirection: "row",
                         marginTop: 20,
+                        height: 30,
                     }}>
                     <View
                         style={{
                             backgroundColor: "yellow",
-                            height: 35,
+
                             borderTopLeftRadius: 10,
                             borderBottomLeftRadius: 10,
                         }}>
                         <Text
                             style={{
+                                fontSize: 13,
                                 padding: 3,
                                 margin: 3,
                                 color: COLORS.gray,
@@ -88,10 +90,10 @@ const SMan_BookingCard = ({ data, setOrdersDetailsVisible, setCurrentBooking }) 
                         <Text
                             style={{
                                 padding: 3,
+                                fontSize: 13,
                                 margin: 3,
                                 color: COLORS.gray,
                             }}>
-                            {" "}
                             Kothi 103, Phase 9 Mohali, Sector 63
                         </Text>
                     </View>
@@ -111,6 +113,7 @@ const SMan_BookingCard = ({ data, setOrdersDetailsVisible, setCurrentBooking }) 
                         <Text
                             style={{
                                 padding: 3,
+                                fontSize: 13,
                                 margin: 3,
                                 color: COLORS.gray,
                             }}>
@@ -128,6 +131,7 @@ const SMan_BookingCard = ({ data, setOrdersDetailsVisible, setCurrentBooking }) 
                             style={{
                                 padding: 3,
                                 margin: 3,
+                                fontSize: 13,
                                 color: COLORS.gray,
                             }}>
                             {" "}

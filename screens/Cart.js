@@ -526,37 +526,32 @@ const Cart = ({ route, navigation }) => {
                         />
                     </View>
 
-					<View
-						style={{
-							marginTop: 23,
-							flexDirection: "row",
-							justifyContent: "space-between",
-							alignItems: "center",
-						}}
-					>
-						<Text
-							style={{
-								marginLeft: 25,
-								marginVertical: 10,
-								color: COLORS.primary,
-								fontSize: 20,
-							}}
-						>
-							Total: ₹ {totalPrice}
-						</Text>
-						<TouchableOpacity
-							style={{
-								backgroundColor:
-									totalPrice > 50
-										? "black"
-										: "#cccccc",
-								borderRadius: 10,
-								alignItems: "center",
-								padding: "2%",
-								marginRight: "5%",
-								width: "40%",
+                    <View
+                        style={{
+                            marginTop: 25,
+                            flexDirection: "row",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                        }}>
+                        <Text
+                            style={{
+                                marginLeft: 25,
+                                marginVertical: 10,
+                                color: COLORS.primary,
+                                fontSize: 20,
+                            }}>
+                            Total: ₹ {totalPrice}
+                        </Text>
+                        <TouchableOpacity
+                            style={{
+                                backgroundColor: totalPrice > 50 ? "black" : "#cccccc",
+                                borderRadius: 10,
+                                alignItems: "center",
+                                padding: "2%",
+                                marginRight: "5%",
+                                width: 170,
 
-                                height: "100%",
+                                height: 45,
                             }}
                             onPress={() => {
                                 totalPrice > 50
@@ -572,7 +567,7 @@ const Cart = ({ route, navigation }) => {
                             <Text
                                 style={{
                                     color: COLORS.white,
-                                    fontSize: 22,
+                                    fontSize: 20,
                                     fontWeight: "600",
                                     alignSelf: "center",
                                 }}>
@@ -581,101 +576,89 @@ const Cart = ({ route, navigation }) => {
                         </TouchableOpacity>
                     </View>
 
-					<Modal
-						animationType="slide"
-						transparent={true}
-						visible={couponModal}
-						onRequestClose={() => {
-							setcouponModalVisible(!couponModal);
-						}}
-					>
-						<View style={style.modalView}>
-							<View
-								style={{
-									flexDirection: "row",
-									justifyContent: "space-between",
-									marginTop: "5%",
-								}}
-							>
-								<View
-									style={{
-										flexDirection: "row",
-									}}
-								>
-									<TouchableOpacity
-										style={{
-											width: 40,
-											height: 40,
-											marginTop: "15%",
-										}}
-										onPress={() =>
-											setcouponModalVisible(
-												false
-											)
-										}
-									>
-										<Image
-											source={assets.left}
-											resizeMode="contain"
-											style={{
-												width: "100%",
-												height: "100%",
-											}}
-										/>
-									</TouchableOpacity>
-								</View>
-							</View>
-							<View
-								style={{
-									borderColor: COLORS.white,
-									borderWidth: 1,
-									backgroundColor: COLORS.white,
-									flexDirection: "row",
-									marginTop: 20,
-									borderRadius: 10,
-									padding: 10,
-									alignItems: "center",
-									height: 70,
-								}}
-							>
-								<TextInput
-									placeholder="Enter Coupon Code Here"
-									numberOfLines={1}
-									style={{
-										marginLeft: 10,
+                    <Modal
+                        animationType="slide"
+                        transparent={true}
+                        visible={couponModal}
+                        onRequestClose={() => {
+                            setcouponModalVisible(!couponModal);
+                        }}>
+                        <View style={style.modalView}>
+                            <View
+                                style={{
+                                    flexDirection: "row",
+                                    justifyContent: "space-between",
+                                    marginTop: "5%",
+                                }}>
+                                <View
+                                    style={{
+                                        flexDirection: "row",
+                                    }}>
+                                    <TouchableOpacity
+                                        style={{
+                                            width: 40,
+                                            height: 40,
+                                            marginTop: "15%",
+                                        }}
+                                        onPress={() => setcouponModalVisible(false)}>
+                                        <Image
+                                            source={assets.left}
+                                            resizeMode="contain"
+                                            style={{
+                                                width: "100%",
+                                                height: "100%",
+                                            }}
+                                        />
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                            <View
+                                style={{
+                                    borderColor: COLORS.white,
+                                    borderWidth: 1,
+                                    backgroundColor: COLORS.white,
+                                    flexDirection: "row",
+                                    marginTop: 20,
+                                    borderRadius: 10,
+                                    padding: 10,
+                                    alignItems: "center",
+                                    height: 70,
+                                }}>
+                                <TextInput
+                                    placeholder="Enter Coupon Code Here"
+                                    numberOfLines={1}
+                                    style={{
+                                        marginLeft: 10,
 
-										fontSize: 20,
-										width: "90%",
-										fontWeight: "500",
-									}}
-									value={amount}
-								></TextInput>
-							</View>
-							<TouchableOpacity
-								style={{
-									marginTop: 30,
-									margin: 10,
-									paddin: 5,
-									borderRadius: 10,
-									backgroundColor: "blue",
-								}}
-							>
-								<Text
-									style={{
-										padding: 10,
-										color: COLORS.white,
-										textAlign: "center",
-										fontSize: 18,
-										fontWeight: "500",
-									}}
-								>
-									Apply Coupon
-								</Text>
-							</TouchableOpacity>
-						</View>
-					</Modal>
-				</SafeAreaView>
-			);
+                                        fontSize: 20,
+                                        width: "90%",
+                                        fontWeight: "500",
+                                    }}
+                                    value={amount}></TextInput>
+                            </View>
+                            <TouchableOpacity
+                                style={{
+                                    marginTop: 30,
+                                    margin: 10,
+                                    paddin: 5,
+                                    borderRadius: 10,
+                                    backgroundColor: "blue",
+                                }}>
+                                <Text
+                                    style={{
+                                        padding: 10,
+                                        color: COLORS.white,
+                                        textAlign: "center",
+                                        fontSize: 18,
+                                        fontWeight: "500",
+                                    }}>
+                                    Apply Coupon
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+                    </Modal>
+                </SafeAreaView>
+            );
 		}
 	} else {
 		return null;

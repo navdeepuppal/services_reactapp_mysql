@@ -8,355 +8,331 @@ const Search = ({ navigation, onSearch }) => {
 	let totalPrice = 3;
 	const [state, setButtonStatus] = useState("1");
 	return (
-		<SafeAreaView
-			style={{
-				flex: 1,
-			}}
-		>
-			<View
-				style={{
-					height: 50,
-					width: "95%",
-				}}
-			>
-				<Text
-					style={{
-						fontSize: 20,
-						fontWeight: "600",
-						marginLeft: 20,
-					}}
-				>
-					Discover Talent
-				</Text>
-				<Text
-					style={{
-						fontSize: 11,
-						marginLeft: 20,
-						fontWeight: "300",
-					}}
-				>
-					Find skilled people nearby
-				</Text>
-			</View>
-			<View
-				style={{
-					flexDirection: "row",
-					flex: 1,
-					backgroundColor: "rgba(245,245,245,255)",
-				}}
-			>
-				<View
-					style={{
-						marginTop: 5,
-						borderRadius: 10,
-						width: "24%",
-						padding: 10,
-						alignItems: "center",
-						justifyContent: "center",
-						backgroundColor: COLORS.white,
-					}}
-				>
-					<ScrollView
-						style={{
-							backgroundColor: COLORS.white,
-							borderTopRightRadius: 10,
-						}}
-					>
-						<TouchableOpacity
-							style={{ marginBottom: 80 }}
-							onPress={() => setButtonStatus("2")}
-						>
-							<View
-								style={{
-									backgroundColor: "#f2f2f2",
+        <SafeAreaView
+            style={{
+                flex: 1,
+            }}>
+            <View
+                style={{
+                    height: 50,
+                    width: "95%",
+                }}>
+                <Text
+                    style={{
+                        fontSize: 20,
+                        fontWeight: "600",
+                        marginLeft: 20,
+                    }}>
+                    Discover Talent
+                </Text>
+                <Text
+                    style={{
+                        fontSize: 11,
+                        marginLeft: 20,
+                        fontWeight: "300",
+                    }}>
+                    Find skilled people for your task
+                </Text>
+            </View>
+            <View
+                style={{
+                    flexDirection: "row",
+                    flex: 1,
+                    backgroundColor: "rgba(245,245,245,255)",
+                }}>
+                <View
+                    style={{
+                        marginTop: 5,
+                        borderRadius: 10,
+                        width: "24%",
+                        padding: 10,
+                        alignItems: "center",
+                        justifyContent: "center",
+                        backgroundColor: COLORS.white,
+                    }}>
+                    <ScrollView
+                        style={{
+                            backgroundColor: COLORS.white,
+                            borderTopRightRadius: 10,
+                        }}>
+                        <TouchableOpacity
+                            style={{ marginBottom: 80 }}
+                            onPress={() => setButtonStatus("2")}>
+                            <View
+                                style={{
+                                    backgroundColor: "#f2f2f2",
 
-									borderRadius: 15,
-									height: 70,
-									width: 78,
-									paddingTop: 15,
-									justifyContent: "flex-start",
-								}}
-							>
-								<Image
-									source={require("../assets/images/homeservices.png")}
-									resizeMode="center"
-									style={styles.inventoryImage}
-								/>
-								<Text
-									style={{
-										fontSize: 12,
-										marginTop: 10,
-										alignContent: "flex-end",
-										justifyContent: "center",
-										alignSelf: "center",
-										textAlign: "center",
-										fontWeight: "400",
-										color: COLORS.primary,
-									}}
-								>
-									Home Services
-								</Text>
-							</View>
-						</TouchableOpacity>
+                                    borderRadius: 15,
+                                    height: 70,
+                                    width: 78,
+                                    paddingTop: 15,
+                                    justifyContent: "flex-start",
+                                }}>
+                                <Image
+                                    source={require("../assets/images/homeservices.png")}
+                                    resizeMode="center"
+                                    style={styles.inventoryImage}
+                                />
+                                <Text
+                                    style={{
+                                        fontSize: 12,
+                                        marginTop: 10,
+                                        alignContent: "flex-end",
+                                        justifyContent: "center",
+                                        alignSelf: "center",
+                                        textAlign: "center",
+                                        fontWeight: "400",
+                                        color: COLORS.primary,
+                                    }}>
+                                    Home Services
+                                </Text>
+                            </View>
+                        </TouchableOpacity>
 
-						<TouchableOpacity
-							style={{ marginBottom: 80 }}
-							onPress={() => setButtonStatus("1")}
-						>
-							<View
-								style={{
-									backgroundColor: "#f2f2f2",
+                        <TouchableOpacity
+                            style={{ marginBottom: 80 }}
+                            onPress={() => setButtonStatus("1")}>
+                            <View
+                                style={{
+                                    backgroundColor: "#f2f2f2",
 
-									borderRadius: 15,
-									height: 70,
-									width: 78,
-									paddingTop: 15,
-									justifyContent: "flex-start",
-								}}
-							>
-								<Image
-									source={require("../assets/images/freelancers.png")}
-									resizeMode="center"
-									style={styles.inventoryImage}
-								/>
-								<Text
-									style={{
-										fontSize: 12,
-										marginTop: 10,
-										alignContent: "flex-end",
-										justifyContent: "center",
-										alignSelf: "center",
-										textAlign: "center",
-										fontWeight: "400",
-										color: COLORS.primary,
-									}}
-								>
-									Freelancers
-								</Text>
-							</View>
-						</TouchableOpacity>
-					</ScrollView>
-				</View>
+                                    borderRadius: 15,
+                                    height: 70,
+                                    width: 78,
+                                    paddingTop: 15,
+                                    justifyContent: "flex-start",
+                                }}>
+                                <Image
+                                    source={require("../assets/images/freelancers.png")}
+                                    resizeMode="center"
+                                    style={styles.inventoryImage}
+                                />
+                                <Text
+                                    style={{
+                                        fontSize: 12,
+                                        marginTop: 10,
+                                        alignContent: "flex-end",
+                                        justifyContent: "center",
+                                        alignSelf: "center",
+                                        textAlign: "center",
+                                        fontWeight: "400",
+                                        color: COLORS.primary,
+                                    }}>
+                                    Freelancers
+                                </Text>
+                            </View>
+                        </TouchableOpacity>
+                    </ScrollView>
+                </View>
 
-				{/* Fruits Screen */}
+                {state == 1 ? (
+                    <View style={{ width: "80%", height: "100%" }}>
+                        <ScrollView
+                            style={{
+                                marginLeft: 6,
+                                backgroundColor: COLORS.white,
+                                marginTop: 5,
+                                borderTopLeftRadius: 10,
+                                height: "100%",
+                            }}>
+                            <TouchableOpacity
+                                style={{
+                                    width: "90%",
+                                    height: 90,
+                                    padding: 10,
+                                    flexDirection: "row",
+                                    borderColor: "white",
 
-				{state == 1 ? (
-					<View style={{ width: "80%", height: "100%" }}>
-						<ScrollView
-							style={{
-								marginLeft: 6,
-								backgroundColor: COLORS.white,
-								marginTop: 5,
-								borderTopLeftRadius: 10,
-								height: "100%",
-							}}
-						>
-							<View
-								style={{
-									width: "90%",
-									height: 90,
-									padding: 10,
-									flexDirection: "row",
-									borderColor: "white",
+                                    borderBottomWidth: 0.3,
+                                    borderColor: "silver",
+                                }}
+                                onPress={() => {
+                                    navigation.navigate("People");
+                                }}>
+                                <Image
+                                    source={require("../assets/images/graphicsdesign.png")}
+                                    resizeMode="contain"
+                                    style={{
+                                        width: 52,
+                                        height: 52,
+                                        alignSelf: "center",
+                                    }}
+                                />
+                                <View
+                                    style={{
+                                        margin: 10,
+                                        paddingHorizontal: 5,
+                                    }}>
+                                    <Text
+                                        style={{
+                                            fontSize: 15,
+                                            color: "black",
+                                            fontWeight: "600",
+                                        }}>
+                                        Graphics & Design
+                                    </Text>
+                                    <Text
+                                        style={{
+                                            fontSize: 12,
+                                            color: "black",
+                                        }}>
+                                        Logo & Brand Identity, Gaming
+                                    </Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                style={{
+                                    width: "90%",
+                                    height: 90,
+                                    padding: 10,
+                                    flexDirection: "row",
+                                    borderColor: "white",
 
-									borderBottomWidth: 0.3,
-									borderColor: "silver",
-								}}
-							>
-								<Image
-									source={require("../assets/images/graphicsdesign.png")}
-									resizeMode="contain"
-									style={{
-										width: 52,
-										height: 52,
-										alignSelf: "center",
-									}}
-								/>
-								<View
-									style={{
-										margin: 10,
-										paddingHorizontal: 5,
-									}}
-								>
-									<Text
-										style={{
-											fontSize: 15,
-											color: "black",
-											fontWeight: "600",
-										}}
-									>
-										Graphics & Design
-									</Text>
-									<Text
-										style={{
-											fontSize: 12,
-											color: "black",
-										}}
-									>
-										Logo & Brand Identity, Gaming
-									</Text>
-								</View>
-							</View>
-							<View
-								style={{
-									width: "90%",
-									height: 90,
-									padding: 10,
-									flexDirection: "row",
-									borderColor: "white",
+                                    borderBottomWidth: 0.3,
+                                    borderColor: "silver",
+                                }}
+                                onPress={() => {
+                                    navigation.navigate("People");
+                                }}>
+                                <Image
+                                    source={require("../assets/images/digitalmarketing.png")}
+                                    resizeMode="contain"
+                                    style={{
+                                        width: 52,
+                                        height: 52,
+                                        alignSelf: "center",
+                                    }}
+                                />
+                                <View
+                                    style={{
+                                        margin: 10,
+                                        paddingHorizontal: 5,
+                                    }}>
+                                    <Text
+                                        style={{
+                                            fontSize: 15,
+                                            color: "black",
+                                            fontWeight: "600",
+                                        }}>
+                                        Digital Marketing
+                                    </Text>
+                                    <Text
+                                        style={{
+                                            fontSize: 12,
+                                            color: "black",
+                                        }}>
+                                        Social Media Marketing, Search Engine Optimization( SEO),
+                                    </Text>
+                                </View>
+                            </TouchableOpacity>
+                        </ScrollView>
+                    </View>
+                ) : state == "2" ? (
+                    <View style={{ width: "76%" }}>
+                        <ScrollView
+                            style={{
+                                marginLeft: 6,
+                                backgroundColor: COLORS.white,
+                                marginTop: 5,
+                                borderTopLeftRadius: 10,
+                                height: "100%",
+                            }}>
+                            <TouchableOpacity
+                                style={{
+                                    width: "90%",
+                                    height: 90,
+                                    padding: 10,
+                                    flexDirection: "row",
+                                    borderColor: "white",
 
-									borderBottomWidth: 0.3,
-									borderColor: "silver",
-								}}
-							>
-								<Image
-									source={require("../assets/images/digitalmarketing.png")}
-									resizeMode="contain"
-									style={{
-										width: 52,
-										height: 52,
-										alignSelf: "center",
-									}}
-								/>
-								<View
-									style={{
-										margin: 10,
-										paddingHorizontal: 5,
-									}}
-								>
-									<Text
-										style={{
-											fontSize: 15,
-											color: "black",
-											fontWeight: "600",
-										}}
-									>
-										Digital Marketing
-									</Text>
-									<Text
-										style={{
-											fontSize: 12,
-											color: "black",
-										}}
-									>
-										Social Media Marketing, Search
-										Engine Optimization( SEO),
-									</Text>
-								</View>
-							</View>
-						</ScrollView>
-					</View>
-				) : state == "2" ? (
-					<View style={{ width: "76%" }}>
-						<ScrollView
-							style={{
-								marginLeft: 6,
-								backgroundColor: COLORS.white,
-								marginTop: 5,
-								borderTopLeftRadius: 10,
-								height: "100%",
-							}}
-						>
-							<View
-								style={{
-									width: "90%",
-									height: 90,
-									padding: 10,
-									flexDirection: "row",
-									borderColor: "white",
+                                    borderBottomWidth: 0.3,
+                                    borderColor: "silver",
+                                }}
+                                onPress={() => {
+                                    navigation.navigate("People");
+                                }}>
+                                <Image
+                                    source={require("../assets/images/carpenter.png")}
+                                    resizeMode="contain"
+                                    style={{
+                                        width: 52,
+                                        height: 52,
+                                        alignSelf: "center",
+                                    }}
+                                />
+                                <View
+                                    style={{
+                                        margin: 10,
+                                        paddingHorizontal: 5,
+                                    }}>
+                                    <Text
+                                        style={{
+                                            fontSize: 14,
+                                            color: "black",
+                                            fontWeight: "600",
+                                        }}>
+                                        Carpenter
+                                    </Text>
+                                    <Text
+                                        style={{
+                                            fontSize: 12,
+                                            color: "black",
+                                        }}>
+                                        Fix Furniture, Build Cupboards, Polishing Doors
+                                    </Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                style={{
+                                    width: "90%",
+                                    height: 90,
+                                    padding: 10,
+                                    flexDirection: "row",
+                                    borderColor: "white",
 
-									borderBottomWidth: 0.3,
-									borderColor: "silver",
-								}}
-							>
-								<Image
-									source={require("../assets/images/carpenter.png")}
-									resizeMode="contain"
-									style={{
-										width: 52,
-										height: 52,
-										alignSelf: "center",
-									}}
-								/>
-								<View
-									style={{
-										margin: 10,
-										paddingHorizontal: 5,
-									}}
-								>
-									<Text
-										style={{
-											fontSize: 14,
-											color: "black",
-											fontWeight: "600",
-										}}
-									>
-										Carpenter
-									</Text>
-									<Text
-										style={{
-											fontSize: 12,
-											color: "black",
-										}}
-									>
-										Fix Furniture, Build
-										Cupboards, Polishing Doors
-									</Text>
-								</View>
-							</View>
-							<View
-								style={{
-									width: "90%",
-									height: 90,
-									padding: 10,
-									flexDirection: "row",
-									borderColor: "white",
-
-									borderBottomWidth: 0.3,
-									borderColor: "silver",
-								}}
-							>
-								<Image
-									source={require("../assets/images/cleaning.png")}
-									resizeMode="contain"
-									style={{
-										width: 52,
-										height: 52,
-										alignSelf: "center",
-									}}
-								/>
-								<View
-									style={{
-										margin: 10,
-										paddingHorizontal: 5,
-									}}
-								>
-									<Text
-										style={{
-											fontSize: 14,
-											color: "black",
-											fontWeight: "600",
-										}}
-									>
-										Cleaning
-									</Text>
-									<Text
-										style={{
-											fontSize: 12,
-											color: "black",
-										}}
-									>
-										AC, Kitchen, Bathroom, Home
-										Cleaning, Maid
-									</Text>
-								</View>
-							</View>
-						</ScrollView>
-					</View>
-				) : null}
-			</View>
-		</SafeAreaView>
-	);
+                                    borderBottomWidth: 0.3,
+                                    borderColor: "silver",
+                                }}
+                                onPress={() => {
+                                    navigation.navigate("People");
+                                }}>
+                                <Image
+                                    source={require("../assets/images/cleaning.png")}
+                                    resizeMode="contain"
+                                    style={{
+                                        width: 52,
+                                        height: 52,
+                                        alignSelf: "center",
+                                    }}
+                                />
+                                <View
+                                    style={{
+                                        margin: 10,
+                                        paddingHorizontal: 5,
+                                    }}>
+                                    <Text
+                                        style={{
+                                            fontSize: 14,
+                                            color: "black",
+                                            fontWeight: "600",
+                                        }}>
+                                        Cleaning
+                                    </Text>
+                                    <Text
+                                        style={{
+                                            fontSize: 12,
+                                            color: "black",
+                                        }}>
+                                        AC, Kitchen, Bathroom, Home Cleaning, Maid
+                                    </Text>
+                                </View>
+                            </TouchableOpacity>
+                        </ScrollView>
+                    </View>
+                ) : null}
+            </View>
+        </SafeAreaView>
+    );
 };
 
 export default Search;
