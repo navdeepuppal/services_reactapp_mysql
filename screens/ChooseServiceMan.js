@@ -70,12 +70,13 @@ const ChooseServiceMan = ({ navigation, route }) => {
                     borderRightColor: "gray",
                 }}>
                 <FlatList
+                    numColumns={2}
                     data={[4.6, 4.3, 4.2, 3.5, 3.3]}
                     renderItem={() => (
                         <View
                             style={{
                                 flexDirection: "row",
-                                width: 420,
+                                width: 192,
 
                                 backfaceVisibility: "visible",
                                 backgroundColor: "#f2f2f2",
@@ -120,16 +121,30 @@ const ChooseServiceMan = ({ navigation, route }) => {
                                 }}>
                                 <View style={{}}>
                                     <View>
-                                        <Text
-                                            style={{
-                                                fontSize: 12,
-                                                alignSelf: "flex-end",
-                                                fontWeight: "700",
-                                                marginBottom: 13,
-                                                color: COLORS.primary,
-                                            }}>
-                                            ⭐ 4.5 (35k)
-                                        </Text>
+                                        <View
+                                            style={{ flexDirection: "row", alignSelf: "flex-end" }}>
+                                            <Text
+                                                style={{
+                                                    fontSize: 15,
+
+                                                    alignSelf: "flex-end",
+                                                    fontWeight: "700",
+                                                    marginBottom: 13,
+                                                    color: COLORS.primary,
+                                                }}>
+                                                ⭐ 4.5
+                                            </Text>
+                                            <Text
+                                                style={{
+                                                    fontSize: 12,
+                                                    alignSelf: "center",
+                                                    fontWeight: "700",
+                                                    marginBottom: 13,
+                                                    color: COLORS.gray,
+                                                }}>
+                                                (35k)
+                                            </Text>
+                                        </View>
 
                                         <View style={{ width: 70, alignSelf: "center" }}>
                                             <Image
@@ -174,97 +189,21 @@ const ChooseServiceMan = ({ navigation, route }) => {
 
                                         <Text
                                             style={{
-                                                marginTop: 10,
                                                 textAlign: "center",
                                                 fontSize: 12,
-                                            }}>
-                                            Total Bookings: 43
-                                        </Text>
-
-                                        <Text
-                                            style={{
-                                                textAlign: "center",
-                                                fontSize: 12,
-                                                margin: 5,
-                                            }}>
-                                            Sqera AI Review: Good
-                                        </Text>
-                                        <Text
-                                            style={{
-                                                textAlign: "center",
-                                                fontSize: 12,
+                                                marginTop: 8,
                                             }}>
                                             Skill: Intermediate
                                         </Text>
                                     </View>
                                 </View>
-                            </View>
-                            <View
-                                style={{
-                                    backgroundColor: COLORS.white,
-                                    marginVertical: 6,
-
-                                    borderRadius: 15,
-
-                                    width: 220,
-                                    height: 240,
-                                    padding: 9,
-                                }}>
-                                <View
-                                    style={{
-                                        borderWidth: 0.2,
-                                        borderColor: "silver",
-                                        borderRadius: 10,
-                                        padding: 9,
-                                        height: 130,
-                                    }}>
-                                    <Text
-                                        style={{
-                                            fontSize: 13,
-                                            fontWeight: "600",
-                                            marginBottom: 10,
-                                        }}>
-                                        Customer Reviews
-                                    </Text>
-
-                                    <Text
-                                        style={{
-                                            margin: 5,
-                                            fontSize: 12,
-                                            color: COLORS.primary,
-                                            fontWeight: "400",
-                                        }}>
-                                        • Excellent Communication {"\n"}• Time Punctual
-                                    </Text>
-                                </View>
-                                <TouchableOpacity
-                                    onPress={() => {}}
-                                    style={{
-                                        marginTop: 10,
-                                        alignSelf: "center",
-                                        backgroundColor: "silver",
-                                        width: 200,
-                                        justifyContent: "center",
-                                        borderRadius: 10,
-                                        height: 35,
-                                    }}>
-                                    <Text
-                                        style={{
-                                            fontSize: 14,
-                                            fontWeight: "600",
-                                            alignSelf: "center",
-                                            color: COLORS.secondary,
-                                        }}>
-                                        View Profile
-                                    </Text>
-                                </TouchableOpacity>
                                 <TouchableOpacity
                                     style={{
                                         position: "absolute",
                                         bottom: 5,
                                         alignSelf: "center",
                                         backgroundColor: COLORS.primary,
-                                        width: 200,
+                                        width: 160,
                                         justifyContent: "center",
                                         borderRadius: 10,
                                         height: 35,

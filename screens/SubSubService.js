@@ -130,11 +130,7 @@ const SubSubService = ({ route, navigation }) => {
 								} */
                     />
                 </View>
-                <SubSubServicesHeader
-                    onSearch={handleSearch}
-                    SubS_Name={prevData.SubS_Name}
-                    S_Name={prevData.S_Name}
-                />
+                <SubSubServicesHeader onSearch={handleSearch} SubS_Name={prevData.SubS_Name} />
 
                 <View
                     style={{
@@ -166,6 +162,7 @@ const SubSubService = ({ route, navigation }) => {
                     style={{
                         flexDirection: "row",
                         justifyContent: "space-between",
+
                         height: 90,
                         backgroundColor: "white",
                         paddingVertical: 10,
@@ -174,7 +171,8 @@ const SubSubService = ({ route, navigation }) => {
                         style={{
                             marginLeft: 25,
                             color: COLORS.primary,
-                            fontSize: 22,
+                            fontSize: 20,
+                            padding: 10,
                         }}>
                         ₹ {totalPrice}
                     </Text>
@@ -196,7 +194,7 @@ const SubSubService = ({ route, navigation }) => {
                         <Text
                             style={{
                                 color: COLORS.white,
-                                fontSize: 20,
+                                fontSize: 18,
                                 fontWeight: "600",
                                 alignSelf: "center",
                             }}>

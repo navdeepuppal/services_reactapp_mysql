@@ -160,7 +160,7 @@ const SMan_BookingCard = ({ data, setOrdersDetailsVisible, setCurrentBooking }) 
                         style={{
                             fontSize: 14,
                             fontWeight: "500",
-                            color: "red",
+                            color: "gray",
                         }}>
                         {data.B_Status == 1 && "Pending"}
                         {data.B_Status == 2 && "In Progress"}

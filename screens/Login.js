@@ -91,7 +91,7 @@ const Login = ({ navigation, route }) => {
                                 justifyContent: "flex-end",
                                 alignContent: "flex-end",
                                 alignItems: "center",
-                                marginTop: "70%",
+                                marginTop: 280,
                             }}>
                             <Text
                                 style={{
@@ -123,17 +123,17 @@ const Login = ({ navigation, route }) => {
                             <View
                                 style={{
                                     flexDirection: "row",
-                                    height: "20%",
+
                                     alignItems: "center",
                                 }}>
                                 <Image
                                     source={require("../assets/icons/trustshield.png")}
                                     style={{
-                                        height: 30,
-                                        width: 30,
+                                        height: 20,
+                                        width: 20,
                                     }}
                                 />
-                                <Text style={{ color: "#cccccc" }}>
+                                <Text style={{ color: "#cccccc", fontSize: 12 }}>
                                     {" "}
                                     Trusted by more than 10 lakh+ Indians
                                 </Text>
@@ -288,7 +288,7 @@ const styles = StyleSheet.create({
         margin: SIZES.base,
         ...SHADOWS.dark,
         elevation: 2, // Android
-        height: "22%",
+        height: 55,
         width: 300,
         justifyContent: "center",
         flexDirection: "row",
@@ -366,7 +366,7 @@ const styles = StyleSheet.create({
     },
     buttontext: {
         fontWeight: "bold",
-        fontSize: 19,
+        fontSize: 17,
         textAlign: "center",
         alignSelf: "center",
         color: COLORS.white,

@@ -3,7 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 import { COLORS, FONTS, SIZES, assets } from "../constants";
 
 
-const SubSubServicesHeader = ({ onSearch, S_Name, SubS_Name }) => {
+const SubSubServicesHeader = ({ onSearch, SubS_Name }) => {
     const navigation = useNavigation();
     return (
         <View

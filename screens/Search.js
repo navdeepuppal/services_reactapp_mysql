@@ -38,6 +38,7 @@ const Search = ({ navigation, onSearch }) => {
                 style={{
                     flexDirection: "row",
                     flex: 1,
+                    height: "100%",
                     backgroundColor: "rgba(245,245,245,255)",
                 }}>
                 <View
@@ -126,7 +127,7 @@ const Search = ({ navigation, onSearch }) => {
                 </View>
 
                 {state == 1 ? (
-                    <View style={{ width: "80%", height: "100%" }}>
+                    <View style={{ width: "80%" }}>
                         <ScrollView
                             style={{
                                 marginLeft: 6,

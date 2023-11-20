@@ -125,7 +125,7 @@ const People = ({ navigation }) => {
                                             fontSize: 10,
                                             color: COLORS.gray,
                                         }}>
-                                        Phase 9 Mohali Chandigarh
+                                        Chandigarh
                                     </Text>
 
                                     <Text
@@ -227,11 +227,11 @@ const People = ({ navigation }) => {
                                 <Text
                                     style={{
                                         fontSize: 14,
-                                        fontWeight: "600",
+                                        fontWeight: "700",
                                         alignSelf: "center",
                                         color: COLORS.white,
                                     }}>
-                                    Connect @ ₹1
+                                    Book
                                 </Text>
                             </TouchableOpacity>
                         </View>
