@@ -634,7 +634,7 @@ const Cart = ({ route, navigation }) => {
                                         width: "90%",
                                         fontWeight: "500",
                                     }}
-                                    value={amount}></TextInput>
+                                    value={amount.toString()}></TextInput>
                             </View>
                             <TouchableOpacity
                                 style={{

@@ -25,13 +25,15 @@ const SMan_BookingCard = ({ data, setOrdersDetailsVisible, setCurrentBooking }) 
                         justifyContent: "space-between",
                         alignItems: "center",
                     }}>
-                    <Text
-                        style={{
-                            fontSize: 14,
-                            fontWeight: "600",
-                        }}>
-                        {data.SubS_Name}
-                    </Text>
+                    <View>
+                        <Text
+                            style={{
+                                fontSize: 14,
+                                fontWeight: "600",
+                            }}>
+                            {data.SubS_Name}
+                        </Text>
+                    </View>
 
                     <View
                         style={{
@@ -83,7 +85,7 @@ const SMan_BookingCard = ({ data, setOrdersDetailsVisible, setCurrentBooking }) 
                     <View
                         style={{
                             backgroundColor: "#EDF6FD",
-                            height: 35,
+
                             borderTopRightRadius: 10,
                             borderBottomEndRadius: 10,
                         }}>
@@ -106,7 +108,7 @@ const SMan_BookingCard = ({ data, setOrdersDetailsVisible, setCurrentBooking }) 
                     <View
                         style={{
                             backgroundColor: "yellow",
-                            height: 35,
+
                             borderTopLeftRadius: 10,
                             borderBottomLeftRadius: 10,
                         }}>
@@ -123,7 +125,7 @@ const SMan_BookingCard = ({ data, setOrdersDetailsVisible, setCurrentBooking }) 
                     <View
                         style={{
                             backgroundColor: "#EDF6FD",
-                            height: 35,
+
                             borderTopRightRadius: 10,
                             borderBottomEndRadius: 10,
                         }}>

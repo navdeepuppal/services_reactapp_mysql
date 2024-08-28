@@ -66,11 +66,11 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
                         data.isSelected != "false" ? "rgba(245,245,245,255)" : "#F8F8F8",
                     borderRadius: SIZES.small,
 
-                    width: 140,
-                    height: 80,
+                    width: 155,
+                    height: 120,
                     margin: 5,
 
-                    padding: 7,
+                    padding: 20,
                 }}
                 onPress={() => {
                     setSubSModalVisible(index);
@@ -86,10 +86,10 @@ const NFTCard1 = ({ data, index, setSubSModalVisible }) => {
                         resizeMode="cover"
                         source={{ uri: ImageURL }}
                         style={{
-                            height: 65,
+                            height: 82,
                             alignSelf: "center",
 
-                            width: 65,
+                            width: 82,
                         }}></ImageBackground>
                 </View>
             </TouchableOpacity>

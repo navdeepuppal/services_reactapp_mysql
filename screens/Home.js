@@ -243,6 +243,55 @@ function ServicesScreen() {
                         }}>
                         <HomeHeader onSearch={handleSearch} />
                     </View>
+
+                    <View
+                        style={{
+                            marginBottom: 20,
+                            alignSelf: "center",
+
+                            width: "100%",
+                        }}>
+                        <SliderBox
+                            inactiveDotColor="#90A4AE"
+                            alignSelf={"center"}
+                            borderRadius={20}
+                            autoplay
+                            imageLoadingColor="#2196F3"
+                            circleLoop
+                            parentWidth={410}
+                            autoplayInterval={5000}
+                            ImageComponentStyle={{}}
+                            paginationBoxStyle={{
+                                position: "absolute",
+                                bottom: 0,
+                                padding: 70,
+                                alignItems: "center",
+                                alignSelf: "center",
+                                justifyContent: "center",
+                                paddingVertical: 10,
+                            }}
+                            height={200}
+                            width={430}
+                            opacity={1}
+                            images={[
+                                "https://img.freepik.com/free-photo/carpenter-cutting-mdf-board-inside-workshop_23-2149451022.jpg?w=1800&t=st=1700564572~exp=1700565172~hmac=79e286d856f4e2025d7f8a93174f0a419291b4d009ce23fbe990cf9b7b50676f",
+                                "https://img.freepik.com/free-photo/people-taking-care-office-cleaning_23-2149374451.jpg?w=1800&t=st=1700564725~exp=1700565325~hmac=b5535a8b5bb97dd72ac0112e637249f1472a4976102bfc7280f762b5d9c82df8",
+                                "https://img.freepik.com/free-photo/nurse-preparing-consult_23-2149309939.jpg?w=1800&t=st=1700565624~exp=1700566224~hmac=17f6d10b36d221b24f9e4d90bfef93db24ad3d89bfc75e44592ce050f124c2e9",
+                                "https://img.freepik.com/free-photo/asian-plumber-blue-overalls-clearing-blockage-drain_1098-17773.jpg?w=1800&t=st=1700565669~exp=1700566269~hmac=c35d188b27dd02837d464c96b13bc82805faf64d24e8efe7b7318b4d534b64cf",
+                                "https://img.freepik.com/free-photo/medical-teleconsultation-sick-patient-home_23-2149329056.jpg?w=1800&t=st=1700565821~exp=1700566421~hmac=da9392b612943b8701fe595b90f96d321f0baf2985595d8e83914e58ef718049", // Network image
+                            ]}
+                            /* onCurrentImagePressed={(index) =>
+									console.log(
+										`image ${index} pressed`
+									)
+								}
+								currentImageEmitter={(index) =>
+									console.log(
+										`current pos is: ${index}`
+									)
+								} */
+                        />
+                    </View>
                     <View
                         style={{
                             backgroundColor: "#f2f2f2",
@@ -255,6 +304,15 @@ function ServicesScreen() {
                                 marginBottom: 25,
                                 backgroundColor: COLORS.white,
                             }}>
+                            <Text
+                                style={{
+                                    fontSize: 16,
+                                    marginLeft: 3,
+                                    fontWeight: "500",
+                                    marginBottom: 20,
+                                }}>
+                                Services found near you
+                            </Text>
                             <FlatList
                                 horizontal
                                 data={data2}
@@ -457,7 +515,6 @@ function ServicesScreen() {
 
                             <View
                                 style={{
-                                    height: 0.5,
                                     width: "95%",
                                     margin: 5,
                                     alignSelf: "center",
@@ -486,11 +543,162 @@ function ServicesScreen() {
                             />
                         </View>
 
+                        <View style={{ margin: 10, marginTop: 30 }}>
+                            <Text style={{ fontSize: 15 }}> Hear what our customers feel </Text>
+
+                            <ScrollView
+                                scrollEnabled
+                                horizontal
+                                style={{
+                                    borderRightColor: "gray",
+                                }}>
+                                <FlatList
+                                    data={[4.6, 4.3, 4.2, 3.5, 3.3]}
+                                    renderItem={() => (
+                                        <View
+                                            style={{
+                                                flexDirection: "row",
+                                                width: 192,
+
+                                                backfaceVisibility: "visible",
+                                                backgroundColor: "#f2f2f2",
+                                                marginBottom: 15,
+                                                borderColor: "silver",
+                                                borderRadius: 20,
+                                                margin: 5,
+                                            }}>
+                                            <View
+                                                style={{
+                                                    position: "absolute",
+                                                    top: -1,
+                                                    left: -1,
+                                                    width: 26,
+                                                    height: 25,
+                                                    zIndex: 3,
+                                                    alignSelf: "center",
+                                                    backgroundColor: COLORS.secondary,
+                                                    borderRadius: 200,
+                                                    justifyContent: "center",
+                                                }}>
+                                                <Text
+                                                    style={{
+                                                        textAlign: "center",
+                                                        fontWeight: "700",
+                                                        fontSize: 15,
+                                                        color: COLORS.white,
+                                                    }}>
+                                                    1
+                                                </Text>
+                                            </View>
+                                            <View
+                                                style={{
+                                                    backgroundColor: COLORS.white,
+                                                    margin: 6,
+
+                                                    borderRadius: 15,
+                                                    borderColor: "gray",
+                                                    width: 180,
+                                                    height: 240,
+                                                    padding: 9,
+                                                }}>
+                                                <View style={{}}>
+                                                    <View>
+                                                        <View
+                                                            style={{
+                                                                flexDirection: "row",
+                                                                alignSelf: "flex-end",
+                                                            }}>
+                                                            <Text
+                                                                style={{
+                                                                    fontSize: 15,
+
+                                                                    alignSelf: "flex-end",
+                                                                    fontWeight: "700",
+                                                                    marginBottom: 13,
+                                                                    color: COLORS.primary,
+                                                                }}>
+                                                                ⭐ 4.5
+                                                            </Text>
+                                                            <Text
+                                                                style={{
+                                                                    fontSize: 12,
+                                                                    alignSelf: "center",
+                                                                    fontWeight: "700",
+                                                                    marginBottom: 13,
+                                                                    color: COLORS.gray,
+                                                                }}>
+                                                                (35k)
+                                                            </Text>
+                                                        </View>
+
+                                                        <View
+                                                            style={{
+                                                                width: 70,
+                                                                alignSelf: "center",
+                                                            }}>
+                                                            <Image
+                                                                style={{
+                                                                    position: "absolute",
+                                                                    top: 2,
+                                                                    left: -6,
+                                                                    width: 23,
+                                                                    zIndex: 3,
+                                                                    height: 23,
+                                                                    alignSelf: "center",
+                                                                }}
+                                                                source={require("../assets/images/verified.png")}
+                                                            />
+                                                            <Image
+                                                                style={{
+                                                                    marginTop: 3,
+                                                                    width: 80,
+                                                                    height: 80,
+                                                                    alignSelf: "center",
+                                                                }}
+                                                                source={require("../assets/images/user.png")}
+                                                            />
+                                                        </View>
+
+                                                        <Text
+                                                            style={{
+                                                                textAlign: "center",
+                                                                fontWeight: "600",
+                                                                marginTop: 5,
+                                                            }}>
+                                                            Navdeep Singh
+                                                        </Text>
+                                                        <Text
+                                                            style={{
+                                                                textAlign: "center",
+                                                                fontSize: 10,
+                                                                color: COLORS.gray,
+                                                            }}>
+                                                            Serving Locality: Mohali
+                                                        </Text>
+
+                                                        <Text
+                                                            style={{
+                                                                textAlign: "center",
+                                                                fontSize: 12,
+                                                                marginTop: 8,
+                                                            }}>
+                                                            Skill: Intermediate
+                                                        </Text>
+                                                    </View>
+                                                </View>
+                                            </View>
+                                        </View>
+                                    )}
+                                    contentContainerStyle={{ alignItems: "center" }}
+                                />
+                            </ScrollView>
+                        </View>
+
                         <TouchableOpacity
                             style={{
                                 backgroundColor: "#EDF6FD",
                                 marginTop: 20,
-                                marginBottom: 20,
+
                                 padding: 10,
                             }}
                             onPress={onShare}>
@@ -509,7 +717,6 @@ function ServicesScreen() {
                                     marginLeft: 5,
                                     color: COLORS.gray,
                                     fontWeight: "300",
-                                    marginBottom: 5,
                                 }}>
                                 Refer to your friends.
                             </Text>

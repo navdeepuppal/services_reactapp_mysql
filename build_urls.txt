@@ -1,0 +1,4 @@
+{
+    "aab": "https://expo.dev/artifacts/eas/jN2KmbQQvErCLR7LcDScG6.aab",
+    "apk": "https://expo.dev/accounts/navnetto/projects/servicesapp/builds/7739a86f-7a82-4867-baf2-5a8a5f26d4a3"
+}

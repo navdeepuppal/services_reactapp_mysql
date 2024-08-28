@@ -87,7 +87,7 @@ const SelectAddress = ({ navigation, route }) => {
 
                                 <Text
                                     style={{
-                                        fontSize: 18,
+                                        fontSize: 17,
                                         margin: 14,
                                         fontWeight: "bold",
                                         color: COLORS.primary,
